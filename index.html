@@ -23,7 +23,7 @@
 
   <!-- ===================== PERFORMANCE HINTS ===================== -->
   <!-- Preload above-the-fold hero image for LCP -->
-  <link rel="preload" as="image" href="images/hero-video-poster.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="https://img.youtube.com/vi/NRleCd-WoN8/maxresdefault.jpg" fetchpriority="high" />
   <!-- Preload logo -->
   <link rel="preload" as="image" href="images/logo-transparent.png" />
   <!-- DNS prefetch for third-party origins -->
@@ -790,7 +790,9 @@
 
               <!-- Poster / thumbnail — click to play -->
               <div class="hero-video-poster" id="heroVideoPoster">
-                <img src="images/hero-video-poster.jpg" alt="Carolina Wound Care specialist providing expert wound treatment" />
+                <img src="https://img.youtube.com/vi/NRleCd-WoN8/maxresdefault.jpg"
+                     alt="Carolina Wound Care — Watch Our Story"
+                     onerror="this.src='https://img.youtube.com/vi/NRleCd-WoN8/hqdefault.jpg'" />
                 <div class="hero-video-poster-overlay"></div>
 
                 <!-- Play button with dual ripple rings -->
@@ -808,20 +810,19 @@
                 </div>
               </div>
 
-              <!-- Actual video — shown after play is pressed -->
-              <video
+              <!-- YouTube iframe — shown after play is pressed -->
+              <iframe
                 id="heroVideo"
                 class="hero-video-el"
-                controls
-                playsinline
-                webkit-playsinline
-                preload="none"
-                poster="images/hero-video-poster.jpg"
-                style="display:none;"
-              >
-                <source src="images/hero-video.mp4" type="video/mp4" />
-                Your browser does not support HTML5 video.
-              </video>
+                style="display:none;width:100%;height:100%;border:0;border-radius:inherit;"
+                src=""
+                data-src="https://www.youtube.com/embed/NRleCd-WoN8?si=RKB1XxpoPhUKxIoI&autoplay=1&rel=0"
+                title="Carolina Wound Care — How It Works"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
 
               <!-- Frosted glass info strip -->
               <div class="hero-video-strip">
@@ -1006,7 +1007,7 @@
 
         <div class="grid-3">
           <div class="service-card reveal">
-            <div class="icon-box"><i class="fa-solid fa-scalpel"></i></div>
+            <div class="icon-box"><i class="fa-solid fa-hand-holding-medical"></i></div>
             <h4>Advanced Debridement</h4>
             <p>Removal of dead or infected tissue using the most advanced techniques to accelerate wound healing and reduce infection risk.</p>
           </div>
@@ -1021,7 +1022,7 @@
             <p>Non-contact low-frequency ultrasound delivered through a gentle saline mist — clinically proven to accelerate healing.</p>
           </div>
           <div class="service-card reveal">
-            <div class="icon-box"><i class="fa-solid fa-bandage"></i></div>
+            <div class="icon-box"><i class="fa-solid fa-kit-medical"></i></div>
             <h4>Specialized Dressings</h4>
             <p>Advanced wound dressings tailored to your wound type — promoting moisture balance, infection control, and faster healing.</p>
           </div>

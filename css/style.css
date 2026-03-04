@@ -389,7 +389,7 @@ section { padding: 5rem 0; }
   background: var(--white);
   border-bottom: 2px solid rgba(42,157,143,.15);
   box-shadow: 0 8px 30px rgba(0,0,0,.1);
-  z-index: 999;
+  z-index: 1050;
   padding: 1rem 1.25rem 1.5rem;
   flex-direction: column;
   gap: 0;
@@ -485,7 +485,8 @@ section { padding: 5rem 0; }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  /* overflow:hidden removed — it creates a stacking context on iOS Safari
+     that clips position:fixed children like the mobile menu */
   padding-top: 100px;
   background: #f0faf8;
 }
@@ -826,8 +827,10 @@ section { padding: 5rem 0; }
 /* Actual video element */
 .hero-video-el {
   width: 100%;
+  aspect-ratio: 16 / 9;
   display: block;
   background: #000;
+  border: 0;
 }
 
 /* Bottom info strip — clean light card strip */
@@ -897,8 +900,8 @@ section { padding: 5rem 0; }
   }
   .hero-text p { max-width: 100%; }
   .hero-buttons, .hero-badges { justify-content: center; }
-  .hero-video-col { order: -1; }
-  .hero-video-frame { max-width: 500px; margin: 0 auto; }
+  .hero-video-col { order: 2; }
+  .hero-video-frame { max-width: 480px; margin: 0 auto; }
   .hero-glow { right: 50%; transform: translateX(50%) translateY(-30%); }
 }
 @media (max-width: 480px) {

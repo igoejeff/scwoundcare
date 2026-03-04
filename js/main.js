@@ -28,24 +28,47 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Mobile menu toggle ----
   const toggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('mobileMenu');
-  toggle?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+  function openMobileMenu() {
+    if (!mobileMenu || !toggle) return;
+    mobileMenu.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
     const icon = toggle.querySelector('i');
-    if (icon) {
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-xmark');
-    }
-  });
-  // Close mobile menu when a direct link is clicked
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      toggle?.setAttribute('aria-expanded', 'false');
-      const icon = toggle?.querySelector('i');
-      if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+    if (icon) { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
+  }
+
+  function closeMobileMenu() {
+    if (!mobileMenu || !toggle) return;
+    mobileMenu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    const icon = toggle.querySelector('i');
+    if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+  }
+
+  if (toggle && mobileMenu) {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
-  });
+
+    // Close when clicking outside the menu
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('open') &&
+          !mobileMenu.contains(e.target) &&
+          !toggle.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    // Close mobile menu when a direct link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => closeMobileMenu());
+    });
+  }
 
   // ---- Mobile accordion sections ----
   document.querySelectorAll('.mobile-section-toggle').forEach(btn => {
@@ -109,74 +132,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach(c => counterObserver.observe(c));
 
-  // ---- Hero video play handler ----
+  // ---- Hero video play handler (YouTube) ----
   const heroPlayBtn     = document.getElementById('heroPlayBtn');
   const heroVideoPoster = document.getElementById('heroVideoPoster');
-  const heroVideo       = document.getElementById('heroVideo');
+  const heroVideo       = document.getElementById('heroVideo'); // now an <iframe>
 
   if (heroPlayBtn && heroVideo && heroVideoPoster) {
     heroPlayBtn.addEventListener('click', () => {
-      const src = heroVideo.querySelector('source')?.getAttribute('src');
-      if (!src || src === '#') {
-        heroPlayBtn.querySelector('.play-label').textContent = 'Video coming soon!';
-        setTimeout(() => {
-          const lbl = heroPlayBtn.querySelector('.play-label');
-          if (lbl) lbl.textContent = 'Watch Our Story';
-        }, 2500);
-        return;
-      }
+      // Set the real YouTube src (with autoplay) only when user clicks
+      const ytSrc = heroVideo.getAttribute('data-src');
+      if (ytSrc) heroVideo.setAttribute('src', ytSrc);
 
-      // Show loading spinner while video buffers
-      const playLabel = heroPlayBtn.querySelector('.play-label');
-      const playIcon  = heroPlayBtn.querySelector('.play-icon');
-      if (playLabel) playLabel.textContent = 'Loading…';
-      if (playIcon)  playIcon.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-
-      // Preload the video now that user has clicked
-      heroVideo.preload = 'auto';
-
-      // Wait for enough data to play smoothly
-      const onCanPlay = () => {
-        heroVideoPoster.style.opacity = '0';
-        heroVideoPoster.style.transition = 'opacity .4s ease';
-        setTimeout(() => {
-          heroVideoPoster.style.display = 'none';
-          heroVideo.style.display = 'block';
-          heroVideo.style.opacity = '0';
-          heroVideo.style.transition = 'opacity .4s ease';
-          // Fade video in
-          requestAnimationFrame(() => {
-            heroVideo.style.opacity = '1';
-          });
-        }, 400);
-        heroVideo.play().catch(() => {
-          // Autoplay blocked — show video controls anyway
-          heroVideo.style.display = 'block';
-          heroVideoPoster.style.display = 'none';
-        });
-        heroVideo.removeEventListener('canplay', onCanPlay);
-      };
-
-      heroVideo.addEventListener('canplay', onCanPlay);
-
-      // Fallback: if video doesn't fire canplay in 3s, show it anyway
+      // Fade out poster, fade in iframe
+      heroVideoPoster.style.transition = 'opacity .35s ease';
+      heroVideoPoster.style.opacity = '0';
       setTimeout(() => {
-        if (heroVideoPoster.style.display !== 'none') {
-          heroVideoPoster.style.display = 'none';
-          heroVideo.style.display = 'block';
-        }
-      }, 3000);
-    });
-
-    // When video ends — show poster again with replay option
-    heroVideo.addEventListener('ended', () => {
-      heroVideo.style.display = 'none';
-      heroVideoPoster.style.display = 'flex';
-      heroVideoPoster.style.opacity = '1';
-      const playLabel = heroPlayBtn.querySelector('.play-label');
-      const playIcon  = heroPlayBtn.querySelector('.play-icon');
-      if (playLabel) playLabel.textContent = 'Watch Again';
-      if (playIcon)  playIcon.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
+        heroVideoPoster.style.display = 'none';
+        heroVideo.style.display = 'block';
+        heroVideo.style.opacity = '0';
+        heroVideo.style.transition = 'opacity .35s ease';
+        requestAnimationFrame(() => { heroVideo.style.opacity = '1'; });
+      }, 350);
     });
   }
 
