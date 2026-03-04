@@ -1,0 +1,65 @@
+# ============================================================
+# CLOUDFLARE / GITHUB PAGES CACHE HEADERS
+# Carolina Wound Care — scwound.com
+# ============================================================
+
+# ---- HTML pages — short cache, always revalidate ----
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# ---- Root HTML ----
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+
+# ---- CSS — long cache (1 year) ----
+/css/*.css
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# ---- JavaScript — long cache (1 year) ----
+/js/*.js
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# ---- Images — long cache (1 year) ----
+/images/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+# ---- Sitemap & robots — short cache ----
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain
+
+# ---- Fonts (if self-hosted) ----
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *

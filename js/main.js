@@ -110,16 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(c => counterObserver.observe(c));
 
   // ---- Hero video play handler ----
-  const heroPlayBtn  = document.getElementById('heroPlayBtn');
+  const heroPlayBtn     = document.getElementById('heroPlayBtn');
   const heroVideoPoster = document.getElementById('heroVideoPoster');
-  const heroVideo    = document.getElementById('heroVideo');
+  const heroVideo       = document.getElementById('heroVideo');
 
   if (heroPlayBtn && heroVideo && heroVideoPoster) {
     heroPlayBtn.addEventListener('click', () => {
-      // Only activate if a real video src is set (not '#')
       const src = heroVideo.querySelector('source')?.getAttribute('src');
       if (!src || src === '#') {
-        // Placeholder state: show a friendly message
         heroPlayBtn.querySelector('.play-label').textContent = 'Video coming soon!';
         setTimeout(() => {
           const lbl = heroPlayBtn.querySelector('.play-label');
@@ -127,9 +125,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2500);
         return;
       }
-      heroVideoPoster.style.display = 'none';
-      heroVideo.style.display = 'block';
-      heroVideo.play().catch(() => {});
+
+      // Show loading spinner while video buffers
+      const playLabel = heroPlayBtn.querySelector('.play-label');
+      const playIcon  = heroPlayBtn.querySelector('.play-icon');
+      if (playLabel) playLabel.textContent = 'Loading…';
+      if (playIcon)  playIcon.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+      // Preload the video now that user has clicked
+      heroVideo.preload = 'auto';
+
+      // Wait for enough data to play smoothly
+      const onCanPlay = () => {
+        heroVideoPoster.style.opacity = '0';
+        heroVideoPoster.style.transition = 'opacity .4s ease';
+        setTimeout(() => {
+          heroVideoPoster.style.display = 'none';
+          heroVideo.style.display = 'block';
+          heroVideo.style.opacity = '0';
+          heroVideo.style.transition = 'opacity .4s ease';
+          // Fade video in
+          requestAnimationFrame(() => {
+            heroVideo.style.opacity = '1';
+          });
+        }, 400);
+        heroVideo.play().catch(() => {
+          // Autoplay blocked — show video controls anyway
+          heroVideo.style.display = 'block';
+          heroVideoPoster.style.display = 'none';
+        });
+        heroVideo.removeEventListener('canplay', onCanPlay);
+      };
+
+      heroVideo.addEventListener('canplay', onCanPlay);
+
+      // Fallback: if video doesn't fire canplay in 3s, show it anyway
+      setTimeout(() => {
+        if (heroVideoPoster.style.display !== 'none') {
+          heroVideoPoster.style.display = 'none';
+          heroVideo.style.display = 'block';
+        }
+      }, 3000);
+    });
+
+    // When video ends — show poster again with replay option
+    heroVideo.addEventListener('ended', () => {
+      heroVideo.style.display = 'none';
+      heroVideoPoster.style.display = 'flex';
+      heroVideoPoster.style.opacity = '1';
+      const playLabel = heroPlayBtn.querySelector('.play-label');
+      const playIcon  = heroPlayBtn.querySelector('.play-icon');
+      if (playLabel) playLabel.textContent = 'Watch Again';
+      if (playIcon)  playIcon.innerHTML = '<i class="fa-solid fa-rotate-right"></i>';
     });
   }
 

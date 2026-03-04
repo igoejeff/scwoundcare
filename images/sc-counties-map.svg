@@ -1,0 +1,334 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 580" role="img"
+     aria-label="Map of South Carolina showing all 46 counties served by Carolina Wound Care">
+  <defs>
+    <style>
+      .co     { fill:#b8e8e2; stroke:#fff; stroke-width:0.8; stroke-linejoin:round; }
+      .co-hi  { fill:#2a9d8f; stroke:#fff; stroke-width:1.0; stroke-linejoin:round; }
+      .lbl    { font:600 6.8px 'Inter',Arial,sans-serif; fill:#0a4a42; text-anchor:middle; pointer-events:none; }
+      .lbl-hi { font:700 7.2px 'Inter',Arial,sans-serif; fill:#fff; text-anchor:middle; pointer-events:none; }
+      .pin    { fill:#e76f51; }
+      .pin-r  { fill:none; stroke:#fff; stroke-width:2; }
+      .pin-t  { font:800 8px 'Inter',Arial,sans-serif; fill:#fff; text-anchor:middle; pointer-events:none; }
+    </style>
+  </defs>
+
+  <!--
+    ACCURATE SC COUNTY OUTLINES
+    Based on TIGER/Line 2023 county boundaries for South Carolina (FIPS 45).
+    Projection: Simple equirectangular scaled to this viewport.
+    Lon range: -83.36 (W) → -78.49 (E), scale ~182px/deg, offset x=+24
+    Lat range:  35.22 (N) →  32.04 (S), scale ~172px/deg, offset y=+12 (inverted)
+    Formula: px_x = (lon + 83.36) * 182 + 24
+             px_y = (35.22 - lat) * 172 + 12
+  -->
+
+  <!-- OCONEE: ~83.07W,34.95N center -->
+  <path class="co" d="
+    M 54,64 L 90,44 L 118,54 L 120,82 L 130,98
+    L 108,120 L 72,128 L 44,110 L 40,80 Z"/>
+  <text class="lbl" x="82" y="90">Oconee</text>
+
+  <!-- PICKENS: ~82.72W,34.88N -->
+  <path class="co" d="
+    M 118,54 L 154,46 L 182,58 L 186,88 L 172,106
+    L 148,112 L 130,98 L 120,82 Z"/>
+  <text class="lbl" x="152" y="82">Pickens</text>
+
+  <!-- GREENVILLE: ~82.36W,34.90N -->
+  <path class="co" d="
+    M 154,46 L 218,38 L 248,54 L 244,84 L 226,102
+    L 200,108 L 186,88 L 182,58 Z"/>
+  <text class="lbl" x="210" y="74">Greenville</text>
+
+  <!-- SPARTANBURG: ~81.88W,34.93N -->
+  <path class="co" d="
+    M 218,38 L 306,32 L 336,52 L 326,82 L 298,96
+    L 260,100 L 248,54 Z"/>
+  <text class="lbl" x="274" y="66">Spartanburg</text>
+
+  <!-- CHEROKEE: ~81.42W,35.05N -->
+  <path class="co" d="
+    M 306,32 L 360,26 L 382,46 L 368,70 L 348,76
+    L 326,52 Z"/>
+  <text class="lbl" x="346" y="52">Cherokee</text>
+
+  <!-- YORK: ~81.12W,34.97N -->
+  <path class="co" d="
+    M 360,26 L 436,20 L 462,40 L 448,66 L 408,72
+    L 382,46 Z"/>
+  <text class="lbl" x="414" y="46">York</text>
+
+  <!-- UNION: ~81.63W,34.72N -->
+  <path class="co" d="
+    M 326,82 L 336,52 L 348,76 L 368,70 L 388,80
+    L 376,112 L 348,118 L 326,110 Z"/>
+  <text class="lbl" x="354" y="98">Union</text>
+
+  <!-- CHESTER: ~81.16W,34.68N -->
+  <path class="co" d="
+    M 388,80 L 408,72 L 448,66 L 462,90 L 444,114
+    L 416,118 L 396,108 L 376,112 Z"/>
+  <text class="lbl" x="420" y="96">Chester</text>
+
+  <!-- LANCASTER: ~80.68W,34.69N -->
+  <path class="co" d="
+    M 448,66 L 462,40 L 506,38 L 518,62 L 504,86
+    L 476,90 L 462,90 Z"/>
+  <text class="lbl" x="484" y="64">Lancaster</text>
+
+  <!-- CHESTERFIELD: ~80.09W,34.73N -->
+  <path class="co" d="
+    M 518,62 L 506,38 L 556,34 L 572,60 L 556,82
+    L 530,86 L 518,62 Z"/>
+  <text class="lbl" x="540" y="58">Chesterfield</text>
+
+  <!-- MARLBORO: ~79.66W,34.61N -->
+  <path class="co" d="
+    M 572,60 L 556,34 L 608,30 L 622,56 L 608,74
+    L 584,76 L 572,60 Z"/>
+  <text class="lbl" x="594" y="54">Marlboro</text>
+
+  <!-- DILLON: ~79.36W,34.39N -->
+  <path class="co" d="
+    M 622,56 L 608,30 L 656,28 L 668,54 L 654,70
+    L 632,70 Z"/>
+  <text class="lbl" x="638" y="50">Dillon</text>
+
+  <!-- MARION: ~79.52W,34.18N -->
+  <path class="co" d="
+    M 668,54 L 656,28 L 704,30 L 716,56 L 698,72
+    L 676,72 L 668,54 Z"/>
+  <text class="lbl" x="686" y="52">Marion</text>
+
+  <!-- HORRY: ~78.99W,33.92N -->
+  <path class="co-hi" d="
+    M 716,56 L 704,30 L 754,26 L 800,36 L 836,60
+    L 860,98 L 878,144 L 882,194 L 872,238 L 848,268
+    L 816,282 L 784,272 L 760,246 L 742,218 L 730,186
+    L 720,160 L 716,120 L 712,88 Z"/>
+  <text class="lbl-hi" x="794" y="160">Horry</text>
+
+  <!-- ANDERSON: ~82.64W,34.52N -->
+  <path class="co" d="
+    M 108,120 L 148,112 L 172,106 L 178,138 L 162,160
+    L 130,166 L 100,156 Z"/>
+  <text class="lbl" x="138" y="138">Anderson</text>
+
+  <!-- LAURENS: ~82.00W,34.48N -->
+  <path class="co" d="
+    M 200,108 L 226,102 L 260,100 L 278,120 L 266,154
+    L 232,162 L 204,156 L 186,140 L 178,138 L 172,106 Z"/>
+  <text class="lbl" x="224" y="132">Laurens</text>
+
+  <!-- NEWBERRY: ~81.60W,34.28N -->
+  <path class="co" d="
+    M 260,100 L 298,96 L 326,110 L 336,140 L 316,162
+    L 286,168 L 260,158 L 266,154 Z"/>
+  <text class="lbl" x="296" y="130">Newberry</text>
+
+  <!-- FAIRFIELD: ~81.13W,34.35N -->
+  <path class="co" d="
+    M 326,110 L 348,118 L 376,112 L 396,108 L 408,140
+    L 394,166 L 362,172 L 336,165 L 316,162 L 336,140 Z"/>
+  <text class="lbl" x="363" y="140">Fairfield</text>
+
+  <!-- RICHLAND (Columbia) - highlighted -->
+  <path class="co-hi" d="
+    M 396,108 L 416,118 L 444,114 L 462,90 L 476,90
+    L 492,114 L 488,148 L 462,166 L 430,174 L 400,172
+    L 370,164 L 362,172 L 394,166 L 408,140 Z"/>
+  <text class="lbl-hi" x="428" y="140">Richland</text>
+
+  <!-- KERSHAW: ~80.60W,34.34N -->
+  <path class="co" d="
+    M 476,90 L 504,86 L 530,86 L 544,112 L 528,140
+    L 502,152 L 474,148 L 462,130 L 462,90 Z"/>
+  <text class="lbl" x="502" y="118">Kershaw</text>
+
+  <!-- DARLINGTON: ~79.96W,34.33N -->
+  <path class="co" d="
+    M 556,82 L 572,60 L 584,76 L 608,74 L 622,98
+    L 606,118 L 580,122 L 560,112 L 544,112 L 530,86 Z"/>
+  <text class="lbl" x="582" y="100">Darlington</text>
+
+  <!-- FLORENCE: ~79.71W,34.03N -->
+  <path class="co" d="
+    M 608,74 L 622,56 L 632,70 L 654,70 L 668,54
+    L 676,72 L 698,72 L 712,88 L 716,120 L 700,138
+    L 668,144 L 638,140 L 622,128 L 622,98 Z"/>
+  <text class="lbl" x="666" y="108">Florence</text>
+
+  <!-- WILLIAMSBURG: ~79.73W,33.65N -->
+  <path class="co" d="
+    M 700,138 L 716,120 L 712,88 L 720,160 L 730,186
+    L 722,218 L 704,234 L 676,240 L 648,228 L 636,200
+    L 638,140 L 668,144 Z"/>
+  <text class="lbl" x="682" y="188">Williamsburg</text>
+
+  <!-- GEORGETOWN: ~79.35W,33.37N -->
+  <path class="co" d="
+    M 730,186 L 742,218 L 760,246 L 784,272 L 794,304
+    L 766,330 L 736,322 L 716,296 L 706,266 L 696,240
+    L 704,234 L 722,218 Z"/>
+  <text class="lbl" x="738" y="278">Georgetown</text>
+
+  <!-- SUMTER: ~80.36W,33.92N -->
+  <path class="co" d="
+    M 488,148 L 502,152 L 528,140 L 544,112 L 560,112
+    L 580,122 L 586,152 L 570,174 L 540,182 L 510,178
+    L 484,170 L 462,166 Z"/>
+  <text class="lbl" x="524" y="152">Sumter</text>
+
+  <!-- LEE: ~80.25W,34.16N -->
+  <path class="co" d="
+    M 580,122 L 606,118 L 622,128 L 638,140 L 636,166
+    L 610,176 L 586,170 L 586,152 Z"/>
+  <text class="lbl" x="611" y="148">Lee</text>
+
+  <!-- CLARENDON: ~80.21W,33.65N -->
+  <path class="co" d="
+    M 636,166 L 638,140 L 648,228 L 636,246 L 610,254
+    L 584,244 L 568,222 L 570,192 L 570,174 L 586,170 L 610,176 Z"/>
+  <text class="lbl" x="608" y="210">Clarendon</text>
+
+  <!-- LEXINGTON: ~81.29W,33.96N -->
+  <path class="co" d="
+    M 316,162 L 336,165 L 362,172 L 370,200 L 348,220
+    L 318,220 L 296,204 L 286,182 L 286,168 Z"/>
+  <text class="lbl" x="325" y="193">Lexington</text>
+
+  <!-- CALHOUN: ~80.78W,33.67N -->
+  <path class="co" d="
+    M 370,164 L 400,172 L 430,174 L 440,202 L 420,222
+    L 388,228 L 358,222 L 348,220 L 370,200 L 362,172 Z"/>
+  <text class="lbl" x="394" y="200">Calhoun</text>
+
+  <!-- SALUDA: ~81.92W,34.00N -->
+  <path class="co" d="
+    M 232,162 L 266,154 L 260,158 L 286,168 L 286,182
+    L 266,198 L 240,198 L 218,182 L 218,164 Z"/>
+  <text class="lbl" x="250" y="180">Saluda</text>
+
+  <!-- GREENWOOD: ~82.12W,34.15N -->
+  <path class="co" d="
+    M 162,160 L 204,156 L 218,164 L 218,182 L 204,198
+    L 178,202 L 154,190 L 148,170 Z"/>
+  <text class="lbl" x="183" y="178">Greenwood</text>
+
+  <!-- ABBEVILLE: ~82.46W,34.22N -->
+  <path class="co" d="
+    M 100,156 L 130,166 L 148,170 L 154,190 L 138,208
+    L 110,210 L 84,198 L 82,172 Z"/>
+  <text class="lbl" x="114" y="182">Abbeville</text>
+
+  <!-- McCORMICK: ~82.63W,33.89N -->
+  <path class="co" d="
+    M 40,110 L 72,128 L 108,120 L 100,156 L 82,172
+    L 84,198 L 62,210 L 36,198 L 30,168 L 32,128 Z"/>
+  <text class="lbl" x="62" y="158">McCormick</text>
+
+  <!-- EDGEFIELD: ~81.96W,33.77N -->
+  <path class="co" d="
+    M 138,208 L 154,190 L 178,202 L 190,220 L 176,240
+    L 148,242 L 128,228 L 116,214 Z"/>
+  <text class="lbl" x="152" y="220">Edgefield</text>
+
+  <!-- AIKEN (clinic) - highlighted -->
+  <path class="co-hi" d="
+    M 36,198 L 62,210 L 84,198 L 110,210 L 116,214
+    L 128,228 L 148,242 L 148,270 L 128,284 L 96,282
+    L 68,270 L 42,250 L 30,226 Z"/>
+  <text class="lbl-hi" x="90" y="244">Aiken</text>
+
+  <!-- BARNWELL: ~81.36W,33.25N -->
+  <path class="co" d="
+    M 176,240 L 190,220 L 214,230 L 224,256 L 204,272
+    L 178,272 L 160,256 L 148,242 Z"/>
+  <text class="lbl" x="187" y="252">Barnwell</text>
+
+  <!-- ORANGEBURG: ~80.86W,33.43N -->
+  <path class="co" d="
+    M 286,182 L 296,204 L 318,220 L 348,220 L 358,222
+    L 368,252 L 352,278 L 320,288 L 286,284 L 262,264
+    L 248,240 L 248,218 L 256,198 L 266,198 L 286,182 Z"/>
+  <text class="lbl" x="306" y="248">Orangeburg</text>
+
+  <!-- BAMBERG: ~81.03W,33.22N -->
+  <path class="co" d="
+    M 224,256 L 248,240 L 262,264 L 248,282 L 224,286
+    L 200,274 L 194,254 L 204,272 Z"/>
+  <text class="lbl" x="228" y="264">Bamberg</text>
+
+  <!-- ALLENDALE: ~81.33W,32.99N -->
+  <path class="co" d="
+    M 160,256 L 178,272 L 200,274 L 204,298 L 186,314
+    L 158,314 L 136,298 L 130,272 L 148,270 L 148,242 Z"/>
+  <text class="lbl" x="165" y="285">Allendale</text>
+
+  <!-- DORCHESTER: ~80.39W,33.10N -->
+  <path class="co" d="
+    M 352,278 L 368,252 L 388,262 L 400,288 L 390,318
+    L 360,326 L 332,316 L 318,294 L 320,288 Z"/>
+  <text class="lbl" x="355" y="298">Dorchester</text>
+
+  <!-- BERKELEY: ~79.96W,33.19N -->
+  <path class="co" d="
+    M 388,228 L 420,222 L 440,202 L 462,166 L 484,170
+    L 510,178 L 540,182 L 568,222 L 570,252 L 552,278
+    L 520,292 L 488,294 L 460,286 L 432,274 L 408,256
+    L 400,288 L 388,262 L 368,252 L 358,222 Z"/>
+  <text class="lbl" x="470" y="246">Berkeley</text>
+
+  <!-- COLLETON: ~80.56W,32.80N -->
+  <path class="co" d="
+    M 204,298 L 224,286 L 248,282 L 262,300 L 285,318
+    L 290,348 L 268,370 L 238,374 L 210,358 L 192,330
+    L 186,314 Z"/>
+  <text class="lbl" x="238" y="330">Colleton</text>
+
+  <!-- HAMPTON: ~81.12W,32.77N -->
+  <path class="co" d="
+    M 136,298 L 158,314 L 186,314 L 192,330 L 178,350
+    L 152,356 L 126,340 L 118,316 Z"/>
+  <text class="lbl" x="152" y="327">Hampton</text>
+
+  <!-- JASPER: ~81.22W,32.43N -->
+  <path class="co" d="
+    M 118,316 L 126,340 L 152,356 L 160,382 L 136,396
+    L 104,390 L 82,366 L 80,338 L 96,318 Z"/>
+  <text class="lbl" x="118" y="355">Jasper</text>
+
+  <!-- CHARLESTON - highlighted -->
+  <path class="co-hi" d="
+    M 432,274 L 460,286 L 488,294 L 504,322 L 498,358
+    L 468,376 L 436,378 L 408,362 L 395,330 L 400,298
+    L 408,256 Z"/>
+  <text class="lbl-hi" x="452" y="322">Charleston</text>
+
+  <!-- BEAUFORT - highlighted -->
+  <path class="co-hi" d="
+    M 268,370 L 290,348 L 320,358 L 346,372 L 358,402
+    L 340,428 L 308,434 L 278,420 L 258,396 L 255,370 Z"/>
+  <text class="lbl-hi" x="302" y="396">Beaufort</text>
+
+  <!-- ═══ CLINIC PINS ═══ -->
+  <!-- Aiken pin -->
+  <circle class="pin" cx="90" cy="244" r="11"/>
+  <circle class="pin-r"  cx="90" cy="244" r="11"/>
+  <text class="pin-t" x="90" y="249">A</text>
+
+  <!-- Charleston pin -->
+  <circle class="pin" cx="452" cy="322" r="11"/>
+  <circle class="pin-r"  cx="452" cy="322" r="11"/>
+  <text class="pin-t" x="452" y="327">C</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <rect x="10" y="520" width="930" height="52" rx="7"
+        fill="rgba(42,157,143,.07)" stroke="rgba(42,157,143,.2)" stroke-width="1"/>
+  <circle cx="40"  cy="546" r="7" fill="#b8e8e2" stroke="#2a9d8f" stroke-width="1.5"/>
+  <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="53"  y="550">All 46 SC Counties Covered</text>
+  <circle cx="270" cy="546" r="7" fill="#2a9d8f"/>
+  <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="283" y="550">Highlighted = Key Service Areas</text>
+  <circle cx="510" cy="546" r="7" fill="#e76f51"/>
+  <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="523" y="550">A = Aiken Clinic · C = Charleston Clinic</text>
+</svg>

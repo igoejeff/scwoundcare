@@ -22,7 +22,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -53,6 +53,7 @@
           <li><a href="blog.html" class="active">Blog</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
         <div class="nav-cta">
           <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
@@ -87,6 +88,7 @@
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
       <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
@@ -123,11 +125,23 @@
               <p class="section-subtitle">We believe informed patients heal better. Explore our library of expert-written wound care articles.</p>
             </div>
 
-            <!-- Articles Grid -->
-            <div class="blog-grid">
+            <!-- Category Filter Tabs -->
+            <div class="blog-filter-bar reveal" role="group" aria-label="Filter articles by category">
+              <button class="blog-filter-btn active" data-filter="all">All Articles</button>
+              <button class="blog-filter-btn" data-filter="Wound Education">Wound Education</button>
+              <button class="blog-filter-btn" data-filter="Diabetes Care">Diabetes Care</button>
+              <button class="blog-filter-btn" data-filter="Vascular &amp; Circulation">Vascular &amp; Circulation</button>
+              <button class="blog-filter-btn" data-filter="Caregiver Resources">Caregiver Resources</button>
+              <button class="blog-filter-btn" data-filter="Patient Wellness">Patient Wellness</button>
+              <button class="blog-filter-btn" data-filter="Mobile Care">Mobile Care</button>
+              <button class="blog-filter-btn" data-filter="Patient Resources">Patient Resources</button>
+            </div>
 
-              <!-- FEATURED POST -->
-              <article class="blog-card-featured reveal" itemscope itemtype="https://schema.org/BlogPosting">
+            <!-- Articles Grid -->
+            <div class="blog-grid" id="blogGrid">
+
+              <!-- FEATURED POST — always visible -->
+              <article class="blog-card-featured reveal" data-category="Wound Education" itemscope itemtype="https://schema.org/BlogPosting">
                 <img
                   src="images/blog-why-wound-wont-heal.jpg"
                   alt="Compassionate nurse examining patient wound"
@@ -136,307 +150,216 @@
                   itemprop="image"
                 />
                 <div class="blog-card-body">
-                  <span class="featured-label"><i class="fa-solid fa-star"></i> Featured Article</span>
+                  <span class="featured-label"><i class="fa-solid fa-star"></i> Featured</span>
                   <span class="blog-category-tag">Wound Education</span>
-                  <h2 itemprop="headline">
-                    <a href="blog-why-wound-wont-heal.html">Why Won't My Wound Heal? Understanding Chronic (Non-Healing) Wounds</a>
-                  </h2>
-                  <div class="blog-card-meta" style="margin-bottom:1rem;">
+                  <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 3, 2025</span>
                     <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 6 min read</span>
                   </div>
-                  <p itemprop="description">If you're staring at a wound that just isn't getting better — maybe it's on your foot, leg, or another spot that won't close no matter what you try — you're not alone. Millions face this same question every day. Understanding what's happening is the first step toward real healing.</p>
-                  <a href="blog-why-wound-wont-heal.html" class="btn btn-primary" style="display:inline-flex;margin-top:auto;">
-                    Read Full Article <i class="fa-solid fa-arrow-right"></i>
+                  <h2 itemprop="headline">
+                    <a href="blog-why-wound-wont-heal.html">Why Won't My Wound Heal? Understanding Chronic (Non-Healing) Wounds</a>
+                  </h2>
+                  <p itemprop="description">If you're staring at a wound that just isn't getting better — you're not alone. Understanding what's happening is the first step toward real healing.</p>
+                  <a href="blog-why-wound-wont-heal.html" class="btn btn-primary btn-sm" style="display:inline-flex;margin-top:.5rem;align-self:flex-start;">
+                    Read Article <i class="fa-solid fa-arrow-right"></i>
                   </a>
                 </div>
               </article>
 
-              <!-- ARTICLE 2: Diabetic Foot Ulcers -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-diabetic-foot-ulcers.jpg"
-                    alt="Healthcare professional examining a patient's foot"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 2 -->
+              <article class="blog-card reveal" data-category="Diabetes Care" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-diabetic-foot-ulcers.jpg" alt="Healthcare professional examining a patient's foot" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Diabetes Care</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2025</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 7 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 7 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-diabetic-foot-ulcers.html">Diabetic Foot Ulcers: What Every Patient Needs to Know</a></h3>
-                  <p itemprop="description">Up to 1 in 3 people with diabetes will develop a foot ulcer. Learn the warning signs, why they happen, and how Carolina Wound Care helps patients heal across South Carolina.</p>
                   <a href="blog-diabetic-foot-ulcers.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 3: Venous Leg Ulcers -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-venous-leg-ulcers.jpg"
-                    alt="Healthcare professional wrapping a compression bandage on a patient's lower leg"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 3 -->
+              <article class="blog-card reveal" data-category="Vascular &amp; Circulation" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-venous-leg-ulcers.jpg" alt="Healthcare professional wrapping compression bandage on patient's lower leg" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Vascular &amp; Circulation</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-venous-leg-ulcers.html">Venous Leg Ulcers: Causes, Symptoms &amp; the Care That Actually Works</a></h3>
-                  <p itemprop="description">A sore on your lower leg or ankle that won't close? Learn what causes venous leg ulcers, the early warning signs, and how Carolina Wound Care helps patients heal across South Carolina.</p>
                   <a href="blog-venous-leg-ulcers.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 4: Pressure Ulcers -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-pressure-ulcers.jpg"
-                    alt="Compassionate caregiver checking skin of an elderly patient in bed"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 4 -->
+              <article class="blog-card reveal" data-category="Caregiver Resources" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-pressure-ulcers.jpg" alt="Compassionate caregiver checking skin of an elderly patient in bed" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Caregiver Resources</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-pressure-ulcers.html">Pressure Ulcers (Bed Sores): Prevention Tips for Seniors &amp; Families</a></h3>
-                  <p itemprop="description">A red spot on your loved one's skin that won't fade could be a pressure ulcer forming. Learn the four stages, simple prevention habits, and how Carolina Wound Care can help.</p>
                   <a href="blog-pressure-ulcers.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 5: Wound Infection Signs -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-wound-infection-signs.jpg"
-                    alt="Healthcare professional closely examining a patient's wound"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 5 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Wound Safety" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-wound-infection-signs.jpg" alt="Healthcare professional closely examining a patient's wound" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Wound Safety</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-wound-infection-signs.html">Signs of Wound Infection: When to Call for Help Right Away</a></h3>
-                  <p itemprop="description">Is your wound redder, hotter, or draining more than usual? Learn the 6 key warning signs of wound infection and when to call Carolina Wound Care immediately.</p>
                   <a href="blog-wound-infection-signs.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 6: Nutrition for Wound Healing -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-nutrition-wound-healing.jpg"
-                    alt="Colorful healing foods including fruits, vegetables, eggs and yogurt"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 6 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Patient Wellness" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-nutrition-wound-healing.jpg" alt="Colorful healing foods including fruits, vegetables, eggs and yogurt" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Patient Wellness</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-nutrition-wound-healing.html">Nutrition for Wound Healing: Simple Foods That Speed Recovery</a></h3>
-                  <p itemprop="description">What you eat can significantly speed up wound healing. Learn the 5 key nutrients your body needs and simple everyday foods that help — from the specialists at Carolina Wound Care.</p>
                   <a href="blog-nutrition-wound-healing.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 7: 4 Stages of Wound Healing -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-4-stages-wound-healing.jpg"
-                    alt="Nurse reviewing wound progress chart with patient in warm educational setting"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 7 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Wound Education" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-4-stages-wound-healing.jpg" alt="Nurse reviewing wound progress chart with patient" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Wound Education</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-4-stages-wound-healing.html">The 4 Stages of Wound Healing – And What Happens When Healing Gets Stuck</a></h3>
-                  <p itemprop="description">Your body follows four natural stages to heal every wound. Learn what each stage does — and why chronic wounds sometimes stall — so you know exactly when to seek specialist care.</p>
                   <a href="blog-4-stages-wound-healing.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 8: What to Expect at Your First Visit -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-first-visit.jpg"
-                    alt="Male wound care provider welcoming a new patient in a warm clinic exam room"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 8 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Patient Resources" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-first-visit.jpg" alt="Male wound care provider welcoming a new patient in clinic" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Patient Resources</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 5 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 5 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-first-visit.html">What to Expect at Your First Visit to Carolina Wound Care</a></h3>
-                  <p itemprop="description">Nervous about seeing a wound care specialist for the first time? Here's a friendly, step-by-step walkthrough of exactly what happens — so you arrive feeling confident and hopeful.</p>
                   <a href="blog-first-visit.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 10: Wound Care Myths -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-wound-care-myths.jpg"
-                    alt="Myth vs fact visual with red myth stamp and green checkmark on clinical background"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 9 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Wound Education" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-wound-care-myths.jpg" alt="Myth vs fact visual with clinical background" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Wound Education</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 6 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 6 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-wound-care-myths.html">5 Common Myths About Chronic Wound Care (Debunked)</a></h3>
-                  <p itemprop="description">"Just let it air out." "It'll heal on its own." These common wound care myths can actually delay real healing. Carolina Wound Care debunks the top 5 so you can move forward with confidence.</p>
                   <a href="blog-wound-care-myths.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 11: Home Wound Care -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-home-wound-care.jpg"
-                    alt="Elderly patient carefully changing a wound dressing at home"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 10 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Patient Wellness" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-home-wound-care.jpg" alt="Elderly patient carefully changing a wound dressing at home" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Patient Wellness</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 7 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 7 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-home-wound-care.html">How to Care for Your Wound at Home Between Professional Visits</a></h3>
-                  <p itemprop="description">What you do between professional visits matters. Learn the daily home care steps — cleaning, dressing changes, nutrition, pressure relief — that keep your wound healing on track.</p>
                   <a href="blog-home-wound-care.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 9: Mobile In-Home Wound Care -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-mobile-wound-care.jpg"
-                    alt="Healthcare provider making an in-home wound care visit with an elderly patient"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 11 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Mobile Care" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-mobile-wound-care.jpg" alt="Healthcare provider making an in-home wound care visit with an elderly patient" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Mobile Care</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 5 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 5 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-mobile-wound-care.html">Mobile In-Home Wound Care: Healing Without the Hassle in Aiken &amp; Charleston</a></h3>
-                  <p itemprop="description">Can't easily get to a clinic? Our mobile team brings the same expert wound care right to your door — no travel, no waiting rooms, same great results. Serving all of South Carolina.</p>
                   <a href="blog-mobile-wound-care.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
-              <!-- ARTICLE 12: Preventing Amputations -->
-              <article class="blog-card reveal" itemscope itemtype="https://schema.org/BlogPosting">
-                <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:200px;">
-                  <img
-                    src="images/blog-preventing-amputations.jpg"
-                    alt="Compassionate wound care specialist and elderly patient in bright clinic exam room looking hopeful"
-                    style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;"
-                    onmouseover="this.style.transform='scale(1.04)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                    loading="lazy"
-                    itemprop="image"
-                  />
+              <!-- ARTICLE 12 — hidden initially -->
+              <article class="blog-card reveal hidden" data-category="Wound Education" itemscope itemtype="https://schema.org/BlogPosting">
+                <div class="blog-card-thumb">
+                  <img src="images/blog-preventing-amputations.jpg" alt="Compassionate wound care specialist and elderly patient looking hopeful" loading="lazy" itemprop="image"/>
                 </div>
                 <div class="blog-card-body">
                   <span class="blog-category-tag">Wound Education</span>
                   <div class="blog-card-meta">
                     <span class="blog-date"><i class="fa-solid fa-calendar"></i> March 2026</span>
-                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min read</span>
+                    <span class="blog-read-time"><i class="fa-solid fa-clock"></i> 8 min</span>
                   </div>
                   <h3 itemprop="headline"><a href="blog-preventing-amputations.html">Preventing Amputations: How Early Specialized Care Makes All the Difference</a></h3>
-                  <p itemprop="description">Amputation is not inevitable. Learn how early specialized wound care dramatically lowers the risk and helps patients across South Carolina keep their limbs and their lives.</p>
                   <a href="blog-preventing-amputations.html" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </article>
 
             </div><!-- /blog-grid -->
 
+            <!-- Load More / Show Less -->
+            <div class="blog-load-more-wrap" id="loadMoreWrap">
+              <button class="btn-load-more" id="loadMoreBtn" aria-expanded="false">
+                <i class="fa-solid fa-chevron-down"></i> Show More Articles (8 more)
+              </button>
+            </div>
             <!-- Newsletter signup -->
-            <div class="reveal" style="margin-top:3.5rem;background:linear-gradient(135deg,var(--teal-light) 0%,rgba(42,157,143,.08) 100%);border:1.5px solid rgba(42,157,143,.2);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;">
-              <i class="fa-solid fa-envelope-open-text" style="font-size:2rem;color:var(--teal);margin-bottom:1rem;display:block;"></i>
-              <h3 style="margin-bottom:.5rem;">New Articles Delivered to Your Inbox</h3>
-              <p style="color:var(--text-muted);max-width:480px;margin:0 auto 1.5rem;">Get the latest wound care tips and healing guides from our specialists — free, no spam, unsubscribe anytime.</p>
-              <div style="display:flex;gap:.75rem;max-width:440px;margin:0 auto;flex-wrap:wrap;">
-                <input type="email" placeholder="Your email address" style="flex:1;padding:.85rem 1.1rem;border:1.5px solid var(--gray-mid);border-radius:50px;font-family:inherit;font-size:.95rem;outline:none;min-width:200px;" />
-                <a href="contact.html" class="btn btn-primary" style="border-radius:50px;">Subscribe</a>
+            <div class="reveal" style="margin-top:2.5rem;background:linear-gradient(135deg,var(--teal-light) 0%,rgba(42,157,143,.08) 100%);border:1.5px solid rgba(42,157,143,.2);border-radius:var(--radius-xl);padding:2rem 2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+              <div style="flex:1;min-width:220px;">
+                <i class="fa-solid fa-envelope-open-text" style="font-size:1.6rem;color:var(--teal);margin-bottom:.5rem;display:block;"></i>
+                <h3 style="margin-bottom:.3rem;font-size:1.1rem;">Get New Articles in Your Inbox</h3>
+                <p style="color:var(--text-muted);margin:0;font-size:.88rem;">Free wound care tips — no spam, unsubscribe anytime.</p>
+              </div>
+              <div style="display:flex;gap:.65rem;flex-wrap:wrap;flex:1;min-width:260px;">
+                <input type="email" placeholder="Your email address" style="flex:1;padding:.75rem 1rem;border:1.5px solid var(--gray-mid);border-radius:50px;font-family:inherit;font-size:.92rem;outline:none;min-width:180px;" />
+                <a href="contact.html" class="btn btn-primary" style="border-radius:50px;white-space:nowrap;">Subscribe</a>
               </div>
             </div>
 
@@ -461,65 +384,30 @@
             <div class="sidebar-widget reveal">
               <h4><i class="fa-solid fa-newspaper" style="color:var(--teal);margin-right:.4rem;"></i> Recent Posts</h4>
               <div class="sidebar-recent-post">
-                <img src="images/blog-why-wound-wont-heal.jpg" alt="Why won't my wound heal" />
+                <img src="images/blog-why-wound-wont-heal.jpg" alt="Why won't my wound heal" loading="lazy" />
                 <div class="srp-text">
                   <a href="blog-why-wound-wont-heal.html">Why Won't My Wound Heal? Understanding Chronic Wounds</a>
                   <span class="srp-date">March 3, 2025</span>
                 </div>
               </div>
               <div class="sidebar-recent-post">
-                <img src="images/blog-nutrition-wound-healing.jpg" alt="Nutrition for wound healing" />
+                <img src="images/blog-diabetic-foot-ulcers.jpg" alt="Diabetic foot ulcers" loading="lazy" />
                 <div class="srp-text">
-                  <a href="blog-nutrition-wound-healing.html">Nutrition for Wound Healing: Simple Foods That Speed Recovery</a>
-                  <span class="srp-date">March 2026</span>
+                  <a href="blog-diabetic-foot-ulcers.html">Diabetic Foot Ulcers: What Every Patient Needs to Know</a>
+                  <span class="srp-date">March 2025</span>
                 </div>
               </div>
               <div class="sidebar-recent-post">
-                <img src="images/blog-wound-infection-signs.jpg" alt="Signs of wound infection" />
+                <img src="images/blog-wound-infection-signs.jpg" alt="Signs of wound infection" loading="lazy" />
                 <div class="srp-text">
                   <a href="blog-wound-infection-signs.html">Signs of Wound Infection: When to Call for Help Right Away</a>
                   <span class="srp-date">March 2026</span>
                 </div>
               </div>
               <div class="sidebar-recent-post">
-                <img src="images/blog-preventing-amputations.jpg" alt="Preventing amputations with wound care" />
+                <img src="images/blog-preventing-amputations.jpg" alt="Preventing amputations" loading="lazy" />
                 <div class="srp-text">
-                  <a href="blog-preventing-amputations.html">Preventing Amputations: How Early Specialized Care Makes All the Difference</a>
-                  <span class="srp-date">March 2026</span>
-                </div>
-              </div>
-              <div class="sidebar-recent-post">
-                <img src="images/blog-home-wound-care.jpg" alt="Home wound care between visits" />
-                <div class="srp-text">
-                  <a href="blog-home-wound-care.html">How to Care for Your Wound at Home Between Professional Visits</a>
-                  <span class="srp-date">March 2026</span>
-                </div>
-              </div>
-              <div class="sidebar-recent-post">
-                <img src="images/blog-wound-care-myths.jpg" alt="5 wound care myths debunked" />
-                <div class="srp-text">
-                  <a href="blog-wound-care-myths.html">5 Common Myths About Chronic Wound Care (Debunked)</a>
-                  <span class="srp-date">March 2026</span>
-                </div>
-              </div>
-              <div class="sidebar-recent-post">
-                <img src="images/blog-mobile-wound-care.jpg" alt="Mobile in-home wound care" />
-                <div class="srp-text">
-                  <a href="blog-mobile-wound-care.html">Mobile In-Home Wound Care: Healing Without the Hassle</a>
-                  <span class="srp-date">March 2026</span>
-                </div>
-              </div>
-              <div class="sidebar-recent-post">
-                <img src="images/blog-first-visit.jpg" alt="First visit to wound care" />
-                <div class="srp-text">
-                  <a href="blog-first-visit.html">What to Expect at Your First Visit to Carolina Wound Care</a>
-                  <span class="srp-date">March 2026</span>
-                </div>
-              </div>
-              <div class="sidebar-recent-post">
-                <img src="images/blog-4-stages-wound-healing.jpg" alt="4 stages of wound healing" />
-                <div class="srp-text">
-                  <a href="blog-4-stages-wound-healing.html">The 4 Stages of Wound Healing – And What Happens When Healing Gets Stuck</a>
+                  <a href="blog-preventing-amputations.html">Preventing Amputations: How Early Care Makes All the Difference</a>
                   <span class="srp-date">March 2026</span>
                 </div>
               </div>
@@ -583,7 +471,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care delivered with compassion — in our Aiken clinic or at your home anywhere in South Carolina. Medicare accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -654,5 +542,73 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    /* ---- Blog: Category Filter + Load More ---- */
+    (function () {
+      const grid       = document.getElementById('blogGrid');
+      const filterBtns = document.querySelectorAll('.blog-filter-btn');
+      const loadBtn    = document.getElementById('loadMoreBtn');
+      const loadWrap   = document.getElementById('loadMoreWrap');
+
+      if (!grid || !loadBtn) return;
+
+      const allCards = Array.from(grid.querySelectorAll('.blog-card'));
+      let expanded = false;
+      let activeFilter = 'all';
+
+      // Load More toggle
+      loadBtn.addEventListener('click', function () {
+        expanded = !expanded;
+        applyState();
+      });
+
+      // Category filter
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          activeFilter = this.dataset.filter;
+          expanded = (activeFilter !== 'all'); // auto-expand when filtering
+          applyState();
+        });
+      });
+
+      function applyState() {
+        // Handle featured card visibility
+        const featured = grid.querySelector('.blog-card-featured');
+        if (featured) {
+          const featCat = featured.dataset.category || '';
+          featured.style.display = (activeFilter === 'all' || featCat === activeFilter) ? '' : 'none';
+        }
+
+        // Split matching vs non-matching cards
+        const matching    = allCards.filter(c => activeFilter === 'all' || (c.dataset.category || '') === activeFilter);
+        const nonMatching = allCards.filter(c => activeFilter !== 'all' && (c.dataset.category || '') !== activeFilter);
+
+        // Hide non-matching
+        nonMatching.forEach(c => { c.style.display = 'none'; });
+
+        // Show matching — always show first 3; rest depend on expanded
+        matching.forEach((c, i) => {
+          c.style.display = (i < 3 || expanded) ? '' : 'none';
+        });
+
+        // Update load-more button
+        const hiddenMatchCount = matching.filter((c, i) => i >= 3).length;
+        if (hiddenMatchCount === 0 || activeFilter !== 'all') {
+          loadWrap.style.display = 'none';
+        } else {
+          loadWrap.style.display = 'block';
+          loadBtn.classList.toggle('expanded', expanded);
+          loadBtn.innerHTML = expanded
+            ? '<i class="fa-solid fa-chevron-up"></i> Show Less'
+            : '<i class="fa-solid fa-chevron-down"></i> Show More Articles (' + hiddenMatchCount + ' more)';
+        }
+      }
+
+      // Initialise on page load
+      applyState();
+    })();
+  </script>
 </body>
 </html>

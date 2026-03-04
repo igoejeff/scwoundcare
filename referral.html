@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refer a Patient | Carolina Wound Care – Provider Referral Form</title>
+  <meta name="description" content="Healthcare providers: refer a patient to Carolina Wound Care for advanced wound care in Aiken, SC, Charleston, SC, or mobile visits anywhere in South Carolina. Fast, easy online referral form." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+
+    /* ── Page hero override ── */
+    .referral-hero {
+      background: linear-gradient(135deg, #0d2b28 0%, #1a4a44 60%, #0d2b28 100%);
+      padding: 9rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .referral-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234dd6c8' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .referral-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .referral-hero-text .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(42,157,143,.2);
+      border: 1px solid rgba(77,214,200,.25);
+      border-radius: 50px;
+      padding: .4rem 1rem;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #4dd6c8;
+      margin-bottom: 1.25rem;
+    }
+    .referral-hero-text h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .referral-hero-text h1 span { color: #4dd6c8; }
+    .referral-hero-text p {
+      color: rgba(255,255,255,.8);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+    .referral-hero-stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: .25rem;
+    }
+    .rh-stat {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(77,214,200,.18);
+      border-radius: 12px;
+      padding: .85rem 1.1rem;
+      text-align: center;
+      flex: 1;
+      min-width: 100px;
+    }
+    .rh-stat strong {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #4dd6c8;
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .rh-stat span {
+      font-size: .75rem;
+      color: rgba(255,255,255,.65);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    /* Right side — "why refer" card */
+    .referral-hero-card {
+      background: rgba(255,255,255,.06);
+      border: 1.5px solid rgba(77,214,200,.2);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+    }
+    .referral-hero-card h3 {
+      color: #fff;
+      font-size: 1.15rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .referral-hero-card h3 i { color: #4dd6c8; }
+    .rh-check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .rh-check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      color: rgba(255,255,255,.85);
+      font-size: .93rem;
+      line-height: 1.5;
+    }
+    .rh-check-list li i {
+      color: #4dd6c8;
+      font-size: .9rem;
+      flex-shrink: 0;
+      margin-top: .2rem;
+    }
+    .rh-contact-strip {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(77,214,200,.15);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .rh-contact-strip i { color: #4dd6c8; font-size: 1.1rem; }
+    .rh-contact-strip span { font-size: .88rem; color: rgba(255,255,255,.7); }
+    .rh-contact-strip a { color: #4dd6c8; font-weight: 700; text-decoration: none; }
+    .rh-contact-strip a:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .referral-hero { padding: 8rem 0 4rem; }
+      .referral-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .referral-hero-stats { gap: .75rem; }
+    }
+
+    /* ── Layout ── */
+    .referral-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 1024px) {
+      .referral-layout { grid-template-columns: 1fr; }
+    }
+
+    /* ── Form card ── */
+    .referral-form-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem;
+      box-shadow: var(--shadow-md);
+    }
+    .referral-form-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: .35rem;
+    }
+    .referral-form-card .form-intro {
+      color: var(--text-muted);
+      font-size: .93rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    /* Section dividers within form */
+    .form-section-title {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 2rem 0 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .form-section-title:first-of-type { margin-top: 0; }
+
+    /* Form grid helpers */
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) {
+      .form-row-2 { grid-template-columns: 1fr; }
+      .form-row-3 { grid-template-columns: 1fr; }
+      .referral-form-card { padding: 1.75rem; }
+    }
+
+    /* Form elements */
+    .form-group { display: flex; flex-direction: column; gap: .45rem; margin-bottom: 1.1rem; }
+    .form-group label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    .form-group label .req { color: #e76f51; font-size: .9em; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .72rem 1rem;
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: .93rem;
+      color: var(--text-body);
+      background: var(--white);
+      transition: border-color .18s, box-shadow .18s;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(42,157,143,.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select { cursor: pointer; }
+
+    /* Urgency selector */
+    .urgency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .65rem;
+      margin-bottom: 1.1rem;
+    }
+    .urgency-btn {
+      border: 2px solid var(--gray-mid);
+      border-radius: var(--radius);
+      padding: .75rem .5rem;
+      background: var(--white);
+      cursor: pointer;
+      text-align: center;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .urgency-btn i { display: block; font-size: 1.2rem; margin-bottom: .35rem; }
+    .urgency-btn span { font-size: .78rem; font-weight: 600; color: var(--text-body); display: block; }
+    .urgency-btn.routine  i { color: #2a9d8f; }
+    .urgency-btn.soon     i { color: #e9c46a; }
+    .urgency-btn.urgent   i { color: #e76f51; }
+    .urgency-btn:hover,
+    .urgency-btn.selected { border-color: currentColor; }
+    .urgency-btn.routine.selected  { background: #e8faf7; border-color: #2a9d8f; }
+    .urgency-btn.soon.selected     { background: #fdf8e8; border-color: #e9c46a; }
+    .urgency-btn.urgent.selected   { background: #fef0eb; border-color: #e76f51; }
+
+    /* Submit button */
+    .referral-submit-wrap {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .btn-referral-submit {
+      width: 100%;
+      padding: 1.1rem;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      transition: transform .18s, box-shadow .18s;
+      box-shadow: 0 4px 18px rgba(42,157,143,.35);
+    }
+    .btn-referral-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(42,157,143,.45);
+    }
+    .referral-hipaa {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      background: var(--teal-light);
+      border: 1px solid rgba(42,157,143,.18);
+      border-radius: 10px;
+      padding: .85rem 1rem;
+    }
+    .referral-hipaa i { color: var(--teal); font-size: .95rem; flex-shrink: 0; margin-top: .12rem; }
+    .referral-hipaa p { margin: 0; font-size: .8rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* Success state */
+    .referral-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .referral-success .success-icon {
+      width: 80px; height: 80px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--teal);
+      margin: 0 auto 1.5rem;
+    }
+    .referral-success h3 { margin-bottom: .5rem; }
+    .referral-success p  { color: var(--text-muted); margin-bottom: 1.5rem; }
+
+    /* ── Sidebar ── */
+    .referral-sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: var(--transition);
+    }
+    .sidebar-card:hover { box-shadow: var(--shadow-md); border-color: rgba(42,157,143,.25); }
+    .sidebar-card h4 {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .sidebar-card h4 i { color: var(--teal); }
+
+    /* Phone card */
+    .sc-phone-link {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--teal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .3rem;
+    }
+    .sc-phone-link:hover { color: var(--teal-dark); }
+    .sc-phone-sub { font-size: .83rem; color: var(--text-muted); }
+
+    /* What we treat list */
+    .treats-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+    .treats-list li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .88rem;
+      color: var(--text-body);
+    }
+    .treats-list li i { color: var(--teal); font-size: .8rem; flex-shrink: 0; }
+
+    /* Insurance list */
+    .ins-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+    .ins-chip {
+      background: var(--teal-light);
+      border: 1px solid rgba(42,157,143,.2);
+      border-radius: 50px;
+      padding: .3rem .8rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+    }
+
+    /* Process steps */
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+    }
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+    }
+    .ps-num {
+      width: 28px; height: 28px;
+      background: var(--teal);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .78rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .ps-text strong { display: block; font-size: .88rem; font-weight: 700; color: var(--text-body); }
+    .ps-text span   { font-size: .8rem; color: var(--text-muted); }
+
+    /* Fax card */
+    .fax-block {
+      background: var(--gray-light);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      text-align: center;
+    }
+    .fax-block strong { display: block; font-size: 1.1rem; font-weight: 800; color: var(--text-body); margin-bottom: .2rem; }
+    .fax-block span   { font-size: .82rem; color: var(--text-muted); }
+
+    /* Sidebar photo card */
+    .sidebar-photo-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1.5px solid var(--gray-mid);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .sidebar-photo-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .sidebar-photo-card:hover img { transform: scale(1.03); }
+    .sidebar-photo-caption {
+      padding: 1rem 1.25rem;
+      background: var(--white);
+    }
+    .sidebar-photo-caption strong {
+      display: block;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--text-body);
+      margin-bottom: .2rem;
+    }
+    .sidebar-photo-caption span {
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+
+    /* Sidebar photo — tall fill card (bottom) */
+    .sidebar-photo-fill {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1.5px solid var(--gray-mid);
+      box-shadow: var(--shadow-sm);
+      flex: 1;
+      min-height: 260px;
+      position: relative;
+    }
+    .sidebar-photo-fill img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .sidebar-photo-fill:hover img { transform: scale(1.03); }
+    .sidebar-photo-fill-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(13,43,40,.85) 0%, transparent 100%);
+      padding: 1.25rem 1.25rem 1.1rem;
+    }
+    .sidebar-photo-fill-overlay strong {
+      display: block;
+      font-size: .92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .2rem;
+    }
+    .sidebar-photo-fill-overlay span {
+      font-size: .78rem;
+      color: rgba(255,255,255,.75);
+    }
+
+    /* Download referral form prompt */
+    .download-prompt {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      background: linear-gradient(135deg, #0d2b28, #1a4a44);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .download-prompt:hover { opacity: .9; transform: translateY(-1px); }
+    .download-prompt i { color: #4dd6c8; font-size: 1.4rem; flex-shrink: 0; }
+    .download-prompt strong { display: block; font-size: .92rem; font-weight: 700; color: #fff; }
+    .download-prompt span   { font-size: .78rem; color: rgba(255,255,255,.65); }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" class="active" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="referral.html" class="btn btn-primary btn-sm">Refer a Patient</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+    <a href="blog.html">Blog</a>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
+    <div class="mobile-cta">
+      <a href="tel:8665408090" class="btn btn-primary">Call 866-540-8090</a>
+      <a href="referral.html" class="btn btn-outline">Submit Referral</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="referral-hero" aria-labelledby="referral-hero-heading">
+      <div class="container">
+        <div class="referral-hero-inner">
+
+          <!-- Left: text -->
+          <div class="referral-hero-text">
+            <div class="hero-eyebrow">
+              <i class="fa-solid fa-user-doctor"></i>
+              For Healthcare Providers
+            </div>
+            <h1 id="referral-hero-heading">Refer Your Patient to <span>Expert Wound Care</span></h1>
+            <p>We partner with physicians, hospitalists, home health agencies, skilled nursing facilities, and primary care providers across South Carolina to deliver advanced wound care for your patients — in our clinic or mobile to their door.</p>
+            <div class="referral-hero-stats">
+              <div class="rh-stat">
+                <strong>Same Week</strong>
+                <span>Typical appointment turnaround</span>
+              </div>
+              <div class="rh-stat">
+                <strong>All 46</strong>
+                <span>SC Counties covered</span>
+              </div>
+              <div class="rh-stat">
+                <strong>24 hrs</strong>
+                <span>Referral response time</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: why refer card -->
+          <div class="referral-hero-card">
+            <h3><i class="fa-solid fa-circle-check"></i> Why Providers Choose Us</h3>
+            <ul class="rh-check-list">
+              <li><i class="fa-solid fa-check"></i> Board-certified wound care specialists — not just nurses</li>
+              <li><i class="fa-solid fa-check"></i> Advanced therapies: debridement, biological grafts, UltraMist®</li>
+              <li><i class="fa-solid fa-check"></i> Mobile home visits — we go where your patient is</li>
+              <li><i class="fa-solid fa-check"></i> Medicare &amp; most PPO plans — we handle all billing &amp; auth</li>
+              <li><i class="fa-solid fa-check"></i> Same-week access for most patients</li>
+              <li><i class="fa-solid fa-check"></i> Regular updates back to referring provider</li>
+              <li><i class="fa-solid fa-check"></i> Serving all 46 South Carolina counties</li>
+            </ul>
+            <div class="rh-contact-strip">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span>Urgent referral? Call directly: <a href="tel:8665408090">866-540-8090</a></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN FORM + SIDEBAR -->
+    <section aria-labelledby="referral-form-heading">
+      <div class="container">
+        <div class="referral-layout">
+
+          <!-- ══ LEFT: REFERRAL FORM ══ -->
+          <div>
+            <div class="referral-form-card reveal" id="referralFormCard">
+
+              <!-- Form header -->
+              <h2 id="referral-form-heading"><i class="fa-solid fa-clipboard-list" style="color:var(--teal);margin-right:.5rem;"></i>Patient Referral Form</h2>
+              <p class="form-intro">Complete the form below. Our team will contact you within 24 hours — usually same business day — to confirm the referral and schedule your patient's first appointment.</p>
+
+              <!-- ── FORM ── -->
+              <form id="referralForm" novalidate>
+                <input type="hidden" name="form_type" value="provider_referral" />
+
+                <!-- SECTION 1: Referring Provider -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-user-doctor"></i> Referring Provider Information
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Provider First Name <span class="req">*</span></label>
+                    <input type="text" name="provider_first_name" placeholder="Dr. Jane" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Provider Last Name <span class="req">*</span></label>
+                    <input type="text" name="provider_last_name" placeholder="Smith" required />
+                  </div>
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Specialty / Title <span class="req">*</span></label>
+                    <select name="provider_specialty" required>
+                      <option value="" disabled selected>Select specialty…</option>
+                      <option>Primary Care Physician</option>
+                      <option>Internal Medicine</option>
+                      <option>Hospitalist</option>
+                      <option>Vascular Surgery</option>
+                      <option>Podiatry</option>
+                      <option>Endocrinology / Diabetes</option>
+                      <option>Orthopedics</option>
+                      <option>Home Health Agency</option>
+                      <option>Skilled Nursing Facility</option>
+                      <option>Assisted Living</option>
+                      <option>Discharge Planner / Case Manager</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Practice / Facility Name <span class="req">*</span></label>
+                    <input type="text" name="practice_name" placeholder="Aiken Family Medicine" required />
+                  </div>
+                </div>
+
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label>Provider Phone <span class="req">*</span></label>
+                    <input type="tel" name="provider_phone" placeholder="(803) 555-0100" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Provider Fax</label>
+                    <input type="tel" name="provider_fax" placeholder="(803) 555-0101" />
+                  </div>
+                  <div class="form-group">
+                    <label>Provider Email <span class="req">*</span></label>
+                    <input type="email" name="provider_email" placeholder="dr.smith@practice.com" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Practice Address</label>
+                  <input type="text" name="practice_address" placeholder="123 Main St, Aiken, SC 29801" />
+                </div>
+
+                <!-- SECTION 2: Patient Information -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-user-injured"></i> Patient Information
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Patient First Name <span class="req">*</span></label>
+                    <input type="text" name="patient_first_name" placeholder="First name" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Patient Last Name <span class="req">*</span></label>
+                    <input type="text" name="patient_last_name" placeholder="Last name" required />
+                  </div>
+                </div>
+
+                <div class="form-row-3">
+                  <div class="form-group">
+                    <label>Date of Birth <span class="req">*</span></label>
+                    <input type="date" name="patient_dob" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Patient Phone <span class="req">*</span></label>
+                    <input type="tel" name="patient_phone" placeholder="(803) 555-0200" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Gender</label>
+                    <select name="patient_gender">
+                      <option value="" disabled selected>Select…</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                      <option>Non-binary</option>
+                      <option>Prefer not to say</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Patient Address <span class="req">*</span></label>
+                  <input type="text" name="patient_address" placeholder="Street, City, SC ZIP" required />
+                </div>
+
+                <!-- SECTION 3: Insurance -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-shield-halved"></i> Insurance / Coverage
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Primary Insurance <span class="req">*</span></label>
+                    <select name="insurance_primary" required>
+                      <option value="" disabled selected>Select…</option>
+                      <option>Medicare Part A &amp; B</option>
+                      <option>Medicare Advantage</option>
+                      <option>Medicaid</option>
+                      <option>BlueCross BlueShield</option>
+                      <option>Aetna</option>
+                      <option>United Healthcare</option>
+                      <option>Cigna</option>
+                      <option>Humana</option>
+                      <option>Tricare</option>
+                      <option>Other PPO</option>
+                      <option>Self-Pay / Uninsured</option>
+                      <option>Unknown — Please Verify</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Member ID / Policy Number</label>
+                    <input type="text" name="insurance_id" placeholder="Optional" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Secondary Insurance (if any)</label>
+                  <input type="text" name="insurance_secondary" placeholder="Secondary plan name" />
+                </div>
+
+                <!-- SECTION 4: Wound / Clinical -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-stethoscope"></i> Wound &amp; Clinical Information
+                </div>
+
+                <div class="form-row-2">
+                  <div class="form-group">
+                    <label>Wound Type / Diagnosis <span class="req">*</span></label>
+                    <select name="wound_type" required>
+                      <option value="" disabled selected>Select wound type…</option>
+                      <option>Diabetic Foot Ulcer</option>
+                      <option>Venous Leg Ulcer</option>
+                      <option>Arterial / Ischemic Ulcer</option>
+                      <option>Pressure Injury / Bed Sore</option>
+                      <option>Post-Surgical Wound</option>
+                      <option>Sacral Ulcer</option>
+                      <option>Dehiscence</option>
+                      <option>Wound Infection</option>
+                      <option>Traumatic Wound</option>
+                      <option>Other / Unknown</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Wound Location on Body</label>
+                    <input type="text" name="wound_location" placeholder="e.g. Right plantar heel, Left lower leg" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Duration — How long has wound been present?</label>
+                  <select name="wound_duration">
+                    <option value="" disabled selected>Select…</option>
+                    <option>Less than 2 weeks</option>
+                    <option>2–4 weeks</option>
+                    <option>4–6 weeks</option>
+                    <option>6–12 weeks (chronic)</option>
+                    <option>More than 3 months</option>
+                    <option>More than 6 months</option>
+                    <option>Unknown</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Relevant Medical History / Comorbidities</label>
+                  <textarea name="medical_history" placeholder="e.g. Type 2 diabetes, peripheral vascular disease, CHF, on anticoagulants…" style="min-height:72px;"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label>Current Wound Care / Treatments Tried</label>
+                  <textarea name="treatments_tried" placeholder="e.g. Wound vac, silver dressings, compression therapy, debridement…" style="min-height:72px;"></textarea>
+                </div>
+
+                <!-- SECTION 5: Visit Preference & Urgency -->
+                <div class="form-section-title">
+                  <i class="fa-solid fa-calendar-check"></i> Visit Preference &amp; Urgency
+                </div>
+
+                <div class="form-group">
+                  <label>Preferred Visit Type <span class="req">*</span></label>
+                  <select name="visit_type" id="visitTypeSel" required>
+                    <option value="" disabled selected>Select…</option>
+                    <option value="mobile-home">Mobile / Home Visit — patient cannot travel</option>
+                    <option value="clinic-aiken">Clinic — Aiken (511 Grier Court)</option>
+                    <option value="clinic-charleston">Clinic — Charleston (2 Carriage Lane)</option>
+                    <option value="either">Either — patient flexible</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="patientAddressNote" style="display:none;">
+                  <div style="background:var(--teal-light);border:1px solid rgba(42,157,143,.2);border-radius:8px;padding:.75rem 1rem;font-size:.85rem;color:var(--teal-dark);">
+                    <i class="fa-solid fa-house-medical" style="margin-right:.4rem;"></i>
+                    <strong>Home visit selected.</strong> Our mobile team will travel to the patient's address listed above. Please confirm patient address is accurate.
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Urgency Level <span class="req">*</span></label>
+                  <input type="hidden" name="urgency" id="urgencyInput" value="" required />
+                  <div class="urgency-grid">
+                    <button type="button" class="urgency-btn routine" data-val="routine" onclick="selectUrgency(this)">
+                      <i class="fa-solid fa-calendar"></i>
+                      <span>Routine</span>
+                      <span style="font-size:.7rem;font-weight:400;color:var(--text-muted);">Within 1–2 weeks</span>
+                    </button>
+                    <button type="button" class="urgency-btn soon" data-val="soon" onclick="selectUrgency(this)">
+                      <i class="fa-solid fa-clock"></i>
+                      <span>Soon</span>
+                      <span style="font-size:.7rem;font-weight:400;color:var(--text-muted);">Within 3–5 days</span>
+                    </button>
+                    <button type="button" class="urgency-btn urgent" data-val="urgent" onclick="selectUrgency(this)">
+                      <i class="fa-solid fa-triangle-exclamation"></i>
+                      <span>Urgent</span>
+                      <span style="font-size:.7rem;font-weight:400;color:var(--text-muted);">ASAP / same week</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Additional Notes / Special Instructions</label>
+                  <textarea name="notes" placeholder="Any other information that would help us prepare for this patient's care…"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <div class="referral-submit-wrap">
+                  <button type="submit" class="btn-referral-submit">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Submit Patient Referral
+                  </button>
+                  <div class="referral-hipaa">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>This referral is transmitted securely. Patient information is protected under HIPAA. By submitting, you confirm you have appropriate authorization to share this patient's information.</p>
+                  </div>
+                </div>
+
+              </form>
+
+              <!-- Success state (shown after submit) -->
+              <div class="referral-success" id="referralSuccess">
+                <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <h3>Referral Received!</h3>
+                <p>Thank you — our team will review this referral and contact you at the provider email/phone within <strong>24 hours</strong> (usually same business day) to confirm scheduling.</p>
+                <p><strong>Urgent referral?</strong> Call us directly: <a href="tel:8665408090" style="color:var(--teal);font-weight:700;">866-540-8090</a></p>
+                <a href="index.html" class="btn btn-primary" style="margin-top:1rem;">Return to Home</a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ══ RIGHT: SIDEBAR ══ -->
+          <div class="referral-sidebar">
+
+            <!-- Team photo — top of sidebar -->
+            <div class="sidebar-photo-card reveal">
+              <img src="images/about-nurse-patient.jpg"
+                   alt="Carolina Wound Care specialist with patient" />
+              <div class="sidebar-photo-caption">
+                <strong>Real People. Real Care.</strong>
+                <span>Our board-certified specialists come to your patient — wherever they are in South Carolina.</span>
+              </div>
+            </div>
+
+            <!-- Call card -->
+            <div class="sidebar-card" style="background:var(--teal-light);border-color:rgba(42,157,143,.3);">
+              <h4><i class="fa-solid fa-phone"></i> Prefer to Call?</h4>
+              <a href="tel:8665408090" class="sc-phone-link">
+                <i class="fa-solid fa-phone-volume"></i> 866-540-8090
+              </a>
+              <p class="sc-phone-sub">Our referral coordinator is available Mon–Fri 8AM–5PM. For urgent cases, please call directly.</p>
+            </div>
+
+            <!-- Fax card -->
+            <div class="sidebar-card">
+              <h4><i class="fa-solid fa-fax"></i> Send by Fax</h4>
+              <div class="fax-block">
+                <strong>Fax: 866-540-8090</strong>
+                <span>Attn: Referral Coordinator</span>
+              </div>
+              <p style="font-size:.82rem;color:var(--text-muted);margin-top:.75rem;margin-bottom:0;">Include patient demographics, insurance card, wound photo if available, and current care plan.</p>
+            </div>
+
+            <!-- What we treat -->
+            <div class="sidebar-card">
+              <h4><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</h4>
+              <ul class="treats-list">
+                <li><i class="fa-solid fa-circle-dot"></i> Diabetic Foot Ulcers</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Venous Leg Ulcers</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Arterial / Ischemic Ulcers</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Pressure Injuries (all stages)</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Post-Surgical Wounds</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Sacral Ulcers</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Wound Dehiscence</li>
+                <li><i class="fa-solid fa-circle-dot"></i> Complex Infected Wounds</li>
+              </ul>
+              <a href="conditions.html" style="display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.83rem;font-weight:600;color:var(--teal);text-decoration:none;">
+                Full conditions list <i class="fa-solid fa-arrow-right" style="font-size:.8em;"></i>
+              </a>
+            </div>
+
+            <!-- Insurance -->
+            <div class="sidebar-card">
+              <h4><i class="fa-solid fa-shield-halved"></i> Insurance Accepted</h4>
+              <div class="ins-chips">
+                <span class="ins-chip">Medicare A &amp; B</span>
+                <span class="ins-chip">Medicare Advantage</span>
+                <span class="ins-chip">BlueCross BlueShield</span>
+                <span class="ins-chip">Aetna</span>
+                <span class="ins-chip">United Healthcare</span>
+                <span class="ins-chip">Cigna</span>
+                <span class="ins-chip">Humana</span>
+                <span class="ins-chip">Most PPO Plans</span>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-muted);margin-top:.9rem;margin-bottom:0;">We handle all prior authorizations and billing. Call to verify a specific plan.</p>
+            </div>
+
+            <!-- Referral process -->
+            <div class="sidebar-card">
+              <h4><i class="fa-solid fa-list-check"></i> How Referrals Work</h4>
+              <div class="process-steps">
+                <div class="process-step">
+                  <div class="ps-num">1</div>
+                  <div class="ps-text">
+                    <strong>Submit This Form</strong>
+                    <span>Or call 866-540-8090 directly</span>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="ps-num">2</div>
+                  <div class="ps-text">
+                    <strong>We Contact the Patient</strong>
+                    <span>Within 24 hours to schedule</span>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="ps-num">3</div>
+                  <div class="ps-text">
+                    <strong>Insurance Verified</strong>
+                    <span>We handle all authorizations</span>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="ps-num">4</div>
+                  <div class="ps-text">
+                    <strong>Care Begins</strong>
+                    <span>Same-week for most patients</span>
+                  </div>
+                </div>
+                <div class="process-step">
+                  <div class="ps-num">5</div>
+                  <div class="ps-text">
+                    <strong>Provider Updates</strong>
+                    <span>Regular progress reports back to you</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile team photo — fills the bottom gap -->
+            <div class="sidebar-photo-fill reveal">
+              <img src="images/about-van-specialist.jpg"
+                   alt="Carolina Wound Care mobile specialist team" />
+              <div class="sidebar-photo-fill-overlay">
+                <strong>Mobile Care Across All of SC</strong>
+                <span>We bring full clinical-level care directly to your patient's door.</span>
+              </div>
+            </div>
+
+          </div><!-- /sidebar -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <div class="cta-band">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">Partner With Us</span>
+          <h2>Your Patients Deserve Expert Wound Care</h2>
+          <p>We make referrals easy and keep you informed throughout your patient's treatment. Call our referral line or submit the form above.</p>
+          <div class="cta-band-buttons">
+            <a href="tel:8665408090" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+            <a href="conditions.html" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-stethoscope"></i> Conditions We Treat
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
+          <p>Advanced wound care in Aiken, SC &amp; Charleston, SC — plus mobile visits anywhere in South Carolina. Medicare &amp; most PPO plans accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations &amp; Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Conditions</h5>
+          <ul>
+            <li><a href="conditions.html">Diabetic Foot Ulcers</a></li>
+            <li><a href="conditions.html">Venous Leg Ulcers</a></li>
+            <li><a href="conditions.html">Pressure Injuries</a></li>
+            <li><a href="conditions.html">Post-Surgical Wounds</a></li>
+            <li><a href="conditions.html">Sacral Ulcers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court<br>Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>2 Carriage Lane, Suite 101<br>Charleston, SC 29407</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span><a href="mailto:info@carolinawoundcare.com">info@carolinawoundcare.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">HIPAA Notice</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ── Urgency selector ──
+    function selectUrgency(btn) {
+      document.querySelectorAll('.urgency-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('urgencyInput').value = btn.dataset.val;
+    }
+
+    // ── Visit type — show home address note ──
+    document.getElementById('visitTypeSel').addEventListener('change', function () {
+      const note = document.getElementById('patientAddressNote');
+      note.style.display = this.value === 'mobile-home' ? 'block' : 'none';
+    });
+
+    // ── Form submission (client-side demo — replace with real endpoint) ──
+    document.getElementById('referralForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e76f51';
+          valid = false;
+        }
+      });
+      if (!document.getElementById('urgencyInput').value) {
+        document.querySelectorAll('.urgency-btn').forEach(b => b.style.outline = '2px solid #e76f51');
+        valid = false;
+      }
+      if (!valid) {
+        this.querySelector('[style*="border-color: rgb(231"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Collect form data
+      const data = Object.fromEntries(new FormData(this));
+      console.log('Referral submitted:', data);
+
+      // Show success
+      document.getElementById('referralForm').style.display = 'none';
+      document.getElementById('referralSuccess').style.display = 'block';
+      document.getElementById('referralFormCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>

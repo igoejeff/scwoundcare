@@ -217,6 +217,41 @@
     .urgency-banner h4 { color: var(--white); margin-bottom: .2rem; }
     .urgency-banner p  { color: rgba(255,255,255,.85); font-size: .88rem; margin: 0; }
 
+    /* SC Coverage Map */
+    .sc-coverage-section {
+      background: var(--white);
+      border: 1.5px solid rgba(42,157,143,.2);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.5rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-top: 3rem;
+    }
+    .sc-coverage-section .sc-cov-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .sc-coverage-section .sc-cov-header h3 {
+      font-size: 1.4rem;
+      margin-bottom: .4rem;
+    }
+    .sc-coverage-section .sc-cov-header p {
+      color: var(--text-muted);
+      font-size: .93rem;
+      margin: 0;
+    }
+    .sc-map-caption-contact {
+      margin: 1.25rem 0 0;
+      font-size: .9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
     @media (max-width: 1024px) {
       .contact-layout { grid-template-columns: 1fr; }
       .contact-info-panel { position: static; }
@@ -236,7 +271,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -267,6 +302,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
         <div class="nav-cta">
           <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
@@ -299,6 +335,7 @@
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
       <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
@@ -517,6 +554,107 @@
       </div>
     </section>
 
+    <!-- SC STATEWIDE COVERAGE MAP -->
+    <section aria-labelledby="sc-coverage-heading">
+      <div class="container">
+        <div class="sc-coverage-section reveal">
+          <div class="sc-cov-header">
+            <span class="section-label">Statewide Mobile Coverage</span>
+            <h3 id="sc-coverage-heading">We Cover All 46 South Carolina Counties</h3>
+            <p>Whether you need an in-clinic visit in Aiken or Charleston, or a mobile home visit anywhere across the state — our team comes to you.</p>
+          </div>
+          <div id="sc-map-contact" style="width:100%;border-radius:10px;overflow:hidden;background:#eaf9f7;">
+            <svg id="sc-svg-contact" viewBox="0 0 860 510" style="width:100%;height:auto;display:block;" role="img"
+                 aria-label="Accurate map of South Carolina showing all 46 counties served by Carolina Wound Care">
+              <defs>
+                <style>
+                  #sc-svg-contact .co{fill:#b8e8e2;stroke:#fff;stroke-width:.7;stroke-linejoin:round;}
+                  #sc-svg-contact .co-hi{fill:#2a9d8f;stroke:#fff;stroke-width:.9;stroke-linejoin:round;}
+                  #sc-svg-contact .lbl{font:600 6.5px 'Inter',Arial,sans-serif;fill:#0a4a42;text-anchor:middle;pointer-events:none;}
+                  #sc-svg-contact .lbl-hi{font:700 7px 'Inter',Arial,sans-serif;fill:#fff;text-anchor:middle;pointer-events:none;}
+                  #sc-svg-contact .pin{fill:#e76f51;}
+                  #sc-svg-contact .pin-r{fill:none;stroke:#fff;stroke-width:2.5;}
+                  #sc-svg-contact .pin-t{font:800 9px Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none;}
+                </style>
+              </defs>
+              <g id="sc-counties-cg"></g>
+              <g id="sc-labels-cg"></g>
+              <g id="sc-pins-cg"></g>
+              <!-- legend -->
+              <rect x="10" y="458" width="840" height="44" rx="7" fill="rgba(42,157,143,.08)" stroke="rgba(42,157,143,.2)" stroke-width="1"/>
+              <circle cx="34" cy="480" r="6" fill="#b8e8e2" stroke="#2a9d8f" stroke-width="1.5"/>
+              <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="45" y="484">All 46 SC Counties Covered</text>
+              <circle cx="248" cy="480" r="6" fill="#2a9d8f"/>
+              <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="259" y="484">Key Service Areas</text>
+              <circle cx="406" cy="480" r="6" fill="#e76f51"/>
+              <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="417" y="484">A = Aiken Clinic · C = Charleston Clinic</text>
+            </svg>
+            <script>
+            (function(){
+              var HIGHLIGHTED={"45003":1,"45013":1,"45019":1,"45051":1,"45079":1};
+              var NAMES={"45001":"Abbeville","45003":"Aiken","45005":"Allendale","45007":"Anderson","45009":"Bamberg","45011":"Barnwell","45013":"Beaufort","45015":"Berkeley","45017":"Calhoun","45019":"Charleston","45021":"Cherokee","45023":"Chester","45025":"Chesterfield","45027":"Clarendon","45029":"Colleton","45031":"Darlington","45033":"Dillon","45035":"Dorchester","45037":"Edgefield","45039":"Fairfield","45041":"Florence","45043":"Georgetown","45045":"Greenville","45047":"Greenwood","45049":"Hampton","45051":"Horry","45053":"Jasper","45055":"Kershaw","45057":"Lancaster","45059":"Laurens","45061":"Lee","45063":"Lexington","45065":"McCormick","45067":"Marion","45069":"Marlboro","45071":"Newberry","45073":"Oconee","45075":"Orangeburg","45077":"Pickens","45079":"Richland","45081":"Saluda","45083":"Spartanburg","45085":"Sumter","45087":"Union","45089":"Williamsburg","45091":"York"};
+              var PINS={"45003":"A","45019":"C"};
+              var svgEl=document.getElementById("sc-svg-contact");
+              var cg=document.getElementById("sc-counties-cg");
+              var lg=document.getElementById("sc-labels-cg");
+              var pg=document.getElementById("sc-pins-cg");
+              var W=860,H=450;
+              function loadD3(){
+                if(typeof d3==="undefined"||typeof topojson==="undefined"){
+                  return;
+                }
+                d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json").then(function(us){
+                  var all=topojson.feature(us,us.objects.counties);
+                  var sc={type:"FeatureCollection",features:all.features.filter(function(f){return String(f.id).padStart(5,"0").startsWith("45");})};
+                  var proj=d3.geoMercator().fitExtent([[10,10],[W-10,H-10]],sc);
+                  var pathFn=d3.geoPath().projection(proj);
+                  var svgNS="http://www.w3.org/2000/svg";
+                  sc.features.forEach(function(f){
+                    var id=String(f.id).padStart(5,"0");
+                    var p=document.createElementNS(svgNS,"path");
+                    p.setAttribute("class",HIGHLIGHTED[id]?"co-hi":"co");
+                    p.setAttribute("d",pathFn(f));
+                    cg.appendChild(p);
+                    var c=pathFn.centroid(f);
+                    var t=document.createElementNS(svgNS,"text");
+                    t.setAttribute("class",HIGHLIGHTED[id]?"lbl-hi":"lbl");
+                    t.setAttribute("x",c[0]);
+                    t.setAttribute("y",c[1]+2.5);
+                    t.textContent=NAMES[id]||"";
+                    lg.appendChild(t);
+                    if(PINS[id]){
+                      var ci=document.createElementNS(svgNS,"circle");ci.setAttribute("class","pin");ci.setAttribute("cx",c[0]);ci.setAttribute("cy",c[1]);ci.setAttribute("r","10");pg.appendChild(ci);
+                      var ri=document.createElementNS(svgNS,"circle");ri.setAttribute("class","pin-r");ri.setAttribute("cx",c[0]);ri.setAttribute("cy",c[1]);ri.setAttribute("r","10");pg.appendChild(ri);
+                      var tx=document.createElementNS(svgNS,"text");tx.setAttribute("class","pin-t");tx.setAttribute("x",c[0]);tx.setAttribute("y",c[1]);tx.textContent=PINS[id];pg.appendChild(tx);
+                    }
+                  });
+                });
+              }
+              // Load d3 + topojson if not already on page
+              function ensureLib(src,cb){
+                var s=document.createElement("script");s.src=src;s.onload=cb;document.head.appendChild(s);
+              }
+              if(typeof d3==="undefined"){
+                ensureLib("https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js",function(){
+                  if(typeof topojson==="undefined"){
+                    ensureLib("https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js",loadD3);
+                  } else { loadD3(); }
+                });
+              } else if(typeof topojson==="undefined"){
+                ensureLib("https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js",loadD3);
+              } else { loadD3(); }
+            })();
+            </script>
+          </div>
+          <p class="sc-map-caption-contact">
+            <i class="fa-solid fa-map-pin" style="color:var(--teal);margin-right:.45rem;"></i>
+            <strong>All 46 counties covered</strong> — from the Upstate to the Lowcountry, from the Midlands to the Grand Strand.
+            &nbsp;·&nbsp; <a href="locations.html" style="color:var(--teal);font-weight:600;">View full locations &amp; service area <i class="fa-solid fa-arrow-right" style="font-size:.8em;"></i></a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <div class="cta-band">
       <div class="container">
@@ -541,7 +679,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care in Aiken, SC and mobile service across all of South Carolina. Medicare accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -560,6 +698,7 @@
             <li><a href="locations.html">Locations & Mobile Care</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a></li>
           </ul>
         </div>
         <div class="footer-col">

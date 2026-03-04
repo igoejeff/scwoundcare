@@ -21,6 +21,17 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/components.css" />
 
+  <!-- ===================== PERFORMANCE HINTS ===================== -->
+  <!-- Preload above-the-fold hero image for LCP -->
+  <link rel="preload" as="image" href="images/hero-video-poster.jpg" fetchpriority="high" />
+  <!-- Preload logo -->
+  <link rel="preload" as="image" href="images/logo-transparent.png" />
+  <!-- DNS prefetch for third-party origins -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://link.mypracticelaunch.com" />
+  <!-- ============================================================ -->
+
   <style>
     /* ---- Trust strip ---- */
     .trust-strip {
@@ -536,7 +547,97 @@
     .quiz-promo-steps { justify-content: center; }
     .quiz-promo-cta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   }
+
+  /* ---- Provider Referral Button (below hero video) ---- */
+  .provider-referral-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 560px;
+    background: linear-gradient(135deg, #0d2b28 0%, #1a4a44 100%);
+    border: 1.5px solid rgba(77,214,200,.25);
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    text-decoration: none;
+    color: #fff;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,.35);
+    box-sizing: border-box;
+  }
+  .provider-referral-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(42,157,143,.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .provider-referral-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(77,214,200,.35);
+    border-color: rgba(77,214,200,.5);
+  }
+  .prb-icon {
+    width: 46px;
+    height: 46px;
+    background: rgba(42,157,143,.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #4dd6c8;
+    flex-shrink: 0;
+    border: 1px solid rgba(77,214,200,.2);
+  }
+  .prb-text {
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+    flex: 1;
+  }
+  .prb-eyebrow {
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #4dd6c8;
+    opacity: .85;
+  }
+  .prb-main {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+  }
+  .prb-arrow {
+    font-size: .8em;
+    transition: transform .2s ease;
+  }
+  .provider-referral-btn:hover .prb-arrow {
+    transform: translateX(4px);
+  }
+  .prb-badge {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: rgba(42,157,143,.35);
+    border: 1px solid rgba(77,214,200,.3);
+    border-radius: 20px;
+    padding: .3rem .75rem;
+    color: #4dd6c8;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 </style>
+  <!-- Performance optimizer — deferred so it never blocks rendering -->
+  <script src="js/performance.js" defer></script>
 </head>
 <body>
 
@@ -547,7 +648,7 @@
 
         <!-- Logo -->
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="eager" decoding="async" fetchpriority="high" />
         </a>
 
         <!-- Desktop links -->
@@ -585,6 +686,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
 
         <!-- Right CTA -->
@@ -634,6 +736,7 @@
 
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
 
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
@@ -687,7 +790,7 @@
 
               <!-- Poster / thumbnail — click to play -->
               <div class="hero-video-poster" id="heroVideoPoster">
-                <img src="images/hero-bg-dark.jpg" alt="Carolina Wound Care specialist providing expert wound treatment" />
+                <img src="images/hero-video-poster.jpg" alt="Carolina Wound Care specialist providing expert wound treatment" />
                 <div class="hero-video-poster-overlay"></div>
 
                 <!-- Play button with dual ripple rings -->
@@ -713,9 +816,10 @@
                 playsinline
                 webkit-playsinline
                 preload="none"
+                poster="images/hero-video-poster.jpg"
                 style="display:none;"
               >
-                <source src="#" type="video/mp4" />
+                <source src="images/hero-video.mp4" type="video/mp4" />
                 Your browser does not support HTML5 video.
               </video>
 
@@ -739,6 +843,17 @@
 
             </div>
           </div>
+
+          <!-- Provider Referral CTA — sits below video frame, same width -->
+          <a href="referral.html" class="provider-referral-btn" aria-label="Refer a patient to Carolina Wound Care">
+            <span class="prb-icon"><i class="fa-solid fa-user-doctor"></i></span>
+            <span class="prb-text">
+              <span class="prb-eyebrow">For Healthcare Providers</span>
+              <span class="prb-main">Refer a Patient <i class="fa-solid fa-arrow-right prb-arrow"></i></span>
+            </span>
+            <span class="prb-badge">Fast &amp; Easy</span>
+          </a>
+
         </div>
 
       </div>
@@ -1481,7 +1596,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care delivered with compassion — clinics in Aiken &amp; Charleston, plus mobile visits anywhere in South Carolina. Medicare &amp; most PPO plans accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1500,6 +1615,7 @@
             <li><a href="locations.html">Locations & Mobile Care</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a></li>
           </ul>
         </div>
         <div class="footer-col">

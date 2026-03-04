@@ -151,6 +151,50 @@
       .warning-banner { grid-template-columns: 1fr; text-align: center; }
       .warning-banner-icon { margin: 0 auto; }
       .glossary-item { grid-template-columns: 1fr; gap: .25rem; }
+      .nutrition-photo-caption { flex-direction: column; gap: .75rem; }
+    }
+
+    /* ---- Nutrition lifestyle photo banner ---- */
+    .nutrition-photo-banner {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1.5px solid rgba(42,157,143,.18);
+      box-shadow: 0 8px 32px rgba(42,157,143,.12);
+      margin: 3rem 0 0;
+    }
+    .nutrition-photo-banner img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      transition: transform .6s ease;
+    }
+    .nutrition-photo-banner:hover img { transform: scale(1.02); }
+    .nutrition-photo-caption {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(42,157,143,.06) 100%);
+      border-top: 1.5px solid rgba(42,157,143,.18);
+      padding: 1.25rem 1.75rem;
+    }
+    .nutrition-photo-caption i {
+      color: var(--teal);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .nutrition-photo-caption strong {
+      display: block;
+      font-size: .95rem;
+      color: var(--text-dark);
+      margin-bottom: .2rem;
+    }
+    .nutrition-photo-caption span {
+      font-size: .86rem;
+      color: var(--text-muted);
+      line-height: 1.65;
     }
   </style>
 </head>
@@ -161,7 +205,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -192,6 +236,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
         <div class="nav-cta">
           <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
@@ -224,6 +269,7 @@
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
       <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
@@ -455,6 +501,27 @@
       </div>
     </section>
 
+    <!-- NUTRITION LIFESTYLE PHOTO -->
+    <section aria-label="Nutrition and lifestyle in practice" style="padding:0;">
+      <div class="container">
+        <div class="nutrition-photo-banner reveal">
+          <img
+            src="images/nutrition-lifestyle-kitchen.jpg"
+            alt="Carolina Wound Care nurse Sarah, RN, helping an elderly patient prepare a healing nutrition smoothie in a bright kitchen"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="nutrition-photo-caption">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <div>
+              <strong>Nutrition in Action</strong>
+              <span>Our care team works with patients on real-life nutrition strategies — like building healing smoothies packed with protein, vitamin C, and zinc — right in the comfort of home.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- GLOSSARY -->
     <section aria-labelledby="glossary-heading">
       <div class="container" style="max-width:900px;">
@@ -585,7 +652,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care in Aiken, SC and mobile service across all of South Carolina. Medicare accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>

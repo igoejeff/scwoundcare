@@ -28,6 +28,43 @@
   --max-width:   1200px;
 }
 
+/* ---------- Performance Optimizations ---------- */
+/* Use content-visibility to skip rendering off-screen sections */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+/* Hero is always visible — override */
+.hero,
+nav,
+footer {
+  content-visibility: visible;
+  contain-intrinsic-size: none;
+}
+/* Smooth image rendering */
+img {
+  image-rendering: auto;
+  max-width: 100%;
+  height: auto;
+}
+/* GPU-accelerated transitions only on elements that need it */
+.card,
+.feature-card,
+.location-card,
+.service-card,
+.blog-card {
+  will-change: transform;
+  transform: translateZ(0);
+}
+/* Reduce motion for accessibility + performance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
 /* ---------- Reset & Base ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -219,6 +256,24 @@ section { padding: 5rem 0; }
 .nav-links > li.has-dropdown:hover > .nav-drop-toggle {
   color: var(--teal);
   background: var(--teal-light);
+}
+
+/* Refer a Patient — highlighted pill in navbar */
+.nav-links > li > a[href="referral.html"] {
+  background: var(--teal);
+  color: #fff !important;
+  border-radius: 20px;
+  padding: .4rem 1rem;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .01em;
+  margin-left: .25rem;
+  transition: background .2s, box-shadow .2s;
+}
+.nav-links > li > a[href="referral.html"]:hover {
+  background: var(--teal-dark, #21867a);
+  color: #fff !important;
+  box-shadow: 0 3px 12px rgba(42,157,143,.35);
 }
 .nav-drop-toggle .caret {
   font-size: .65rem;
@@ -609,8 +664,10 @@ section { padding: 5rem 0; }
 /* ---- RIGHT: VIDEO COLUMN ---- */
 .hero-video-col {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 0;
 }
 /* Outer glow frame — Apple liquid glass feel */
 .hero-video-frame {

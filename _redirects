@@ -1,0 +1,7 @@
+# ============================================================
+# REDIRECTS — Carolina Wound Care
+# Handles www → non-www, and clean URL routing
+# ============================================================
+
+# Force www to non-www (canonical domain)
+https://www.scwound.com/* https://scwound.com/:splat 301!

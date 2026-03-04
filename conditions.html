@@ -76,6 +76,35 @@
     .warning-stat .ws-num { font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
     .warning-stat .ws-label { font-size: .82rem; color: var(--text-muted); margin-top: .25rem; }
 
+    /* Condition illustration image */
+    .condition-illus {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      border: 1.5px solid rgba(42,157,143,.18);
+      box-shadow: 0 4px 18px rgba(42,157,143,.12);
+      background: #f0faf9;
+    }
+    .condition-illus img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .4s ease;
+    }
+    .condition-illus img:hover { transform: scale(1.03); }
+    .condition-illus-caption {
+      background: rgba(42,157,143,.08);
+      padding: .5rem 1rem;
+      font-size: .78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      border-top: 1px solid rgba(42,157,143,.12);
+    }
+
     /* Quiz section */
     .quiz-section {
       background: linear-gradient(135deg, var(--teal-dark) 0%, #0D2B28 100%);
@@ -113,7 +142,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -144,6 +173,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
         <div class="nav-cta">
           <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
@@ -176,6 +206,7 @@
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
       <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
@@ -243,6 +274,12 @@
             <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Schedule Consultation</a>
           </div>
           <div class="condition-block-visual reveal">
+            <div class="condition-illus">
+              <img src="images/condition-diabetic-foot-ulcer.jpg"
+                   alt="Medical illustration of a diabetic foot ulcer showing pressure points and neuropathy"
+                   loading="lazy" decoding="async" />
+              <div class="condition-illus-caption">Illustration: Diabetic foot ulcer — pressure &amp; neuropathy interaction</div>
+            </div>
             <h4>Risk Factors</h4>
             <ul class="risk-list">
               <li><i class="fa-solid fa-circle"></i> Diabetes (Type 1 or Type 2)</li>
@@ -262,6 +299,12 @@
         <!-- Venous Leg Ulcers -->
         <div class="condition-block condition-block alt condition-detail" id="venous">
           <div class="condition-block-visual reveal">
+            <div class="condition-illus">
+              <img src="images/condition-venous-leg-ulcer.jpg"
+                   alt="Medical illustration of a venous leg ulcer showing swelling and skin discoloration above the ankle"
+                   loading="lazy" decoding="async" />
+              <div class="condition-illus-caption">Illustration: Venous leg ulcer — edema &amp; venous insufficiency</div>
+            </div>
             <h4>Risk Factors</h4>
             <ul class="risk-list">
               <li><i class="fa-solid fa-circle"></i> Chronic venous insufficiency</li>
@@ -315,6 +358,12 @@
             <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Schedule Urgent Consultation</a>
           </div>
           <div class="condition-block-visual reveal">
+            <div class="condition-illus">
+              <img src="images/condition-arterial-ulcer.jpg"
+                   alt="Medical illustration of an arterial ischemic ulcer showing reduced blood flow to the toes and foot"
+                   loading="lazy" decoding="async" />
+              <div class="condition-illus-caption">Illustration: Arterial ulcer — ischemia &amp; reduced circulation</div>
+            </div>
             <h4>Warning Signs</h4>
             <ul class="risk-list">
               <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Severe pain, especially at night</li>
@@ -520,7 +569,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care in Aiken, SC and mobile service across all of South Carolina. Medicare accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -539,6 +588,7 @@
             <li><a href="locations.html">Locations & Mobile Care</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a></li>
           </ul>
         </div>
         <div class="footer-col">

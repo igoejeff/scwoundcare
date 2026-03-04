@@ -134,6 +134,146 @@
     .facility-card h4 { margin-bottom: .3rem; }
     .facility-card p  { color: var(--text-muted); font-size: .9rem; margin: 0; line-height: 1.65; }
 
+    /* ---- Clinic layout ---- */
+    .clinic-wrapper {
+      margin-bottom: 4rem;
+    }
+    .clinic-wrapper:last-child { margin-bottom: 0; }
+
+    /* Top row: info card (left) + map (right) — equal columns, equal height */
+    .clinic-top-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      align-items: stretch;
+      margin-bottom: 1rem;
+    }
+
+    /* Location card fills full height of its cell */
+    .clinic-top-row .location-card {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .clinic-top-row .location-card .location-card-body {
+      flex: 1;
+    }
+
+    /* Map fills same height as the card */
+    .clinic-map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      min-height: 360px;
+    }
+    .clinic-map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    /* Bottom strip: parking + communities side by side */
+    .clinic-bottom-strip {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 1rem;
+    }
+    .clinic-parking-box {
+      background: var(--teal-light);
+      border: 1.5px solid rgba(42,157,143,.22);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+    .clinic-parking-box i {
+      color: var(--teal);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+    .clinic-parking-box p { margin: 0; font-size: .87rem; line-height: 1.6; color: var(--text-body); }
+    .clinic-communities-box {
+      background: var(--gray-light);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.4rem;
+    }
+    .clinic-communities-box h4 {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: .6rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .clinic-communities-box h4 i { color: var(--teal); }
+    .clinic-communities-box .comm-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+    }
+    .clinic-communities-box .comm-tags .tag {
+      font-size: .76rem;
+      padding: .2rem .6rem;
+    }
+
+    /* Clinic number heading */
+    .clinic-section-label {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0d2b28;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .clinic-num-badge {
+      background: var(--teal);
+      color: #fff;
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .82rem;
+      flex-shrink: 0;
+    }
+
+    /* SC Coverage Map */
+    .sc-coverage-map {
+      background: var(--white);
+      border: 1.5px solid rgba(42,157,143,.2);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .sc-map-caption {
+      margin: 1.25rem 0 0;
+      font-size: .92rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    @media (max-width: 900px) {
+      .clinic-top-row { grid-template-columns: 1fr; }
+      .clinic-map-wrap { min-height: 280px; }
+      .clinic-map-wrap iframe { min-height: 280px; }
+      .clinic-bottom-strip { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .mobile-hero { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
       .mobile-process { grid-template-columns: 1fr 1fr; }
@@ -153,7 +293,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -184,6 +324,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="locations.html" class="active">Locations</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
         <div class="nav-cta">
           <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
@@ -216,6 +357,7 @@
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
       <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
@@ -248,168 +390,163 @@
           <p class="section-subtitle">Visit us in Aiken or Charleston — or skip the trip entirely and let our mobile team come to you anywhere in South Carolina.</p>
         </div>
 
-        <!-- Aiken Clinic Header -->
-        <div style="margin-bottom:3.5rem;">
-          <h3 style="font-size:1.3rem;font-weight:800;color:#0d2b28;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;">
-            <span style="background:var(--teal);color:#fff;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;">1</span>
-            Aiken, SC Clinic
-          </h3>
-        <div class="grid-2 reveal" style="align-items:start;">
-          <div>
-            <div class="location-card">
-              <div class="location-card-header">
-                <span class="tag" style="display:inline-block;margin-bottom:.75rem;">Primary Clinic</span>
-                <h3>Carolina Wound Care — Aiken</h3>
-                <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Independent wound care clinic — not hospital affiliated</p>
-              </div>
-              <div class="location-card-body">
-                <div class="location-detail">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <div>
-                    <strong>Address</strong>
-                    <span>511 Grier Court, Aiken, SC 29803</span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <strong>Phone</strong>
-                    <span><a href="tel:8665408090" style="color:var(--teal);font-weight:700;font-size:1.05rem;">866-540-8090</a></span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-clock"></i>
-                  <div>
-                    <strong>Clinic Hours</strong>
-                    <span>Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday & Sunday: Mobile visits by appointment</span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-calendar-check"></i>
-                  <div>
-                    <strong>Appointment Policy</strong>
-                    <span>By appointment — no waiting rooms, dedicated visit times</span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-shield-halved"></i>
-                  <div>
-                    <strong>Insurance Accepted</strong>
-                    <span>Medicare, Most PPO Plans</span>
-                  </div>
-                </div>
-                <div style="display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap;">
-                  <a href="https://maps.google.com/?q=511+Grier+Court+Aiken+SC+29803" target="_blank" rel="noopener" class="btn btn-primary">
-                    <i class="fa-solid fa-directions"></i> Get Directions
-                  </a>
-                  <a href="contact.html" class="btn btn-outline">
-                    <i class="fa-solid fa-calendar"></i> Book Appointment
-                  </a>
-                  <a href="wound-care-aiken-sc.html" class="btn btn-outline">
-                    <i class="fa-solid fa-arrow-right"></i> Aiken Location Page
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Nearby areas -->
-            <div style="margin-top:1.5rem;background:var(--gray-light);border:1.5px solid var(--gray-mid);border-radius:var(--radius-lg);padding:1.75rem;">
-              <h4 style="margin-bottom:1rem;"><i class="fa-solid fa-location-arrow" style="color:var(--teal);margin-right:.5rem;"></i>Nearby Communities Served</h4>
-              <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
-                <span class="tag">Aiken</span>
-                <span class="tag">North Augusta</span>
-                <span class="tag">Augusta, GA area</span>
-                <span class="tag">Graniteville</span>
-                <span class="tag">Warrenville</span>
-                <span class="tag">Bath</span>
-                <span class="tag">Clearwater</span>
-                <span class="tag">Langley</span>
-                <span class="tag">Burnettown</span>
-                <span class="tag">Edgefield</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Map embed -->
-          <div class="reveal">
-            <iframe
-              class="map-frame"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-81.7154!3d33.5601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s511+Grier+Ct%2C+Aiken%2C+SC+29803!5e0!3m2!1sen!2sus!4v1700000000"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Carolina Wound Care Clinic Location — 511 Grier Court, Aiken, SC"
-              aria-label="Map showing Carolina Wound Care clinic location in Aiken, SC"
-            ></iframe>
-            <div class="alert-box" style="margin-top:1rem;">
-              <i class="fa-solid fa-car"></i>
-              <p style="margin:0;font-size:.9rem;">Convenient parking available. Accessible entrance for patients with limited mobility. <strong>Can't drive?</strong> Request a home visit instead — call <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>.</p>
-            </div>
-          </div>
-        </div>
-        </div><!-- end Aiken wrapper -->
-
-        <!-- ---- CHARLESTON CLINIC ---- -->
+        <!-- ══ AIKEN CLINIC ══ -->
         <div>
-          <h3 style="font-size:1.3rem;font-weight:800;color:#0d2b28;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;">
-            <span style="background:var(--teal);color:#fff;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;">2</span>
-            Charleston, SC Clinic
-          </h3>
-          <div class="grid-2 reveal" style="align-items:start;">
-            <div>
+          <div class="clinic-section-label">
+            <span class="clinic-num-badge">1</span>
+            Aiken, SC Clinic
+          </div>
+          <div class="clinic-wrapper reveal">
+
+            <!-- Top row: info card (left) + map (right) -->
+            <div class="clinic-top-row">
+
+              <!-- Left: Info card -->
               <div class="location-card">
                 <div class="location-card-header">
-                  <span class="tag" style="display:inline-block;margin-bottom:.75rem;">Charleston Clinic</span>
-                  <h3>Carolina Wound Care — Charleston</h3>
-                  <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Independent wound care clinic — West Ashley location</p>
+                  <span class="tag" style="display:inline-block;margin-bottom:.75rem;">Primary Clinic</span>
+                  <h3>Carolina Wound Care — Aiken</h3>
+                  <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Independent — not hospital affiliated</p>
                 </div>
                 <div class="location-card-body">
                   <div class="location-detail">
                     <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                      <strong>Address</strong>
-                      <span>2 Carriage Lane, Suite 101, Charleston, SC 29407</span>
-                    </div>
+                    <div><strong>Address</strong><span>511 Grier Court, Aiken, SC 29803</span></div>
                   </div>
                   <div class="location-detail">
                     <i class="fa-solid fa-phone"></i>
-                    <div>
-                      <strong>Phone</strong>
-                      <span><a href="tel:8665408090" style="color:var(--teal);font-weight:700;font-size:1.05rem;">866-540-8090</a></span>
-                    </div>
+                    <div><strong>Phone</strong><span><a href="tel:8665408090" style="color:var(--teal);font-weight:700;">866-540-8090</a></span></div>
                   </div>
                   <div class="location-detail">
                     <i class="fa-solid fa-clock"></i>
-                    <div>
-                      <strong>Clinic Hours</strong>
-                      <span>Monday – Friday: 8:00 AM – 5:00 PM<br>Saturday &amp; Sunday: Mobile visits by appointment</span>
-                    </div>
+                    <div><strong>Hours</strong><span>Mon – Fri: 8:00 AM – 5:00 PM<br>Sat &amp; Sun: Mobile visits by appointment</span></div>
                   </div>
                   <div class="location-detail">
                     <i class="fa-solid fa-shield-halved"></i>
-                    <div>
-                      <strong>Insurance Accepted</strong>
-                      <span>Medicare, Most PPO Plans</span>
-                    </div>
+                    <div><strong>Insurance</strong><span>Medicare &amp; Most PPO Plans Accepted</span></div>
                   </div>
-                  <div style="display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap;">
+                  <div style="display:flex;gap:.65rem;margin-top:1.5rem;flex-wrap:wrap;">
+                    <a href="https://maps.google.com/?q=511+Grier+Court+Aiken+SC+29803" target="_blank" rel="noopener" class="btn btn-primary">
+                      <i class="fa-solid fa-directions"></i> Get Directions
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                      <i class="fa-solid fa-calendar"></i> Book Appointment
+                    </a>
+                    <a href="wound-care-aiken-sc.html" style="font-size:.85rem;color:var(--teal);font-weight:600;display:inline-flex;align-items:center;gap:.35rem;margin-top:.1rem;">
+                      <i class="fa-solid fa-arrow-right"></i> Aiken Location Page
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Map -->
+              <div class="clinic-map-wrap">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-81.7154!3d33.5601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s511+Grier+Ct%2C+Aiken%2C+SC+29803!5e0!3m2!1sen!2sus!4v1700000000"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  title="Carolina Wound Care — Aiken, SC"
+                  aria-label="Map showing Carolina Wound Care clinic location in Aiken, SC"
+                ></iframe>
+              </div>
+
+            </div><!-- /clinic-top-row -->
+
+            <!-- Bottom strip: parking info + nearby communities -->
+            <div class="clinic-bottom-strip">
+              <div class="clinic-parking-box">
+                <i class="fa-solid fa-square-parking"></i>
+                <p>Convenient parking available. Accessible entrance for patients with limited mobility. <strong>Can't drive?</strong> <a href="contact.html#home-visit" style="color:var(--teal);font-weight:600;">Request a home visit</a> — call <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>.</p>
+              </div>
+              <div class="clinic-communities-box">
+                <h4><i class="fa-solid fa-location-arrow"></i> Nearby Communities Served</h4>
+                <div class="comm-tags">
+                  <span class="tag">Aiken</span>
+                  <span class="tag">North Augusta</span>
+                  <span class="tag">Augusta, GA area</span>
+                  <span class="tag">Graniteville</span>
+                  <span class="tag">Warrenville</span>
+                  <span class="tag">Bath</span>
+                  <span class="tag">Clearwater</span>
+                  <span class="tag">Langley</span>
+                  <span class="tag">Burnettown</span>
+                  <span class="tag">Edgefield</span>
+                </div>
+              </div>
+            </div><!-- /clinic-bottom-strip -->
+
+          </div>
+        </div><!-- end Aiken -->
+
+        <!-- ══ CHARLESTON CLINIC ══ -->
+        <div>
+          <div class="clinic-section-label">
+            <span class="clinic-num-badge">2</span>
+            Charleston, SC Clinic
+          </div>
+          <div class="clinic-wrapper reveal">
+
+            <!-- Top row: info card (left) + map (right) -->
+            <div class="clinic-top-row">
+
+              <!-- Left: Info card -->
+              <div class="location-card">
+                <div class="location-card-header">
+                  <span class="tag" style="display:inline-block;margin-bottom:.75rem;">Charleston Clinic</span>
+                  <h3>Carolina Wound Care — Charleston</h3>
+                  <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">West Ashley — Independent clinic</p>
+                </div>
+                <div class="location-card-body">
+                  <div class="location-detail">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div><strong>Address</strong><span>2 Carriage Lane, Suite 101, Charleston, SC 29407</span></div>
+                  </div>
+                  <div class="location-detail">
+                    <i class="fa-solid fa-phone"></i>
+                    <div><strong>Phone</strong><span><a href="tel:8665408090" style="color:var(--teal);font-weight:700;">866-540-8090</a></span></div>
+                  </div>
+                  <div class="location-detail">
+                    <i class="fa-solid fa-clock"></i>
+                    <div><strong>Hours</strong><span>Mon – Fri: 8:00 AM – 5:00 PM<br>Sat &amp; Sun: Mobile visits by appointment</span></div>
+                  </div>
+                  <div class="location-detail">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div><strong>Insurance</strong><span>Medicare &amp; Most PPO Plans Accepted</span></div>
+                  </div>
+                  <div style="display:flex;gap:.65rem;margin-top:1.5rem;flex-wrap:wrap;">
                     <a href="https://maps.google.com/?q=2+Carriage+Lane+Suite+101+Charleston+SC+29407" target="_blank" rel="noopener" class="btn btn-primary">
                       <i class="fa-solid fa-directions"></i> Get Directions
                     </a>
                     <a href="contact.html" class="btn btn-outline">
                       <i class="fa-solid fa-calendar"></i> Book Appointment
                     </a>
-                    <a href="wound-care-charleston-sc.html" class="btn btn-outline">
+                    <a href="wound-care-charleston-sc.html" style="font-size:.85rem;color:var(--teal);font-weight:600;display:inline-flex;align-items:center;gap:.35rem;margin-top:.1rem;">
                       <i class="fa-solid fa-arrow-right"></i> Charleston Location Page
                     </a>
                   </div>
                 </div>
               </div>
 
-              <!-- Nearby areas Charleston -->
-              <div style="margin-top:1.5rem;background:var(--gray-light);border:1.5px solid var(--gray-mid);border-radius:var(--radius-lg);padding:1.75rem;">
-                <h4 style="margin-bottom:1rem;"><i class="fa-solid fa-location-arrow" style="color:var(--teal);margin-right:.5rem;"></i>Nearby Communities Served</h4>
-                <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+              <!-- Right: Map -->
+              <div class="clinic-map-wrap">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3352.8!2d-79.9799!3d32.7588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88fe7b5c1f4a1f3b%3A0x0!2s2+Carriage+Lane%2C+Charleston%2C+SC+29407!5e0!3m2!1sen!2sus!4v1"
+                  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                  title="Carolina Wound Care — Charleston, SC"
+                  aria-label="Map showing Carolina Wound Care Charleston clinic location"
+                ></iframe>
+              </div>
+
+            </div><!-- /clinic-top-row -->
+
+            <!-- Bottom strip: parking info + nearby communities -->
+            <div class="clinic-bottom-strip">
+              <div class="clinic-parking-box">
+                <i class="fa-solid fa-square-parking"></i>
+                <p>Convenient parking in the Carriage Lane complex. <strong>Can't drive?</strong> <a href="contact.html#home-visit" style="color:var(--teal);font-weight:600;">Request a home visit</a> — call <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>.</p>
+              </div>
+              <div class="clinic-communities-box">
+                <h4><i class="fa-solid fa-location-arrow"></i> Nearby Communities Served</h4>
+                <div class="comm-tags">
                   <span class="tag">Downtown Charleston</span>
                   <span class="tag">West Ashley</span>
                   <span class="tag">Mount Pleasant</span>
@@ -422,26 +559,10 @@
                   <span class="tag">Kiawah Island</span>
                 </div>
               </div>
-            </div>
+            </div><!-- /clinic-bottom-strip -->
 
-            <!-- Charleston Map -->
-            <div class="reveal">
-              <iframe
-                class="map-frame"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3352.8!2d-79.9799!3d32.7588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88fe7b5c1f4a1f3b%3A0x0!2s2+Carriage+Lane%2C+Charleston%2C+SC+29407!5e0!3m2!1sen!2sus!4v1"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Carolina Wound Care Clinic Location — 2 Carriage Lane, Charleston, SC"
-                aria-label="Map showing Carolina Wound Care Charleston clinic location"
-              ></iframe>
-              <div class="alert-box" style="margin-top:1rem;">
-                <i class="fa-solid fa-car"></i>
-                <p style="margin:0;font-size:.9rem;">Convenient parking available in the Carriage Lane complex. <strong>Can't drive?</strong> Request a home visit instead — call <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>.</p>
-              </div>
-            </div>
           </div>
-        </div><!-- end Charleston wrapper -->
+        </div><!-- end Charleston -->
 
       </div>
     </section>
@@ -576,6 +697,95 @@
           <h2 id="counties-heading" class="section-title">All 46 South Carolina Counties</h2>
           <p class="section-subtitle">From the Upstate to the Lowcountry, from the Midlands to the Grand Strand — we serve every corner of South Carolina.</p>
         </div>
+        <!-- SC Coverage Map -->
+        <div class="sc-coverage-map reveal">
+          <div style="width:100%;border-radius:var(--radius-lg);overflow:hidden;background:#eaf9f7;">
+            <svg id="sc-svg-loc" viewBox="0 0 860 510" style="width:100%;height:auto;display:block;" role="img"
+                 aria-label="Accurate map of South Carolina showing all 46 counties served by Carolina Wound Care">
+              <defs>
+                <style>
+                  #sc-svg-loc .co{fill:#b8e8e2;stroke:#fff;stroke-width:.7;stroke-linejoin:round;}
+                  #sc-svg-loc .co-hi{fill:#2a9d8f;stroke:#fff;stroke-width:.9;stroke-linejoin:round;}
+                  #sc-svg-loc .lbl{font:600 6.5px 'Inter',Arial,sans-serif;fill:#0a4a42;text-anchor:middle;pointer-events:none;}
+                  #sc-svg-loc .lbl-hi{font:700 7px 'Inter',Arial,sans-serif;fill:#fff;text-anchor:middle;pointer-events:none;}
+                  #sc-svg-loc .pin{fill:#e76f51;}
+                  #sc-svg-loc .pin-r{fill:none;stroke:#fff;stroke-width:2.5;}
+                  #sc-svg-loc .pin-t{font:800 9px Arial,sans-serif;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none;}
+                </style>
+              </defs>
+              <g id="sc-counties-lg"></g>
+              <g id="sc-labels-lg"></g>
+              <g id="sc-pins-lg"></g>
+              <!-- legend -->
+              <rect x="10" y="458" width="840" height="44" rx="7" fill="rgba(42,157,143,.08)" stroke="rgba(42,157,143,.2)" stroke-width="1"/>
+              <circle cx="34" cy="480" r="6" fill="#b8e8e2" stroke="#2a9d8f" stroke-width="1.5"/>
+              <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="45" y="484">All 46 SC Counties Covered</text>
+              <circle cx="248" cy="480" r="6" fill="#2a9d8f"/>
+              <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="259" y="484">Key Service Areas</text>
+              <circle cx="406" cy="480" r="6" fill="#e76f51"/>
+              <text style="font:600 9px 'Inter',Arial,sans-serif;fill:#0d5c54;" x="417" y="484">A = Aiken Clinic · C = Charleston Clinic</text>
+            </svg>
+            <script>
+            (function(){
+              var HIGHLIGHTED={"45003":1,"45013":1,"45019":1,"45051":1,"45079":1};
+              var NAMES={"45001":"Abbeville","45003":"Aiken","45005":"Allendale","45007":"Anderson","45009":"Bamberg","45011":"Barnwell","45013":"Beaufort","45015":"Berkeley","45017":"Calhoun","45019":"Charleston","45021":"Cherokee","45023":"Chester","45025":"Chesterfield","45027":"Clarendon","45029":"Colleton","45031":"Darlington","45033":"Dillon","45035":"Dorchester","45037":"Edgefield","45039":"Fairfield","45041":"Florence","45043":"Georgetown","45045":"Greenville","45047":"Greenwood","45049":"Hampton","45051":"Horry","45053":"Jasper","45055":"Kershaw","45057":"Lancaster","45059":"Laurens","45061":"Lee","45063":"Lexington","45065":"McCormick","45067":"Marion","45069":"Marlboro","45071":"Newberry","45073":"Oconee","45075":"Orangeburg","45077":"Pickens","45079":"Richland","45081":"Saluda","45083":"Spartanburg","45085":"Sumter","45087":"Union","45089":"Williamsburg","45091":"York"};
+              var PINS={"45003":"A","45019":"C"};
+              var cg=document.getElementById("sc-counties-lg");
+              var lg=document.getElementById("sc-labels-lg");
+              var pg=document.getElementById("sc-pins-lg");
+              var W=860,H=450;
+              function renderMap(){
+                d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json").then(function(us){
+                  var all=topojson.feature(us,us.objects.counties);
+                  var sc={type:"FeatureCollection",features:all.features.filter(function(f){return String(f.id).padStart(5,"0").startsWith("45");})};
+                  var proj=d3.geoMercator().fitExtent([[10,10],[W-10,H-10]],sc);
+                  var pathFn=d3.geoPath().projection(proj);
+                  var ns="http://www.w3.org/2000/svg";
+                  sc.features.forEach(function(f){
+                    var id=String(f.id).padStart(5,"0");
+                    var p=document.createElementNS(ns,"path");
+                    p.setAttribute("class",HIGHLIGHTED[id]?"co-hi":"co");
+                    p.setAttribute("d",pathFn(f));
+                    cg.appendChild(p);
+                    var c=pathFn.centroid(f);
+                    var t=document.createElementNS(ns,"text");
+                    t.setAttribute("class",HIGHLIGHTED[id]?"lbl-hi":"lbl");
+                    t.setAttribute("x",c[0]);
+                    t.setAttribute("y",c[1]+2.5);
+                    t.textContent=NAMES[id]||"";
+                    lg.appendChild(t);
+                    if(PINS[id]){
+                      var ci=document.createElementNS(ns,"circle");ci.setAttribute("class","pin");ci.setAttribute("cx",c[0]);ci.setAttribute("cy",c[1]);ci.setAttribute("r","10");pg.appendChild(ci);
+                      var ri=document.createElementNS(ns,"circle");ri.setAttribute("class","pin-r");ri.setAttribute("cx",c[0]);ri.setAttribute("cy",c[1]);ri.setAttribute("r","10");pg.appendChild(ri);
+                      var tx=document.createElementNS(ns,"text");tx.setAttribute("class","pin-t");tx.setAttribute("x",c[0]);tx.setAttribute("y",c[1]);tx.textContent=PINS[id];pg.appendChild(tx);
+                    }
+                  });
+                });
+              }
+              function ensureLib(src,cb){var s=document.createElement("script");s.src=src;s.onload=cb;document.head.appendChild(s);}
+              if(typeof d3==="undefined"){
+                ensureLib("https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js",function(){
+                  if(typeof topojson==="undefined"){ensureLib("https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js",renderMap);}
+                  else{renderMap();}
+                });
+              } else if(typeof topojson==="undefined"){
+                ensureLib("https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js",renderMap);
+              } else{renderMap();}
+            })();
+            </script>
+          </div>
+          <p class="sc-map-caption">
+            <i class="fa-solid fa-map-pin" style="color:var(--teal);margin-right:.45rem;"></i>
+            <strong>Complete statewide coverage</strong> — Carolina Wound Care serves <strong>all 46 counties</strong> of South Carolina, from the Upstate to the Lowcountry.
+            <span style="margin-left:.5rem;color:var(--text-muted);font-size:.85rem;">
+              <span style="display:inline-flex;align-items:center;gap:.3rem;">
+                <span style="width:10px;height:10px;border-radius:50%;background:#e76f51;display:inline-block;"></span> Clinic locations &nbsp;
+                <span style="width:10px;height:10px;border-radius:50%;background:#2a9d8f;display:inline-block;"></span> Key service areas
+              </span>
+            </span>
+          </p>
+        </div>
+
         <div class="county-grid reveal">
           <span class="county-pill primary">Aiken ★</span>
           <span class="county-pill highlight">Richland (Columbia)</span>
@@ -673,7 +883,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care in Aiken, SC &amp; Charleston, SC — plus mobile visits anywhere in South Carolina. Medicare &amp; most PPO plans accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -692,6 +902,7 @@
             <li><a href="locations.html">Locations & Mobile Care</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a></li>
           </ul>
         </div>
         <div class="footer-col">

@@ -105,6 +105,114 @@
       font-size: .88rem;
       font-weight: 600;
     }
+
+    /* ---- Locations redesign ---- */
+    .about-clinics-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .sc-service-band {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 2.5rem;
+      align-items: center;
+      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(42,157,143,.08) 100%);
+      border: 1.5px solid rgba(42,157,143,.22);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem 3rem;
+    }
+    .sc-service-band-text h3 {
+      font-size: 1.7rem;
+      margin: .4rem 0 .75rem;
+      color: var(--text-dark);
+    }
+    .sc-service-band-text p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: .25rem;
+    }
+    .about-area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.1rem;
+    }
+    .about-area-pills .area-pill {
+      font-size: .8rem;
+      padding: .35rem .85rem;
+    }
+    /* SC SVG Map */
+    .sc-map-wrap {
+      position: relative;
+    }
+    .sc-svg-map {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 6px 18px rgba(42,157,143,.18));
+    }
+    .sc-state {
+      fill: rgba(42,157,143,.18);
+      stroke: var(--teal);
+      stroke-width: 2.5;
+      stroke-linejoin: round;
+    }
+    .sc-counties line {
+      stroke: rgba(42,157,143,.25);
+      stroke-width: 0.8;
+    }
+    .sc-pin {
+      fill: var(--teal);
+      opacity: .9;
+    }
+    .sc-pin-clinic {
+      fill: var(--teal-dark);
+      r: 10;
+    }
+    .sc-pin-major {
+      fill: var(--teal);
+      r: 6;
+    }
+    .sc-pin-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      fill: var(--text-dark);
+      text-anchor: middle;
+    }
+    .sc-coverage-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      fill: rgba(42,157,143,.45);
+      text-anchor: middle;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .sc-map-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: var(--teal-dark);
+      color: #fff;
+      padding: .45rem 1rem;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,.18);
+    }
+    @media (max-width: 900px) {
+      .about-clinics-row { grid-template-columns: 1fr; }
+      .sc-service-band {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -114,7 +222,7 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
         </a>
         <ul class="nav-links" role="list">
           <li><a href="index.html">Home</a></li>
@@ -145,6 +253,7 @@
           <li><a href="blog.html">Blog</a></li>
           <li><a href="locations.html">Locations</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
         </ul>
         <div class="nav-cta">
           <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
@@ -177,6 +286,7 @@
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
     <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
     <div class="mobile-cta">
       <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
       <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
@@ -237,9 +347,10 @@
           </div>
           <div class="value-img reveal">
             <img
-              src="https://sspark.genspark.ai/cfimages?u1=3huwYOj4%2FpAELzKG6CfgIK6hvF12wqfIDFZdoNt51DgL00VEwcMt6bjwnTMJKEAYCYJSfuYYlWs2tochE6acy53ttUEdZo04rJEC1zBDK3NVhCkABQwxNe6MHIRKFELi7g%3D%3D&u2=kGkWl2lxg7Rvs73%2F&width=2560"
-              alt="Wound care specialist visiting patient at home"
+              src="images/about-nurse-patient.jpg"
+              alt="Carolina Wound Care nurse specialist with a patient receiving in-home wound care treatment"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -297,6 +408,14 @@
           <h2 id="different-heading" class="section-title">Why Patients Choose <span class="text-teal">Carolina Wound Care</span></h2>
           <p class="section-subtitle">We're not your typical wound care center. Here's what makes our approach uniquely effective.</p>
         </div>
+        <div class="why-us-photo reveal" style="margin-bottom:2.5rem;">
+          <img
+            src="images/about-van-specialist.jpg"
+            alt="Carolina Wound Care mobile van and specialist team ready to serve patients across South Carolina"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
         <div class="grid-2">
           <div class="diff-card reveal">
             <div class="diff-icon"><i class="fa-solid fa-house-medical"></i></div>
@@ -350,97 +469,183 @@
         <div class="section-header center reveal">
           <span class="section-label">Find Us</span>
           <h2 id="location-about-heading" class="section-title">Our Locations &amp; Service Area</h2>
+          <p class="section-subtitle">Two clinic locations plus true mobile in-home service — across all of South Carolina.</p>
         </div>
-        <div class="grid-3">
-          <div class="reveal">
-            <div class="location-card">
-              <div class="location-card-header">
-                <span class="tag" style="margin-bottom:.75rem;display:inline-block;">Clinic</span>
-                <h3>Aiken Wound Care Clinic</h3>
-                <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Our flagship wound care center</p>
+
+        <!-- Two clinic cards side by side -->
+        <div class="about-clinics-row reveal">
+          <div class="location-card">
+            <div class="location-card-header">
+              <span class="tag" style="margin-bottom:.75rem;display:inline-block;">Clinic</span>
+              <h3>Aiken Wound Care Clinic</h3>
+              <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Our flagship wound care center</p>
+            </div>
+            <div class="location-card-body">
+              <div class="location-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div><strong>Address</strong><span>511 Grier Court, Aiken, SC 29803</span></div>
               </div>
-              <div class="location-card-body">
-                <div class="location-detail">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <div>
-                    <strong>Address</strong>
-                    <span>511 Grier Court, Aiken, SC 29803</span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <strong>Phone</strong>
-                    <span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-clock"></i>
-                  <div>
-                    <strong>Hours</strong>
-                    <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
-                  </div>
-                </div>
-                <a href="locations.html" class="btn btn-primary w-full">Get Directions</a>
+              <div class="location-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div><strong>Phone</strong><span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span></div>
               </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-clock"></i>
+                <div><strong>Hours</strong><span>Mon–Fri: 8:00 AM – 5:00 PM</span></div>
+              </div>
+              <a href="locations.html" class="btn btn-primary w-full" style="margin-top:auto;">Get Directions</a>
             </div>
           </div>
-          <div class="reveal">
-            <div class="location-card">
-              <div class="location-card-header">
-                <span class="tag" style="margin-bottom:.75rem;display:inline-block;">Clinic</span>
-                <h3>Charleston Wound Care Clinic</h3>
-                <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Serving the Charleston area</p>
+          <div class="location-card">
+            <div class="location-card-header">
+              <span class="tag" style="margin-bottom:.75rem;display:inline-block;">Clinic</span>
+              <h3>Charleston Wound Care Clinic</h3>
+              <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Serving the Charleston area</p>
+            </div>
+            <div class="location-card-body">
+              <div class="location-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div><strong>Address</strong><span>2 Carriage Lane, Suite 101, Charleston, SC 29407</span></div>
               </div>
-              <div class="location-card-body">
-                <div class="location-detail">
-                  <i class="fa-solid fa-location-dot"></i>
-                  <div>
-                    <strong>Address</strong>
-                    <span>2 Carriage Lane, Suite 101, Charleston, SC 29407</span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-phone"></i>
-                  <div>
-                    <strong>Phone</strong>
-                    <span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span>
-                  </div>
-                </div>
-                <div class="location-detail">
-                  <i class="fa-solid fa-clock"></i>
-                  <div>
-                    <strong>Hours</strong>
-                    <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
-                  </div>
-                </div>
-                <a href="locations.html" class="btn btn-primary w-full">Get Directions</a>
+              <div class="location-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div><strong>Phone</strong><span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span></div>
               </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-clock"></i>
+                <div><strong>Hours</strong><span>Mon–Fri: 8:00 AM – 5:00 PM</span></div>
+              </div>
+              <a href="locations.html" class="btn btn-primary w-full" style="margin-top:auto;">Get Directions</a>
             </div>
           </div>
-          <div class="reveal">
-            <div class="service-area-map">
-              <span class="section-label">Mobile Service Area</span>
-              <h3 style="margin-bottom:.5rem;">All of South Carolina</h3>
-              <p style="color:var(--text-muted);margin-bottom:0;">We travel to homes, assisted living facilities, nursing homes, and communities throughout all 46 SC counties.</p>
-              <div class="area-grid">
-                <span class="area-pill">Aiken</span>
-                <span class="area-pill">Columbia</span>
-                <span class="area-pill">Augusta Area</span>
-                <span class="area-pill">Greenville</span>
-                <span class="area-pill">Spartanburg</span>
-                <span class="area-pill">Charleston</span>
-                <span class="area-pill">Myrtle Beach</span>
-                <span class="area-pill">Florence</span>
-                <span class="area-pill">Hilton Head</span>
-                <span class="area-pill">Lexington</span>
-                <span class="area-pill">Sumter</span>
-                <span class="area-pill">Rock Hill</span>
-                <span class="area-pill">And More...</span>
-              </div>
-              <a href="locations.html" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex;">
-                Full Service Area <i class="fa-solid fa-arrow-right"></i>
-              </a>
+        </div>
+
+        <!-- Full-width SC map service area band -->
+        <div class="sc-service-band reveal">
+          <div class="sc-service-band-text">
+            <span class="section-label" style="color:var(--teal);">Mobile Service Area</span>
+            <h3>All 46 South Carolina Counties</h3>
+            <p>We travel to homes, assisted living facilities, nursing homes, and communities statewide — no transportation needed.</p>
+            <div class="about-area-pills">
+              <span class="area-pill">Aiken</span>
+              <span class="area-pill">Columbia</span>
+              <span class="area-pill">Charleston</span>
+              <span class="area-pill">Greenville</span>
+              <span class="area-pill">Spartanburg</span>
+              <span class="area-pill">Myrtle Beach</span>
+              <span class="area-pill">Florence</span>
+              <span class="area-pill">Hilton Head</span>
+              <span class="area-pill">Rock Hill</span>
+              <span class="area-pill">Sumter</span>
+              <span class="area-pill">Augusta Area</span>
+              <span class="area-pill">+ All 46 Counties</span>
+            </div>
+            <a href="locations.html" class="btn btn-primary" style="margin-top:1.75rem;display:inline-flex;">
+              View Full Service Area <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+          <div class="sc-map-wrap">
+            <!-- SVG outline map of South Carolina with county regions highlighted -->
+            <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" aria-label="Map of South Carolina showing service area" role="img" class="sc-svg-map">
+              <!-- State fill -->
+              <path class="sc-state" d="
+                M 30 60
+                L 50 45
+                L 80 38
+                L 120 30
+                L 160 26
+                L 200 24
+                L 240 22
+                L 280 24
+                L 310 28
+                L 335 35
+                L 355 45
+                L 370 55
+                L 385 68
+                L 395 82
+                L 400 95
+                L 405 110
+                L 408 128
+                L 410 148
+                L 408 168
+                L 403 188
+                L 395 205
+                L 385 218
+                L 370 228
+                L 352 238
+                L 330 248
+                L 308 258
+                L 288 266
+                L 268 272
+                L 248 276
+                L 228 278
+                L 210 278
+                L 195 275
+                L 178 268
+                L 162 260
+                L 148 250
+                L 135 240
+                L 118 228
+                L 100 218
+                L 85 208
+                L 72 196
+                L 60 183
+                L 50 168
+                L 40 152
+                L 33 135
+                L 28 118
+                L 26 100
+                L 27 82
+                Z
+              "/>
+              <!-- County grid lines (subtle) -->
+              <g class="sc-counties">
+                <!-- Horizontal bands -->
+                <line x1="28" y1="100" x2="408" y2="100"/>
+                <line x1="28" y1="140" x2="408" y2="145"/>
+                <line x1="32" y1="180" x2="400" y2="190"/>
+                <line x1="42" y1="220" x2="385" y2="225"/>
+                <!-- Vertical bands -->
+                <line x1="100" y1="30" x2="65" y2="210"/>
+                <line x1="160" y1="26" x2="140" y2="268"/>
+                <line x1="220" y1="23" x2="210" y2="278"/>
+                <line x1="280" y1="24" x2="275" y2="270"/>
+                <line x1="335" y1="35" x2="340" y2="250"/>
+              </g>
+              <!-- Highlighted region dots for key cities -->
+              <!-- Aiken (west) -->
+              <circle class="sc-pin sc-pin-clinic" cx="118" cy="175" r="10"/>
+              <text class="sc-pin-label" x="118" y="200">Aiken</text>
+              <!-- Columbia (center) -->
+              <circle class="sc-pin sc-pin-major" cx="218" cy="160" r="7"/>
+              <text class="sc-pin-label" x="218" y="180">Columbia</text>
+              <!-- Charleston (east coast) -->
+              <circle class="sc-pin sc-pin-clinic" cx="370" cy="228" r="10"/>
+              <text class="sc-pin-label" x="362" y="248">Charleston</text>
+              <!-- Greenville (NW) -->
+              <circle class="sc-pin sc-pin-major" cx="118" cy="70" r="7"/>
+              <text class="sc-pin-label" x="110" y="56">Greenville</text>
+              <!-- Spartanburg -->
+              <circle class="sc-pin sc-pin-major" cx="168" cy="72" r="6"/>
+              <text class="sc-pin-label" x="155" y="58">Spartanburg</text>
+              <!-- Florence (NE center) -->
+              <circle class="sc-pin sc-pin-major" cx="308" cy="115" r="6"/>
+              <text class="sc-pin-label" x="295" y="104">Florence</text>
+              <!-- Myrtle Beach (far NE coast) -->
+              <circle class="sc-pin sc-pin-major" cx="390" cy="98" r="6"/>
+              <text class="sc-pin-label" x="370" y="87">Myrtle Beach</text>
+              <!-- Hilton Head (SE tip) -->
+              <circle class="sc-pin sc-pin-major" cx="310" cy="262" r="6"/>
+              <text class="sc-pin-label" x="290" y="280">Hilton Head</text>
+              <!-- Rock Hill (N) -->
+              <circle class="sc-pin sc-pin-major" cx="198" cy="55" r="6"/>
+              <text class="sc-pin-label" x="186" y="44">Rock Hill</text>
+              <!-- "All 46 counties" coverage overlay label -->
+              <text class="sc-coverage-label" x="220" y="140">All 46 Counties</text>
+            </svg>
+            <div class="sc-map-badge">
+              <i class="fa-solid fa-van-shuttle"></i>
+              <span>Mobile Service Statewide</span>
             </div>
           </div>
         </div>
@@ -472,7 +677,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
           <p>Advanced wound care delivered with compassion — in our Aiken clinic or at your home anywhere in South Carolina. Medicare accepted.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -491,6 +696,7 @@
             <li><a href="locations.html">Locations & Mobile Care</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a></li>
           </ul>
         </div>
         <div class="footer-col">
