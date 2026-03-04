@@ -139,64 +139,19 @@
   }
 
   /* ============================================================
-     7. MOBILE MENU TOGGLE
-  ============================================================ */
-  function initMobileMenu() {
-    var toggle = document.getElementById('navToggle');
-    var menu = document.getElementById('mobileMenu');
-    if (!toggle || !menu) return;
-
-    toggle.addEventListener('click', function() {
-      var isOpen = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    // Close on outside click
-    document.addEventListener('click', function(e) {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  /* ============================================================
-     8. MOBILE ACCORDION SECTIONS
-  ============================================================ */
-  function initMobileAccordions() {
-    document.querySelectorAll('.mobile-section-toggle').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var section = btn.closest('.mobile-nav-section');
-        if (!section) return;
-        var subLinks = section.querySelector('.mobile-sub-links');
-        if (!subLinks) return;
-
-        var isOpen = subLinks.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen);
-        var caret = btn.querySelector('.toggle-caret');
-        if (caret) caret.style.transform = isOpen ? 'rotate(180deg)' : '';
-      });
-    });
-  }
-
-  /* ============================================================
      INIT — Run after DOM is ready
+     NOTE: Mobile menu toggle and accordion are handled
+     exclusively by js/main.js to avoid duplicate listeners.
   ============================================================ */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       initReveal();
       initNavbarScroll();
-      initMobileMenu();
-      initMobileAccordions();
       initPrefetch();
     });
   } else {
     initReveal();
     initNavbarScroll();
-    initMobileMenu();
-    initMobileAccordions();
     initPrefetch();
   }
 

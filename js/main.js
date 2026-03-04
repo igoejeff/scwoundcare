@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (toggle && mobileMenu) {
     toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+      e.stopPropagation(); // prevent document click from firing on same event
       if (mobileMenu.classList.contains('open')) {
         closeMobileMenu();
       } else {
@@ -55,10 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close when clicking outside the menu
+    // Close when tapping outside the menu (but not on the toggle itself)
     document.addEventListener('click', (e) => {
       if (mobileMenu.classList.contains('open') &&
           !mobileMenu.contains(e.target) &&
+          e.target !== toggle &&
           !toggle.contains(e.target)) {
         closeMobileMenu();
       }
@@ -71,9 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Mobile accordion sections ----
+  // CSS rule: .mobile-nav-section.open > .mobile-sub-links { display: flex }
+  // So we MUST toggle .open on the .mobile-nav-section (the parent), not on sub-links
   document.querySelectorAll('.mobile-section-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // don't bubble to the document close-menu listener
       const section = btn.closest('.mobile-nav-section');
+      if (!section) return;
       const isOpen = section.classList.toggle('open');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
