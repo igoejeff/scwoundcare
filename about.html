@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Carolina Wound Care – Aiken, SC Wound Care Specialists</title>
+  <meta name="description" content="Learn about Carolina Wound Care's mission to deliver compassionate, expert wound healing. Located at 511 Grier Court, Aiken, SC. Mobile service across South Carolina. Not affiliated with any hospital." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .mission-box {
+      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(42,157,143,.05) 100%);
+      border: 2px solid rgba(42,157,143,.2);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-box::before {
+      content: '\f0a0';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      top: -20px; right: 2rem;
+      font-size: 8rem;
+      color: rgba(42,157,143,.06);
+      line-height: 1;
+    }
+    .mission-box .mission-icon {
+      width: 72px; height: 72px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.8rem;
+      margin: 0 auto 1.5rem;
+    }
+    .mission-box h2 { margin-bottom: 1rem; }
+    .mission-box p  { color: var(--text-muted); font-size: 1.1rem; max-width: 680px; margin: 0 auto; line-height: 1.8; }
+
+    .value-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .value-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(42,157,143,.25); }
+    .value-card .value-icon {
+      width: 64px; height: 64px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1.5rem;
+      margin: 0 auto 1.25rem;
+    }
+    .value-card h4 { margin-bottom: .6rem; }
+    .value-card p  { color: var(--text-muted); font-size: .93rem; line-height: 1.7; }
+
+    .diff-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.75rem;
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      transition: var(--transition);
+    }
+    .diff-card:hover { box-shadow: var(--shadow-md); border-color: rgba(42,157,143,.25); }
+    .diff-card .diff-icon {
+      width: 52px; height: 52px;
+      background: var(--teal-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .diff-card h4 { margin-bottom: .4rem; font-size: 1.05rem; }
+    .diff-card p  { color: var(--text-muted); font-size: .9rem; margin: 0; line-height: 1.65; }
+
+    .independent-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: #FFF7ED;
+      border: 1.5px solid #FBD38D;
+      color: #C05621;
+      padding: .6rem 1.2rem;
+      border-radius: 50px;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="eyebrow"><i class="fa-solid fa-heart-pulse"></i> Our Story</div>
+          <h1>Compassionate Expert Care for Wounds That Won't Heal</h1>
+          <p>We believe every patient deserves access to advanced wound care — in a clinic or in the comfort of their own home.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>About Us</span>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section aria-labelledby="mission-heading">
+      <div class="container">
+        <div class="mission-box reveal">
+          <div class="mission-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div class="independent-badge" style="margin-bottom:1.5rem;">
+            <i class="fa-solid fa-circle-info"></i>
+            Not affiliated with any hospital system
+          </div>
+          <h2 id="mission-heading">Our Mission</h2>
+          <div class="divider center"></div>
+          <p>To provide compassionate, evidence-based wound care for patients with chronic wounds that won't heal — delivering the same level of advanced treatment found in hospital-based wound centers, without the hospital. We come to our patients, wherever they are in South Carolina.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="bg-light" aria-labelledby="who-heading">
+      <div class="container">
+        <div class="value-row">
+          <div class="value-text reveal">
+            <span class="section-label">Who We Are</span>
+            <h2 id="who-heading">Independent. Patient-First. <span class="text-teal">Expert.</span></h2>
+            <div class="divider"></div>
+            <p>Carolina Wound Care is an independent, specialized wound care practice based in Aiken, South Carolina. We are <strong>not affiliated with any hospital system</strong> — which means our only focus is on you and your healing.</p>
+            <p>Our team of board-certified wound care specialists brings decades of combined experience treating the most complex chronic wounds. We combine the latest evidence-based treatments with a deeply personal, compassionate approach to care.</p>
+            <p>What sets us apart? We actually come to you. Our true mobile wound care service means patients who struggle with transportation or mobility never have to go without the advanced treatment they need.</p>
+            <ul class="check-list mt-3">
+              <li><i class="fa-solid fa-circle-check"></i> Board-certified wound care specialists</li>
+              <li><i class="fa-solid fa-circle-check"></i> Independent — no hospital affiliation or system constraints</li>
+              <li><i class="fa-solid fa-circle-check"></i> In-clinic (Aiken, SC) + true mobile in-home service</li>
+              <li><i class="fa-solid fa-circle-check"></i> Medicare &amp; most PPO insurance accepted</li>
+              <li><i class="fa-solid fa-circle-check"></i> Serving all 46 South Carolina counties</li>
+            </ul>
+          </div>
+          <div class="value-img reveal">
+            <img
+              src="https://sspark.genspark.ai/cfimages?u1=3huwYOj4%2FpAELzKG6CfgIK6hvF12wqfIDFZdoNt51DgL00VEwcMt6bjwnTMJKEAYCYJSfuYYlWs2tochE6acy53ttUEdZo04rJEC1zBDK3NVhCkABQwxNe6MHIRKFELi7g%3D%3D&u2=kGkWl2lxg7Rvs73%2F&width=2560"
+              alt="Wound care specialist visiting patient at home"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR VALUES -->
+    <section aria-labelledby="values-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">What We Stand For</span>
+          <h2 id="values-heading" class="section-title">Our Core Values</h2>
+          <p class="section-subtitle">Everything we do is guided by these principles — from how we treat patients to how we develop care plans.</p>
+        </div>
+        <div class="grid-3">
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+            <h4>Compassion First</h4>
+            <p>We treat every patient as a person, not a wound. We take time to listen, explain, and care — with warmth and empathy at every visit.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fa-solid fa-microscope"></i></div>
+            <h4>Clinical Excellence</h4>
+            <p>We stay at the forefront of wound care science, using only evidence-based, clinically validated treatments that deliver real, measurable results.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fa-solid fa-house-medical"></i></div>
+            <h4>Radical Accessibility</h4>
+            <p>We believe geography and mobility should never be barriers to expert care. Our mobile service brings the clinic to you — no exceptions.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h4>Integrity & Transparency</h4>
+            <p>Honest communication about your treatment, your progress, and your costs — always. We handle insurance and billing so you don't have to worry.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fa-solid fa-user-group"></i></div>
+            <h4>Personalized Partnership</h4>
+            <p>No one-size-fits-all protocols. Every care plan is designed specifically for you, your wound, and your life — and updated as you progress.</p>
+          </div>
+          <div class="value-card reveal">
+            <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4>Trust & Safety</h4>
+            <p>Your safety and privacy are paramount. We follow all HIPAA guidelines and maintain the highest clinical safety standards at every visit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT MAKES US DIFFERENT -->
+    <section class="bg-light" aria-labelledby="different-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Difference</span>
+          <h2 id="different-heading" class="section-title">Why Patients Choose <span class="text-teal">Carolina Wound Care</span></h2>
+          <p class="section-subtitle">We're not your typical wound care center. Here's what makes our approach uniquely effective.</p>
+        </div>
+        <div class="grid-2">
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-house-medical"></i></div>
+            <div>
+              <h4>True In-Home Mobile Service</h4>
+              <p>We don't just send a nurse for dressing changes. We bring full, advanced wound care capabilities to your home — debridement, grafts, UltraMist® therapy, and personalized care planning.</p>
+            </div>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-building-hospital"></i></div>
+            <div>
+              <h4>Not Hospital-Affiliated</h4>
+              <p>Without hospital-system bureaucracy, we can be more responsive, flexible, and patient-focused. We come to you faster, spend more time with you, and tailor care completely to your needs.</p>
+            </div>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div>
+              <h4>Same-Week Access to Care</h4>
+              <p>No long waiting lists. Wounds don't wait — neither do we. Most patients are seen within the same week they contact us, in-clinic or at home.</p>
+            </div>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+            <div>
+              <h4>Fully Personalized Care Plans</h4>
+              <p>Your care plan is created specifically for your wound type, medical history, lifestyle, and goals. We continuously adapt it based on your healing progress.</p>
+            </div>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <h4>Insurance Handled For You</h4>
+              <p>Our team verifies your Medicare or PPO coverage and handles all prior authorizations and billing — so you can focus entirely on healing.</p>
+            </div>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <h4>Statewide South Carolina Reach</h4>
+              <p>From Aiken to Myrtle Beach, Greenville to Hilton Head — our mobile team serves all 46 South Carolina counties, bringing expert care to underserved communities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section aria-labelledby="location-about-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Find Us</span>
+          <h2 id="location-about-heading" class="section-title">Our Location & Service Area</h2>
+        </div>
+        <div class="grid-2">
+          <div class="reveal">
+            <div class="location-card">
+              <div class="location-card-header">
+                <span class="tag" style="margin-bottom:.75rem;display:inline-block;">Primary Clinic</span>
+                <h3>Aiken Wound Care Clinic</h3>
+                <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Our flagship wound care center</p>
+              </div>
+              <div class="location-card-body">
+                <div class="location-detail">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div>
+                    <strong>Address</strong>
+                    <span>511 Grier Court, Aiken, SC 29803</span>
+                  </div>
+                </div>
+                <div class="location-detail">
+                  <i class="fa-solid fa-phone"></i>
+                  <div>
+                    <strong>Phone</strong>
+                    <span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span>
+                  </div>
+                </div>
+                <div class="location-detail">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <div>
+                    <strong>Not hospital-affiliated</strong>
+                    <span>Independent, patient-first practice</span>
+                  </div>
+                </div>
+                <a href="locations.html" class="btn btn-primary w-full" style="margin-top:1.25rem;">View Directions</a>
+              </div>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="service-area-map">
+              <span class="section-label">Mobile Service Area</span>
+              <h3 style="margin-bottom:.5rem;">All of South Carolina</h3>
+              <p style="color:var(--text-muted);margin-bottom:0;">We travel to homes, assisted living facilities, nursing homes, and communities throughout all 46 SC counties.</p>
+              <div class="area-grid">
+                <span class="area-pill">Aiken</span>
+                <span class="area-pill">Columbia</span>
+                <span class="area-pill">Augusta Area</span>
+                <span class="area-pill">Greenville</span>
+                <span class="area-pill">Spartanburg</span>
+                <span class="area-pill">Charleston</span>
+                <span class="area-pill">Myrtle Beach</span>
+                <span class="area-pill">Florence</span>
+                <span class="area-pill">Hilton Head</span>
+                <span class="area-pill">Lexington</span>
+                <span class="area-pill">Sumter</span>
+                <span class="area-pill">Rock Hill</span>
+                <span class="area-pill">And More...</span>
+              </div>
+              <a href="locations.html" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex;">
+                Full Service Area <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">Get Started Today</span>
+          <h2>Ready to Get the Expert Wound Care You Deserve?</h2>
+          <p>Schedule a free consultation — in our Aiken clinic or at your home across South Carolina. Medicare accepted.</p>
+          <div class="cta-band-buttons">
+            <a href="contact.html" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="tel:8665408090" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <p>Advanced wound care delivered with compassion — in our Aiken clinic or at your home anywhere in South Carolina. Medicare accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations & Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Conditions</h5>
+          <ul>
+            <li><a href="conditions.html">Diabetic Foot Ulcers</a></li>
+            <li><a href="conditions.html">Venous Leg Ulcers</a></li>
+            <li><a href="conditions.html">Pressure Injuries</a></li>
+            <li><a href="conditions.html">Post-Surgical Wounds</a></li>
+            <li><a href="conditions.html">Sacral Ulcers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court<br>Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">HIPAA Notice</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

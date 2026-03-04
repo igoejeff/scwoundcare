@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop Living With a Wound That Won't Heal | Carolina Wound Care</title>
+  <meta name="description" content="Expert wound care in Aiken &amp; Charleston, SC — and mobile home visits across all of South Carolina. Medicare accepted. Call 866-540-8090." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #2A9D8F;
+      --teal-dark:  #0d6158;
+      --teal-light: #edf9f7;
+      --dark:       #0d2b28;
+      --text:       #1a3330;
+      --muted:      #4a6e6a;
+      --white:      #ffffff;
+      --radius:     14px;
+      --radius-lg:  20px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---- Utility ---- */
+    .text-teal  { color: var(--teal); }
+    .text-white { color: var(--white); }
+    .center     { text-align: center; }
+
+    /* ============================================================
+       TOP BAR
+    ============================================================ */
+    .lp-topbar {
+      background: var(--dark);
+      padding: .65rem 0;
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.78);
+      letter-spacing: .03em;
+    }
+    .lp-topbar a {
+      color: #6de8da;
+      font-weight: 700;
+    }
+    .lp-topbar a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       STICKY NAV (minimal)
+    ============================================================ */
+    .lp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(42,157,143,.12);
+      padding: .6rem 0;
+    }
+    .lp-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .lp-nav-logo img {
+      height: 72px;
+      width: auto;
+    }
+    .lp-nav-right {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      flex-shrink: 0;
+    }
+    .lp-nav-phone {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+    .lp-nav-phone i { font-size: .85rem; }
+    .lp-nav-back {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      transition: color .2s;
+    }
+    .lp-nav-back:hover { color: var(--teal); }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .lp-hero {
+      background:
+        radial-gradient(ellipse 80% 70% at 70% 50%, rgba(42,157,143,.10) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(42,157,143,.07) 0%, transparent 60%),
+        linear-gradient(145deg, #ffffff 0%, #edf9f7 45%, #e0f5f2 100%);
+      padding: 5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .lp-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(42,157,143,.1);
+      border: 1px solid rgba(42,157,143,.25);
+      color: #1a7a70;
+      padding: .42rem 1rem;
+      border-radius: 50px;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .lp-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+    }
+    .lp-hero h1 span {
+      background: linear-gradient(95deg, #1a8f83 0%, #2A9D8F 50%, #1e8a7e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .lp-hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      max-width: 460px;
+    }
+    .lp-hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-bottom: 2rem;
+    }
+    .btn-primary-lp {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: var(--teal);
+      color: #fff;
+      padding: .95rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all .25s ease;
+      box-shadow: 0 4px 24px rgba(42,157,143,.4);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary-lp:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(42,157,143,.5);
+      color: #fff;
+    }
+    .btn-ghost-lp {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: #fff;
+      color: var(--teal-dark);
+      padding: .95rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1.5px solid rgba(42,157,143,.3);
+      transition: all .25s ease;
+    }
+    .btn-ghost-lp:hover {
+      border-color: var(--teal);
+      background: var(--teal-light);
+      transform: translateY(-2px);
+      color: var(--teal-dark);
+    }
+    .lp-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+    .lp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .38rem;
+      background: #fff;
+      border: 1px solid rgba(42,157,143,.2);
+      color: #2a6b65;
+      padding: .32rem .82rem;
+      border-radius: 50px;
+      font-size: .76rem;
+      font-weight: 600;
+      box-shadow: 0 1px 6px rgba(42,157,143,.08);
+    }
+    .lp-badge i { color: var(--teal); font-size: .75rem; }
+
+    /* Hero image card */
+    .lp-hero-visual {
+      position: relative;
+    }
+    .lp-hero-img-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 72px rgba(42,157,143,.18), 0 4px 16px rgba(0,0,0,.06);
+      border: 1.5px solid rgba(42,157,143,.12);
+    }
+    .lp-hero-img-wrap img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .lp-hero-stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #fff;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      border-top: 1px solid rgba(42,157,143,.1);
+    }
+    .lp-stat {
+      padding: 1rem .75rem;
+      text-align: center;
+      border-right: 1px solid rgba(42,157,143,.1);
+    }
+    .lp-stat:last-child { border-right: none; }
+    .lp-stat-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--teal);
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .lp-stat-label {
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-top: .25rem;
+    }
+
+    /* ============================================================
+       URGENCY STRIP
+    ============================================================ */
+    .lp-urgency {
+      background: var(--dark);
+      padding: 1.5rem 0;
+    }
+    .lp-urgency-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .lp-urgency p {
+      color: rgba(255,255,255,.88);
+      font-size: .95rem;
+      font-weight: 600;
+      margin: 0;
+    }
+    .lp-urgency p strong { color: #fff; }
+    .lp-urgency a.btn-urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--teal);
+      color: #fff;
+      padding: .6rem 1.5rem;
+      border-radius: 50px;
+      font-size: .88rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .lp-urgency a.btn-urgency:hover { background: #238a7d; }
+
+    /* ============================================================
+       SOCIAL PROOF — 3 testimonials
+    ============================================================ */
+    .lp-social {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+    .lp-section-label {
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .6rem;
+    }
+    .lp-section-title {
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: .75rem;
+    }
+    .lp-section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 3rem;
+    }
+    .lp-testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .lp-testi-card {
+      background: var(--teal-light);
+      border: 1px solid rgba(42,157,143,.15);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .lp-stars { color: #f5a623; font-size: .9rem; letter-spacing: .05em; }
+    .lp-testi-card blockquote {
+      font-size: .93rem;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      flex: 1;
+    }
+    .lp-testi-author {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+    }
+    .lp-testi-meta {
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       HOW IT WORKS — 4 steps
+    ============================================================ */
+    .lp-steps {
+      background: var(--teal-light);
+      padding: 5rem 0;
+    }
+    .lp-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+    .lp-steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: rgba(42,157,143,.2);
+    }
+    .lp-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .lp-step-num {
+      width: 56px;
+      height: 56px;
+      background: var(--teal);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin: 0 auto 1.1rem;
+      border: 4px solid #fff;
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .lp-step h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: .4rem;
+    }
+    .lp-step p {
+      font-size: .87rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       CONDITIONS — what we treat
+    ============================================================ */
+    .lp-conditions {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+    .lp-conditions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .lp-cond-card {
+      background: #fff;
+      border: 1.5px solid rgba(42,157,143,.14);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .lp-cond-card:hover {
+      box-shadow: 0 8px 28px rgba(42,157,143,.12);
+      transform: translateY(-3px);
+    }
+    .lp-cond-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--teal-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--teal);
+      font-size: 1.1rem;
+    }
+    .lp-cond-card h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: .3rem;
+    }
+    .lp-cond-card p {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       CTA BLOCK — the main funnel ask
+    ============================================================ */
+    .lp-cta {
+      background: linear-gradient(135deg, var(--dark) 0%, #164A43 100%);
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-cta::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(42,157,143,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .lp-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(42,157,143,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .lp-cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .lp-cta-inner .lp-section-label { color: #6de8da; }
+    .lp-cta-inner .lp-section-title { color: #fff; margin-bottom: 1rem; }
+    .lp-cta-inner p {
+      color: rgba(255,255,255,.72);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+    .lp-cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .btn-cta-white {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: #fff;
+      color: var(--teal-dark);
+      padding: 1rem 2.1rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: all .25s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    }
+    .btn-cta-white:hover {
+      background: var(--teal-light);
+      transform: translateY(-2px);
+      color: var(--teal-dark);
+    }
+    .btn-cta-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.92);
+      padding: 1rem 2.1rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,.2);
+      transition: all .25s ease;
+    }
+    .btn-cta-ghost:hover {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.4);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .lp-cta-reassurance {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: .5rem;
+    }
+    .lp-cta-reassurance span {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      color: rgba(255,255,255,.6);
+      font-weight: 500;
+    }
+    .lp-cta-reassurance i { color: #6de8da; font-size: .78rem; }
+
+    /* ============================================================
+       LOCATIONS
+    ============================================================ */
+    .lp-locations {
+      padding: 5rem 0;
+      background: var(--teal-light);
+    }
+    .lp-loc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .lp-loc-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(42,157,143,.1);
+      border: 1px solid rgba(42,157,143,.1);
+    }
+    .lp-loc-header {
+      background: linear-gradient(135deg, #0d6158 0%, var(--teal) 100%);
+      padding: 1.4rem 1.5rem;
+      color: #fff;
+    }
+    .lp-loc-header .tag {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .22rem .7rem;
+      border-radius: 50px;
+      margin-bottom: .6rem;
+    }
+    .lp-loc-header h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: .2rem;
+    }
+    .lp-loc-header p {
+      font-size: .83rem;
+      color: rgba(255,255,255,.8);
+      margin: 0;
+    }
+    .lp-loc-body {
+      padding: 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+    }
+    .lp-loc-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+    .lp-loc-detail i {
+      color: var(--teal);
+      font-size: .95rem;
+      flex-shrink: 0;
+      margin-top: .18rem;
+    }
+    .lp-loc-detail strong {
+      display: block;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .15rem;
+    }
+    .lp-loc-detail span {
+      font-size: .88rem;
+      color: var(--muted);
+    }
+    .lp-loc-detail a { color: var(--teal); font-weight: 600; }
+    .btn-loc {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background: var(--teal);
+      color: #fff;
+      padding: .75rem 1rem;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 700;
+      margin-top: .5rem;
+      transition: background .2s, transform .2s;
+    }
+    .btn-loc:hover { background: var(--teal-dark); transform: translateY(-2px); color: #fff; }
+
+    /* ============================================================
+       INSURANCE STRIP
+    ============================================================ */
+    .lp-insurance {
+      background: var(--dark);
+      padding: 3rem 0;
+    }
+    .lp-insurance-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .lp-ins-label {
+      font-size: .8rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-right: .5rem;
+    }
+    .lp-ins-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.82);
+      padding: .42rem 1rem;
+      border-radius: 50px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .lp-ins-badge i { color: #6de8da; font-size: .8rem; }
+
+    /* ============================================================
+       FOOTER (minimal)
+    ============================================================ */
+    .lp-footer {
+      background: #091a18;
+      padding: 2.5rem 0;
+    }
+    .lp-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .lp-footer-logo img { height: 60px; width: auto; }
+    .lp-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .lp-footer-links a {
+      font-size: .82rem;
+      color: rgba(255,255,255,.5);
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .lp-footer-links a:hover { color: #6de8da; }
+    .lp-footer-copy {
+      font-size: .78rem;
+      color: rgba(255,255,255,.35);
+      text-align: right;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .lp-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .lp-hero p { max-width: 100%; }
+      .lp-hero-btns, .lp-hero-badges { justify-content: center; }
+      .lp-hero-visual { order: -1; }
+      .lp-hero-img-wrap img { height: 300px; }
+      .lp-steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .lp-steps-grid::before { display: none; }
+      .lp-testi-grid { grid-template-columns: 1fr; }
+      .lp-conditions-grid { grid-template-columns: repeat(2, 1fr); }
+      .lp-loc-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+    }
+    @media (max-width: 600px) {
+      .lp-hero { padding: 3.5rem 0 3rem; }
+      .lp-hero h1 { font-size: 2rem; }
+      .lp-hero-btns { flex-direction: column; }
+      .btn-primary-lp, .btn-ghost-lp { justify-content: center; }
+      .lp-steps-grid { grid-template-columns: 1fr; }
+      .lp-conditions-grid { grid-template-columns: 1fr; }
+      .lp-cta-btns { flex-direction: column; align-items: center; }
+      .btn-cta-white, .btn-cta-ghost { width: 100%; justify-content: center; }
+      .lp-footer-inner { flex-direction: column; align-items: flex-start; }
+      .lp-footer-copy { text-align: left; }
+      .lp-nav-back { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="lp-topbar">
+    <i class="fa-solid fa-phone" style="margin-right:.4rem;"></i>
+    Speak with a specialist today — <a href="tel:8665408090">866-540-8090</a> &nbsp;·&nbsp; Aiken &amp; Charleston, SC &nbsp;·&nbsp; Mobile visits statewide
+  </div>
+
+  <!-- STICKY NAV -->
+  <nav class="lp-nav" aria-label="Landing page navigation">
+    <div class="container lp-nav-inner">
+      <a href="index.html" class="lp-nav-logo" aria-label="Carolina Wound Care Home">
+        <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+      </a>
+      <div class="lp-nav-right">
+        <a href="tel:8665408090" class="lp-nav-phone">
+          <i class="fa-solid fa-phone"></i> 866-540-8090
+        </a>
+        <a href="index.html" class="lp-nav-back">
+          <i class="fa-solid fa-arrow-left"></i> Back to Main Site
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="lp-hero">
+      <div class="container">
+        <div class="lp-hero-inner">
+
+          <!-- Left: copy -->
+          <div class="lp-hero-text">
+            <div class="lp-hero-eyebrow">
+              <i class="fa-solid fa-location-dot"></i>
+              Aiken &amp; Charleston, SC · Statewide Mobile Visits
+            </div>
+            <h1>Your Wound Can Heal.<br><span>We'll Come to You.</span></h1>
+            <p>If your wound hasn't improved in weeks, you need more than a band-aid. Carolina Wound Care brings specialist-level treatment directly to your home — or see us in Aiken or Charleston. Medicare accepted.</p>
+            <div class="lp-hero-btns">
+              <a href="contact.html" class="btn-primary-lp">
+                <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+              </a>
+              <a href="tel:8665408090" class="btn-ghost-lp">
+                <i class="fa-solid fa-phone"></i> Call 866-540-8090
+              </a>
+            </div>
+            <div class="lp-hero-badges">
+              <span class="lp-badge"><i class="fa-solid fa-shield-halved"></i> Medicare Accepted</span>
+              <span class="lp-badge"><i class="fa-solid fa-shield-halved"></i> Most PPO Plans Accepted</span>
+              <span class="lp-badge"><i class="fa-solid fa-house-medical"></i> We Come to You</span>
+              <span class="lp-badge"><i class="fa-solid fa-star"></i> 5-Star Rated</span>
+            </div>
+          </div>
+
+          <!-- Right: image + stats -->
+          <div class="lp-hero-visual">
+            <div class="lp-hero-img-wrap">
+              <img src="images/home-visit-nurse-2.jpg" alt="Carolina Wound Care specialist treating a patient at home in South Carolina" />
+              <div class="lp-hero-stat-strip">
+                <div class="lp-stat">
+                  <div class="lp-stat-num">95%</div>
+                  <div class="lp-stat-label">Healing Rate</div>
+                </div>
+                <div class="lp-stat">
+                  <div class="lp-stat-num">2,000+</div>
+                  <div class="lp-stat-label">Patients Helped</div>
+                </div>
+                <div class="lp-stat">
+                  <div class="lp-stat-num">46</div>
+                  <div class="lp-stat-label">SC Counties</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         URGENCY STRIP
+    ============================================================ -->
+    <div class="lp-urgency">
+      <div class="container lp-urgency-inner">
+        <p><strong>Wounds that don't improve within 4–6 weeks are considered chronic</strong> — and they will not heal on their own without specialist care.</p>
+        <a href="contact.html" class="btn-urgency">
+          <i class="fa-solid fa-arrow-right"></i> Get Help Now
+        </a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SOCIAL PROOF
+    ============================================================ -->
+    <section class="lp-social">
+      <div class="container center">
+        <div class="lp-section-label">Real Patient Stories</div>
+        <h2 class="lp-section-title">Healing Happens Here</h2>
+        <p class="lp-section-sub">See what our patients across South Carolina are saying about their experience with Carolina Wound Care.</p>
+        <div class="lp-testi-grid">
+
+          <div class="lp-testi-card">
+            <div class="lp-stars">★★★★★</div>
+            <blockquote>"I had a diabetic foot ulcer for months. My doctor was worried about amputation. Carolina Wound Care came to my home in Aiken and it healed in 8 weeks. I can't thank them enough."</blockquote>
+            <div>
+              <div class="lp-testi-author">James T.</div>
+              <div class="lp-testi-meta">Aiken, SC · Diabetic Foot Ulcer</div>
+            </div>
+          </div>
+
+          <div class="lp-testi-card">
+            <div class="lp-stars">★★★★★</div>
+            <blockquote>"My mother had a pressure sore that no one could get under control. They came right to her nursing home. Within 6 weeks it was completely healed. The team was so compassionate."</blockquote>
+            <div>
+              <div class="lp-testi-author">Linda M.</div>
+              <div class="lp-testi-meta">Columbia, SC · Pressure Injury</div>
+            </div>
+          </div>
+
+          <div class="lp-testi-card">
+            <div class="lp-stars">★★★★★</div>
+            <blockquote>"After surgery my wound just wouldn't close. Carolina Wound Care used UltraMist® therapy and it made a huge difference. Professional, caring, and they came right to my home."</blockquote>
+            <div>
+              <div class="lp-testi-author">Robert K.</div>
+              <div class="lp-testi-meta">Augusta area, SC · Post-Surgical Wound</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================ -->
+    <section class="lp-steps">
+      <div class="container center">
+        <div class="lp-section-label">Simple Process</div>
+        <h2 class="lp-section-title">Getting Started Takes One Phone Call</h2>
+        <p class="lp-section-sub" style="margin-bottom:0;">We've removed every barrier between you and healing.</p>
+        <div class="lp-steps-grid">
+          <div class="lp-step">
+            <div class="lp-step-num">1</div>
+            <h4>Call or Request Online</h4>
+            <p>Call <strong>866-540-8090</strong> or fill out our form. Tell us about your wound and location.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step-num">2</div>
+            <h4>We Verify Your Insurance</h4>
+            <p>Our team checks your Medicare or PPO coverage — at no cost to you.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step-num">3</div>
+            <h4>We Come to You</h4>
+            <p>A specialist visits your home or facility — often within the same week you call.</p>
+          </div>
+          <div class="lp-step">
+            <div class="lp-step-num">4</div>
+            <h4>You Heal</h4>
+            <p>We create a personalized plan and monitor your progress until your wound is closed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONDITIONS WE TREAT
+    ============================================================ -->
+    <section class="lp-conditions">
+      <div class="container center">
+        <div class="lp-section-label">Conditions We Treat</div>
+        <h2 class="lp-section-title">Wounds That Won't Heal Are <span class="text-teal">Our Specialty</span></h2>
+        <p class="lp-section-sub">Chronic wounds need more than standard care. Our specialists are trained for exactly this.</p>
+        <div class="lp-conditions-grid">
+          <div class="lp-cond-card">
+            <div class="lp-cond-icon"><i class="fa-solid fa-shoe-prints"></i></div>
+            <div>
+              <h4>Diabetic Foot Ulcers</h4>
+              <p>The #1 cause of non-traumatic amputation — highly preventable with early specialist care.</p>
+            </div>
+          </div>
+          <div class="lp-cond-card">
+            <div class="lp-cond-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <div>
+              <h4>Venous &amp; Arterial Leg Ulcers</h4>
+              <p>Lower leg wounds caused by poor circulation that standard dressings can't fix alone.</p>
+            </div>
+          </div>
+          <div class="lp-cond-card">
+            <div class="lp-cond-icon"><i class="fa-solid fa-bed-pulse"></i></div>
+            <div>
+              <h4>Pressure Injuries / Bed Sores</h4>
+              <p>All stages treated — from early redness to deep tissue wounds. In-home care available.</p>
+            </div>
+          </div>
+          <div class="lp-cond-card">
+            <div class="lp-cond-icon"><i class="fa-solid fa-scissors"></i></div>
+            <div>
+              <h4>Post-Surgical Wounds</h4>
+              <p>Incisions that dehisce or fail to close after surgery need specialized wound management.</p>
+            </div>
+          </div>
+          <div class="lp-cond-card">
+            <div class="lp-cond-icon"><i class="fa-solid fa-fire-flame-simple"></i></div>
+            <div>
+              <h4>Burns &amp; Traumatic Wounds</h4>
+              <p>Complex wounds from burns or injury requiring ongoing specialist care to close properly.</p>
+            </div>
+          </div>
+          <div class="lp-cond-card">
+            <div class="lp-cond-icon"><i class="fa-solid fa-circle-question"></i></div>
+            <div>
+              <h4>Any Wound Not Healing</h4>
+              <p>If your wound hasn't improved in 2–6 weeks, we can help — regardless of the cause.</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:2rem; font-size:.9rem; color:var(--muted);">
+          Not sure if we treat your wound type? <a href="conditions.html" style="color:var(--teal);font-weight:700;">See the full conditions list →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MAIN CTA BLOCK
+    ============================================================ -->
+    <section class="lp-cta" id="get-started">
+      <div class="container">
+        <div class="lp-cta-inner">
+          <div class="lp-section-label">Take the First Step</div>
+          <h2 class="lp-section-title">Don't Wait Another Week<br>for Your Wound to Heal</h2>
+          <p>Every week without proper care increases your risk of infection, hospitalization, and amputation. Our specialists are ready — and we accept Medicare and most PPO insurance.</p>
+          <div class="lp-cta-btns">
+            <a href="contact.html" class="btn-cta-white">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="tel:8665408090" class="btn-cta-ghost">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+          <div class="lp-cta-reassurance">
+            <span><i class="fa-solid fa-check"></i> No upfront cost</span>
+            <span><i class="fa-solid fa-check"></i> We verify your insurance free</span>
+            <span><i class="fa-solid fa-check"></i> Same-week appointments available</span>
+            <span><i class="fa-solid fa-check"></i> We come to you</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LOCATIONS
+    ============================================================ -->
+    <section class="lp-locations">
+      <div class="container center">
+        <div class="lp-section-label">Find Us</div>
+        <h2 class="lp-section-title">Two Clinics + Mobile Service <span class="text-teal">Statewide</span></h2>
+        <p class="lp-section-sub" style="margin-bottom:0;">Visit us in Aiken or Charleston, or let us come directly to your home anywhere in South Carolina.</p>
+        <div class="lp-loc-grid">
+
+          <div class="lp-loc-card">
+            <div class="lp-loc-header">
+              <div class="tag">Clinic</div>
+              <h3>Aiken, SC</h3>
+              <p>Our main wound care clinic</p>
+            </div>
+            <div class="lp-loc-body">
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Address</strong>
+                  <span>511 Grier Court, Aiken, SC 29803</span>
+                </div>
+              </div>
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone</strong>
+                  <span><a href="tel:8665408090">866-540-8090</a></span>
+                </div>
+              </div>
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                  <strong>Hours</strong>
+                  <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+                </div>
+              </div>
+              <a href="locations.html" class="btn-loc">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="lp-loc-card">
+            <div class="lp-loc-header">
+              <div class="tag">Clinic</div>
+              <h3>Charleston, SC</h3>
+              <p>Serving the Charleston area</p>
+            </div>
+            <div class="lp-loc-body">
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Address</strong>
+                  <span>2 Carriage Lane, Suite 101, Charleston, SC 29407</span>
+                </div>
+              </div>
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone</strong>
+                  <span><a href="tel:8665408090">866-540-8090</a></span>
+                </div>
+              </div>
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                  <strong>Hours</strong>
+                  <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+                </div>
+              </div>
+              <a href="locations.html" class="btn-loc">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="lp-loc-card">
+            <div class="lp-loc-header" style="background:linear-gradient(135deg,#1E7A6E 0%,#2A9D8F 100%);">
+              <div class="tag">Mobile Service</div>
+              <h3>All of South Carolina</h3>
+              <p>We come directly to you</p>
+            </div>
+            <div class="lp-loc-body">
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div>
+                  <strong>Service Area</strong>
+                  <span>All 46 SC counties — homes, facilities, nursing homes</span>
+                </div>
+              </div>
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Schedule Visit</strong>
+                  <span><a href="tel:8665408090">866-540-8090</a></span>
+                </div>
+              </div>
+              <div class="lp-loc-detail">
+                <i class="fa-solid fa-car"></i>
+                <div>
+                  <strong>No Transportation Needed</strong>
+                  <span>We bring everything to your door</span>
+                </div>
+              </div>
+              <a href="contact.html" class="btn-loc">Request Home Visit <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INSURANCE STRIP
+    ============================================================ -->
+    <div class="lp-insurance">
+      <div class="container lp-insurance-inner">
+        <span class="lp-ins-label">We Accept</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-shield-halved"></i> Medicare Part A &amp; B</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-shield-halved"></i> Most PPO Plans</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-building-shield"></i> Most PPO Plans</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-heart-circle-check"></i> BlueCross BlueShield</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-heart-circle-check"></i> Aetna</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-heart-circle-check"></i> United Healthcare</span>
+        <span class="lp-ins-badge"><i class="fa-solid fa-heart-circle-check"></i> Cigna</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER (minimal, links back to main site)
+  ============================================================ -->
+  <footer class="lp-footer">
+    <div class="container lp-footer-inner">
+      <a href="index.html" class="lp-footer-logo">
+        <img src="images/logo-transparent.png" alt="Carolina Wound Care" />
+      </a>
+      <div class="lp-footer-links">
+        <a href="index.html">Main Website</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="conditions.html">Conditions</a>
+        <a href="blog.html">Blog</a>
+        <a href="locations.html">Locations</a>
+        <a href="contact.html">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">HIPAA Notice</a>
+      </div>
+      <div class="lp-footer-copy">
+        © 2026 Carolina Wound Care. All rights reserved.<br>
+        <span style="font-size:.72rem;">866-540-8090 · info@carolinawoundcare.com</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

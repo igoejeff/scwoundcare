@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conditions We Treat | Carolina Wound Care – Diabetic Ulcers, Pressure Wounds, Venous Ulcers SC</title>
+  <meta name="description" content="We treat diabetic foot ulcers, venous & arterial leg ulcers, pressure injuries, post-surgical wounds, sacral ulcers and more. Take our 1-minute wound quiz to see if specialized care is right for you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .condition-detail {
+      scroll-margin-top: 90px;
+    }
+    .condition-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .condition-block:last-child { border-bottom: none; }
+    .condition-block.alt { }
+    .condition-block.alt .condition-block-text { order: 2; }
+    .condition-block.alt .condition-block-visual { order: 1; }
+    .condition-block-text .condition-icon-lg {
+      width: 72px; height: 72px;
+      background: var(--teal-light);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+    }
+    .condition-block-text h2 { margin-bottom: .75rem; font-size: 1.8rem; }
+    .condition-block-text .condition-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+    .condition-block-text p { color: var(--text-muted); margin-bottom: 1rem; line-height: 1.75; }
+    .condition-block-visual {
+      background: var(--teal-light);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      border: 1.5px solid rgba(42,157,143,.15);
+    }
+    .condition-block-visual h4 {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .risk-list { display: flex; flex-direction: column; gap: .6rem; margin-bottom: 1.75rem; }
+    .risk-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      font-size: .93rem;
+      color: var(--text-body);
+    }
+    .risk-list li i { color: var(--teal); flex-shrink: 0; margin-top: .2rem; font-size: .85rem; }
+
+    .warning-stat {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-top: 1rem;
+      text-align: center;
+      border: 1.5px solid rgba(42,157,143,.2);
+    }
+    .warning-stat .ws-num { font-size: 2rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .warning-stat .ws-label { font-size: .82rem; color: var(--text-muted); margin-top: .25rem; }
+
+    /* Quiz section */
+    .quiz-section {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, #0D2B28 100%);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .quiz-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: rgba(42,157,143,.1);
+      border-radius: 50%;
+    }
+    .quiz-section-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .quiz-section .section-label { color: var(--teal-mid); }
+    .quiz-section h2 { color: var(--white); }
+    .quiz-section > .container > .section-header > p { color: rgba(255,255,255,.75); }
+
+    @media (max-width: 768px) {
+      .condition-block { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; }
+      .condition-block.alt .condition-block-text { order: unset; }
+      .condition-block.alt .condition-block-visual { order: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle active" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" class="active" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="eyebrow"><i class="fa-solid fa-heart-pulse"></i> Expert Wound Management</div>
+          <h1>Conditions We Treat</h1>
+          <p>We specialize in complex chronic wounds — the ones that won't heal on their own and need a specialist's touch.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Conditions We Treat</span>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK NAV -->
+    <section class="section-sm bg-light">
+      <div class="container">
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;" class="reveal">
+          <a href="#diabetic" class="tag" style="font-size:.88rem;padding:.5rem 1rem;">Diabetic Foot Ulcers</a>
+          <a href="#venous" class="tag" style="font-size:.88rem;padding:.5rem 1rem;">Venous Leg Ulcers</a>
+          <a href="#arterial" class="tag" style="font-size:.88rem;padding:.5rem 1rem;">Arterial Ulcers</a>
+          <a href="#pressure" class="tag" style="font-size:.88rem;padding:.5rem 1rem;">Pressure Injuries</a>
+          <a href="#surgical" class="tag" style="font-size:.88rem;padding:.5rem 1rem;">Post-Surgical Wounds</a>
+          <a href="#sacral" class="tag" style="font-size:.88rem;padding:.5rem 1rem;">Sacral Ulcers</a>
+          <a href="#quiz" class="btn btn-primary btn-sm">Take the 1-Min Quiz</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONDITIONS DETAIL -->
+    <section aria-labelledby="conditions-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">What We Treat</span>
+          <h2 id="conditions-heading" class="section-title">Chronic Wounds That Need <span class="text-teal">Specialist Care</span></h2>
+          <p class="section-subtitle">A wound that hasn't improved in 2–4 weeks is considered chronic and deserves specialist evaluation. Early intervention dramatically improves outcomes.</p>
+        </div>
+
+        <!-- Diabetic Foot Ulcers -->
+        <div class="condition-block condition-detail" id="diabetic">
+          <div class="condition-block-text reveal">
+            <div class="condition-icon-lg"><i class="fa-solid fa-shoe-prints"></i></div>
+            <div class="condition-tags">
+              <span class="tag">Most Common</span>
+              <span class="tag">High Risk</span>
+            </div>
+            <h2>Diabetic Foot Ulcers</h2>
+            <p>Diabetic foot ulcers affect approximately 15% of people with diabetes and are a leading cause of lower-limb amputation. They form due to a combination of peripheral neuropathy (loss of sensation), poor circulation, and impaired immune response — all common complications of diabetes.</p>
+            <p>Without expert wound care, these ulcers can progress rapidly, developing deep infections that reach bone (osteomyelitis) and potentially requiring amputation. With proper specialist intervention, the vast majority of diabetic foot ulcers can heal completely.</p>
+            <ul class="check-list mt-2">
+              <li><i class="fa-solid fa-circle-check"></i> Specialized debridement to remove infected tissue</li>
+              <li><i class="fa-solid fa-circle-check"></i> Offloading to remove pressure from the wound</li>
+              <li><i class="fa-solid fa-circle-check"></i> Advanced biologics to stimulate healing</li>
+              <li><i class="fa-solid fa-circle-check"></i> Infection management and prevention</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Schedule Consultation</a>
+          </div>
+          <div class="condition-block-visual reveal">
+            <h4>Risk Factors</h4>
+            <ul class="risk-list">
+              <li><i class="fa-solid fa-circle"></i> Diabetes (Type 1 or Type 2)</li>
+              <li><i class="fa-solid fa-circle"></i> Peripheral neuropathy (numbness in feet)</li>
+              <li><i class="fa-solid fa-circle"></i> Poor blood sugar control</li>
+              <li><i class="fa-solid fa-circle"></i> Peripheral arterial disease</li>
+              <li><i class="fa-solid fa-circle"></i> Foot deformities or pressure points</li>
+              <li><i class="fa-solid fa-circle"></i> History of previous foot ulcers</li>
+            </ul>
+            <div class="warning-stat">
+              <div class="ws-num">85%</div>
+              <div class="ws-label">of diabetes-related amputations are preceded by a foot ulcer that could have been treated</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venous Leg Ulcers -->
+        <div class="condition-block condition-block alt condition-detail" id="venous">
+          <div class="condition-block-visual reveal">
+            <h4>Risk Factors</h4>
+            <ul class="risk-list">
+              <li><i class="fa-solid fa-circle"></i> Chronic venous insufficiency</li>
+              <li><i class="fa-solid fa-circle"></i> History of blood clots (DVT)</li>
+              <li><i class="fa-solid fa-circle"></i> Varicose veins</li>
+              <li><i class="fa-solid fa-circle"></i> Obesity or prolonged standing</li>
+              <li><i class="fa-solid fa-circle"></i> Previous leg ulcers</li>
+              <li><i class="fa-solid fa-circle"></i> Age 60 or older</li>
+            </ul>
+            <div class="warning-stat">
+              <div class="ws-num">70%</div>
+              <div class="ws-label">of chronic leg ulcers are venous in origin — and often recurrent without specialist management</div>
+            </div>
+          </div>
+          <div class="condition-block-text reveal">
+            <div class="condition-icon-lg"><i class="fa-solid fa-person-walking"></i></div>
+            <div class="condition-tags">
+              <span class="tag">Very Common</span>
+              <span class="tag">Recurrent</span>
+            </div>
+            <h2 id="venous-label">Venous Leg Ulcers</h2>
+            <p>Venous leg ulcers are caused by chronic venous insufficiency — when the veins in the legs can't efficiently return blood to the heart. This leads to fluid buildup, skin changes, and eventually open wounds that are notoriously difficult to heal without specialist intervention.</p>
+            <p>They typically appear above the ankle, may have irregular borders, and are often accompanied by swollen legs, brown skin discoloration, and a heavy, aching feeling. Many patients have lived with these wounds for months or even years before seeking specialist care.</p>
+            <ul class="check-list mt-2">
+              <li><i class="fa-solid fa-circle-check"></i> Multi-layer compression bandaging therapy</li>
+              <li><i class="fa-solid fa-circle-check"></i> Advanced moisture-retentive dressings</li>
+              <li><i class="fa-solid fa-circle-check"></i> Edema management to address root cause</li>
+              <li><i class="fa-solid fa-circle-check"></i> Recurrence prevention strategies</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Schedule Consultation</a>
+          </div>
+        </div>
+
+        <!-- Arterial Ulcers -->
+        <div class="condition-block condition-detail" id="arterial">
+          <div class="condition-block-text reveal">
+            <div class="condition-icon-lg"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="condition-tags">
+              <span class="tag">High Risk</span>
+              <span class="tag">Limb-Threatening</span>
+            </div>
+            <h2>Arterial (Ischemic) Ulcers</h2>
+            <p>Arterial ulcers occur when reduced blood flow (ischemia) prevents adequate oxygen and nutrients from reaching the tissues. They are typically found on the toes, feet, or lower legs and are extremely painful — often worse at night when lying down.</p>
+            <p>These wounds are serious and can quickly become limb-threatening. They require immediate specialist evaluation and often a coordinated approach with vascular medicine to address the underlying circulation problem.</p>
+            <ul class="check-list mt-2">
+              <li><i class="fa-solid fa-circle-check"></i> Careful, non-traumatic wound management</li>
+              <li><i class="fa-solid fa-circle-check"></i> Coordinated vascular assessment and care</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pain management and positioning guidance</li>
+              <li><i class="fa-solid fa-circle-check"></i> Infection prevention — critical for arterial wounds</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Schedule Urgent Consultation</a>
+          </div>
+          <div class="condition-block-visual reveal">
+            <h4>Warning Signs</h4>
+            <ul class="risk-list">
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Severe pain, especially at night</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Cold, pale or bluish toes/feet</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Wounds on tips of toes or between toes</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Hairless skin on lower legs</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Weak or absent pulse in legs</li>
+            </ul>
+            <div class="alert-box alert-box-warn mt-3" style="margin-top:1rem;">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p style="margin:0;font-size:.88rem;"><strong>Arterial ulcers are urgent.</strong> Please call us as soon as possible at <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pressure Injuries -->
+        <div class="condition-block alt condition-detail" id="pressure">
+          <div class="condition-block-visual reveal">
+            <h4>Pressure Injury Stages</h4>
+            <ul class="risk-list">
+              <li><i class="fa-solid fa-circle" style="color:#F6AD55;"></i> <strong>Stage 1:</strong> Non-blanchable redness of intact skin</li>
+              <li><i class="fa-solid fa-circle" style="color:#FC8181;"></i> <strong>Stage 2:</strong> Partial thickness skin loss</li>
+              <li><i class="fa-solid fa-circle" style="color:#E53E3E;"></i> <strong>Stage 3:</strong> Full thickness skin loss</li>
+              <li><i class="fa-solid fa-circle" style="color:#9B2335;"></i> <strong>Stage 4:</strong> Full thickness tissue loss (bone/tendon)</li>
+              <li><i class="fa-solid fa-circle" style="color:#2D3748;"></i> <strong>Unstageable:</strong> Depth unknown due to slough/eschar</li>
+            </ul>
+            <div class="warning-stat">
+              <div class="ws-num">60K</div>
+              <div class="ws-label">US patients die annually from pressure wound complications — all preventable with proper care</div>
+            </div>
+          </div>
+          <div class="condition-block-text reveal">
+            <div class="condition-icon-lg"><i class="fa-solid fa-bed-pulse"></i></div>
+            <div class="condition-tags">
+              <span class="tag">Stages 1–4</span>
+              <span class="tag">In-Home Treatable</span>
+            </div>
+            <h2>Pressure Injuries / Bed Sores</h2>
+            <p>Pressure injuries (also called pressure ulcers or bed sores) develop when sustained pressure cuts off blood flow to the skin and underlying tissue. They're common in patients with limited mobility — those who are bedridden, wheelchair-bound, or have had recent surgery or illness.</p>
+            <p>We treat all stages of pressure injuries, from Stage 1 redness to Stage 4 deep wounds involving bone. Our mobile home visit service is particularly important here — many patients with pressure wounds cannot travel to a clinic.</p>
+            <ul class="check-list mt-2">
+              <li><i class="fa-solid fa-circle-check"></i> Staging, assessment, and wound bed preparation</li>
+              <li><i class="fa-solid fa-circle-check"></i> Advanced debridement to remove necrotic tissue</li>
+              <li><i class="fa-solid fa-circle-check"></i> Specialized dressings for each stage</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pressure relief guidance and repositioning plans</li>
+              <li><i class="fa-solid fa-circle-check"></i> Caregiver and family education</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Request Home Visit</a>
+          </div>
+        </div>
+
+        <!-- Post-Surgical Wounds -->
+        <div class="condition-block condition-detail" id="surgical">
+          <div class="condition-block-text reveal">
+            <div class="condition-icon-lg"><i class="fa-solid fa-scissors"></i></div>
+            <div class="condition-tags">
+              <span class="tag">Post-Op</span>
+              <span class="tag">Complex</span>
+            </div>
+            <h2>Post-Surgical Wounds</h2>
+            <p>Not all surgical incisions heal as expected. Wound dehiscence (opening of the wound), infection, and non-healing after surgery are more common than most people realize — particularly in patients with diabetes, obesity, immunosuppression, or compromised circulation.</p>
+            <p>Our specialists work closely with your surgical team to manage these complex wounds using advanced techniques that standard home health cannot provide — including debridement, biologics, and UltraMist® therapy to accelerate closure.</p>
+            <ul class="check-list mt-2">
+              <li><i class="fa-solid fa-circle-check"></i> Wound dehiscence management</li>
+              <li><i class="fa-solid fa-circle-check"></i> Surgical site infection treatment</li>
+              <li><i class="fa-solid fa-circle-check"></i> Abdominal, chest, and orthopedic wound care</li>
+              <li><i class="fa-solid fa-circle-check"></i> Ostomy and fistula management</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Schedule Consultation</a>
+          </div>
+          <div class="condition-block-visual reveal">
+            <h4>Signs Your Surgical Wound Needs Specialist Care</h4>
+            <ul class="risk-list">
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Wound edges separating (dehiscence)</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Increasing redness, warmth, or swelling</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Drainage that is cloudy, green, or foul-smelling</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> No sign of healing after 2–3 weeks</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Fever associated with the wound site</li>
+              <li><i class="fa-solid fa-triangle-exclamation" style="color:#E53E3E;"></i> Deep cavities or tunneling developing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sacral Ulcers -->
+        <div class="condition-block alt condition-detail" id="sacral">
+          <div class="condition-block-visual reveal">
+            <h4>Who Is Most at Risk</h4>
+            <ul class="risk-list">
+              <li><i class="fa-solid fa-circle"></i> Elderly patients with limited mobility</li>
+              <li><i class="fa-solid fa-circle"></i> Nursing home or long-term care residents</li>
+              <li><i class="fa-solid fa-circle"></i> Patients recovering from hip fracture or surgery</li>
+              <li><i class="fa-solid fa-circle"></i> Those with incontinence (moisture damage)</li>
+              <li><i class="fa-solid fa-circle"></i> Patients with poor nutrition or low body weight</li>
+            </ul>
+            <div class="alert-box mt-3" style="margin-top:1rem;">
+              <i class="fa-solid fa-house-medical"></i>
+              <p style="margin:0;font-size:.88rem;"><strong>Home visits are ideal</strong> for sacral ulcer patients. We come to nursing homes, assisted living facilities, and private homes across SC.</p>
+            </div>
+          </div>
+          <div class="condition-block-text reveal">
+            <div class="condition-icon-lg"><i class="fa-solid fa-circle-notch"></i></div>
+            <div class="condition-tags">
+              <span class="tag">Elderly Care</span>
+              <span class="tag">Home Treatable</span>
+            </div>
+            <h2>Sacral Ulcers</h2>
+            <p>Sacral ulcers are pressure injuries located over the sacrum (lower back / tailbone area). They are among the most common and most serious types of pressure wounds, particularly in elderly, bedridden, or incontinent patients.</p>
+            <p>Because of their location, sacral ulcers are particularly difficult to treat — they're constantly at risk of contamination and additional pressure. Our mobile team specializes in visiting nursing homes and private homes to provide advanced sacral wound care without patients needing to be moved to a clinic.</p>
+            <ul class="check-list mt-2">
+              <li><i class="fa-solid fa-circle-check"></i> Expert staging and wound bed preparation</li>
+              <li><i class="fa-solid fa-circle-check"></i> Advanced moisture-barrier and antimicrobial dressings</li>
+              <li><i class="fa-solid fa-circle-check"></i> Debridement and biologic application as needed</li>
+              <li><i class="fa-solid fa-circle-check"></i> Nursing facility staff education and support</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary mt-3" style="margin-top:1.5rem;display:inline-flex;">Request Home / Facility Visit</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IS THIS FOR YOU -->
+    <section class="bg-light" aria-labelledby="criteria-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Is This Right For You?</span>
+          <h2 id="criteria-heading" class="section-title">Is Carolina Wound Care Right for You?</h2>
+          <p class="section-subtitle">Here's a clear guide to help you know whether our specialized services are the right fit for your situation.</p>
+        </div>
+        <div class="criteria-grid reveal">
+          <div class="criteria-box yes">
+            <h4><i class="fa-solid fa-circle-check"></i> This IS for you if…</h4>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Your wound has not improved in 2–6 weeks</li>
+              <li><i class="fa-solid fa-check"></i> You have diabetes and a wound on your foot or leg</li>
+              <li><i class="fa-solid fa-check"></i> You've been told you may need an amputation</li>
+              <li><i class="fa-solid fa-check"></i> You have a pressure wound / bed sore (any stage)</li>
+              <li><i class="fa-solid fa-check"></i> Your surgical wound hasn't closed properly</li>
+              <li><i class="fa-solid fa-check"></i> You have a venous or arterial leg ulcer</li>
+              <li><i class="fa-solid fa-check"></i> You struggle to get to a clinic (mobility / transport)</li>
+              <li><i class="fa-solid fa-check"></i> You want specialist-level care at home</li>
+              <li><i class="fa-solid fa-check"></i> You have Medicare or a PPO plan</li>
+              <li><i class="fa-solid fa-check"></i> You live anywhere in South Carolina</li>
+            </ul>
+          </div>
+          <div class="criteria-box no">
+            <h4><i class="fa-solid fa-circle-xmark"></i> This is NOT for you if…</h4>
+            <ul>
+              <li><i class="fa-solid fa-xmark"></i> You have a minor fresh cut or scrape healing normally</li>
+              <li><i class="fa-solid fa-xmark"></i> You need emergency/acute trauma care (go to ER)</li>
+              <li><i class="fa-solid fa-xmark"></i> Your wound is actively and visibly improving weekly</li>
+              <li><i class="fa-solid fa-xmark"></i> You need inpatient hospital care or surgery</li>
+            </ul>
+            <div class="alert-box mt-3" style="margin-top:1.5rem;">
+              <i class="fa-solid fa-lightbulb"></i>
+              <p style="margin:0;font-size:.88rem;"><strong>Not sure?</strong> Call us at <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a> or take our free 1-minute wound quiz below — we'll help you figure it out.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ SECTION -->
+    <section class="quiz-section" id="quiz" aria-labelledby="quiz-heading">
+      <div class="container quiz-section-inner">
+        <div class="section-header center reveal" style="margin-bottom:2.5rem;">
+          <span class="section-label">1-Minute Assessment</span>
+          <h2 id="quiz-heading" style="color:var(--white);">Does Your Wound Need Specialist Care?</h2>
+          <p style="color:rgba(255,255,255,.75);max-width:600px;margin:0 auto;">Answer 6 quick questions and we'll tell you whether your wound needs specialized attention — and how urgent it may be.</p>
+        </div>
+        <div class="quiz-wrapper reveal">
+          <div class="quiz-intro">
+            <i class="fa-solid fa-clipboard-question" style="font-size:2.5rem;color:var(--teal);margin-bottom:.75rem;display:block;"></i>
+            <h3>1-Minute Wound Assessment Quiz</h3>
+            <p>This quiz is not a medical diagnosis. Always consult a healthcare professional for proper evaluation.</p>
+          </div>
+          <div id="woundQuiz"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">Don't Wait</span>
+          <h2>Wounds That Haven't Improved in 6+ Weeks Need Specialist Care</h2>
+          <p>The sooner you act, the better your outcome. We make it easy — no long wait times, no transportation needed, we come to you.</p>
+          <div class="cta-band-buttons">
+            <a href="contact.html" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="tel:8665408090" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <p>Advanced wound care in Aiken, SC and mobile service across all of South Carolina. Medicare accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations & Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Conditions</h5>
+          <ul>
+            <li><a href="#diabetic">Diabetic Foot Ulcers</a></li>
+            <li><a href="#venous">Venous Leg Ulcers</a></li>
+            <li><a href="#arterial">Arterial Ulcers</a></li>
+            <li><a href="#pressure">Pressure Injuries</a></li>
+            <li><a href="#surgical">Post-Surgical Wounds</a></li>
+            <li><a href="#sacral">Sacral Ulcers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court, Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">HIPAA Notice</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

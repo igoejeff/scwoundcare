@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carolina Wound Care | Advanced Wound Care in Aiken, SC & Mobile Home Visits</title>
+  <meta name="description" content="Specialized wound care clinic in Aiken, SC offering in-clinic and true in-home/mobile visits. Advanced treatments for chronic wounds including UltraMist® therapy. Medicare accepted. Call 866-540-8090." />
+  <meta name="keywords" content="wound care Aiken SC, mobile wound care South Carolina, chronic wound treatment at home, diabetic foot ulcer treatment, wound care specialist SC, in-home wound care, UltraMist therapy" />
+  <meta property="og:title" content="Carolina Wound Care | Advanced Wound Care Aiken SC" />
+  <meta property="og:description" content="Specialized wound care in Aiken, SC. In-clinic and true mobile home visits. Medicare accepted. Call 866-540-8090." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://carolinawoundcare.com/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ---- Trust strip ---- */
+    .trust-strip {
+      background: #ffffff;
+      border-top: 2px solid rgba(42,157,143,.15);
+      border-bottom: 2px solid rgba(42,157,143,.15);
+      padding: 2rem 0;
+    }
+    .trust-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.75rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0d2b28;
+      letter-spacing: -.01em;
+    }
+    .trust-item i {
+      color: var(--teal);
+      font-size: 1.35rem;
+    }
+    @media (max-width: 768px) {
+      .trust-strip-inner { gap: 1.5rem; }
+      .trust-item { font-size: .95rem; }
+      .trust-item i { font-size: 1.15rem; }
+    }
+
+    /* ---- Features grid ---- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transition: var(--transition);
+      transform-origin: left;
+    }
+    .feature-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(42,157,143,.2); }
+    .feature-card:hover::after { transform: scaleX(1); }
+    .feature-card h3 { font-size: 1.2rem; margin-bottom: .6rem; }
+    .feature-card p  { color: var(--text-muted); font-size: .93rem; line-height: 1.7; }
+
+    /* ---- How it works ---- */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+    .how-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 2px;
+      background: var(--teal-mid);
+      opacity: .3;
+      z-index: 0;
+    }
+    .how-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .how-step-num {
+      width: 56px; height: 56px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin: 0 auto 1.25rem;
+      border: 4px solid var(--white);
+      box-shadow: 0 0 0 2px var(--teal);
+    }
+    .how-step h4 { font-size: 1rem; margin-bottom: .4rem; }
+    .how-step p  { color: var(--text-muted); font-size: .88rem; }
+
+    /* ---- Testimonials section ---- */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+
+    /* ---- Insurance section ---- */
+    .insurance-section {
+      background: linear-gradient(135deg, #0D2B28 0%, #164A43 100%);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .insurance-section::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: rgba(42,157,143,.1);
+      border-radius: 50%;
+    }
+
+    /* ---- CTA strip ---- */
+    .cta-strip {
+      background: var(--teal-light);
+      border: 1.5px solid rgba(42,157,143,.2);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .cta-strip-text h3 { margin-bottom: .5rem; }
+    .cta-strip-text p  { color: var(--text-muted); margin: 0; }
+    .cta-strip-actions { display: flex; flex-wrap: wrap; gap: 1rem; flex-shrink: 0; }
+
+    @media (max-width: 1024px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid::before { display: none; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .cta-strip { flex-direction: column; text-align: center; }
+      .cta-strip-actions { justify-content: center; }
+      .trust-strip-inner { gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .how-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- Why-us section photo ---- */
+    .why-us-photo {
+      margin: 2.5rem auto 3rem;
+      max-width: 900px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(42,157,143,.13), 0 2px 8px rgba(0,0,0,.07);
+      border: 1.5px solid rgba(42,157,143,.12);
+      line-height: 0;
+    }
+    .why-us-photo img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .why-us-photo:hover img { transform: scale(1.02); }
+    @media (max-width: 768px) {
+      .why-us-photo img { height: 280px; }
+    }
+    @media (max-width: 480px) {
+      .why-us-photo img { height: 220px; }
+    }
+
+    /* ======================================================
+       IS THIS RIGHT FOR YOU — Apple-style dark section
+       ====================================================== */
+    .rfy-section {
+      background: linear-gradient(160deg, #1a3d3a 0%, #1e4a46 55%, #1c4440 100%);
+      padding: 7rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Ambient background glows */
+    .rfy-section::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(42,157,143,.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .rfy-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(42,157,143,.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Header */
+    .rfy-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(42,157,143,.15);
+      border: 1px solid rgba(77,214,200,.25);
+      color: #6de8da;
+      padding: .42rem 1.1rem;
+      border-radius: 50px;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      display: inline-block;
+    }
+    .rfy-heading {
+      color: #ffffff;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .rfy-subhead {
+      color: rgba(255,255,255,.58);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .rfy-header { margin-bottom: 4rem; }
+
+    /* Two-column grid */
+    .rfy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Panels */
+    .rfy-panel {
+      border-radius: 24px;
+      padding: 2.5rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .rfy-yes {
+      background: #ffffff;
+      border: 1.5px solid rgba(42,157,143,.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+    }
+    .rfy-no {
+      background: #ffffff;
+      border: 1.5px solid rgba(220,53,69,.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+    }
+
+    /* Badge circle at top */
+    .rfy-panel-badge {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
+    }
+    .rfy-badge-yes {
+      background: #edfaf7;
+      border: 1.5px solid rgba(42,157,143,.3);
+      color: #2A9D8F;
+    }
+    .rfy-badge-no {
+      background: #fff5f5;
+      border: 1.5px solid rgba(220,53,69,.25);
+      color: #dc3545;
+    }
+
+    /* Panel title */
+    .rfy-panel-title {
+      font-size: clamp(1.35rem, 2.1vw, 2rem);
+      font-weight: 900;
+      color: #0d2b28;
+      margin-bottom: 1.6rem;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+    }
+    .rfy-panel-title em { font-style: normal; }
+    .rfy-yes .rfy-panel-title em { color: #2A9D8F; }
+    .rfy-no  .rfy-panel-title em { color: #dc3545; }
+
+    /* List */
+    .rfy-list {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .rfy-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      font-size: .92rem;
+      line-height: 1.55;
+      padding: .65rem 0;
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      color: #2d5a55;
+    }
+    .rfy-list li:last-child { border-bottom: none; }
+    .rfy-no .rfy-list li { color: #5a2d33; }
+    .rfy-icon-yes {
+      color: #2A9D8F;
+      flex-shrink: 0;
+      margin-top: .22rem;
+      font-size: .82rem;
+    }
+    .rfy-icon-no {
+      color: #dc3545;
+      flex-shrink: 0;
+      margin-top: .22rem;
+      font-size: .82rem;
+    }
+
+    /* Footer callout + CTA */
+    .rfy-footer {
+      max-width: 980px;
+      margin: 3rem auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      text-align: center;
+    }
+    .rfy-notsure {
+      color: rgba(255,255,255,.7);
+      font-size: .9rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .rfy-notsure i { color: #7de8dc; margin-right: .4rem; }
+    .rfy-notsure strong { color: #ffffff; }
+    .rfy-notsure a { color: #7de8dc; font-weight: 700; text-decoration: none; }
+    .rfy-notsure a:hover { text-decoration: underline; }
+    .rfy-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .rfy-call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.92);
+      padding: .85rem 1.9rem;
+      border-radius: 50px;
+      font-size: .97rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.18);
+      transition: all .25s ease;
+    }
+    .rfy-call-btn:hover {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.32);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .rfy-grid { grid-template-columns: 1fr; }
+      .rfy-panel { padding: 2rem 1.75rem; }
+    }
+    /* ---- Quiz Promo Card ---- */
+  .quiz-promo {
+    background: linear-gradient(135deg, #0d2b28 0%, #1a4a43 100%);
+    border-radius: 28px;
+    padding: 4rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .quiz-promo::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(42,157,143,.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .quiz-promo::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 40%;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(93,232,216,.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .quiz-promo-text { position: relative; z-index: 1; }
+  .quiz-promo-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(93,232,216,.12);
+    border: 1px solid rgba(93,232,216,.25);
+    color: #5de8d8;
+    padding: .38rem 1rem;
+    border-radius: 50px;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .quiz-promo h2 {
+    color: #fff;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .quiz-promo h2 span { color: #5de8d8; }
+  .quiz-promo p {
+    color: rgba(255,255,255,.72);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 0;
+  }
+  .quiz-promo-steps {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .quiz-promo-step {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: rgba(255,255,255,.75);
+    font-size: .85rem;
+    font-weight: 500;
+  }
+  .quiz-promo-step i { color: #5de8d8; font-size: .85rem; }
+  .quiz-promo-cta {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .quiz-promo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    background: var(--teal);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    padding: 1.1rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s, transform .2s, box-shadow .2s;
+    box-shadow: 0 8px 28px rgba(42,157,143,.4);
+    letter-spacing: -.01em;
+  }
+  .quiz-promo-btn:hover {
+    background: #1e8a7e;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(42,157,143,.5);
+  }
+  .quiz-promo-btn i { font-size: 1.1rem; }
+  .quiz-promo-note {
+    color: rgba(255,255,255,.5);
+    font-size: .78rem;
+    text-align: center;
+  }
+  @media (max-width: 820px) {
+    .quiz-promo {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .quiz-promo p { max-width: 100%; }
+    .quiz-promo-steps { justify-content: center; }
+    .quiz-promo-cta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav-links" role="list">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+
+          <!-- Our Care dropdown -->
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+
+          <!-- Learn dropdown -->
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Right CTA -->
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090">
+            <i class="fa-solid fa-phone"></i> 866-540-8090
+          </a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+
+        <!-- Hamburger -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+
+    <!-- Our Care accordion -->
+    <div class="mobile-nav-section" id="mobileCareSec">
+      <button class="mobile-section-toggle" aria-expanded="false">
+        Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i>
+      </button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+
+    <!-- Learn accordion -->
+    <div class="mobile-nav-section" id="mobileLearnSec">
+      <button class="mobile-section-toggle" aria-expanded="false">
+        Learn <i class="fa-solid fa-chevron-down toggle-caret"></i>
+      </button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full">
+        <i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Hero section">
+
+      <!-- Light gradient background -->
+      <div class="hero-bg-img" role="presentation"></div>
+      <!-- Soft left-edge tint for text breathing room -->
+      <div class="hero-overlay" role="presentation"></div>
+
+      <div class="container hero-container">
+
+        <!-- LEFT: copy -->
+        <div class="hero-text">
+          <div class="eyebrow">
+            <i class="fa-solid fa-location-dot"></i>
+            Aiken &amp; Charleston, SC · All of South Carolina
+          </div>
+          <h1>Advanced Wound Care<br><span>That Comes to You</span></h1>
+          <p>When your wound won't heal, specialized care makes all the difference — in our clinic or right in your home. Medicare accepted. UltraMist® therapy available.</p>
+          <div class="hero-buttons">
+            <a href="contact.html" class="btn-hero-primary">
+              <i class="fa-solid fa-calendar-check"></i>
+              Schedule Consultation
+            </a>
+            <a href="tel:8665408090" class="btn-hero-ghost">
+              <i class="fa-solid fa-phone"></i>
+              Call 866-540-8090
+            </a>
+          </div>
+          <div class="hero-badges">
+            <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Medicare Accepted</span>
+            <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Most PPO Plans Accepted</span>
+            <span class="hero-badge"><i class="fa-solid fa-house-medical"></i> We Come to You</span>
+            <span class="hero-badge"><i class="fa-solid fa-star"></i> 5-Star Rated</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: Video placeholder — prominent Apple-style card -->
+        <div class="hero-video-col">
+          <div class="hero-video-frame">
+            <div class="hero-video-wrap" id="heroVideoWrap">
+
+              <!-- Poster / thumbnail — click to play -->
+              <div class="hero-video-poster" id="heroVideoPoster">
+                <img src="images/hero-bg-dark.jpg" alt="Carolina Wound Care specialist providing expert wound treatment" />
+                <div class="hero-video-poster-overlay"></div>
+
+                <!-- Play button with dual ripple rings -->
+                <button class="hero-play-btn" id="heroPlayBtn" aria-label="Play: How Carolina Wound Care Works">
+                  <span class="play-ripple-2"></span>
+                  <span class="play-ripple"></span>
+                  <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+                  <span class="play-label">Watch Our Story</span>
+                </button>
+
+                <!-- Caption overlay -->
+                <div class="hero-video-caption">
+                  <i class="fa-solid fa-circle-play" style="margin-right:.4rem;"></i>
+                  How Carolina Wound Care Works
+                </div>
+              </div>
+
+              <!-- Actual video — shown after play is pressed -->
+              <video
+                id="heroVideo"
+                class="hero-video-el"
+                controls
+                playsinline
+                webkit-playsinline
+                preload="none"
+                style="display:none;"
+              >
+                <source src="#" type="video/mp4" />
+                Your browser does not support HTML5 video.
+              </video>
+
+              <!-- Frosted glass info strip -->
+              <div class="hero-video-strip">
+                <div class="hvs-item">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Board-Certified</span>
+                </div>
+                <div class="hvs-divider"></div>
+                <div class="hvs-item">
+                  <i class="fa-solid fa-house-medical"></i>
+                  <span>Mobile Visits</span>
+                </div>
+                <div class="hvs-divider"></div>
+                <div class="hvs-item">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                  <span>All 46 SC Counties</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hero-scroll" aria-hidden="true" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">
+        <i class="fa-solid fa-chevron-down"></i>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ============ TRUST STRIP ============ -->
+    <div class="trust-strip" role="complementary" aria-label="Trust indicators">
+      <div class="container">
+        <div class="trust-strip-inner">
+          <div class="trust-item"><i class="fa-solid fa-certificate"></i> Board-Certified Specialists</div>
+          <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Medicare & Most PPO Plans Accepted</div>
+          <div class="trust-item"><i class="fa-solid fa-house-medical"></i> True In-Home Mobile Visits</div>
+          <div class="trust-item"><i class="fa-solid fa-clock"></i> Same-Week Appointments</div>
+          <div class="trust-item"><i class="fa-solid fa-star"></i> Rated 5 Stars by Patients</div>
+          <div class="trust-item"><i class="fa-solid fa-map-location-dot"></i> Aiken, SC + All of South Carolina</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ STATS ============ -->
+    <section class="section-sm bg-light" aria-label="Our impact statistics">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="95" data-suffix="%">0%</div>
+            <div class="stat-label">Wound Healing Rate</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="2000" data-suffix="+">0</div>
+            <div class="stat-label">Patients Treated</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="46" data-suffix="">0</div>
+            <div class="stat-label">SC Counties Served</div>
+          </div>
+          <div class="stat-card reveal">
+            <div class="stat-num" data-count="5" data-suffix="★">0</div>
+            <div class="stat-label">Average Patient Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES / WHY US ============ -->
+    <section aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Why Carolina Wound Care</span>
+          <h2 id="why-heading" class="section-title">Specialized Care That <span class="text-teal">Comes to You</span></h2>
+          <p class="section-subtitle">We're not affiliated with any hospital system. We're an independent, patient-first wound care team that brings expert treatment directly to your door.</p>
+        </div>
+
+        <!-- Section photo -->
+        <div class="why-us-photo reveal">
+          <img src="images/home-visit-nurse.jpg" alt="Carolina Wound Care nurse smiling while treating an elderly patient's leg wound at home in a comfortable living room setting" />
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-house-medical"></i></div>
+            <h3>True In-Home Mobile Visits</h3>
+            <p>No transportation needed. Our specialists bring everything required for advanced wound care directly to your home, facility, or wherever you are across South Carolina.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+            <h3>Advanced Clinical Treatments</h3>
+            <p>We offer the same specialized treatments as hospital-based wound centers — debridement, advanced grafts, UltraMist® therapy — in the comfort of your home.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Medicare & Most PPO Plans Accepted</h3>
+            <p>We work with Medicare and most PPO insurance plans so you can focus on healing, not paperwork. Our team handles authorization and billing for you.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-user-nurse"></i></div>
+            <h3>Board-Certified Specialists</h3>
+            <p>Our wound care specialists are certified professionals with years of experience treating the most complex chronic wounds, diabetic ulcers, and pressure injuries.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+            <h3>Same-Week Appointments</h3>
+            <p>Wounds deteriorate quickly. We prioritize fast access to care — in-clinic or at-home appointments often available within the same week you call.</p>
+          </div>
+          <div class="feature-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Personalized Care Plans</h3>
+            <p>Every wound is unique. We create a customized treatment plan for your specific wound type, medical history, and lifestyle — then adjust it as you heal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="bg-light" aria-labelledby="how-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Simple Process</span>
+          <h2 id="how-heading" class="section-title">Getting Started is Easy</h2>
+          <p class="section-subtitle">From your first call to your first visit, we make accessing expert wound care completely stress-free.</p>
+        </div>
+        <div class="how-grid">
+          <div class="how-step reveal">
+            <div class="how-step-num">1</div>
+            <h4>Call or Request Online</h4>
+            <p>Call <strong>866-540-8090</strong> or submit our online form. Tell us your wound concerns and location.</p>
+          </div>
+          <div class="how-step reveal">
+            <div class="how-step-num">2</div>
+            <h4>Free Consultation</h4>
+            <p>We review your situation, insurance, and schedule your first in-clinic or home visit — often same week.</p>
+          </div>
+          <div class="how-step reveal">
+            <div class="how-step-num">3</div>
+            <h4>Expert Assessment</h4>
+            <p>Our specialist conducts a thorough wound evaluation and designs your personalized healing plan.</p>
+          </div>
+          <div class="how-step reveal">
+            <div class="how-step-num">4</div>
+            <h4>Heal & Recover</h4>
+            <p>Begin your tailored treatment program with ongoing monitoring and adjustments until fully healed.</p>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:3rem;" class="reveal">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-calendar-check"></i> Start Your Healing Journey
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES PREVIEW ============ -->
+    <section aria-labelledby="services-preview-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Our Treatments</span>
+          <h2 id="services-preview-heading" class="section-title">Advanced Wound Care Services</h2>
+          <p class="section-subtitle">Hospital-level wound care delivered in-clinic or at your home across South Carolina.</p>
+        </div>
+
+        <!-- Section photo -->
+        <div class="why-us-photo reveal">
+          <img src="images/home-visit-nurse-2.jpg" alt="Carolina Wound Care specialist in teal scrubs treating a patient's leg wound in a warm South Carolina home setting" />
+        </div>
+
+        <div class="grid-3">
+          <div class="service-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-scalpel"></i></div>
+            <h4>Advanced Debridement</h4>
+            <p>Removal of dead or infected tissue using the most advanced techniques to accelerate wound healing and reduce infection risk.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-layer-group"></i></div>
+            <h4>Specialized Grafts</h4>
+            <p>Biologic and advanced skin substitutes for wounds that won't heal with conventional treatment — promoting new tissue growth.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-wind"></i></div>
+            <h4>UltraMist® Therapy</h4>
+            <p>Non-contact low-frequency ultrasound delivered through a gentle saline mist — clinically proven to accelerate healing.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-bandage"></i></div>
+            <h4>Specialized Dressings</h4>
+            <p>Advanced wound dressings tailored to your wound type — promoting moisture balance, infection control, and faster healing.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-clipboard-list"></i></div>
+            <h4>Personalized Care Plans</h4>
+            <p>Every patient receives a fully customized wound care plan developed by our specialists and adjusted as healing progresses.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="icon-box"><i class="fa-solid fa-house-medical"></i></div>
+            <h4>True In-Home Visits</h4>
+            <p>Full wound care services performed in your home — not just dressing changes, but true advanced clinical treatment.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+          <a href="services.html" class="btn btn-outline">
+            View All Services <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONDITIONS PREVIEW ============ -->
+    <section class="bg-light" aria-labelledby="conditions-preview-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Conditions We Treat</span>
+          <h2 id="conditions-preview-heading" class="section-title">We Specialize in Wounds That <span class="text-teal">Won't Heal</span></h2>
+          <p class="section-subtitle">Chronic wounds are different from ordinary cuts and scrapes. They require specialist intervention to heal properly.</p>
+        </div>
+        <div class="grid-3">
+          <div class="condition-card reveal">
+            <div class="condition-icon"><i class="fa-solid fa-shoe-prints"></i></div>
+            <h4>Diabetic Foot Ulcers</h4>
+            <p>Specialized treatment for foot wounds associated with diabetes — preventing amputation and restoring mobility.</p>
+          </div>
+          <div class="condition-card reveal">
+            <div class="condition-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <h4>Venous & Arterial Leg Ulcers</h4>
+            <p>Expert care for lower extremity wounds caused by poor circulation, venous insufficiency, or arterial disease.</p>
+          </div>
+          <div class="condition-card reveal">
+            <div class="condition-icon"><i class="fa-solid fa-bed-pulse"></i></div>
+            <h4>Pressure Injuries / Bed Sores</h4>
+            <p>Treating stages 1–4 pressure ulcers in patients with limited mobility — preventing progression and promoting closure.</p>
+          </div>
+          <div class="condition-card reveal">
+            <div class="condition-icon"><i class="fa-solid fa-scissors"></i></div>
+            <h4>Post-Surgical Wounds</h4>
+            <p>Wound dehiscence, non-healing surgical incisions, and post-operative complications managed with expert care.</p>
+          </div>
+          <div class="condition-card reveal">
+            <div class="condition-icon"><i class="fa-solid fa-circle-notch"></i></div>
+            <h4>Sacral Ulcers</h4>
+            <p>Specialized management of sacral and coccyx wounds, particularly in elderly or bedridden patients.</p>
+          </div>
+          <div class="condition-card reveal">
+            <div class="condition-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h4>Other Chronic Wounds</h4>
+            <p>Any wound that hasn't improved in 2–6 weeks deserves specialist attention. We treat all complex chronic wound types.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+          <a href="conditions.html" class="btn btn-outline">
+            See All Conditions <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IS THIS RIGHT FOR YOU ============ -->
+    <section aria-labelledby="right-for-you-heading" class="rfy-section">
+      <div class="container">
+
+        <div class="section-header center reveal rfy-header">
+          <span class="rfy-eyebrow">Is This Right for You?</span>
+          <h2 id="right-for-you-heading" class="rfy-heading">Know Before You Call</h2>
+          <p class="rfy-subhead">Here's a clear, honest guide to whether Carolina Wound Care is the right fit for your situation.</p>
+        </div>
+
+        <div class="rfy-grid reveal">
+
+          <!-- YES panel -->
+          <div class="rfy-panel rfy-yes">
+            <div class="rfy-panel-badge rfy-badge-yes">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="rfy-panel-title">We <em>can</em> help you if…</h3>
+            <ul class="rfy-list">
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>Your wound hasn't improved in 2–6 weeks</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>You have diabetes and a wound on your foot or leg</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>You've been told you may need an amputation</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>You have a pressure wound or bed sore</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>You have a venous or arterial leg ulcer</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>Your surgical wound hasn't closed properly</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>You struggle to travel to a clinic</li>
+              <li><i class="fa-solid fa-check rfy-icon-yes"></i>You have Medicare or a PPO plan</li>
+            </ul>
+          </div>
+
+          <!-- NO panel -->
+          <div class="rfy-panel rfy-no">
+            <div class="rfy-panel-badge rfy-badge-no">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <h3 class="rfy-panel-title">We are <em>not</em> the right fit if…</h3>
+            <ul class="rfy-list">
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>Your wound is a minor fresh cut healing normally</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>You need emergency or acute trauma care (go to ER)</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>Your wound is actively improving week over week</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>You require inpatient hospital care or surgery</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>You are outside South Carolina with no telehealth need</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>Your primary care physician is already managing it well</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>You have a wound that is less than two weeks old</li>
+              <li><i class="fa-solid fa-xmark rfy-icon-no"></i>You only need a basic dressing change with no specialist input</li>
+            </ul>
+          </div>
+
+        </div><!-- /rfy-grid -->
+
+        <!-- Not sure callout + CTA -->
+        <div class="rfy-footer reveal">
+          <p class="rfy-notsure"><i class="fa-solid fa-circle-info"></i> <strong>Not sure?</strong> Call us at <a href="tel:8665408090">866-540-8090</a> — we'll tell you honestly whether we're the right fit.</p>
+          <div class="rfy-cta-row">
+            <a href="contact.html" class="btn-hero-primary">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="tel:8665408090" class="rfy-call-btn">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ QUIZ PROMO ============ -->
+    <section style="padding:4rem 0;" aria-label="Free wound assessment quiz">
+      <div class="container">
+        <div class="quiz-promo reveal">
+          <div class="quiz-promo-text">
+            <div class="quiz-promo-eyebrow"><i class="fa-solid fa-clipboard-question"></i> Free · Takes 60 Seconds</div>
+            <h2>Not Sure If Your Wound<br>Needs <span>Specialist Care?</span></h2>
+            <p>Answer 6 quick questions and we'll tell you whether your wound needs specialized attention — and how urgent it may be. No signup, no cost, instant result.</p>
+            <div class="quiz-promo-steps">
+              <span class="quiz-promo-step"><i class="fa-solid fa-circle-check"></i> 6 simple questions</span>
+              <span class="quiz-promo-step"><i class="fa-solid fa-circle-check"></i> Instant result</span>
+              <span class="quiz-promo-step"><i class="fa-solid fa-circle-check"></i> No personal info required</span>
+            </div>
+          </div>
+          <div class="quiz-promo-cta">
+            <a href="conditions.html#quiz" class="quiz-promo-btn">
+              <i class="fa-solid fa-clipboard-question"></i> Take the Free Quiz
+            </a>
+            <span class="quiz-promo-note">Thousands of patients have used this quiz</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VALUE PROP: IN-HOME ============ -->
+    <section aria-labelledby="inhome-heading">
+      <div class="container">
+        <div class="value-row">
+          <div class="value-img reveal">
+            <img
+              src="images/clinic-wound-care.jpg"
+              alt="Carolina Wound Care specialist smiling while applying wound dressing to an elderly patient's leg in a clinical setting"
+              loading="lazy"
+              style="object-position: center 20%;"
+            />
+          </div>
+          <div class="value-text reveal">
+            <span class="section-label">Mobile & In-Home Care</span>
+            <h2 id="inhome-heading">Expert Wound Care — <span class="text-teal">No Waiting Rooms, No Travel</span></h2>
+            <div class="divider"></div>
+            <p>Many patients with chronic wounds face challenges getting to a clinic — limited mobility, transportation issues, or simply the discomfort of travel. That's exactly why we come to you.</p>
+            <p>Our mobile wound care team brings the full suite of advanced treatments — the same quality as any wound care center — directly to your home, assisted living facility, or nursing home.</p>
+            <ul class="check-list mt-3">
+              <li><i class="fa-solid fa-circle-check"></i> Full clinical-grade wound assessment at home</li>
+              <li><i class="fa-solid fa-circle-check"></i> Advanced debridement, grafts & UltraMist® therapy</li>
+              <li><i class="fa-solid fa-circle-check"></i> Serving all 46 South Carolina counties</li>
+              <li><i class="fa-solid fa-circle-check"></i> Flexible scheduling around your needs</li>
+              <li><i class="fa-solid fa-circle-check"></i> Medicare &amp; most PPO plans cover home visits</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <a href="contact.html" class="btn btn-primary">Request Home Visit</a>
+              <a href="locations.html" class="btn btn-outline">Check Your Area</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="bg-light" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Patient Stories</span>
+          <h2 id="testimonials-heading" class="section-title">What Our Patients Are Saying</h2>
+          <p class="section-subtitle">Real experiences from real patients we've helped heal across South Carolina.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"I had a diabetic foot ulcer that wasn't healing for over 3 months. After two visits from Carolina Wound Care at my home, I could already see real improvement. By 8 weeks, it was completely healed. I was about to lose my foot — these people saved it."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <strong>James T.</strong>
+                <span>Aiken, SC · Diabetic Foot Ulcer Patient</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"My mother is 84 and can't easily travel. The team came to her home twice a week and treated her pressure sore with such kindness and skill. Within 6 weeks, it had healed. We're so grateful for the in-home option — it made all the difference."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <strong>Linda M.</strong>
+                <span>Columbia, SC · Daughter of Pressure Wound Patient</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"After my surgery, my incision opened up and just wouldn't close. My surgeon didn't know what to do next. Carolina Wound Care came to my house, used advanced dressings and the UltraMist therapy, and my wound healed completely. Absolutely incredible care."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <strong>Robert K.</strong>
+                <span>Augusta area, SC · Post-Surgical Wound Patient</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"I'd been to three different wound care centers and nothing helped my leg ulcer. One visit with Carolina Wound Care and they already had a completely different approach. The specialist explained everything clearly. After 10 weeks, I was healed for the first time in 2 years."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <strong>Patricia W.</strong>
+                <span>North Augusta, SC · Venous Leg Ulcer Patient</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"The convenience of home visits is unmatched. I have MS and can't always leave the house. The nurse who comes is professional, thorough, and genuinely caring. My wound has improved dramatically. I tell everyone I know about this service."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <strong>Donna S.</strong>
+                <span>Lexington, SC · In-Home Wound Care Patient</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Medicare covered almost everything. I was worried about the cost but the team handled all the paperwork and authorization. The care itself was exceptional — my sacral wound from 4 months of nursing home care healed in under 2 months."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <strong>Charles B.</strong>
+                <span>Barnwell, SC · Sacral Ulcer Patient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSURANCE ============ -->
+    <section class="insurance-section" aria-labelledby="insurance-heading">
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="section-header center reveal">
+          <span class="section-label" style="color:var(--teal-mid);">Insurance & Coverage</span>
+          <h2 id="insurance-heading" class="section-title" style="color:var(--white);">We Accept Your Insurance</h2>
+          <p class="section-subtitle" style="color:rgba(255,255,255,.75);">Don't let insurance concerns stop you from getting the wound care you need. We work with most major plans.</p>
+        </div>
+        <div class="insurance-row reveal" style="margin-bottom:3rem;">
+          <div class="insurance-badge">
+            <i class="fa-solid fa-shield-halved"></i> Medicare Part A & B
+          </div>
+          <div class="insurance-badge">
+            <i class="fa-solid fa-shield-halved"></i> Most PPO Plans
+          </div>
+          <div class="insurance-badge">
+            <i class="fa-solid fa-building-shield"></i> Most PPO Plans
+          </div>
+          <div class="insurance-badge">
+            <i class="fa-solid fa-heart-circle-check"></i> BlueCross BlueShield
+          </div>
+          <div class="insurance-badge">
+            <i class="fa-solid fa-heart-circle-check"></i> Aetna
+          </div>
+          <div class="insurance-badge">
+            <i class="fa-solid fa-heart-circle-check"></i> United Healthcare
+          </div>
+          <div class="insurance-badge">
+            <i class="fa-solid fa-heart-circle-check"></i> Cigna
+          </div>
+        </div>
+        <div class="alert-box reveal" style="max-width:700px;margin:0 auto 2.5rem;">
+          <i class="fa-solid fa-circle-info"></i>
+          <div>
+            <strong>Not sure if you're covered?</strong>
+            <p style="margin:0;font-size:.93rem;color:var(--text-body);">Call us at <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a> and our insurance specialists will verify your benefits at no charge before your first visit.</p>
+          </div>
+        </div>
+        <div style="text-align:center;" class="reveal">
+          <a href="contact.html" class="btn btn-white btn-lg">
+            <i class="fa-solid fa-phone"></i> Verify My Insurance — Free
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOG PREVIEW ============ -->
+    <section aria-labelledby="blog-preview-heading" class="bg-light">
+      <div class="container">
+        <div class="section-header reveal" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <span class="section-label">From the Blog</span>
+            <h2 id="blog-preview-heading" class="section-title">Wound Care Education &amp; Tips</h2>
+            <p class="section-subtitle">Expert articles from our specialists to help you understand your wound and your options.</p>
+          </div>
+          <a href="blog.html" class="btn btn-outline" style="flex-shrink:0;">
+            <i class="fa-solid fa-newspaper"></i> View All Articles
+          </a>
+        </div>
+        <div class="grid-3">
+
+          <!-- Featured Article -->
+          <article class="card reveal" style="display:flex; flex-direction:column;">
+            <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:220px;">
+              <img src="images/blog-why-wound-wont-heal.jpg" alt="Why Won't My Wound Heal?" style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            </div>
+            <div class="card-body" style="display:flex; flex-direction:column; flex:1;">
+              <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+                <span class="tag">Wound Education</span>
+                <span style="font-size:.8rem; color:var(--text-muted);"><i class="fa-regular fa-calendar" style="margin-right:.3rem;"></i>March 2025</span>
+              </div>
+              <h3 style="font-size:1.2rem; margin-bottom:.6rem; line-height:1.35;">
+                <a href="blog-why-wound-wont-heal.html" style="color:var(--black);" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--black)'">
+                  Why Won't My Wound Heal? Understanding Chronic (Non‑Healing) Wounds
+                </a>
+              </h3>
+              <p style="color:var(--text-muted); font-size:.93rem; flex:1;">Over 8.2 million Americans live with a chronic wound. Learn why some wounds stop healing and what specialized care can do to restart the process.</p>
+              <a href="blog-why-wound-wont-heal.html" class="btn btn-primary btn-sm" style="margin-top:1.25rem; align-self:flex-start;">
+                Read Article <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog 2: Diabetic Foot Ulcers -->
+          <article class="card reveal" style="display:flex; flex-direction:column; background:var(--white);">
+            <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:220px;">
+              <img src="images/blog-diabetic-foot-ulcers.jpg" alt="Healthcare professional examining a patient's foot" style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+            </div>
+            <div class="card-body" style="display:flex; flex-direction:column; flex:1;">
+              <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+                <span class="tag">Diabetes Care</span>
+                <span style="font-size:.8rem; color:var(--text-muted);"><i class="fa-regular fa-calendar" style="margin-right:.3rem;"></i>March 2025</span>
+              </div>
+              <h3 style="font-size:1.2rem; margin-bottom:.6rem; line-height:1.35;">
+                <a href="blog-diabetic-foot-ulcers.html" style="color:var(--black);" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--black)'">
+                  Diabetic Foot Ulcers: What Every Patient Needs to Know
+                </a>
+              </h3>
+              <p style="color:var(--text-muted); font-size:.93rem; flex:1;">Up to 1 in 3 people with diabetes will develop a foot ulcer. Learn the warning signs and how our specialists help patients heal across South Carolina.</p>
+              <a href="blog-diabetic-foot-ulcers.html" class="btn btn-primary btn-sm" style="margin-top:1.25rem; align-self:flex-start;">
+                Read Article <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Blog 3: Venous Leg Ulcers -->
+          <article class="card reveal" style="display:flex; flex-direction:column; background:var(--white);">
+            <div style="overflow:hidden; border-radius:var(--radius-lg) var(--radius-lg) 0 0; height:220px;">
+              <img src="images/blog-venous-leg-ulcers.jpg" alt="Healthcare professional wrapping compression bandage on a patient's lower leg" style="width:100%; height:100%; object-fit:cover; transition:transform .4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" loading="lazy">
+            </div>
+            <div class="card-body" style="display:flex; flex-direction:column; flex:1;">
+              <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+                <span class="tag">Vascular &amp; Circulation</span>
+                <span style="font-size:.8rem; color:var(--text-muted);"><i class="fa-regular fa-calendar" style="margin-right:.3rem;"></i>March 2026</span>
+              </div>
+              <h3 style="font-size:1.2rem; margin-bottom:.6rem; line-height:1.35;">
+                <a href="blog-venous-leg-ulcers.html" style="color:var(--black);" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--black)'">
+                  Venous Leg Ulcers: Causes, Symptoms &amp; the Care That Actually Works
+                </a>
+              </h3>
+              <p style="color:var(--text-muted); font-size:.93rem; flex:1;">A sore on your lower leg or ankle that won't close? Learn what causes venous leg ulcers and how our specialists help patients heal across South Carolina.</p>
+              <a href="blog-venous-leg-ulcers.html" class="btn btn-primary btn-sm" style="margin-top:1.25rem; align-self:flex-start;">
+                Read Article <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <div class="cta-band" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">Don't Wait</span>
+          <h2>Wounds That Haven't Improved in <span style="text-decoration:underline;text-underline-offset:4px;">6+ Weeks</span> Need Specialized Care</h2>
+          <p>Chronic wounds worsen over time without proper treatment. The sooner you act, the better your outcome. We make it easy — we come to you.</p>
+          <div class="cta-band-buttons">
+            <a href="contact.html" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="conditions.html#quiz" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-clipboard-question"></i> Take the 1-Min Quiz
+            </a>
+            <a href="tel:8665408090" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090 Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ LOCATIONS PREVIEW ============ -->
+    <section aria-labelledby="locations-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Serving South Carolina</span>
+          <h2 id="locations-heading" class="section-title">Clinics in Aiken &amp; Charleston + Mobile Service <span class="text-teal">Statewide</span></h2>
+          <p class="section-subtitle">Visit either of our clinics or let us come directly to you — we serve all 46 counties across South Carolina.</p>
+        </div>
+
+        <!-- Team + van photo -->
+        <div class="why-us-photo reveal" style="margin-bottom:2.5rem;max-width:960px;margin-left:auto;margin-right:auto;">
+          <img
+            src="images/mobile-van-team.jpg"
+            alt="Carolina Wound Care doctor and nurse standing in front of the mobile care van, ready to serve patients across South Carolina"
+            style="object-position:center 35%;"
+          />
+        </div>
+
+        <div class="grid-3 reveal" style="align-items:stretch;">
+
+          <!-- Aiken Clinic -->
+          <div class="location-card">
+            <div class="location-card-header">
+              <span class="tag mb-2" style="display:inline-block;">Clinic</span>
+              <h3>Aiken, South Carolina</h3>
+              <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Our main wound care clinic</p>
+            </div>
+            <div class="location-card-body">
+              <div class="location-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Address</strong>
+                  <span>511 Grier Court, Aiken, SC 29803</span>
+                </div>
+              </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone</strong>
+                  <span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span>
+                </div>
+              </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                  <strong>Hours</strong>
+                  <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+                </div>
+              </div>
+              <a href="locations.html" class="btn btn-primary w-full">
+                Get Directions <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Charleston Clinic -->
+          <div class="location-card">
+            <div class="location-card-header">
+              <span class="tag mb-2" style="display:inline-block;">Clinic</span>
+              <h3>Charleston, South Carolina</h3>
+              <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">Serving the Charleston area</p>
+            </div>
+            <div class="location-card-body">
+              <div class="location-detail">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Address</strong>
+                  <span>2 Carriage Lane, Suite 101, Charleston, SC 29407</span>
+                </div>
+              </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Phone</strong>
+                  <span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span>
+                </div>
+              </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                  <strong>Hours</strong>
+                  <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+                </div>
+              </div>
+              <a href="locations.html" class="btn btn-primary w-full">
+                Get Directions <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Service -->
+          <div class="location-card">
+            <div class="location-card-header" style="background:linear-gradient(135deg, #1E7A6E 0%, #2A9D8F 100%);">
+              <span class="tag mb-2" style="display:inline-block;">Mobile Service</span>
+              <h3>All of South Carolina</h3>
+              <p style="color:rgba(255,255,255,.85);margin:0;font-size:.92rem;">We come directly to you</p>
+            </div>
+            <div class="location-card-body">
+              <div class="location-detail">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div>
+                  <strong>Service Area</strong>
+                  <span>All 46 SC counties — homes, facilities, nursing homes</span>
+                </div>
+              </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Schedule Visit</strong>
+                  <span><a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a></span>
+                </div>
+              </div>
+              <div class="location-detail">
+                <i class="fa-solid fa-car"></i>
+                <div>
+                  <strong>No Transportation Needed</strong>
+                  <span>We bring everything to your door</span>
+                </div>
+              </div>
+              <a href="contact.html" class="btn btn-primary w-full">
+                Request Home Visit <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <p>Advanced wound care delivered with compassion — clinics in Aiken &amp; Charleston, plus mobile visits anywhere in South Carolina. Medicare &amp; most PPO plans accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google Reviews"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations & Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Conditions</h5>
+            <li><a href="conditions.html#diabetic">Diabetic Foot Ulcers</a></li>
+            <li><a href="conditions.html#venous">Venous Leg Ulcers</a></li>
+            <li><a href="conditions.html#arterial">Arterial Ulcers</a></li>
+            <li><a href="conditions.html#pressure">Pressure Injuries</a></li>
+            <li><a href="conditions.html#surgical">Post-Surgical Wounds</a></li>
+            <li><a href="conditions.html#sacral">Sacral Ulcers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court<br>Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>2 Carriage Lane, Suite 101<br>Charleston, SC 29407</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span><a href="mailto:info@carolinawoundcare.com">info@carolinawoundcare.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM<br>Mobile: 7 days by appointment</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p>
+          <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="#">Terms of Use</a> &nbsp;·&nbsp;
+          <a href="#">HIPAA Notice</a>
+        </p>
+        <p>SEO: <a href="locations.html">wound care Aiken SC</a> · <a href="locations.html">mobile wound care South Carolina</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+/* ============================================================
+   Carolina Wound Care — Quiz + Form Success Styles
+   ============================================================ */
+
+/* ---- Quiz ---- */
+.quiz-wrapper {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.quiz-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.quiz-intro h3 { margin-bottom: .5rem; }
+.quiz-intro p  { color: var(--text-muted); }
+.quiz-progress {
+  margin-bottom: 1.75rem;
+}
+.quiz-progress-bar {
+  height: 6px;
+  background: var(--gray-mid);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: .5rem;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 3px;
+  transition: width .4s ease;
+}
+.quiz-step {
+  font-size: .82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.quiz-question h4 {
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+  color: var(--black);
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-bottom: 1.75rem;
+}
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  background: var(--gray-light);
+  border: 2px solid var(--gray-mid);
+  border-radius: var(--radius);
+  padding: .9rem 1.1rem;
+  text-align: left;
+  font-size: .97rem;
+  color: var(--text-body);
+  transition: var(--transition);
+  width: 100%;
+  cursor: pointer;
+}
+.quiz-option:hover {
+  border-color: var(--teal);
+  background: var(--teal-light);
+  color: var(--teal-dark);
+}
+.quiz-option.selected {
+  border-color: var(--teal);
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-weight: 600;
+}
+.quiz-option-letter {
+  width: 28px; height: 28px;
+  background: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--teal);
+  flex-shrink: 0;
+  border: 1.5px solid var(--gray-mid);
+}
+.quiz-option.selected .quiz-option-letter {
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+}
+.quiz-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.quiz-next:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ---- Quiz Result ---- */
+.quiz-result {
+  text-align: center;
+  padding: .5rem 0;
+}
+.quiz-result-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.quiz-result h3 {
+  margin-bottom: 1.25rem;
+  font-size: 1.4rem;
+}
+.quiz-result-meter {
+  height: 10px;
+  background: var(--gray-mid);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  max-width: 400px;
+}
+.quiz-result-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease;
+}
+.quiz-result-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: .97rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quiz-result-cta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* ---- Form Success ---- */
+.form-success {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.form-success-icon {
+  font-size: 3.5rem;
+  color: var(--teal);
+  margin-bottom: 1.25rem;
+}
+.form-success h3 { margin-bottom: .75rem; }
+.form-success p  { color: var(--text-muted); }
+.form-success a  { color: var(--teal); font-weight: 600; }
+
+/* ---- Service Cards ---- */
+.service-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
+}
+.service-card:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.service-card .icon-box { margin-bottom: 1.25rem; }
+.service-card h4 { margin-bottom: .6rem; }
+.service-card p  { color: var(--text-muted); font-size: .93rem; line-height: 1.7; }
+
+/* ---- Condition Cards ---- */
+.condition-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: var(--transition);
+}
+.condition-card:hover {
+  border-color: rgba(42,157,143,.4);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.condition-card .condition-icon {
+  font-size: 2rem;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+.condition-card h4 { margin-bottom: .5rem; }
+.condition-card p  { color: var(--text-muted); font-size: .9rem; }
+
+/* ---- Two-col criteria box ---- */
+.criteria-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.criteria-box {
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+.criteria-box.yes { background: #F0FFF4; border: 1.5px solid #C6F6D5; }
+.criteria-box.no  { background: #FFF5F5; border: 1.5px solid #FED7D7; }
+.criteria-box h4 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+.criteria-box.yes h4 { color: #276749; }
+.criteria-box.no  h4 { color: #9B2335; }
+.criteria-box ul  { display: flex; flex-direction: column; gap: .6rem; }
+.criteria-box ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .92rem;
+  color: var(--text-body);
+}
+.criteria-box.yes ul li i { color: #38A169; flex-shrink: 0; }
+.criteria-box.no  ul li i { color: #E53E3E; flex-shrink: 0; }
+
+/* ---- Healing Stages ---- */
+.stage-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.stage-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: rgba(42,157,143,.3); }
+.stage-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--teal);
+}
+.stage-num {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(42,157,143,.08);
+  line-height: 1;
+}
+.stage-card h4 { margin-bottom: .75rem; }
+.stage-card p  { color: var(--text-muted); font-size: .92rem; line-height: 1.7; }
+
+/* ---- Locations ---- */
+.location-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.location-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.location-card-header {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  padding: 2rem;
+  color: var(--white);
+}
+.location-card-header h3 { color: var(--white); margin-bottom: .25rem; }
+.location-card-header .tag { background: rgba(255,255,255,.2); color: var(--white); }
+.location-card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.location-card-body .btn {
+  margin-top: auto !important;
+  flex-shrink: 0;
+}
+.location-detail {
+  min-height: 4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.location-detail i { color: var(--teal); flex-shrink: 0; margin-top: .2rem; }
+.location-detail div strong { display: block; font-size: .85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+.location-detail div span { font-size: .95rem; color: var(--text-body); }
+
+/* ---- Mobile Service Area ---- */
+.service-area-map {
+  background: var(--teal-light);
+  border: 1.5px solid rgba(42,157,143,.25);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+}
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+.area-pill {
+  background: var(--white);
+  border: 1.5px solid rgba(42,157,143,.25);
+  border-radius: 50px;
+  padding: .5rem 1rem;
+  text-align: center;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--teal-dark);
+  transition: var(--transition);
+}
+.area-pill:hover {
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+}
+
+/* ---- About Team ---- */
+.team-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+.team-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: rgba(42,157,143,.2); }
+.team-avatar {
+  width: 80px; height: 80px;
+  background: var(--teal-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+  font-size: 2rem;
+  margin: 0 auto 1.25rem;
+}
+.team-card h4 { margin-bottom: .2rem; }
+.team-card .title { color: var(--teal); font-size: .88rem; font-weight: 600; margin-bottom: .75rem; }
+.team-card p { color: var(--text-muted); font-size: .88rem; }
+
+/* ---- Value Prop Row ---- */
+.value-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.value-row.reverse .value-text { order: 2; }
+.value-row.reverse .value-img  { order: 1; }
+.value-img {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.value-img img { width: 100%; height: 380px; object-fit: cover; }
+.value-text h2 { margin-bottom: 1rem; }
+.value-text p  { color: var(--text-muted); margin-bottom: 1.25rem; }
+
+/* ---- Phone CTA ---- */
+.phone-cta {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+.phone-cta:hover { color: var(--teal-dark); }
+.phone-cta i { font-size: 1.1rem; }
+
+/* ---- Map embed ---- */
+.map-frame {
+  width: 100%;
+  height: 400px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .criteria-grid { grid-template-columns: 1fr; }
+  .value-row { grid-template-columns: 1fr; gap: 2rem; }
+  .value-row.reverse .value-text { order: unset; }
+  .value-row.reverse .value-img  { order: unset; }
+  .quiz-wrapper { padding: 1.5rem; }
+  .area-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .map-frame { height: 280px; }
+}

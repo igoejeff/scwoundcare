@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wound Care Services | Carolina Wound Care – Advanced Treatments in Aiken SC & Mobile</title>
+  <meta name="description" content="Advanced wound care services including debridement, skin grafts, UltraMist® therapy, specialized dressings & personalized care plans. In-clinic in Aiken SC and mobile in-home visits across South Carolina." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .service-detail-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .service-detail-card:hover { box-shadow: var(--shadow-lg); }
+    .service-detail-header {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .service-detail-header .sdh-icon {
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,.2);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .service-detail-header h3 { color: var(--white); font-size: 1.4rem; margin-bottom: .25rem; }
+    .service-detail-header .sdh-tag {
+      background: rgba(255,255,255,.2);
+      color: rgba(255,255,255,.9);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .2rem .7rem;
+      border-radius: 50px;
+      letter-spacing: .04em;
+    }
+    .service-detail-body { padding: 2.5rem; }
+    .service-detail-body p { color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.75; }
+    .service-detail-body .benefits-title {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: .75rem;
+    }
+
+    .treatment-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .compare-box {
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .compare-box.clinic {
+      background: var(--teal-light);
+      border: 1.5px solid rgba(42,157,143,.2);
+    }
+    .compare-box.home {
+      background: #F0FFF4;
+      border: 1.5px solid #C6F6D5;
+    }
+    .compare-box h4 {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
+    }
+    .compare-box.clinic h4 { color: var(--teal-dark); }
+    .compare-box.home   h4 { color: #276749; }
+
+    .ultramist-callout {
+      background: linear-gradient(135deg, #0D2B28 0%, #1E4A44 100%);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .ultramist-callout::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: rgba(42,157,143,.15);
+      border-radius: 50%;
+    }
+    .ultramist-callout::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 20%;
+      width: 200px; height: 200px;
+      background: rgba(42,157,143,.1);
+      border-radius: 50%;
+    }
+    .ultramist-callout-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .ultramist-callout h2 { color: var(--white); margin-bottom: 1rem; }
+    .ultramist-callout p  { color: rgba(255,255,255,.8); line-height: 1.75; }
+    .ultramist-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.15);
+      color: var(--white);
+      padding: .3rem .85rem;
+      border-radius: 50px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      margin-bottom: 1rem;
+    }
+    .ultramist-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .ultramist-stat {
+      background: rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .ultramist-stat .num { font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: .25rem; }
+    .ultramist-stat .lbl { font-size: .8rem; color: rgba(255,255,255,.7); }
+
+    @media (max-width: 768px) {
+      .treatment-compare  { grid-template-columns: 1fr; }
+      .ultramist-callout-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .service-detail-header { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle active" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" class="active" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="eyebrow"><i class="fa-solid fa-stethoscope"></i> Advanced Treatments</div>
+          <h1>Specialized Wound Care Services</h1>
+          <p>Hospital-level advanced wound treatments delivered in our Aiken clinic or at your home — anywhere in South Carolina.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Services</span>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW -->
+    <section aria-labelledby="services-overview-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">What We Offer</span>
+          <h2 id="services-overview-heading" class="section-title">Advanced Care for <span class="text-teal">Every Wound Type</span></h2>
+          <p class="section-subtitle">Our specialists use the most advanced wound care technologies and techniques — the same used in leading hospital wound centers — delivered with a personal touch.</p>
+        </div>
+
+        <!-- Service 1: Debridement -->
+        <div class="service-detail-card reveal" style="margin-bottom:2rem;" id="debridement">
+          <div class="service-detail-header">
+            <div class="sdh-icon"><i class="fa-solid fa-scalpel"></i></div>
+            <div>
+              <span class="sdh-tag">Core Treatment</span>
+              <h3>Advanced Debridement</h3>
+            </div>
+          </div>
+          <div class="service-detail-body">
+            <p>Debridement — the removal of dead, damaged, or infected tissue — is the cornerstone of effective wound care. Without proper debridement, even the most advanced dressings and therapies cannot work effectively. Our specialists are trained in multiple advanced debridement techniques tailored to your specific wound.</p>
+            <p>We perform <strong>sharp/surgical debridement</strong>, <strong>autolytic debridement</strong>, <strong>enzymatic debridement</strong>, and <strong>mechanical debridement</strong> — selecting the right method based on your wound type, depth, and tissue status.</p>
+            <div class="benefits-title">Key Benefits</div>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Removes infected & necrotic tissue blocking healing</li>
+              <li><i class="fa-solid fa-circle-check"></i> Stimulates growth of healthy new tissue</li>
+              <li><i class="fa-solid fa-circle-check"></i> Reduces bacterial burden and infection risk</li>
+              <li><i class="fa-solid fa-circle-check"></i> Can be performed in-clinic or at your home</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2: Grafts -->
+        <div class="service-detail-card reveal" style="margin-bottom:2rem;" id="grafts">
+          <div class="service-detail-header">
+            <div class="sdh-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div>
+              <span class="sdh-tag">Advanced Therapy</span>
+              <h3>Specialized Skin Grafts & Biologics</h3>
+            </div>
+          </div>
+          <div class="service-detail-body">
+            <p>For chronic wounds that are not responding to standard treatment, advanced biological skin substitutes and grafts can be transformative. These products contain living cells and growth factors that actively stimulate healing in wounds that have stalled.</p>
+            <p>We use FDA-cleared <strong>biological skin substitutes</strong>, <strong>acellular matrices</strong>, and other advanced graft products to promote angiogenesis (new blood vessel growth) and tissue regeneration in non-healing wounds including diabetic foot ulcers, venous leg ulcers, and post-surgical wounds.</p>
+            <div class="benefits-title">When Grafts Are Used</div>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> Wounds not healing after 4+ weeks of standard care</li>
+              <li><i class="fa-solid fa-circle-check"></i> Large or deep wounds requiring accelerated closure</li>
+              <li><i class="fa-solid fa-circle-check"></i> Diabetic foot ulcers at risk of amputation</li>
+              <li><i class="fa-solid fa-circle-check"></i> Wounds with significant tissue loss</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: UltraMist -->
+        <div class="ultramist-callout reveal" style="margin-bottom:3rem;" id="ultramist">
+          <div class="ultramist-callout-inner">
+            <div>
+              <span class="ultramist-badge"><i class="fa-solid fa-certificate"></i> Featured Technology</span>
+              <h2>UltraMist® Therapy</h2>
+              <p>UltraMist® is a revolutionary non-contact, low-frequency ultrasound system delivered through a gentle mist of saline solution. Unlike traditional ultrasound, it requires no direct contact with the wound — making it pain-free and safe for even the most sensitive wounds.</p>
+              <p style="margin-bottom:1.5rem;">The ultrasound energy delivered through the mist activates a cellular healing cascade — increasing blood flow, reducing inflammation, fighting bacteria, and stimulating growth factors that accelerate tissue regeneration.</p>
+              <a href="contact.html" class="btn btn-white">
+                Ask About UltraMist® <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+            <div>
+              <div class="ultramist-stats">
+                <div class="ultramist-stat">
+                  <div class="num">40%</div>
+                  <div class="lbl">Faster healing vs. standard care</div>
+                </div>
+                <div class="ultramist-stat">
+                  <div class="num">0</div>
+                  <div class="lbl">Direct wound contact needed</div>
+                </div>
+                <div class="ultramist-stat">
+                  <div class="num">FDA</div>
+                  <div class="lbl">Cleared for wound care</div>
+                </div>
+                <div class="ultramist-stat">
+                  <div class="num">Pain<br>Free</div>
+                  <div class="lbl">Comfortable for all patients</div>
+                </div>
+              </div>
+              <div style="margin-top:1.5rem;">
+                <p style="color:rgba(255,255,255,.7);font-size:.88rem;"><i class="fa-solid fa-check-circle" style="color:var(--teal-mid);margin-right:.4rem;"></i> Available at our Aiken clinic</p>
+                <p style="color:rgba(255,255,255,.7);font-size:.88rem;"><i class="fa-solid fa-check-circle" style="color:var(--teal-mid);margin-right:.4rem;"></i> Can be performed during mobile home visits</p>
+                <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0;"><i class="fa-solid fa-check-circle" style="color:var(--teal-mid);margin-right:.4rem;"></i> Covered by Medicare for qualifying patients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services 4 & 5 side by side -->
+        <div class="grid-2" style="margin-bottom:2rem;">
+          <div class="service-detail-card reveal" id="dressings">
+            <div class="service-detail-header">
+              <div class="sdh-icon"><i class="fa-solid fa-bandage"></i></div>
+              <div>
+                <span class="sdh-tag">Ongoing Care</span>
+                <h3>Advanced & Specialized Dressings</h3>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <p>Not all dressings are equal. Standard gauze from a pharmacy may actually hinder healing. We use clinically-selected, advanced wound dressings — foam, hydrogel, silver antimicrobial, collagen, alginate, and more — chosen specifically for your wound's needs.</p>
+              <ul class="check-list">
+                <li><i class="fa-solid fa-circle-check"></i> Antimicrobial dressings to fight infection</li>
+                <li><i class="fa-solid fa-circle-check"></i> Moisture-balancing dressings for optimal healing</li>
+                <li><i class="fa-solid fa-circle-check"></i> Collagen dressings to stimulate tissue regrowth</li>
+                <li><i class="fa-solid fa-circle-check"></i> Compression therapy for venous ulcers</li>
+              </ul>
+            </div>
+          </div>
+          <div class="service-detail-card reveal" id="careplans">
+            <div class="service-detail-header">
+              <div class="sdh-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+              <div>
+                <span class="sdh-tag">Patient-Centered</span>
+                <h3>Personalized Wound Care Plans</h3>
+              </div>
+            </div>
+            <div class="service-detail-body">
+              <p>Every wound and every patient is unique. We develop comprehensive, individualized care plans based on detailed wound assessment, your medical history, nutritional status, and personal goals — then continuously update it as you heal.</p>
+              <ul class="check-list">
+                <li><i class="fa-solid fa-circle-check"></i> Complete wound assessment & photography</li>
+                <li><i class="fa-solid fa-circle-check"></i> Coordinated care with your primary physician</li>
+                <li><i class="fa-solid fa-circle-check"></i> Patient & caregiver education and training</li>
+                <li><i class="fa-solid fa-circle-check"></i> Regular progress monitoring & plan adjustments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN-CLINIC vs IN-HOME -->
+    <section class="bg-light" aria-labelledby="delivery-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">How We Deliver Care</span>
+          <h2 id="delivery-heading" class="section-title">In-Clinic or In-Home — <span class="text-teal">Your Choice</span></h2>
+          <p class="section-subtitle">All of our advanced services are available both at our Aiken clinic and through our mobile home visit program.</p>
+        </div>
+        <div class="treatment-compare reveal">
+          <div class="compare-box clinic">
+            <h4><i class="fa-solid fa-building-plus" style="color:var(--teal);"></i> In-Clinic Visit — Aiken, SC</h4>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> 511 Grier Court, Aiken, SC 29803</li>
+              <li><i class="fa-solid fa-circle-check"></i> Full clinical equipment & technology on-site</li>
+              <li><i class="fa-solid fa-circle-check"></i> All advanced treatments available</li>
+              <li><i class="fa-solid fa-circle-check"></i> Comfortable, private, relaxed environment</li>
+              <li><i class="fa-solid fa-circle-check"></i> No waiting-room delays — scheduled appointments</li>
+              <li><i class="fa-solid fa-circle-check"></i> Mon–Fri 8:00 AM – 5:00 PM</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex;">Book Clinic Visit</a>
+          </div>
+          <div class="compare-box home">
+            <h4><i class="fa-solid fa-house-medical" style="color:#38A169;"></i> Mobile In-Home Visit — All of SC</h4>
+            <ul class="check-list">
+              <li><i class="fa-solid fa-circle-check"></i> We travel to your home, facility, or nursing home</li>
+              <li><i class="fa-solid fa-circle-check"></i> Full advanced treatment capabilities on the road</li>
+              <li><i class="fa-solid fa-circle-check"></i> No transportation needed — we come to you</li>
+              <li><i class="fa-solid fa-circle-check"></i> Available across all 46 SC counties</li>
+              <li><i class="fa-solid fa-circle-check"></i> Flexible scheduling including weekends</li>
+              <li><i class="fa-solid fa-circle-check"></i> Medicare-covered home visits for qualifying patients</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;display:inline-flex;background:#38A169;border-color:#38A169;">Request Home Visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SERVICES -->
+    <section aria-labelledby="faq-services-heading">
+      <div class="container" style="max-width:800px;">
+        <div class="section-header center reveal">
+          <span class="section-label">Common Questions</span>
+          <h2 id="faq-services-heading" class="section-title">Services FAQ</h2>
+        </div>
+        <div class="reveal">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              How do I know which services I need?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Our specialists conduct a comprehensive wound assessment at your first visit — measuring the wound, evaluating tissue type, assessing circulation and sensation, and reviewing your medical history. Based on this, we recommend a specific combination of treatments tailored to your situation.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Are all services available during home visits?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Yes — the vast majority of our services, including debridement, advanced dressings, UltraMist® therapy, biological graft application, and care plan development, can be performed during mobile home visits. Our mobile team carries professional-grade equipment to deliver true clinical-quality care at your door.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Is UltraMist® therapy covered by insurance?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              UltraMist® therapy is covered by Medicare and many insurance plans for qualifying patients with chronic wounds. Our team will verify your coverage before treatment begins and handle all prior authorization. Call us at 866-540-8090 to confirm your specific benefits.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              How often will I need treatment visits?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Treatment frequency depends on your wound type and severity. Many patients are seen 1–3 times per week initially, transitioning to weekly visits as healing progresses. Your care plan will outline expected visit frequency, and we adjust as needed based on your healing response.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              What should I expect at my first appointment?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Your first visit includes a comprehensive wound assessment (measurements, photographs, tissue analysis), a full medical history review, discussion of your goals, insurance verification, and development of your personalized care plan. We'll explain every recommended treatment clearly before beginning.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">Start Healing Today</span>
+          <h2>Ready for Advanced Wound Care That Works?</h2>
+          <p>Schedule a free consultation and let our specialists design a personalized treatment plan for your wound — in-clinic or at your home.</p>
+          <div class="cta-band-buttons">
+            <a href="contact.html" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Consultation
+            </a>
+            <a href="tel:8665408090" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <p>Advanced wound care delivered with compassion — in our Aiken clinic or at your home anywhere in South Carolina. Medicare accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations & Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#debridement">Advanced Debridement</a></li>
+            <li><a href="#grafts">Skin Grafts & Biologics</a></li>
+            <li><a href="#ultramist">UltraMist® Therapy</a></li>
+            <li><a href="#dressings">Advanced Dressings</a></li>
+            <li><a href="#careplans">Personalized Care Plans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court<br>Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">HIPAA Notice</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

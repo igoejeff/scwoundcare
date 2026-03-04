@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Schedule | Carolina Wound Care – Aiken SC & Mobile South Carolina</title>
+  <meta name="description" content="Schedule a wound care consultation at our Aiken, SC clinic or request a mobile in-home visit anywhere in South Carolina. Call 866-540-8090. Medicare accepted." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Contact info panel */
+    .contact-info-panel {
+      position: sticky;
+      top: 90px;
+    }
+    .contact-block {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      transition: var(--transition);
+    }
+    .contact-block:hover { box-shadow: var(--shadow-md); border-color: rgba(42,157,143,.2); }
+    .contact-block h4 {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .contact-block h4 i { color: var(--teal); }
+    .cb-phone {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .cb-phone:hover { color: var(--teal-dark); }
+    .cb-phone-sub { color: var(--text-muted); font-size: .88rem; margin-top: .3rem; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: .5rem 0;
+      border-bottom: 1px solid var(--gray-mid);
+      font-size: .9rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { font-weight: 600; color: var(--text-body); }
+    .hours-row .time { color: var(--text-muted); }
+    .hours-row .open { color: var(--teal); font-weight: 600; }
+
+    /* Form card */
+    .contact-form-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-form-card h2 { margin-bottom: .5rem; }
+    .contact-form-card .form-intro { color: var(--text-muted); margin-bottom: 2rem; line-height: 1.7; }
+
+    /* GHL iframe wrapper */
+    .ghl-form-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1.5px solid rgba(42,157,143,.15);
+      background: #f8fdfc;
+      min-height: 566px;
+    }
+    .ghl-form-wrap iframe {
+      min-height: 566px;
+    }
+
+    /* Below-form footer */
+    .ghl-form-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+    }
+    .ghl-hipaa {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      background: var(--teal-light);
+      border: 1px solid rgba(42,157,143,.18);
+      border-radius: 10px;
+      padding: .9rem 1.1rem;
+    }
+    .ghl-hipaa i {
+      color: var(--teal);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: .12rem;
+    }
+    .ghl-hipaa p {
+      margin: 0;
+      font-size: .83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .ghl-call-alt {
+      text-align: center;
+      font-size: .85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .ghl-call-alt a {
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .ghl-call-alt a:hover { text-decoration: underline; }
+
+    /* Visit type selector */
+    .visit-type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+    }
+    .visit-type-btn {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: 1rem 1.25rem;
+      border: 2px solid var(--gray-mid);
+      border-radius: var(--radius);
+      background: var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: left;
+      font-family: inherit;
+    }
+    .visit-type-btn:hover { border-color: var(--teal); }
+    .visit-type-btn.selected {
+      border-color: var(--teal);
+      background: var(--teal-light);
+    }
+    .visit-type-btn .vt-icon {
+      width: 40px; height: 40px;
+      background: var(--teal-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .visit-type-btn.selected .vt-icon { background: var(--teal); color: var(--white); }
+    .visit-type-btn .vt-text strong { display: block; font-size: .92rem; color: var(--text-body); font-weight: 700; }
+    .visit-type-btn .vt-text span   { font-size: .8rem; color: var(--text-muted); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* Insurance checker */
+    .insurance-checker {
+      background: var(--teal-light);
+      border: 1.5px solid rgba(42,157,143,.2);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .insurance-checker h3 { margin-bottom: .5rem; }
+    .insurance-checker p  { color: var(--text-muted); margin-bottom: 1.5rem; }
+    .insurance-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: .75rem;
+    }
+    .insurance-option {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--white);
+      border: 1.5px solid rgba(42,157,143,.2);
+      border-radius: var(--radius);
+      padding: .75rem 1rem;
+      font-size: .88rem;
+      font-weight: 500;
+    }
+    .insurance-option i { color: var(--teal); }
+
+    /* Urgency banner */
+    .urgency-banner {
+      background: linear-gradient(135deg, #C05621, #DD6B20);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .urgency-banner i { color: var(--white); font-size: 1.8rem; flex-shrink: 0; }
+    .urgency-banner h4 { color: var(--white); margin-bottom: .2rem; }
+    .urgency-banner p  { color: rgba(255,255,255,.85); font-size: .88rem; margin: 0; }
+
+    @media (max-width: 1024px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-info-panel { position: static; }
+    }
+    @media (max-width: 640px) {
+      .contact-form-card { padding: 1.75rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .visit-type-grid { grid-template-columns: 1fr; }
+      .insurance-options { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="eyebrow"><i class="fa-solid fa-calendar-check"></i> Get Started</div>
+          <h1>Schedule Your Wound Care Consultation</h1>
+          <p>In-clinic in Aiken or at-home anywhere in South Carolina. Medicare accepted. Same-week appointments available.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Contact</span>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTACT SECTION -->
+    <section aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- LEFT: INFO PANEL -->
+          <div class="contact-info-panel">
+            <!-- Phone -->
+            <div class="contact-block">
+              <h4><i class="fa-solid fa-phone"></i> Call Us Directly</h4>
+              <a href="tel:8665408090" class="cb-phone">
+                <i class="fa-solid fa-phone-volume"></i>
+                866-540-8090
+              </a>
+              <p class="cb-phone-sub">Fastest way to schedule — speak to our team immediately</p>
+            </div>
+
+            <!-- Hours -->
+            <div class="contact-block">
+              <h4><i class="fa-solid fa-clock"></i> Hours</h4>
+              <div class="hours-row">
+                <span class="day">Monday</span>
+                <span class="time open">8:00 AM – 5:00 PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="day">Tuesday</span>
+                <span class="time open">8:00 AM – 5:00 PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="day">Wednesday</span>
+                <span class="time open">8:00 AM – 5:00 PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="day">Thursday</span>
+                <span class="time open">8:00 AM – 5:00 PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="day">Friday</span>
+                <span class="time open">8:00 AM – 5:00 PM</span>
+              </div>
+              <div class="hours-row">
+                <span class="day">Saturday</span>
+                <span class="time">Mobile visits by appt.</span>
+              </div>
+              <div class="hours-row">
+                <span class="day">Sunday</span>
+                <span class="time">Mobile visits by appt.</span>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="contact-block">
+              <h4><i class="fa-solid fa-location-dot"></i> Clinic Address</h4>
+              <p style="font-weight:600;color:var(--text-body);margin-bottom:.25rem;">511 Grier Court</p>
+              <p style="color:var(--text-muted);margin-bottom:1rem;">Aiken, SC 29803</p>
+              <a href="https://maps.google.com/?q=511+Grier+Court+Aiken+SC+29803" target="_blank" rel="noopener" class="btn btn-outline btn-sm w-full">
+                <i class="fa-solid fa-directions"></i> Get Directions
+              </a>
+            </div>
+
+            <!-- Mobile note -->
+            <div class="contact-block" style="background:var(--teal-light);border-color:rgba(42,157,143,.25);">
+              <h4><i class="fa-solid fa-house-medical"></i> Mobile Home Visits</h4>
+              <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1rem;">Can't come to us? We come to you — anywhere in South Carolina. Select "Home Visit" in the form and tell us your location.</p>
+              <a href="tel:8665408090" class="btn btn-primary btn-sm w-full">
+                <i class="fa-solid fa-phone"></i> Call to Schedule
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: FORM -->
+          <div>
+            <div class="urgency-banner reveal">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <div>
+                <h4>Wound not healing for 6+ weeks?</h4>
+                <p>Please contact us as soon as possible. Chronic wounds worsen significantly without specialist care. Same-week appointments available.</p>
+              </div>
+            </div>
+
+            <div class="contact-form-card reveal">
+              <h2 id="contact-heading">Schedule Your Consultation</h2>
+              <p class="form-intro">Fill out the form below and our team will contact you within 24 hours — usually same business day. Prefer to call? Reach us at <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>.</p>
+
+              <!-- GHL Embedded Form -->
+              <div class="ghl-form-wrap">
+                <iframe
+                  src="https://link.mypracticelaunch.com/widget/form/y8vQZLpQfWZpWbvd25TF"
+                  id="inline-y8vQZLpQfWZpWbvd25TF"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Wound Care Contact Form"
+                  data-height="566"
+                  data-layout-iframe-id="inline-y8vQZLpQfWZpWbvd25TF"
+                  data-form-id="y8vQZLpQfWZpWbvd25TF"
+                  title="Wound Care Contact Form"
+                  style="width:100%;border:none;display:block;"
+                ></iframe>
+                <script src="https://link.mypracticelaunch.com/js/form_embed.js"></script>
+              </div>
+
+              <div class="ghl-form-footer">
+                <div class="ghl-hipaa">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <p>Your information is protected under HIPAA and our Privacy Policy. We will never share your personal or health information without your consent.</p>
+                </div>
+                <p class="ghl-call-alt">Prefer to call? <a href="tel:8665408090">866-540-8090</a></p>
+              </div>
+
+            </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INSURANCE CHECKER -->
+    <section class="bg-light" aria-labelledby="insurance-section-heading">
+      <div class="container">
+        <div class="insurance-checker reveal">
+          <span class="section-label">Insurance & Coverage</span>
+          <h3 id="insurance-section-heading">We Work With Your Insurance</h3>
+          <p>Don't let insurance uncertainty stop you from getting the care you need. We accept all major plans and handle all authorization and billing for you.</p>
+          <div class="insurance-options">
+            <div class="insurance-option"><i class="fa-solid fa-shield-halved"></i> Medicare Part A & B</div>
+            <div class="insurance-option"><i class="fa-solid fa-shield-halved"></i> Most PPO Plans</div>
+            <div class="insurance-option"><i class="fa-solid fa-heart-circle-check"></i> BlueCross BlueShield</div>
+            <div class="insurance-option"><i class="fa-solid fa-heart-circle-check"></i> Aetna</div>
+            <div class="insurance-option"><i class="fa-solid fa-heart-circle-check"></i> United Healthcare</div>
+            <div class="insurance-option"><i class="fa-solid fa-heart-circle-check"></i> Cigna</div>
+            <div class="insurance-option"><i class="fa-solid fa-building-shield"></i> Most PPO Plans</div>
+            <div class="insurance-option"><i class="fa-solid fa-circle-question"></i> Not Sure? We'll Check</div>
+          </div>
+          <p style="margin-top:1.5rem;color:var(--text-muted);font-size:.9rem;margin-bottom:0;">
+            <i class="fa-solid fa-circle-info" style="color:var(--teal);margin-right:.4rem;"></i>
+            <strong>Free benefits verification:</strong> Call <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a> and we'll confirm your specific coverage before your first visit — no obligation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section aria-labelledby="map-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Find Our Clinic</span>
+          <h2 id="map-heading" class="section-title">511 Grier Court, Aiken, SC 29803</h2>
+          <p class="section-subtitle">Conveniently located in Aiken, SC with accessible parking. Can't drive? Request a mobile home visit — we come to you.</p>
+        </div>
+        <div class="reveal">
+          <iframe
+            class="map-frame"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-81.7154!3d33.5601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s511+Grier+Ct%2C+Aiken%2C+SC+29803!5e0!3m2!1sen!2sus!4v1700000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Carolina Wound Care Clinic — 511 Grier Court, Aiken SC 29803"
+            aria-label="Map showing Carolina Wound Care clinic at 511 Grier Court, Aiken, SC"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">We're Ready to Help</span>
+          <h2>Don't Let a Wound Keep You From Living Your Life</h2>
+          <p>Call today and our compassionate team will help you find the fastest path to healing — in our clinic or right at your door.</p>
+          <div class="cta-band-buttons">
+            <a href="tel:8665408090" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090 Now
+            </a>
+            <a href="conditions.html#quiz" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-clipboard-question"></i> Take Wound Assessment Quiz
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <p>Advanced wound care in Aiken, SC and mobile service across all of South Carolina. Medicare accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations & Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Conditions</h5>
+          <ul>
+            <li><a href="conditions.html">Diabetic Foot Ulcers</a></li>
+            <li><a href="conditions.html">Venous Leg Ulcers</a></li>
+            <li><a href="conditions.html">Pressure Injuries</a></li>
+            <li><a href="conditions.html">Post-Surgical Wounds</a></li>
+            <li><a href="conditions.html">Sacral Ulcers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court<br>Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span><a href="mailto:info@carolinawoundcare.com">info@carolinawoundcare.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">HIPAA Notice</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Visit type toggle
+    const vtClinic = document.getElementById('vtClinic');
+    const vtHome   = document.getElementById('vtHome');
+    const visitInput = document.getElementById('visitTypeInput');
+    const addressGroup = document.getElementById('addressGroup');
+
+    vtClinic.addEventListener('click', () => {
+      vtClinic.classList.add('selected');
+      vtHome.classList.remove('selected');
+      visitInput.value = 'in-clinic';
+      addressGroup.style.display = 'none';
+    });
+    vtHome.addEventListener('click', () => {
+      vtHome.classList.add('selected');
+      vtClinic.classList.remove('selected');
+      visitInput.value = 'home-visit';
+      addressGroup.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

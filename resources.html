@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wound Care Resources | Carolina Wound Care – Education & Healing Guides</title>
+  <meta name="description" content="Learn about the 4 stages of wound healing, when to seek specialist care, and how to understand chronic wounds. Free education resources from Carolina Wound Care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    /* Healing stages timeline */
+    .healing-timeline {
+      position: relative;
+      padding-left: 0;
+    }
+    .healing-stage {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-xl);
+      padding: 0;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .healing-stage:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .healing-stage-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem 2.5rem;
+      background: var(--gray-light);
+      border-bottom: 1.5px solid var(--gray-mid);
+    }
+    .stage-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      font-weight: 800;
+    }
+    .stage-badge .stage-n { font-size: 1.6rem; line-height: 1; }
+    .stage-badge .stage-lbl { font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; }
+    .stage-1 .stage-badge { background: #EBF8FF; color: #2B6CB0; }
+    .stage-2 .stage-badge { background: #F0FFF4; color: #276749; }
+    .stage-3 .stage-badge { background: #FFFAF0; color: #C05621; }
+    .stage-4 .stage-badge { background: #E8F7F5; color: var(--teal-dark); }
+    .healing-stage-header .hsh-text h3 { margin-bottom: .2rem; font-size: 1.3rem; }
+    .healing-stage-header .hsh-text .stage-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(42,157,143,.1);
+      color: var(--teal-dark);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .2rem .7rem;
+      border-radius: 50px;
+    }
+    .healing-stage-body {
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .healing-stage-body p { color: var(--text-muted); font-size: .94rem; line-height: 1.75; margin: 0; }
+    .healing-stage-body h4 { font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: .75rem; }
+
+    /* Warning banner */
+    .warning-banner {
+      background: linear-gradient(135deg, #C05621 0%, #DD6B20 100%);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    .warning-banner-icon {
+      width: 72px; height: 72px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .warning-banner-text h3 { color: var(--white); margin-bottom: .4rem; }
+    .warning-banner-text p  { color: rgba(255,255,255,.85); margin: 0; font-size: .97rem; line-height: 1.65; }
+
+    /* Nutrition tip cards */
+    .tip-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+    .tip-card:hover { box-shadow: var(--shadow-md); border-color: rgba(42,157,143,.2); }
+    .tip-card .tip-icon {
+      width: 48px; height: 48px;
+      background: var(--teal-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .tip-card h4 { margin-bottom: .3rem; font-size: 1rem; }
+    .tip-card p  { color: var(--text-muted); font-size: .88rem; margin: 0; line-height: 1.65; }
+
+    /* Glossary */
+    .glossary-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--gray-mid);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .glossary-item:last-child { border-bottom: none; }
+    .glossary-term {
+      font-weight: 700;
+      color: var(--teal-dark);
+      font-size: .95rem;
+    }
+    .glossary-def {
+      color: var(--text-muted);
+      font-size: .93rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .healing-stage-body { grid-template-columns: 1fr; gap: 1.25rem; }
+      .healing-stage-header { flex-direction: column; text-align: center; }
+      .warning-banner { grid-template-columns: 1fr; text-align: center; }
+      .warning-banner-icon { margin: 0 auto; }
+      .glossary-item { grid-template-columns: 1fr; gap: .25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle active" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" class="active" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="eyebrow"><i class="fa-solid fa-book-medical"></i> Patient Education</div>
+          <h1>Wound Care Resources & Education</h1>
+          <p>Understanding your wound and how healing works empowers you to be an active participant in your recovery.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Resources</span>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- URGENT WARNING -->
+    <section class="section-sm">
+      <div class="container">
+        <div class="warning-banner reveal">
+          <div class="warning-banner-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div class="warning-banner-text">
+            <h3>Don't Wait — Wounds That Haven't Improved in 6+ Weeks Need Specialized Care</h3>
+            <p>Chronic wounds worsen significantly over time without proper treatment. Studies show that wounds untreated for 6+ weeks have a dramatically higher risk of serious infection, hospitalization, and amputation. If your wound hasn't improved, please contact us today.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <a href="tel:8665408090" class="btn btn-white" style="color:#C05621;">
+              <i class="fa-solid fa-phone"></i> Call Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 STAGES OF HEALING -->
+    <section aria-labelledby="healing-heading">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Education</span>
+          <h2 id="healing-heading" class="section-title">The 4 Stages of Wound Healing</h2>
+          <p class="section-subtitle">Normal wound healing follows a predictable sequence of four overlapping phases. Chronic wounds get "stuck" in one of these phases — which is why specialist intervention is required to restart the healing process.</p>
+        </div>
+
+        <div class="healing-timeline">
+          <!-- Stage 1 -->
+          <div class="healing-stage stage-1 reveal">
+            <div class="healing-stage-header">
+              <div class="stage-badge">
+                <span class="stage-n">1</span>
+                <span class="stage-lbl">Stage</span>
+              </div>
+              <div class="hsh-text">
+                <h3>Hemostasis (Stopping the Bleeding)</h3>
+                <span class="stage-duration"><i class="fa-solid fa-clock"></i> Begins within seconds of injury</span>
+              </div>
+            </div>
+            <div class="healing-stage-body">
+              <div>
+                <p>The moment an injury occurs, the body immediately activates its clotting mechanism to stop bleeding. Blood vessels constrict, and platelets rush to the wound site to form a clot — creating a temporary seal over the wound.</p>
+                <p style="margin-top:.75rem;">This platelet plug also releases chemical signals (growth factors) that trigger the next healing phases. The clot that forms becomes the scaffolding upon which new tissue will eventually grow.</p>
+              </div>
+              <div>
+                <h4>What's happening in your wound</h4>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Blood vessels constrict to reduce blood loss</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Platelets aggregate and form a clot</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Growth factors are released to signal healing</li>
+                  <li><i class="fa-solid fa-circle-check"></i> A fibrin matrix (scab foundation) forms</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="healing-stage stage-2 reveal">
+            <div class="healing-stage-header">
+              <div class="stage-badge">
+                <span class="stage-n">2</span>
+                <span class="stage-lbl">Stage</span>
+              </div>
+              <div class="hsh-text">
+                <h3>Inflammation (Cleaning the Wound)</h3>
+                <span class="stage-duration"><i class="fa-solid fa-clock"></i> Days 1–4 after injury</span>
+              </div>
+            </div>
+            <div class="healing-stage-body">
+              <div>
+                <p>Inflammation is not a problem — it's a necessary and purposeful healing phase. White blood cells (neutrophils and macrophages) flood the wound to kill bacteria, remove debris, and digest dead tissue. This is why wounds appear red, warm, and swollen.</p>
+                <p style="margin-top:.75rem;">In chronic wounds, this phase becomes dysregulated — the inflammatory response continues indefinitely without progressing to repair. This "chronic inflammation" actively destroys healing tissue instead of building it. This is why specialist debridement is often needed to break the cycle.</p>
+              </div>
+              <div>
+                <h4>Signs of this stage</h4>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Redness and warmth around the wound</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Swelling (edema)</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Clear or yellowish wound drainage</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Some pain or tenderness</li>
+                </ul>
+                <div class="alert-box" style="margin-top:1rem;">
+                  <i class="fa-solid fa-lightbulb"></i>
+                  <p style="margin:0;font-size:.85rem;"><strong>Chronic wounds get stuck here.</strong> Specialist care helps break the inflammatory cycle and move healing forward.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="healing-stage stage-3 reveal">
+            <div class="healing-stage-header">
+              <div class="stage-badge">
+                <span class="stage-n">3</span>
+                <span class="stage-lbl">Stage</span>
+              </div>
+              <div class="hsh-text">
+                <h3>Proliferation (Building New Tissue)</h3>
+                <span class="stage-duration"><i class="fa-solid fa-clock"></i> Days 4–21 after injury</span>
+              </div>
+            </div>
+            <div class="healing-stage-body">
+              <div>
+                <p>This is the rebuilding phase. New blood vessels form (angiogenesis), and fibroblasts lay down collagen to fill the wound with new tissue (granulation tissue). The wound begins to visibly shrink as new tissue fills the defect from the bottom up.</p>
+                <p style="margin-top:.75rem;">Epithelial cells migrate from the wound edges across the new tissue surface to gradually close the wound. This phase requires adequate nutrition, blood supply, and a clean wound bed — all things our specialists work to optimize.</p>
+              </div>
+              <div>
+                <h4>What you'll see</h4>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Red, bumpy granulation tissue filling the wound</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Wound becoming visibly smaller</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Reduced drainage</li>
+                  <li><i class="fa-solid fa-circle-check"></i> New pink skin appearing at wound edges</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="healing-stage stage-4 reveal">
+            <div class="healing-stage-header">
+              <div class="stage-badge">
+                <span class="stage-n">4</span>
+                <span class="stage-lbl">Stage</span>
+              </div>
+              <div class="hsh-text">
+                <h3>Remodeling (Strengthening the Scar)</h3>
+                <span class="stage-duration"><i class="fa-solid fa-clock"></i> Weeks 3 through 2+ years</span>
+              </div>
+            </div>
+            <div class="healing-stage-body">
+              <div>
+                <p>After the wound closes, the body continues to remodel the scar tissue for months to years. Collagen fibers reorganize, and the scar tissue gradually gains strength — though it will only ever reach about 80% of the strength of original skin.</p>
+                <p style="margin-top:.75rem;">During this phase, it's important to protect the healing area, manage any recurrence risk factors (especially for diabetic or venous ulcers), and follow your care plan for prevention of re-injury.</p>
+              </div>
+              <div>
+                <h4>Long-term healing tips</h4>
+                <ul class="check-list">
+                  <li><i class="fa-solid fa-circle-check"></i> Protect healed skin from pressure and injury</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Maintain compression therapy for venous ulcers</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Continue foot care for diabetic patients</li>
+                  <li><i class="fa-solid fa-circle-check"></i> Follow up with your wound care specialist</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUTRITION -->
+    <section class="bg-light" aria-labelledby="nutrition-heading">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label">Healing Support</span>
+          <h2 id="nutrition-heading" class="section-title">Nutrition & Lifestyle for <span class="text-teal">Faster Healing</span></h2>
+          <p class="section-subtitle">Wound healing requires significant nutritional resources. What you eat and how you live directly impacts how quickly and completely your wound heals.</p>
+        </div>
+        <div class="grid-3">
+          <div class="tip-card reveal">
+            <div class="tip-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+            <div>
+              <h4>Protein is Essential</h4>
+              <p>Protein provides the amino acids needed to build collagen and new tissue. Aim for 1.2–1.5g of protein per kg of body weight daily. Good sources: chicken, fish, eggs, Greek yogurt, legumes.</p>
+            </div>
+          </div>
+          <div class="tip-card reveal">
+            <div class="tip-icon"><i class="fa-solid fa-lemon"></i></div>
+            <div>
+              <h4>Vitamin C</h4>
+              <p>Vitamin C is critical for collagen synthesis and immune function. Low vitamin C significantly impairs healing. Include citrus fruits, bell peppers, strawberries, and broccoli daily.</p>
+            </div>
+          </div>
+          <div class="tip-card reveal">
+            <div class="tip-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div>
+              <h4>Stay Well Hydrated</h4>
+              <p>Dehydration impairs every stage of wound healing. Aim for at least 8–10 glasses of water daily. Adequate hydration also prevents pressure injury development in bedridden patients.</p>
+            </div>
+          </div>
+          <div class="tip-card reveal">
+            <div class="tip-icon"><i class="fa-solid fa-circle-stop"></i></div>
+            <div>
+              <h4>Quit Smoking</h4>
+              <p>Smoking dramatically impairs wound healing — reducing blood flow to the skin by up to 50%, reducing tissue oxygen delivery, and suppressing immune function. Quitting is one of the most impactful things you can do.</p>
+            </div>
+          </div>
+          <div class="tip-card reveal">
+            <div class="tip-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+            <div>
+              <h4>Blood Sugar Control</h4>
+              <p>For diabetic patients, maintaining blood sugar in target range is critical. High blood glucose impairs white blood cell function, reduces circulation, and dramatically slows all phases of wound healing.</p>
+            </div>
+          </div>
+          <div class="tip-card reveal">
+            <div class="tip-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <div>
+              <h4>Movement & Positioning</h4>
+              <p>For venous ulcers, regular walking and leg elevation improves blood return. For pressure wounds, regular repositioning (every 2 hours) is essential. Ask your care team for specific guidance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOSSARY -->
+    <section aria-labelledby="glossary-heading">
+      <div class="container" style="max-width:900px;">
+        <div class="section-header center reveal">
+          <span class="section-label">Terminology</span>
+          <h2 id="glossary-heading" class="section-title">Wound Care Glossary</h2>
+          <p class="section-subtitle">Understanding common wound care terms helps you be a more informed participant in your care.</p>
+        </div>
+        <div class="reveal">
+          <div class="glossary-item">
+            <span class="glossary-term">Debridement</span>
+            <span class="glossary-def">The removal of dead, damaged, or infected tissue from a wound to promote healing and reduce infection risk.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Granulation Tissue</span>
+            <span class="glossary-def">The new, pink, moist tissue that fills a healing wound. It has a bumpy appearance and is a sign of healthy healing progress.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Slough</span>
+            <span class="glossary-def">Yellow or white moist dead tissue in a wound that must be removed (debrided) to allow healing to progress.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Eschar</span>
+            <span class="glossary-def">Hard, dark (brown or black) necrotic (dead) tissue that must typically be removed for a wound to heal.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Undermining / Tunneling</span>
+            <span class="glossary-def">Areas of tissue destruction that extend under the skin edges or through tissue in specific directions, indicating a deeper wound than visible.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Exudate</span>
+            <span class="glossary-def">Fluid that seeps from a wound (wound drainage). The amount, color, and consistency provides important information about healing progress and infection.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Periwound</span>
+            <span class="glossary-def">The skin surrounding the wound. Periwound condition (maceration, excoriation, redness) is an important part of wound assessment.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Biofilm</span>
+            <span class="glossary-def">A community of bacteria encased in a protective matrix that is highly resistant to antibiotics. Biofilm is a major cause of chronic wound chronicity and must be disrupted through debridement.</span>
+          </div>
+          <div class="glossary-item">
+            <span class="glossary-term">Neuropathy</span>
+            <span class="glossary-def">Nerve damage — particularly relevant in diabetes — causing loss of sensation in the feet. Patients cannot feel injuries, leading to unnoticed wounds that develop into serious ulcers.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ RESOURCES -->
+    <section class="bg-light" aria-labelledby="faq-resources-heading">
+      <div class="container" style="max-width:800px;">
+        <div class="section-header center reveal">
+          <span class="section-label">Frequently Asked</span>
+          <h2 id="faq-resources-heading" class="section-title">Common Questions About Wound Healing</h2>
+        </div>
+        <div class="reveal">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              How long should a wound take to heal?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Most acute wounds (cuts, minor surgical wounds) heal within 2–4 weeks. If a wound has not shown clear signs of improvement — getting measurably smaller, with less drainage and decreasing redness — within 2–4 weeks, it should be evaluated by a wound care specialist. Wounds not healed by 6 weeks are definitively classified as chronic and require specialist intervention.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              What does infected wound look like?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Signs of wound infection include: increasing redness, warmth, and swelling (beyond 48–72 hours post-injury); purulent (cloudy, yellow, or green) drainage; foul odor; increasing pain; fever; and red streaking extending from the wound. If you notice these signs, seek medical attention promptly. Call us at 866-540-8090 and we can assess the situation quickly.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Should I keep my wound moist or dry?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Modern wound care science has firmly established that moist wound healing leads to significantly better and faster outcomes than dry healing. Keeping a wound properly moist (not wet or waterlogged) maintains the optimal environment for cell migration, reduces pain, prevents scarring, and accelerates healing. This is why advanced dressings significantly outperform dry gauze.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Can diet really affect how my wound heals?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              Absolutely. Nutrition has a profound impact on wound healing. Protein deficiency is one of the most common and impactful nutritional barriers to wound healing. Vitamins A, C, and zinc are also critical. Poor nutrition can mean a wound that could heal in 8 weeks instead takes 6 months — or doesn't heal at all. Our specialists always assess nutritional status as part of your care plan.
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              What is UltraMist® therapy and is it painful?
+              <i class="fa-solid fa-plus accordion-icon"></i>
+            </button>
+            <div class="accordion-body">
+              UltraMist® is non-contact low-frequency ultrasound therapy delivered through a gentle mist of saline solution — it never directly touches the wound. It is completely painless and often described as simply feeling a light mist. The ultrasound energy activates cellular healing mechanisms, promotes blood flow, fights bacteria, and reduces inflammation. It is FDA-cleared and covered by Medicare for qualifying patients.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">We Can Help</span>
+          <h2>Have Questions About Your Wound? We're Here to Help.</h2>
+          <p>Our specialists are happy to discuss your specific wound situation and help you understand your options — with no obligation. In-clinic in Aiken or mobile home visit across SC.</p>
+          <div class="cta-band-buttons">
+            <a href="contact.html" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="conditions.html#quiz" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-clipboard-question"></i> Take the Wound Quiz
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" />
+          <p>Advanced wound care in Aiken, SC and mobile service across all of South Carolina. Medicare accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations & Mobile Care</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#healing-heading">4 Stages of Healing</a></li>
+            <li><a href="#nutrition-heading">Nutrition for Healing</a></li>
+            <li><a href="#glossary-heading">Wound Care Glossary</a></li>
+            <li><a href="#faq-resources-heading">FAQ</a></li>
+            <li><a href="conditions.html#quiz">Wound Assessment Quiz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court, Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">HIPAA Notice</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
