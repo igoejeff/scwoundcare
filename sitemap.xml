@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.google.com/schemas/sitemap-image/1.1
+    http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- ============================================================
+       CAROLINA WOUND CARE — SITEMAP
+       Domain   : https://scwound.com
+       Generated: 2026-03-04
+       Pages    : 23 total
+       Priority Guide:
+         1.0  = Homepage
+         0.95 = Core local SEO landing pages
+         0.90 = High-value service/condition pages
+         0.80 = Supporting pages (About, Contact, Locations)
+         0.70 = Blog index
+         0.60 = Blog articles
+         0.50 = Utility / landing pages
+  ============================================================ -->
+
+  <!-- ==========================================
+       TIER 1 — HOMEPAGE (Priority 1.0)
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/mobile-van-team.jpg</image:loc>
+      <image:title>Carolina Wound Care — Aiken and Charleston SC Wound Care Team and Mobile Van</image:title>
+      <image:caption>Carolina Wound Care specialist team with mobile care van serving all of South Carolina</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://scwound.com/images/clinic-wound-care.jpg</image:loc>
+      <image:title>Expert Wound Care Specialist Treating Patient</image:title>
+      <image:caption>Board-certified wound care specialist providing expert in-home treatment</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ==========================================
+       TIER 2 — LOCAL SEO PAGES (Priority 0.95)
+       Highest commercial intent, geo-targeted
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/wound-care-aiken-sc.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/home-visit-nurse.jpg</image:loc>
+      <image:title>Wound Care Specialist in Aiken SC — 511 Grier Court</image:title>
+      <image:caption>Carolina Wound Care nurse providing expert wound treatment at our Aiken, SC clinic</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/wound-care-charleston-sc.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/home-visit-nurse.jpg</image:loc>
+      <image:title>Wound Care Specialist in Charleston SC — 2 Carriage Lane</image:title>
+      <image:caption>Carolina Wound Care nurse providing expert wound treatment at our Charleston, SC clinic</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ==========================================
+       TIER 3 — CORE SERVICE PAGES (Priority 0.90)
+       High conversion pages
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/services.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/conditions.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- ==========================================
+       TIER 4 — SUPPORTING PAGES (Priority 0.80)
+       Trust, contact, and location pages
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/contact.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/locations.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/about.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/resources.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ==========================================
+       TIER 5 — BLOG INDEX (Priority 0.70)
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/blog.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- ==========================================
+       TIER 6 — BLOG ARTICLES (Priority 0.60)
+       Ordered by SEO value / search volume
+  =========================================== -->
+
+  <!-- High-volume diabetic/chronic wound topics -->
+  <url>
+    <loc>https://scwound.com/blog-diabetic-foot-ulcers.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-diabetic-foot-ulcers.jpg</image:loc>
+      <image:title>Diabetic Foot Ulcer Treatment Guide — Carolina Wound Care</image:title>
+      <image:caption>Healthcare professional examining a patient's diabetic foot ulcer</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-why-wound-wont-heal.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-why-wound-wont-heal.jpg</image:loc>
+      <image:title>Why Won't My Wound Heal — Chronic Wound Causes and Treatment</image:title>
+      <image:caption>Understanding why chronic wounds stop healing and what specialist care can do</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-preventing-amputations.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-preventing-amputations.jpg</image:loc>
+      <image:title>Preventing Amputations with Early Wound Care — Carolina Wound Care</image:title>
+      <image:caption>Early wound care intervention can prevent limb amputation in diabetic patients</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-pressure-ulcers.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.62</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-pressure-ulcers.jpg</image:loc>
+      <image:title>Pressure Ulcer Stages and Treatment — Carolina Wound Care SC</image:title>
+      <image:caption>Understanding pressure ulcer stages and specialist treatment options</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-venous-leg-ulcers.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.62</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-venous-leg-ulcers.jpg</image:loc>
+      <image:title>Venous Leg Ulcer Treatment — Carolina Wound Care South Carolina</image:title>
+      <image:caption>Expert treatment for venous leg ulcers at Carolina Wound Care</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-wound-infection-signs.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.62</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-wound-infection-signs.jpg</image:loc>
+      <image:title>Signs of Wound Infection — When to Seek Specialist Care</image:title>
+      <image:caption>Recognizing the warning signs of wound infection requiring specialist attention</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-mobile-wound-care.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.62</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-mobile-wound-care.jpg</image:loc>
+      <image:title>Mobile Wound Care South Carolina — In-Home Wound Treatment</image:title>
+      <image:caption>Carolina Wound Care mobile team bringing expert wound treatment to patients at home</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-home-wound-care.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-home-wound-care.jpg</image:loc>
+      <image:title>Home Wound Care Tips Between Specialist Visits</image:title>
+      <image:caption>Guide to caring for wounds at home between professional wound care visits</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-wound-care-myths.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-wound-care-myths.jpg</image:loc>
+      <image:title>Common Wound Care Myths Debunked — Carolina Wound Care</image:title>
+      <image:caption>Expert wound care specialists debunking the most common wound healing myths</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-nutrition-wound-healing.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-nutrition-wound-healing.jpg</image:loc>
+      <image:title>Nutrition and Wound Healing — Best Foods for Recovery</image:title>
+      <image:caption>How proper nutrition accelerates wound healing and recovery</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-4-stages-wound-healing.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-4-stages-wound-healing.jpg</image:loc>
+      <image:title>The 4 Stages of Wound Healing Explained — Carolina Wound Care</image:title>
+      <image:caption>Understanding the four stages of wound healing: hemostasis, inflammation, proliferation, remodeling</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://scwound.com/blog-first-visit.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+    <image:image>
+      <image:loc>https://scwound.com/images/blog-first-visit.jpg</image:loc>
+      <image:title>What to Expect at Your First Wound Care Visit — Carolina Wound Care</image:title>
+      <image:caption>A complete guide to your first wound care specialist appointment</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ==========================================
+       TIER 7 — LANDING PAGE (Priority 0.50)
+       Conversion-focused, not for organic search
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/landing.html</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+</urlset>

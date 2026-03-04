@@ -1,0 +1,33 @@
+# ============================================================
+# ROBOTS.TXT — Carolina Wound Care
+# Domain: https://scwound.com
+# Updated: 2026-03-04
+# ============================================================
+
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Allow all other crawlers by default
+User-agent: *
+Allow: /
+
+# ---- Sitemap Location ----
+Sitemap: https://scwound.com/sitemap.xml
+
+# ============================================================
+# CRAWL DELAY (optional, prevents server overload)
+# ============================================================
+Crawl-delay: 1

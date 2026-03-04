@@ -372,12 +372,21 @@
               </div>
             </div>
 
-            <!-- Address -->
+            <!-- Addresses -->
             <div class="contact-block">
-              <h4><i class="fa-solid fa-location-dot"></i> Clinic Address</h4>
+              <h4><i class="fa-solid fa-location-dot"></i> Aiken Clinic</h4>
               <p style="font-weight:600;color:var(--text-body);margin-bottom:.25rem;">511 Grier Court</p>
               <p style="color:var(--text-muted);margin-bottom:1rem;">Aiken, SC 29803</p>
               <a href="https://maps.google.com/?q=511+Grier+Court+Aiken+SC+29803" target="_blank" rel="noopener" class="btn btn-outline btn-sm w-full">
+                <i class="fa-solid fa-directions"></i> Get Directions
+              </a>
+            </div>
+
+            <div class="contact-block">
+              <h4><i class="fa-solid fa-location-dot"></i> Charleston Clinic</h4>
+              <p style="font-weight:600;color:var(--text-body);margin-bottom:.25rem;">2 Carriage Lane, Suite 101</p>
+              <p style="color:var(--text-muted);margin-bottom:1rem;">Charleston, SC 29407</p>
+              <a href="https://maps.google.com/?q=2+Carriage+Lane+Suite+101+Charleston+SC+29407" target="_blank" rel="noopener" class="btn btn-outline btn-sm w-full">
                 <i class="fa-solid fa-directions"></i> Get Directions
               </a>
             </div>
@@ -473,20 +482,37 @@
     <section aria-labelledby="map-heading">
       <div class="container">
         <div class="section-header center reveal">
-          <span class="section-label">Find Our Clinic</span>
-          <h2 id="map-heading" class="section-title">511 Grier Court, Aiken, SC 29803</h2>
-          <p class="section-subtitle">Conveniently located in Aiken, SC with accessible parking. Can't drive? Request a mobile home visit — we come to you.</p>
+          <span class="section-label">Find Our Clinics</span>
+          <h2 id="map-heading" class="section-title">Two Convenient SC Locations</h2>
+          <p class="section-subtitle">Visit us in Aiken or Charleston — or we come to you anywhere in South Carolina.</p>
         </div>
-        <div class="reveal">
-          <iframe
-            class="map-frame"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-81.7154!3d33.5601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s511+Grier+Ct%2C+Aiken%2C+SC+29803!5e0!3m2!1sen!2sus!4v1700000000"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Carolina Wound Care Clinic — 511 Grier Court, Aiken SC 29803"
-            aria-label="Map showing Carolina Wound Care clinic at 511 Grier Court, Aiken, SC"
-          ></iframe>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" class="reveal">
+          <div>
+            <h4 style="margin-bottom:1rem;font-size:1.1rem;"><i class="fa-solid fa-location-dot" style="color:var(--teal);margin-right:.5rem;"></i>Aiken Clinic — 511 Grier Court</h4>
+            <iframe
+              class="map-frame"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-81.7154!3d33.5601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s511+Grier+Ct%2C+Aiken%2C+SC+29803!5e0!3m2!1sen!2sus!4v1700000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Carolina Wound Care — 511 Grier Court, Aiken SC 29803"
+              aria-label="Map showing Carolina Wound Care Aiken clinic"
+              style="height:320px;"
+            ></iframe>
+          </div>
+          <div>
+            <h4 style="margin-bottom:1rem;font-size:1.1rem;"><i class="fa-solid fa-location-dot" style="color:var(--teal);margin-right:.5rem;"></i>Charleston Clinic — 2 Carriage Lane</h4>
+            <iframe
+              class="map-frame"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.2!2d-80.0076!3d32.7765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s2+Carriage+Lane%2C+Charleston%2C+SC+29407!5e0!3m2!1sen!2sus!4v1700000001"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Carolina Wound Care — 2 Carriage Lane, Charleston SC 29407"
+              aria-label="Map showing Carolina Wound Care Charleston clinic"
+              style="height:320px;"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -551,6 +577,10 @@
           <div class="footer-contact-item">
             <i class="fa-solid fa-location-dot"></i>
             <span>511 Grier Court<br>Aiken, SC 29803</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>2 Carriage Lane, Suite 101<br>Charleston, SC 29407</span>
           </div>
           <div class="footer-contact-item">
             <i class="fa-solid fa-phone"></i>
