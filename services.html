@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wound Care Services | Carolina Wound Care – Advanced Treatments in Aiken SC & Mobile</title>
-  <meta name="description" content="Advanced wound care services including debridement, skin grafts, UltraMist® therapy, specialized dressings & personalized care plans. In-clinic in Aiken SC and mobile in-home visits across South Carolina." />
+  <meta name="description" content="Advanced wound care services including debridement, skin grafts, specialized dressings & personalized care plans. In-clinic in Aiken SC and mobile in-home visits across South Carolina." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -87,70 +87,8 @@
     .compare-box.clinic h4 { color: var(--teal-dark); }
     .compare-box.home   h4 { color: #276749; }
 
-    .ultramist-callout {
-      background: linear-gradient(135deg, #0D2B28 0%, #1E4A44 100%);
-      border-radius: var(--radius-xl);
-      padding: 3.5rem;
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .ultramist-callout::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 300px; height: 300px;
-      background: rgba(42,157,143,.15);
-      border-radius: 50%;
-    }
-    .ultramist-callout::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: 20%;
-      width: 200px; height: 200px;
-      background: rgba(42,157,143,.1);
-      border-radius: 50%;
-    }
-    .ultramist-callout-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .ultramist-callout h2 { color: var(--white); margin-bottom: 1rem; }
-    .ultramist-callout p  { color: rgba(255,255,255,.8); line-height: 1.75; }
-    .ultramist-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(255,255,255,.15);
-      color: var(--white);
-      padding: .3rem .85rem;
-      border-radius: 50px;
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      margin-bottom: 1rem;
-    }
-    .ultramist-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-    }
-    .ultramist-stat {
-      background: rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      text-align: center;
-    }
-    .ultramist-stat .num { font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: .25rem; }
-    .ultramist-stat .lbl { font-size: .8rem; color: rgba(255,255,255,.7); }
-
     @media (max-width: 768px) {
       .treatment-compare  { grid-template-columns: 1fr; }
-      .ultramist-callout-inner { grid-template-columns: 1fr; gap: 2rem; }
       .service-detail-header { flex-direction: column; text-align: center; }
     }
   </style>
@@ -188,6 +126,7 @@
             <div class="nav-dropdown" role="menu">
               <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
               <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+              <a href="faq.html" role="menuitem"><i class="fa-solid fa-circle-question"></i> FAQ</a>
             </div>
           </li>
           <li><a href="blog.html">Blog</a></li>
@@ -222,6 +161,7 @@
       <div class="mobile-sub-links">
         <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
         <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+        <a href="faq.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-circle-question"></i> FAQ</a>
       </div>
     </div>
     <a href="locations.html">Locations &amp; Mobile Care</a>
@@ -300,46 +240,6 @@
               <li><i class="fa-solid fa-circle-check"></i> Diabetic foot ulcers at risk of amputation</li>
               <li><i class="fa-solid fa-circle-check"></i> Wounds with significant tissue loss</li>
             </ul>
-          </div>
-        </div>
-
-        <!-- Service 3: UltraMist -->
-        <div class="ultramist-callout reveal" style="margin-bottom:3rem;" id="ultramist">
-          <div class="ultramist-callout-inner">
-            <div>
-              <span class="ultramist-badge"><i class="fa-solid fa-certificate"></i> Featured Technology</span>
-              <h2>UltraMist® Therapy</h2>
-              <p>UltraMist® is a revolutionary non-contact, low-frequency ultrasound system delivered through a gentle mist of saline solution. Unlike traditional ultrasound, it requires no direct contact with the wound — making it pain-free and safe for even the most sensitive wounds.</p>
-              <p style="margin-bottom:1.5rem;">The ultrasound energy delivered through the mist activates a cellular healing cascade — increasing blood flow, reducing inflammation, fighting bacteria, and stimulating growth factors that accelerate tissue regeneration.</p>
-              <a href="contact.html" class="btn btn-white">
-                Ask About UltraMist® <i class="fa-solid fa-arrow-right"></i>
-              </a>
-            </div>
-            <div>
-              <div class="ultramist-stats">
-                <div class="ultramist-stat">
-                  <div class="num">40%</div>
-                  <div class="lbl">Faster healing vs. standard care</div>
-                </div>
-                <div class="ultramist-stat">
-                  <div class="num">0</div>
-                  <div class="lbl">Direct wound contact needed</div>
-                </div>
-                <div class="ultramist-stat">
-                  <div class="num">FDA</div>
-                  <div class="lbl">Cleared for wound care</div>
-                </div>
-                <div class="ultramist-stat">
-                  <div class="num">Pain<br>Free</div>
-                  <div class="lbl">Comfortable for all patients</div>
-                </div>
-              </div>
-              <div style="margin-top:1.5rem;">
-                <p style="color:rgba(255,255,255,.7);font-size:.88rem;"><i class="fa-solid fa-check-circle" style="color:var(--teal-mid);margin-right:.4rem;"></i> Available at our Aiken clinic</p>
-                <p style="color:rgba(255,255,255,.7);font-size:.88rem;"><i class="fa-solid fa-check-circle" style="color:var(--teal-mid);margin-right:.4rem;"></i> Can be performed during mobile home visits</p>
-                <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0;"><i class="fa-solid fa-check-circle" style="color:var(--teal-mid);margin-right:.4rem;"></i> Covered by Medicare for qualifying patients</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -446,18 +346,10 @@
               <i class="fa-solid fa-plus accordion-icon"></i>
             </button>
             <div class="accordion-body">
-              Yes — the vast majority of our services, including debridement, advanced dressings, UltraMist® therapy, biological graft application, and care plan development, can be performed during mobile home visits. Our mobile team carries professional-grade equipment to deliver true clinical-quality care at your door.
+              Yes — the vast majority of our services, including debridement, advanced dressings, biological graft application, and care plan development, can be performed during mobile home visits. Our mobile team carries professional-grade equipment to deliver true clinical-quality care at your door.
             </div>
           </div>
-          <div class="accordion-item">
-            <button class="accordion-header">
-              Is UltraMist® therapy covered by insurance?
-              <i class="fa-solid fa-plus accordion-icon"></i>
-            </button>
-            <div class="accordion-body">
-              UltraMist® therapy is covered by Medicare and many insurance plans for qualifying patients with chronic wounds. Our team will verify your coverage before treatment begins and handle all prior authorization. Call us at 866-540-8090 to confirm your specific benefits.
-            </div>
-          </div>
+
           <div class="accordion-item">
             <button class="accordion-header">
               How often will I need treatment visits?
@@ -531,7 +423,6 @@
           <ul>
             <li><a href="#debridement">Advanced Debridement</a></li>
             <li><a href="#grafts">Skin Grafts & Biologics</a></li>
-            <li><a href="#ultramist">UltraMist® Therapy</a></li>
             <li><a href="#dressings">Advanced Dressings</a></li>
             <li><a href="#careplans">Personalized Care Plans</a></li>
           </ul>

@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions | Carolina Wound Care – Aiken & Charleston, SC</title>
+  <meta name="description" content="Answers to the most common questions about wound care in South Carolina — insurance, Medicare, home visits, treatment, and more. Carolina Wound Care serves all 46 SC counties." />
+  <meta name="keywords" content="wound care FAQ, Medicare wound care SC, home wound care questions, chronic wound treatment FAQ, wound care Aiken SC, wound care Charleston SC" />
+  <link rel="canonical" href="https://carolinawoundcare.com/faq.html" />
+  <meta property="og:title" content="FAQ | Carolina Wound Care – Aiken & Charleston, SC" />
+  <meta property="og:description" content="Common questions about wound care, insurance, home visits, and treatment options at Carolina Wound Care." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <!-- FAQ Page Styles -->
+  <style>
+    /* ---- Category tabs ---- */
+    .faq-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .faq-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .6rem 1.25rem;
+      border-radius: 50px;
+      border: 1.5px solid var(--gray-mid);
+      background: var(--white);
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .faq-tab:hover,
+    .faq-tab.active {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(42,157,143,.28);
+    }
+    .faq-tab i { font-size: .85rem; }
+
+    /* ---- Category sections ---- */
+    .faq-category {
+      margin-bottom: 3.5rem;
+    }
+    .faq-category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(42,157,143,.15);
+    }
+    .faq-category-icon {
+      width: 52px; height: 52px;
+      background: var(--teal-light);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .faq-category-header h2 {
+      font-size: 1.35rem;
+      margin: 0;
+    }
+    .faq-category-header p {
+      font-size: .88rem;
+      color: var(--text-muted);
+      margin: .15rem 0 0;
+    }
+
+    /* ---- Accordion items ---- */
+    .faq-item {
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      margin-bottom: .75rem;
+      overflow: hidden;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .faq-item:hover { border-color: rgba(42,157,143,.3); }
+    .faq-item.open {
+      border-color: rgba(42,157,143,.4);
+      box-shadow: 0 4px 20px rgba(42,157,143,.1);
+    }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1.15rem 1.5rem;
+      background: var(--white);
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      text-align: left;
+      cursor: pointer;
+      gap: 1rem;
+      transition: background .2s ease, color .2s ease;
+    }
+    .faq-q:hover { background: var(--teal-light); color: var(--teal-dark); }
+    .faq-item.open .faq-q { background: var(--teal-light); color: var(--teal-dark); }
+    .faq-q-caret {
+      width: 28px; height: 28px;
+      background: var(--gray-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-size: .75rem;
+      flex-shrink: 0;
+      transition: transform .25s ease, background .2s ease;
+    }
+    .faq-item.open .faq-q-caret {
+      transform: rotate(180deg);
+      background: var(--teal);
+      color: var(--white);
+    }
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.35rem;
+      font-size: .97rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      border-top: 1px solid rgba(42,157,143,.1);
+    }
+    .faq-a.open { display: block; }
+    .faq-a p { margin-bottom: .75rem; }
+    .faq-a p:last-child { margin-bottom: 0; }
+    .faq-a ul {
+      padding-left: 1.25rem;
+      margin: .5rem 0 .75rem;
+    }
+    .faq-a ul li {
+      margin-bottom: .4rem;
+      color: var(--text-muted);
+    }
+    .faq-a a {
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .faq-a strong { color: var(--black); }
+
+    /* ---- Quick answer cards ---- */
+    .quick-answers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .qa-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .qa-card:hover { box-shadow: var(--shadow-md); border-color: rgba(42,157,143,.3); transform: translateY(-3px); }
+    .qa-card i {
+      font-size: 1.75rem;
+      color: var(--teal);
+      margin-bottom: .75rem;
+      display: block;
+    }
+    .qa-card strong {
+      display: block;
+      font-size: .95rem;
+      margin-bottom: .35rem;
+      color: var(--black);
+    }
+    .qa-card span {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ---- Ask us box ---- */
+    .ask-box {
+      background: linear-gradient(135deg, var(--teal-light), rgba(42,157,143,.05));
+      border: 2px solid rgba(42,157,143,.2);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .ask-box h3 { margin-bottom: .75rem; }
+    .ask-box p { color: var(--text-muted); margin-bottom: 1.75rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .ask-box-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ---- Sticky category nav ---- */
+    .faq-sidebar {
+      position: sticky;
+      top: 110px;
+    }
+    .faq-sidebar-title {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: .75rem;
+    }
+    .faq-sidebar a {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .6rem .85rem;
+      border-radius: 8px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--text-body);
+      transition: var(--transition);
+      text-decoration: none;
+      margin-bottom: .2rem;
+    }
+    .faq-sidebar a:hover,
+    .faq-sidebar a.active { background: var(--teal-light); color: var(--teal); }
+    .faq-sidebar a i { width: 16px; color: var(--teal); font-size: .82rem; }
+
+    /* ---- Layout ---- */
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ---- Search bar ---- */
+    .faq-search-wrap {
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    .faq-search-wrap i {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray);
+      font-size: 1rem;
+    }
+    #faqSearch {
+      width: 100%;
+      padding: .9rem 1rem .9rem 3rem;
+      border: 1.5px solid var(--gray-mid);
+      border-radius: 50px;
+      font-size: .97rem;
+      font-family: inherit;
+      background: var(--white);
+      transition: border-color .2s ease, box-shadow .2s ease;
+      outline: none;
+    }
+    #faqSearch:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(42,157,143,.12);
+    }
+    .faq-no-results {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+      display: none;
+    }
+    .faq-no-results i { font-size: 2.5rem; color: var(--gray-mid); display: block; margin-bottom: 1rem; }
+
+    @media (max-width: 900px) {
+      .faq-layout { grid-template-columns: 1fr; }
+      .faq-sidebar { display: none; }
+      .quick-answers { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .quick-answers { grid-template-columns: 1fr; }
+      .ask-box { padding: 2rem 1.5rem; }
+      .ask-box-btns { flex-direction: column; align-items: center; }
+      .faq-q { font-size: .93rem; padding: 1rem 1.15rem; }
+      .faq-a { padding: 0 1.15rem 1.1rem; }
+    }
+  </style>
+
+  <!-- FAQ JSON-LD Schema — tells Google to show rich results in search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Carolina Wound Care accept Medicare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We accept Medicare Part A and Part B for qualifying wound care services. Most of our treatments — including debridement and advanced dressings — are covered by Medicare when medically necessary. We verify your specific coverage at no cost before your first visit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a referral to see a wound care specialist?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most cases, you do not need a referral to schedule an appointment with Carolina Wound Care. You can call us directly at 866-540-8090 or request an appointment online. Some insurance plans may require a referral — we can help you determine what your plan requires when you call."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Carolina Wound Care come to my home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — our true mobile wound care service covers all 46 South Carolina counties. We bring the same advanced treatments available in our clinics — including debridement and biological grafts — directly to your home, nursing home, or assisted living facility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can I get an appointment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We prioritize fast access to care. In most cases, we can schedule a same-week appointment at either our Aiken or Charleston clinic, or arrange a mobile home visit within days of your call. Call 866-540-8090 today."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of wounds does Carolina Wound Care treat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We specialize in chronic non-healing wounds including diabetic foot ulcers, venous and arterial leg ulcers, pressure injuries (bed sores), post-surgical wounds, sacral ulcers, traumatic wounds, and any wound that has not improved after 2–6 weeks of standard care."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take for a chronic wound to heal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With proper specialist care, many chronic wounds show measurable improvement within 2–4 weeks of starting treatment. Complete healing timelines vary depending on wound type, size, depth, and your overall health — including diabetes, circulation, and nutrition. Our specialists will give you a realistic expectation at your first visit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where are Carolina Wound Care's clinics located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We have two clinic locations in South Carolina: 511 Grier Court, Aiken, SC 29803 and 2 Carriage Lane, Suite 101, Charleston, SC 29407. Both are open Monday through Friday, 8:00 AM to 5:00 PM. We also provide mobile home visits across all 46 SC counties."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script src="js/performance.js" defer></script>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="eager" decoding="async" />
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+              <div class="drop-divider"></div>
+              <a href="conditions.html#quiz" role="menuitem" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+            </div>
+          </li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Learn <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <a href="resources.html" role="menuitem"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+              <a href="blog.html" role="menuitem"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+              <a href="faq.html" role="menuitem" class="active"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+            </div>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090">
+            <i class="fa-solid fa-phone"></i> 866-540-8090
+          </a>
+          <a href="contact.html" class="btn btn-primary btn-sm">Schedule Now</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+        <a href="conditions.html#quiz" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz</a>
+      </div>
+    </div>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Learn <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="resources.html"><i class="fa-solid fa-book-open-reader"></i> Resources Hub</a>
+        <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog &amp; Articles</a>
+        <a href="faq.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations &amp; Mobile Care</a>
+    <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
+    <div class="mobile-cta">
+      <a href="contact.html" class="btn btn-primary w-full">Schedule Consultation</a>
+      <a href="tel:8665408090" class="btn btn-outline w-full"><i class="fa-solid fa-phone"></i>&nbsp; 866-540-8090</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="eyebrow"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+          <h1>Frequently Asked Questions</h1>
+          <p>Everything you need to know about wound care, insurance, home visits, and treatment — answered clearly.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>FAQ</span>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK ANSWERS STRIP -->
+    <section aria-label="Quick answers">
+      <div class="container">
+        <div class="quick-answers reveal">
+          <div class="qa-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <strong>Medicare Accepted</strong>
+            <span>We accept Medicare Part A &amp; B and most major PPO plans</span>
+          </div>
+          <div class="qa-card">
+            <i class="fa-solid fa-house-medical"></i>
+            <strong>No Referral Needed</strong>
+            <span>Call us directly — no doctor's referral required in most cases</span>
+          </div>
+          <div class="qa-card">
+            <i class="fa-solid fa-calendar-check"></i>
+            <strong>Same-Week Appointments</strong>
+            <span>We prioritize fast access — most patients seen within days</span>
+          </div>
+          <div class="qa-card">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <strong>All 46 SC Counties</strong>
+            <span>Mobile home visits anywhere in South Carolina</span>
+          </div>
+          <div class="qa-card">
+            <i class="fa-solid fa-hospital"></i>
+            <strong>Independent Practice</strong>
+            <span>Not affiliated with any hospital — no long waits, no red tape</span>
+          </div>
+          <div class="qa-card">
+            <i class="fa-solid fa-phone"></i>
+            <strong>Free Insurance Check</strong>
+            <span>We verify your coverage at no cost before your first visit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH BAR -->
+    <section style="padding: 0 0 1rem; background: var(--gray-light);">
+      <div class="container">
+        <div class="faq-search-wrap reveal">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="faqSearch" placeholder="Search questions… e.g. 'Medicare', 'home visit', 'diabetic'" aria-label="Search FAQ" autocomplete="off" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ BODY -->
+    <section class="bg-light" style="padding-top: 2rem;" aria-labelledby="faq-main-heading">
+      <div class="container">
+        <div class="faq-layout">
+
+          <!-- SIDEBAR NAV -->
+          <aside class="faq-sidebar" aria-label="FAQ categories">
+            <p class="faq-sidebar-title">Jump to Category</p>
+            <a href="#insurance" class="faq-sidebar-link"><i class="fa-solid fa-shield-halved"></i> Insurance &amp; Cost</a>
+            <a href="#appointments" class="faq-sidebar-link"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
+            <a href="#home-visits" class="faq-sidebar-link"><i class="fa-solid fa-house-medical"></i> Mobile Home Visits</a>
+            <a href="#treatment" class="faq-sidebar-link"><i class="fa-solid fa-briefcase-medical"></i> Treatment &amp; Services</a>
+            <a href="#conditions" class="faq-sidebar-link"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+            <a href="#wound-healing" class="faq-sidebar-link"><i class="fa-solid fa-heart-pulse"></i> Wound Healing</a>
+            <a href="#referrals" class="faq-sidebar-link"><i class="fa-solid fa-user-doctor"></i> Provider Referrals</a>
+            <a href="#about-us" class="faq-sidebar-link"><i class="fa-solid fa-circle-info"></i> About Carolina Wound Care</a>
+          </aside>
+
+          <!-- MAIN FAQ CONTENT -->
+          <div id="faq-main-heading">
+
+            <div class="faq-no-results" id="faqNoResults">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <p>No questions matched your search. Try different keywords or <a href="contact.html">contact us directly</a>.</p>
+            </div>
+
+            <!-- ===== 1. INSURANCE & COST ===== -->
+            <div class="faq-category reveal" id="insurance">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                  <h2>Insurance &amp; Cost</h2>
+                  <p>Coverage, billing, and what to expect financially</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Does Carolina Wound Care accept Medicare?">
+                <button class="faq-q" aria-expanded="false">Does Carolina Wound Care accept Medicare? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Yes — we accept <strong>Medicare Part A and Part B</strong> for qualifying wound care services. Most of our core treatments are covered by Medicare when medically necessary, including:</p>
+                  <ul>
+                    <li>Wound debridement (removal of dead/infected tissue)</li>
+                    <li>Advanced wound dressings</li>
+                    <li>Biological skin grafts for qualifying wounds</li>
+                    <li>Wound assessment and care planning</li>
+                  </ul>
+                  <p>We verify your specific Medicare coverage at <strong>no cost to you</strong> before your first visit. Call <a href="tel:8665408090">866-540-8090</a> and we'll confirm your benefits right away.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What insurance plans do you accept?">
+                <button class="faq-q" aria-expanded="false">What insurance plans do you accept? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We accept <strong>Medicare Part A &amp; B</strong> and most major <strong>PPO insurance plans</strong>. This includes many Blue Cross Blue Shield, Aetna, Cigna, and United Healthcare plans. We do not accept Medicaid at this time.</p>
+                  <p>The best way to confirm your coverage is to call us at <a href="tel:8665408090">866-540-8090</a> — we'll check your specific plan and benefits before your appointment, completely free of charge.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Will my insurance cover home visits?">
+                <button class="faq-q" aria-expanded="false">Will my insurance cover mobile home visits? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Coverage for mobile home visits depends on your specific plan and medical circumstances. Medicare covers home-based wound care services for patients who meet <strong>homebound criteria</strong> — meaning leaving home requires considerable effort due to your condition. Many of our patients qualify.</p>
+                  <p>We will verify your specific home-visit coverage when you call. Don't assume you're not covered — many patients are surprised to learn their care is fully covered. Call us at <a href="tel:8665408090">866-540-8090</a>.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Do you offer free consultations?">
+                <button class="faq-q" aria-expanded="false">Do you offer a free initial consultation? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We offer a <strong>complimentary insurance verification and benefits review</strong> before your first visit. For your actual clinical appointment, the cost will depend on your insurance coverage — most patients with Medicare or PPO insurance pay little to nothing out of pocket for their visits.</p>
+                  <p>Call us at <a href="tel:8665408090">866-540-8090</a> and we'll walk you through what to expect financially before you commit to anything.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What if I don't have insurance?">
+                <button class="faq-q" aria-expanded="false">What if I don't have insurance or am underinsured? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Please call us at <a href="tel:8665408090">866-540-8090</a> to discuss your situation. We understand that wound care is a medical necessity, not a luxury, and we want to help you find a path forward. We can discuss payment options and help connect you with any available assistance programs.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 2. APPOINTMENTS ===== -->
+            <div class="faq-category reveal" id="appointments">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div>
+                  <h2>Appointments &amp; Scheduling</h2>
+                  <p>How to get started and what to expect</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Do I need a referral to see a wound care specialist?">
+                <button class="faq-q" aria-expanded="false">Do I need a referral to see a wound care specialist? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>In most cases, <strong>no referral is required</strong>. You can call us directly at <a href="tel:8665408090">866-540-8090</a> or <a href="contact.html">request an appointment online</a>. We accept self-referrals from patients.</p>
+                  <p>Some insurance plans may require a referral from your primary care physician — if yours does, we can help you navigate that process when you call. It's usually a simple step that we can assist with.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How quickly can I get an appointment?">
+                <button class="faq-q" aria-expanded="false">How quickly can I get an appointment? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We prioritize fast access to care because <strong>wound care delays can lead to serious complications</strong>. In most cases, we can schedule:</p>
+                  <ul>
+                    <li>In-clinic visits in Aiken or Charleston: <strong>same week</strong>, often within 1–3 days</li>
+                    <li>Mobile home visits: typically within <strong>2–5 days</strong> of your call</li>
+                  </ul>
+                  <p>If your wound is urgent, tell us when you call — we will do our best to accommodate you as quickly as possible. Call <a href="tel:8665408090">866-540-8090</a>.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What should I bring to my first appointment?">
+                <button class="faq-q" aria-expanded="false">What should I bring to my first appointment? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>For your first visit, please bring:</p>
+                  <ul>
+                    <li>Your insurance card(s) and photo ID</li>
+                    <li>A list of all current medications and dosages</li>
+                    <li>Any recent lab results (HbA1c, blood work, etc.)</li>
+                    <li>Previous wound care records or photos, if available</li>
+                    <li>Name and contact info for your primary care physician</li>
+                    <li>A list of your medical conditions (diabetes, heart disease, etc.)</li>
+                  </ul>
+                  <p>If this is a home visit, simply have these items available when our specialist arrives.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What happens at my first appointment?">
+                <button class="faq-q" aria-expanded="false">What happens at my first appointment? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Your first visit typically includes:</p>
+                  <ul>
+                    <li><strong>Comprehensive wound assessment</strong> — measurements, photographs, tissue type analysis</li>
+                    <li><strong>Full medical history review</strong> — relevant conditions, medications, prior treatments</li>
+                    <li><strong>Vascular and circulation assessment</strong> if relevant to your wound type</li>
+                    <li><strong>Insurance verification</strong> review and cost discussion</li>
+                    <li><strong>Personalized care plan</strong> — specific treatments recommended, expected frequency, goals</li>
+                    <li><strong>Initial treatment</strong> may be performed at the first visit depending on the wound</li>
+                  </ul>
+                  <p>We take our time at the first appointment — typically 45–60 minutes — so nothing is rushed and all your questions are answered.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How often will I need treatment visits?">
+                <button class="faq-q" aria-expanded="false">How often will I need treatment visits? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Visit frequency depends on your wound type, severity, and healing response. A typical schedule looks like:</p>
+                  <ul>
+                    <li><strong>Initial phase:</strong> 1–3 visits per week while the wound is actively being treated</li>
+                    <li><strong>Healing phase:</strong> Weekly visits as the wound improves and reduces in size</li>
+                    <li><strong>Maintenance phase:</strong> Every 1–2 weeks as the wound approaches closure</li>
+                  </ul>
+                  <p>Your care plan will outline the expected visit frequency and we adjust it based on how your wound responds. Many patients see significant improvement within 2–4 weeks of starting care.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Can I cancel or reschedule my appointment?">
+                <button class="faq-q" aria-expanded="false">How do I cancel or reschedule an appointment? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Simply call us at <a href="tel:8665408090">866-540-8090</a> as soon as possible if you need to reschedule. We ask for at least 24 hours' notice when possible. We understand that illness, transportation issues, and emergencies happen — just let us know and we'll find you a new time quickly.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 3. HOME VISITS ===== -->
+            <div class="faq-category reveal" id="home-visits">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-house-medical"></i></div>
+                <div>
+                  <h2>Mobile Home Visits</h2>
+                  <p>Our service that brings advanced care to your door</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How does the mobile home visit service work?">
+                <button class="faq-q" aria-expanded="false">How does the mobile home visit service work? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Our mobile wound care service is a <strong>true clinical-quality service brought to your door</strong> — not just a basic nursing visit. Here's how it works:</p>
+                  <ul>
+                    <li>Call us or request online to schedule your home visit</li>
+                    <li>Our specialist arrives at your home with professional-grade equipment</li>
+                    <li>We perform the same advanced treatments available in our clinic</li>
+                    <li>We document your progress, update your care plan, and bill your insurance directly</li>
+                    <li>Follow-up visits are scheduled at your convenience</li>
+                  </ul>
+                  <p>You never need to leave home — not for the first visit, not for follow-ups.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Where do you provide home visits in South Carolina?">
+                <button class="faq-q" aria-expanded="false">Where do you provide mobile home visits? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We provide mobile wound care visits across <strong>all 46 South Carolina counties</strong> — from the Upstate to the Lowcountry, from the Midlands to the Grand Strand. This includes:</p>
+                  <ul>
+                    <li><strong>Midlands:</strong> Columbia, Lexington, Orangeburg, Sumter, and surrounding areas</li>
+                    <li><strong>CSRA / Aiken area:</strong> Aiken, Augusta area, Edgefield, Barnwell, Allendale</li>
+                    <li><strong>Lowcountry:</strong> Charleston, Beaufort, Hilton Head, Bluffton, and surrounding areas</li>
+                    <li><strong>Grand Strand:</strong> Myrtle Beach, Conway, Georgetown</li>
+                    <li><strong>Upstate:</strong> Greenville, Spartanburg, Anderson, and surrounding areas</li>
+                  </ul>
+                  <p>We also serve patients in nursing homes, assisted living facilities, and group homes statewide. Call us at <a href="tel:8665408090">866-540-8090</a> to confirm service in your specific area.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Are all treatments available during home visits?">
+                <button class="faq-q" aria-expanded="false">Are all treatments available during home visits? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Yes — the <strong>vast majority of our services</strong> are available during mobile home visits, including:</p>
+                  <ul>
+                    <li>Advanced wound debridement</li>
+                    <li>Application of advanced and specialty dressings</li>
+                    <li>Biological skin graft application (for qualifying wounds)</li>
+                    <li>Wound measurement, photography, and documentation</li>
+                    <li>Care plan development and management</li>
+                  </ul>
+                  <p>Our mobile team carries professional-grade equipment to deliver true clinical-quality care wherever you are.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Who qualifies for home visits?">
+                <button class="faq-q" aria-expanded="false">Who qualifies for mobile home visits? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Our mobile wound care service is available to <strong>any patient in South Carolina</strong> with a chronic or non-healing wound. You do not need to be medically homebound to receive a home visit — we come to anyone who prefers the convenience of care at home.</p>
+                  <p>For <strong>insurance-covered home visits</strong>, Medicare and many plans require patients to meet homebound criteria (leaving home requires considerable effort due to your condition). We can help determine your eligibility when you call.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Can you visit nursing homes and assisted living facilities?">
+                <button class="faq-q" aria-expanded="false">Can you visit nursing homes and assisted living facilities? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Absolutely. We regularly provide wound care services to patients in:</p>
+                  <ul>
+                    <li>Skilled nursing facilities (SNFs)</li>
+                    <li>Assisted living facilities (ALFs)</li>
+                    <li>Memory care and group homes</li>
+                    <li>Rehabilitation centers</li>
+                  </ul>
+                  <p>We coordinate directly with the facility staff and can integrate our care with the facility's existing nursing team. Healthcare providers and facility administrators can also <a href="referral.html">submit a referral online</a>.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 4. TREATMENT & SERVICES ===== -->
+            <div class="faq-category reveal" id="treatment">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-briefcase-medical"></i></div>
+                <div>
+                  <h2>Treatment &amp; Services</h2>
+                  <p>What we do and how we treat wounds</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What treatments does Carolina Wound Care offer?">
+                <button class="faq-q" aria-expanded="false">What treatments does Carolina Wound Care offer? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We offer a comprehensive range of advanced wound care treatments, including:</p>
+                  <ul>
+                    <li><strong>Advanced Debridement</strong> — removal of dead or infected tissue (sharp, enzymatic, autolytic)</li>
+                    <li><strong>Advanced &amp; Specialty Dressings</strong> — foam, hydrocolloid, alginate, silver-impregnated, and more</li>
+                    <li><strong>Biological Skin Grafts</strong> — advanced tissue products for complex or non-healing wounds</li>
+                    <li><strong>Compression Therapy</strong> — for venous leg ulcers and edema management</li>
+                    <li><strong>Offloading</strong> — pressure relief for diabetic foot wounds</li>
+                    <li><strong>Infection Management</strong> — topical antimicrobials, wound cultures, coordination with prescribing physicians</li>
+                    <li><strong>Nutrition &amp; Vascular Coordination</strong> — referrals and collaboration with other specialists as needed</li>
+                  </ul>
+                  <p>Visit our <a href="services.html">Services page</a> for full details on each treatment.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What is debridement?">
+                <button class="faq-q" aria-expanded="false">What is debridement and does it hurt? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Debridement is the <strong>removal of dead, damaged, or infected tissue</strong> from a wound. It is one of the most important steps in wound care because dead tissue prevents healing and harbors bacteria.</p>
+                  <p>We use multiple debridement methods depending on your wound and comfort level:</p>
+                  <ul>
+                    <li><strong>Sharp debridement</strong> — precise removal using surgical instruments (numbing is used when needed)</li>
+                    <li><strong>Enzymatic debridement</strong> — topical agents that dissolve dead tissue painlessly over time</li>
+                    <li><strong>Autolytic debridement</strong> — advanced dressings that use your body's own moisture to clear debris</li>
+                  </ul>
+                  <p>We always discuss the approach with you first and ensure your comfort is the priority.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How do I know which services I need?">
+                <button class="faq-q" aria-expanded="false">How do I know which treatments I need? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>You don't need to figure that out — that's our job. Our specialists perform a <strong>comprehensive wound assessment</strong> at your first visit, evaluating:</p>
+                  <ul>
+                    <li>Wound size, depth, and tissue type</li>
+                    <li>Signs of infection or biofilm</li>
+                    <li>Circulation and sensation (critical for diabetic wounds)</li>
+                    <li>Your overall health, medications, and conditions</li>
+                    <li>Nutritional status</li>
+                  </ul>
+                  <p>Based on this, we develop a specific, personalized treatment plan — and we explain every recommendation clearly before starting anything.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 5. CONDITIONS ===== -->
+            <div class="faq-category reveal" id="conditions">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                <div>
+                  <h2>Conditions We Treat</h2>
+                  <p>Types of wounds and who we can help</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What types of wounds do you treat?">
+                <button class="faq-q" aria-expanded="false">What types of wounds do you specialize in? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We specialize in <strong>chronic, complex, and non-healing wounds</strong>, including:</p>
+                  <ul>
+                    <li><strong>Diabetic foot ulcers</strong> — the leading cause of non-traumatic lower limb amputation</li>
+                    <li><strong>Venous leg ulcers</strong> — caused by poor venous circulation, common in the lower leg</li>
+                    <li><strong>Arterial ulcers</strong> — caused by reduced blood flow due to peripheral artery disease</li>
+                    <li><strong>Pressure injuries / bed sores</strong> — stages 1 through 4, sacral and heel wounds</li>
+                    <li><strong>Post-surgical wounds</strong> — dehisced surgical incisions, post-amputation wounds</li>
+                    <li><strong>Traumatic wounds</strong> — lacerations and injuries that are not healing properly</li>
+                    <li><strong>Burns</strong> — partial thickness burns and burn wound management</li>
+                    <li><strong>Skin tears</strong> — common in elderly patients on blood thinners</li>
+                  </ul>
+                  <p>If you're unsure whether we can help, call us — we'll give you an honest answer. Visit our <a href="conditions.html">Conditions page</a> for more detail.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Can you treat diabetic foot ulcers?">
+                <button class="faq-q" aria-expanded="false">Can you treat diabetic foot ulcers? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Yes — diabetic foot ulcers are one of our primary specialties. Diabetic foot wounds are the <strong>leading cause of non-traumatic lower limb amputations</strong> in the United States, but with proper wound care, the vast majority can be healed and amputation can be prevented.</p>
+                  <p>Our team understands the unique challenges of diabetic wound healing — including neuropathy, poor circulation, and impaired immune response — and uses a multi-faceted approach including debridement, offloading, and advanced dressings.</p>
+                  <p>Early intervention is critical. If you have a diabetic foot wound, <strong>don't wait</strong> — call us at <a href="tel:8665408090">866-540-8090</a>.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Can you treat pressure ulcers and bed sores?">
+                <button class="faq-q" aria-expanded="false">Can you treat pressure ulcers (bed sores)? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Yes — we treat all stages of pressure injuries, including sacral ulcers, heel wounds, and other pressure points. Our mobile service is especially valuable for pressure injury patients, who are often <strong>bedridden or have very limited mobility</strong> — we come directly to you.</p>
+                  <p>Treatment includes wound debridement, advanced dressings to promote moist healing, pressure redistribution guidance, and coordination with the patient's care team on repositioning and nutrition.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How do I know if I need a wound care specialist?">
+                <button class="faq-q" aria-expanded="false">How do I know if I need a wound care specialist? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>You should see a wound care specialist if your wound:</p>
+                  <ul>
+                    <li>Has not shown clear improvement in <strong>2–4 weeks</strong> with standard care</li>
+                    <li>Has been present for <strong>6 weeks or longer</strong> (classified as a chronic wound)</li>
+                    <li>Shows signs of infection (increasing redness, warmth, swelling, foul odor, drainage)</li>
+                    <li>Is deepening, enlarging, or has exposed tissue</li>
+                    <li>Is on the foot or leg of a diabetic patient</li>
+                    <li>Is causing increasing pain</li>
+                    <li>You have diabetes, poor circulation, or other conditions that impair healing</li>
+                  </ul>
+                  <p>Not sure? Take our free <a href="conditions.html#quiz">Wound Assessment Quiz</a> for a personalized recommendation.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 6. WOUND HEALING ===== -->
+            <div class="faq-category reveal" id="wound-healing">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div>
+                  <h2>Wound Healing</h2>
+                  <p>Understanding the healing process</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How long does it take for a chronic wound to heal?">
+                <button class="faq-q" aria-expanded="false">How long does it take for a chronic wound to heal? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>With proper specialist care, many chronic wounds show <strong>measurable improvement within 2–4 weeks</strong> of starting treatment. Complete healing timelines vary widely based on:</p>
+                  <ul>
+                    <li>Wound size, depth, and duration</li>
+                    <li>Underlying conditions (diabetes, vascular disease, etc.)</li>
+                    <li>Patient nutrition and overall health</li>
+                    <li>Circulation to the wound area</li>
+                    <li>Patient compliance with the care plan</li>
+                  </ul>
+                  <p>At your first visit, our specialists will give you a <strong>realistic expectation</strong> for your specific wound — not a generic timeline. What matters most is that healing is progressing each visit.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Should I keep my wound moist or dry?">
+                <button class="faq-q" aria-expanded="false">Should I keep my wound moist or dry? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Modern wound care science firmly establishes that <strong>moist wound healing produces significantly better outcomes</strong> than letting a wound dry out. Keeping the wound properly moist (not wet or waterlogged):</p>
+                  <ul>
+                    <li>Enables faster cell migration and tissue regeneration</li>
+                    <li>Reduces pain during dressing changes</li>
+                    <li>Prevents scab formation (which actually slows healing)</li>
+                    <li>Reduces scarring</li>
+                    <li>Keeps the wound protected from bacteria</li>
+                  </ul>
+                  <p>This is why advanced wound dressings — which maintain the optimal moisture balance — dramatically outperform simple dry gauze for chronic wounds.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Can diet affect wound healing?">
+                <button class="faq-q" aria-expanded="false">Can diet and nutrition really affect wound healing? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Absolutely — nutrition has a <strong>profound impact on wound healing</strong> and is one of the most frequently overlooked factors. Key nutrients your body needs to heal:</p>
+                  <ul>
+                    <li><strong>Protein</strong> — essential for tissue repair; deficiency is extremely common in chronic wound patients</li>
+                    <li><strong>Vitamin C</strong> — critical for collagen synthesis (the scaffolding of new tissue)</li>
+                    <li><strong>Zinc</strong> — supports immune function and cell division</li>
+                    <li><strong>Vitamin A</strong> — promotes epithelialization (skin closure)</li>
+                    <li><strong>Hydration</strong> — dehydration impairs virtually every aspect of healing</li>
+                  </ul>
+                  <p>Poor nutrition can turn an 8-week healing process into 6 months — or prevent healing entirely. Our team always assesses nutritional status as part of your care plan and may recommend dietary changes or supplements.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What does an infected wound look like?">
+                <button class="faq-q" aria-expanded="false">What does an infected wound look like? When should I be concerned? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Signs of wound infection to watch for:</p>
+                  <ul>
+                    <li>Increasing redness, warmth, and swelling (beyond 48–72 hours)</li>
+                    <li>Cloudy, yellow, green, or brown drainage (pus)</li>
+                    <li>Foul or unusual odor</li>
+                    <li>Increasing pain (not decreasing as expected)</li>
+                    <li>Red streaking extending from the wound (serious — seek care immediately)</li>
+                    <li>Fever or chills</li>
+                    <li>The wound is getting larger or deeper despite treatment</li>
+                  </ul>
+                  <p>If you notice any of these signs, <strong>contact us right away</strong> at <a href="tel:8665408090">866-540-8090</a>. Wound infections can progress quickly and become limb- or life-threatening if not treated promptly.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Why won't my wound heal?">
+                <button class="faq-q" aria-expanded="false">Why won't my wound heal even though I've been treating it? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Chronic wounds fail to heal for specific, treatable reasons. The most common causes include:</p>
+                  <ul>
+                    <li><strong>Poor circulation</strong> — insufficient blood flow prevents oxygen and nutrients from reaching the wound</li>
+                    <li><strong>Infection or biofilm</strong> — bacterial biofilm (a protective layer bacteria form) is invisible and prevents healing; standard antibiotics often don't penetrate it</li>
+                    <li><strong>Uncontrolled diabetes</strong> — high blood sugar impairs immune function and nerve sensation</li>
+                    <li><strong>Repeated pressure or trauma</strong> — pressure injuries won't heal if pressure isn't relieved</li>
+                    <li><strong>Inadequate wound management</strong> — wrong dressing type, dressings not changed at the right frequency</li>
+                    <li><strong>Malnutrition</strong> — insufficient protein, vitamins, or hydration</li>
+                    <li><strong>Certain medications</strong> — corticosteroids and some others impair healing</li>
+                  </ul>
+                  <p>A wound care specialist identifies which of these factors are present and systematically addresses each one. Read more: <a href="blog-why-wound-wont-heal.html">Why Won't My Wound Heal?</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 7. PROVIDER REFERRALS ===== -->
+            <div class="faq-category reveal" id="referrals">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <div>
+                  <h2>For Healthcare Providers</h2>
+                  <p>Referring patients to Carolina Wound Care</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How do I refer a patient to Carolina Wound Care?">
+                <button class="faq-q" aria-expanded="false">How do I refer a patient to Carolina Wound Care? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Referring a patient is fast and easy. You can:</p>
+                  <ul>
+                    <li><strong>Submit an online referral form</strong> — visit our <a href="referral.html">Refer a Patient page</a> and complete the form (takes under 2 minutes)</li>
+                    <li><strong>Call us directly</strong> at <a href="tel:8665408090">866-540-8090</a></li>
+                    <li><strong>Fax referral documents</strong> — call for our fax number</li>
+                  </ul>
+                  <p>We contact the patient within <strong>24 hours</strong> of receiving a referral and aim to schedule within the same week.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What providers do you work with?">
+                <button class="faq-q" aria-expanded="false">What types of providers do you accept referrals from? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We partner with and accept referrals from:</p>
+                  <ul>
+                    <li>Primary care physicians and internal medicine</li>
+                    <li>Hospitalists and hospital discharge planners</li>
+                    <li>Vascular surgeons and podiatrists</li>
+                    <li>Home health agencies and visiting nurses</li>
+                    <li>Skilled nursing facilities and assisted living facilities</li>
+                    <li>Endocrinologists and diabetologists</li>
+                    <li>Orthopedic surgeons</li>
+                  </ul>
+                  <p>We provide <strong>timely clinical updates and documentation</strong> back to the referring provider after each visit.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How quickly will you see my referred patient?">
+                <button class="faq-q" aria-expanded="false">How quickly will you see my referred patient? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We prioritize referred patients and aim to:</p>
+                  <ul>
+                    <li>Contact the patient within <strong>24 hours</strong> of receiving the referral</li>
+                    <li>Schedule an appointment within <strong>the same week</strong> in most cases</li>
+                    <li>Provide urgent same-day or next-day visits for patients with critical wounds when possible</li>
+                  </ul>
+                  <p>For urgent referrals, please call us directly at <a href="tel:8665408090">866-540-8090</a> so we can prioritize appropriately.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== 8. ABOUT US ===== -->
+            <div class="faq-category reveal" id="about-us">
+              <div class="faq-category-header">
+                <div class="faq-category-icon"><i class="fa-solid fa-circle-info"></i></div>
+                <div>
+                  <h2>About Carolina Wound Care</h2>
+                  <p>Who we are and what makes us different</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Where are your clinics located?">
+                <button class="faq-q" aria-expanded="false">Where are your clinics located? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>We have two clinic locations in South Carolina:</p>
+                  <ul>
+                    <li><strong>Aiken Clinic:</strong> 511 Grier Court, Aiken, SC 29803</li>
+                    <li><strong>Charleston Clinic:</strong> 2 Carriage Lane, Suite 101, Charleston, SC 29407 (West Ashley area)</li>
+                  </ul>
+                  <p>Both clinics are open <strong>Monday through Friday, 8:00 AM to 5:00 PM</strong>. Ample parking is available at both locations. We also provide mobile home visits across all 46 SC counties. See our <a href="locations.html">Locations page</a> for maps and directions.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="Is Carolina Wound Care affiliated with a hospital?">
+                <button class="faq-q" aria-expanded="false">Are you affiliated with a hospital or health system? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>No — Carolina Wound Care is a <strong>fully independent, patient-first wound care practice</strong>. We are not affiliated with any hospital system.</p>
+                  <p>This matters because it means:</p>
+                  <ul>
+                    <li><strong>Shorter wait times</strong> — no hospital-system scheduling delays</li>
+                    <li><strong>More personal care</strong> — our only focus is wound healing, not hospital metrics</li>
+                    <li><strong>Same-week appointments</strong> — we move fast because we aren't bound by hospital bureaucracy</li>
+                    <li><strong>You choose your care</strong> — decisions are made between you and your specialist, not a hospital committee</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What are your hours?">
+                <button class="faq-q" aria-expanded="false">What are your clinic hours? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Both our Aiken and Charleston clinics are open <strong>Monday through Friday, 8:00 AM to 5:00 PM</strong>. We are closed on weekends and major holidays.</p>
+                  <p>Mobile home visit scheduling may have some flexibility outside standard hours — please call <a href="tel:8665408090">866-540-8090</a> to discuss your scheduling needs.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="What makes Carolina Wound Care different from other wound care centers?">
+                <button class="faq-q" aria-expanded="false">What makes Carolina Wound Care different from other wound care centers? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>Several things set us apart:</p>
+                  <ul>
+                    <li><strong>True mobile care</strong> — we come to you anywhere in SC, not just a small service area</li>
+                    <li><strong>Independent practice</strong> — no hospital red tape, faster appointments, more personal attention</li>
+                    <li><strong>Board-certified specialists</strong> — dedicated wound care expertise, not generalist nursing</li>
+                    <li><strong>Advanced technology</strong> — biological grafts and specialized treatments not available everywhere</li>
+                    <li><strong>Fast access</strong> — same-week appointments, 24-hour referral response</li>
+                    <li><strong>Comprehensive care</strong> — we treat the whole patient, including nutrition and vascular coordination</li>
+                  </ul>
+                  <p>Read more on our <a href="about.html">About Us page</a>.</p>
+                </div>
+              </div>
+
+              <div class="faq-item" data-q="How do I contact Carolina Wound Care?">
+                <button class="faq-q" aria-expanded="false">How do I contact Carolina Wound Care? <span class="faq-q-caret"><i class="fa-solid fa-chevron-down"></i></span></button>
+                <div class="faq-a">
+                  <p>You can reach us several ways:</p>
+                  <ul>
+                    <li><strong>Phone:</strong> <a href="tel:8665408090">866-540-8090</a> — Monday–Friday, 8 AM–5 PM</li>
+                    <li><strong>Online:</strong> <a href="contact.html">Request an appointment or ask a question</a></li>
+                    <li><strong>Referrals:</strong> <a href="referral.html">Submit a provider referral</a></li>
+                  </ul>
+                  <p>We respond to all online inquiries within 24 business hours.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ASK US BOX -->
+            <div class="ask-box reveal">
+              <div style="font-size:2.5rem; color:var(--teal); margin-bottom:1rem;"><i class="fa-solid fa-comments"></i></div>
+              <h3>Still Have a Question?</h3>
+              <p>Our team is happy to answer any question about your wound, your coverage, or our services — with no obligation and no pressure.</p>
+              <div class="ask-box-btns">
+                <a href="contact.html" class="btn btn-primary btn-lg">
+                  <i class="fa-solid fa-envelope"></i> Send Us a Message
+                </a>
+                <a href="tel:8665408090" class="btn btn-outline btn-lg">
+                  <i class="fa-solid fa-phone"></i> Call 866-540-8090
+                </a>
+                <a href="conditions.html#quiz" class="btn btn-outline btn-lg">
+                  <i class="fa-solid fa-clipboard-question"></i> Free Wound Quiz
+                </a>
+              </div>
+            </div>
+
+          </div><!-- /faq-main-heading -->
+        </div><!-- /faq-layout -->
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <div class="cta-band" aria-label="Call to action">
+      <div class="container">
+        <div class="cta-band-inner reveal">
+          <span class="section-label" style="color:rgba(255,255,255,.7);">Ready to Heal?</span>
+          <h2>Don't Let Another Week Pass Without Expert Wound Care</h2>
+          <p>Same-week appointments available. Medicare accepted. We come to you across all of South Carolina.</p>
+          <div class="cta-band-buttons">
+            <a href="contact.html" class="btn btn-white btn-lg">
+              <i class="fa-solid fa-calendar-check"></i> Schedule Free Consultation
+            </a>
+            <a href="tel:8665408090" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="lazy" decoding="async" />
+          <p>Advanced wound care in Aiken &amp; Charleston, SC — plus mobile home visits across all 46 South Carolina counties. Medicare accepted.</p>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="conditions.html">Conditions We Treat</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="locations.html">Locations &amp; Mobile Care</a></li>
+            <li><a href="faq.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-circle-question" style="margin-right:.35rem;"></i>FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="conditions.html#quiz" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-clipboard-question" style="margin-right:.35rem;"></i>Free Wound Quiz</a></li>
+            <li><a href="referral.html" style="color:var(--teal);font-weight:600;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Conditions</h5>
+          <ul>
+            <li><a href="conditions.html">Diabetic Foot Ulcers</a></li>
+            <li><a href="conditions.html">Venous Leg Ulcers</a></li>
+            <li><a href="conditions.html">Pressure Injuries</a></li>
+            <li><a href="conditions.html">Post-Surgical Wounds</a></li>
+            <li><a href="conditions.html">Arterial Ulcers</a></li>
+            <li><a href="conditions.html">Sacral Ulcers</a></li>
+            <li><a href="blog-wound-infection-signs.html">Wound Infection Signs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>511 Grier Court, Aiken, SC 29803<br>2 Carriage Lane, Ste 101, Charleston, SC 29407</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span><a href="tel:8665408090">866-540-8090</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon–Fri: 8:00 AM – 5:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Carolina Wound Care · South Carolina Wound Care. All rights reserved.</p>
+        <p>
+          <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+          <a href="#">Terms of Use</a> &nbsp;·&nbsp;
+          <a href="#">HIPAA Notice</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ---- FAQ accordion ----
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-a');
+        const isOpen = item.classList.contains('open');
+
+        // Close all open items
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-a').classList.remove('open');
+          openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked item if it wasn't open
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ---- Live search ----
+    const searchInput = document.getElementById('faqSearch');
+    const noResults   = document.getElementById('faqNoResults');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
+      let anyVisible = false;
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const q = (item.getAttribute('data-q') || '').toLowerCase();
+        const a = (item.querySelector('.faq-a')?.textContent || '').toLowerCase();
+        const match = !query || q.includes(query) || a.includes(query);
+        item.style.display = match ? '' : 'none';
+        if (match) anyVisible = true;
+      });
+
+      // Show/hide category headers based on whether they have visible items
+      document.querySelectorAll('.faq-category').forEach(cat => {
+        const visibleItems = [...cat.querySelectorAll('.faq-item')].filter(i => i.style.display !== 'none');
+        cat.style.display = visibleItems.length ? '' : 'none';
+      });
+
+      noResults.style.display = anyVisible ? 'none' : 'block';
+    });
+
+    // ---- Sidebar active state on scroll ----
+    const sections = document.querySelectorAll('.faq-category[id]');
+    const sidebarLinks = document.querySelectorAll('.faq-sidebar-link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebarLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`.faq-sidebar-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

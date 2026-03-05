@@ -549,6 +549,11 @@ section { padding: 5rem 0; }
 }
 
 /* ---- LEFT TEXT ---- */
+/* hero-text-top / hero-text-bottom are transparent wrappers on desktop */
+.hero-text-top,
+.hero-text-bottom {
+  display: block; /* normal block flow inside .hero-text on desktop */
+}
 .hero-text .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -892,27 +897,56 @@ section { padding: 5rem 0; }
   .hero-video-frame { max-width: 100%; }
 }
 @media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding-top: 95px;
+    padding-bottom: 2.5rem;
+  }
+  /* 3-row single column: hero-text-top | hero-video-col | hero-text-bottom */
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 3.5rem 0 4rem;
+    /* hero-text is display:contents so its children flow directly into the grid */
+    gap: 1.5rem;
+    padding: 1.5rem 0 1.5rem;
     text-align: center;
   }
-  .hero-text { order: 1; } /* text always first on mobile */
-  .hero-text p { max-width: 100%; }
-  .hero-buttons, .hero-badges { justify-content: center; }
-  .hero-video-col { order: 2; } /* video always second on mobile */
-  .hero-video-frame { max-width: 480px; margin: 0 auto; }
-  .hero-glow { right: 50%; transform: translateX(50%) translateY(-30%); }
+  /* Make .hero-text transparent to the grid so sub-divs become direct grid items */
+  .hero-text {
+    display: contents;
+  }
+  /* Row 1 — headline + subheadline */
+  .hero-text-top {
+    order: 1;
+  }
+  /* Row 2 — video */
+  .hero-video-col {
+    order: 2;
+  }
+  /* Row 3 — buttons + badges + referral */
+  .hero-text-bottom {
+    order: 3;
+  }
+  .hero-video-frame { max-width: 460px; margin: 0 auto; }
+  .hero-buttons { justify-content: center; }
+  .hero-badges  { justify-content: center; }
+  .hero-glow { display: none; }
 }
 @media (max-width: 480px) {
-  .hero-text h1 { font-size: 1.9rem; }
-  .hero-buttons { flex-direction: column; align-items: stretch; }
-  .btn-hero-primary, .btn-hero-ghost { justify-content: center; width: 100%; }
-  .hero-video-strip { flex-direction: column; gap: .45rem; padding: .7rem 1rem; }
-  .hvs-divider { width: 36px; height: 1px; }
-  .play-icon { width: 64px; height: 64px; }
-  .play-icon i { font-size: 1.4rem; }
+  .hero { padding-top: 90px; }
+  .hero-container { gap: 1.25rem; padding: 1rem 0 1rem; }
+  .hero-text-top .eyebrow { font-size: .7rem; margin-bottom: .85rem; }
+  .hero-text h1 { font-size: 1.75rem; line-height: 1.15; margin-bottom: .85rem; }
+  .hero-text p  { font-size: .95rem; margin-bottom: 0; }
+  .hero-video-frame { max-width: 100%; }
+  .hero-video-strip { gap: .4rem .65rem; padding: .55rem .75rem; }
+  .hvs-item { font-size: .75rem; }
+  .hvs-divider { width: 1px; height: 16px; }
+  .play-icon { width: 56px; height: 56px; }
+  .play-icon i { font-size: 1.2rem; }
+  .hero-buttons { flex-direction: column; align-items: stretch; gap: .6rem; }
+  .btn-hero-primary, .btn-hero-ghost { justify-content: center; width: 100%; padding: .8rem 1.5rem; font-size: .93rem; }
+  .hero-badges  { gap: .4rem; }
+  .hero-badge   { font-size: .75rem; padding: .35rem .75rem; }
 }
 
 /* ---------- Section Labels ---------- */
@@ -1457,8 +1491,8 @@ footer {
   }
   .hero-buttons { justify-content: center; }
   .hero-badges  { justify-content: center; }
-  .hero-visual  { order: 2; } /* reset legacy class — hero-video-col already handled */
-  .hero-text    { order: 1; } /* keep text above video on all mobile breakpoints */
+  .hero-visual  { order: 2; } /* legacy class reset */
+  .hero-text    { display: contents; } /* keep display:contents at 768px too */
   .hero-image-wrap img { height: 300px; }
   .hero-card { display: none; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }

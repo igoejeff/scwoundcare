@@ -20,7 +20,7 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 |---|---|---|
 | `index.html` | Home | Hero, trust strip, stats, features, how-it-works, services preview, conditions preview, in-home value prop, testimonials (6), insurance, locations preview, CTAs |
 | `about.html` | About Us | Mission, who we are, values (6), what makes us different, locations map |
-| `services.html` | Services | Debridement, grafts/biologics, UltraMist® callout with stats, specialized dressings, personalized care plans, in-clinic vs in-home compare, FAQ accordion |
+| `services.html` | Services | Debridement, grafts/biologics, specialized dressings, personalized care plans, in-clinic vs in-home compare, FAQ accordion |
 | `conditions.html` | Conditions We Treat | 5 full condition deep-dives (diabetic, venous, arterial, pressure, post-surgical, sacral), "Is This For You" criteria grid, 1-minute interactive wound quiz |
 | `resources.html` | Resources | 4 Stages of Healing (detailed), nutrition tips (6), wound care glossary (9 terms), FAQ accordion, urgent warning banner |
 | `locations.html` | Locations & Mobile Care | Aiken clinic details + Google Maps embed, mobile service hero, how mobile visits work (4 steps), facility types (6), all 46 SC counties grid |
@@ -81,7 +81,6 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 - `diabetic foot ulcer treatment SC`
 - `wound care specialist South Carolina`
 - `in-home wound care South Carolina`
-- `UltraMist therapy SC`
 - `pressure wound treatment at home`
 
 ---
@@ -94,7 +93,6 @@ Home (index.html)
 ├── Services (services.html)
 │   ├── #debridement
 │   ├── #grafts
-│   ├── #ultramist
 │   ├── #dressings
 │   └── #careplans
 ├── Conditions We Treat (conditions.html)
