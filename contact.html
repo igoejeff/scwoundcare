@@ -83,13 +83,12 @@
     /* GHL iframe wrapper */
     .ghl-form-wrap {
       border-radius: 12px;
-      overflow: hidden;
+      overflow: visible;
       border: 1.5px solid rgba(42,157,143,.15);
       background: #f8fdfc;
-      min-height: 1714px;
     }
     .ghl-form-wrap iframe {
-      min-height: 1714px;
+      display: block;
     }
 
     /* Below-form footer */
@@ -456,23 +455,22 @@
 
               <!-- GHL Embedded Form -->
               <div class="ghl-form-wrap">
-                <iframe
-                  src="https://link.mypracticelaunch.com/widget/form/N0bVV0c7wtxfe9vnN67R"
-                  style="width:100%;height:1714px;border:none;border-radius:3px;display:block;"
-                  id="inline-N0bVV0c7wtxfe9vnN67R"
-                  data-layout="{'id':'INLINE'}"
-                  data-trigger-type="alwaysShow"
-                  data-trigger-value=""
-                  data-activation-type="alwaysActivated"
-                  data-activation-value=""
-                  data-deactivation-type="neverDeactivate"
-                  data-deactivation-value=""
-                  data-form-name="1.  Wound Lead Intake Form"
-                  data-height="1714"
-                  data-layout-iframe-id="inline-N0bVV0c7wtxfe9vnN67R"
-                  data-form-id="N0bVV0c7wtxfe9vnN67R"
-                  title="1. Wound Lead Intake Form"
-                ></iframe>
+                <div style="width:100%; height:auto; overflow:visible;">
+                  <iframe
+                    src="https://link.mypracticelaunch.com/widget/form/N0bVV0c7wtxfe9vnN67R"
+                    style="width:100%; height:1722px; border:none; border-radius:3px; display:block;"
+                    id="inline-N0bVV0c7wtxfe9vnN67R"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-activation-type="alwaysActivated"
+                    data-deactivation-type="neverDeactivate"
+                    data-form-name="1. Wound Lead Intake Form"
+                    data-height="1722"
+                    data-layout-iframe-id="inline-N0bVV0c7wtxfe9vnN67R"
+                    data-form-id="N0bVV0c7wtxfe9vnN67R"
+                    title="1. Wound Lead Intake Form">
+                  </iframe>
+                </div>
                 <script src="https://link.mypracticelaunch.com/js/form_embed.js"></script>
               </div>
 
@@ -729,7 +727,7 @@
           </div>
           <div class="footer-contact-item">
             <i class="fa-solid fa-envelope"></i>
-            <span><a href="mailto:info@carolinawoundcare.com">info@carolinawoundcare.com</a></span>
+            <span><a href="mailto:info@scwound.com">info@scwound.com</a></span>
           </div>
           <div class="footer-contact-item">
             <i class="fa-solid fa-clock"></i>

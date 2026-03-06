@@ -162,7 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---- Contact / appointment form submission ----
-  document.querySelectorAll('.contact-form').forEach(form => {
+  const contactForms = document.querySelectorAll('.contact-form');
+  if (contactForms.length > 0) contactForms.forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('[type="submit"]');

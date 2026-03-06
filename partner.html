@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Carolina Wound Care | Wound Care for Facilities Across South Carolina</title>
+  <meta name="description" content="Carolina Wound Care brings board-certified wound care specialists directly to your nursing home, assisted living, or home health patients across South Carolina." />
+  <!-- NO INDEX — sales page only, not for search engines -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ─── PAGE-LEVEL RESETS ─────────────────────────────── */
+    * { box-sizing: border-box; }
+
+    /* ─── HERO ──────────────────────────────────────────── */
+    .partner-hero {
+      background: linear-gradient(135deg, #0a2320 0%, #0d2b28 40%, #1a4a44 100%);
+      padding: 7rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .partner-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%234dd6c8' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    /* decorative glows */
+    .partner-hero::after {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(42,157,143,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow-bottom {
+      position: absolute;
+      bottom: -80px; left: 10%;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(42,157,143,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .partner-hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(42,157,143,.2);
+      border: 1px solid rgba(77,214,200,.3);
+      border-radius: 50px;
+      padding: .4rem 1.1rem;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #4dd6c8;
+    }
+    .partner-hero h1 {
+      color: #fff;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .partner-hero h1 span { color: #4dd6c8; }
+    .partner-hero .hero-sub {
+      color: rgba(255,255,255,.78);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: .5rem;
+    }
+    .btn-hero-teal {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: .9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      box-shadow: 0 4px 20px rgba(42,157,143,.35);
+    }
+    .btn-hero-teal:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-hero-ghost-light {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: transparent;
+      color: rgba(255,255,255,.85);
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding: .9rem 2rem;
+      border-radius: 50px;
+      border: 1.5px solid rgba(255,255,255,.3);
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-hero-ghost-light:hover { border-color: #4dd6c8; color: #4dd6c8; }
+
+    /* Video embed */
+    .hero-video-wrap {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.45);
+      border: 2px solid rgba(77,214,200,.2);
+      position: relative;
+      background: #000;
+    }
+    .hero-video-wrap .video-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+    .hero-video-wrap .play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px; height: 72px;
+      background: rgba(42,157,143,.9);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      pointer-events: none;
+    }
+    .hero-video-wrap:hover .play-btn { background: var(--teal); transform: translate(-50%, -50%) scale(1.08); }
+    .play-btn i { color: #fff; font-size: 1.6rem; margin-left: .2rem; }
+    .hero-video-wrap iframe.yt-iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+      display: none;
+    }
+
+    /* Trust strip below hero */
+    .trust-strip {
+      background: rgba(255,255,255,.05);
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 1.25rem 0;
+    }
+    .trust-strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      color: rgba(255,255,255,.75);
+      font-size: .85rem;
+      font-weight: 500;
+    }
+    .trust-item i { color: #4dd6c8; font-size: .9rem; }
+
+    /* ─── SECTION HELPERS ───────────────────────────────── */
+    .section-pad { padding: 5rem 0; }
+    .section-pad-sm { padding: 3.5rem 0; }
+    .bg-light-teal { background: #f4fbfa; }
+    .bg-dark { background: linear-gradient(135deg, #0d2b28 0%, #1a4a44 100%); }
+    .section-label-teal {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .75rem;
+    }
+    .section-label-light {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #4dd6c8;
+      margin-bottom: .75rem;
+    }
+    .center { text-align: center; }
+
+    /* ─── SECTION 2 — PROBLEM ───────────────────────────── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .problem-text h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      color: var(--black);
+    }
+    .problem-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-body);
+      margin-bottom: 1rem;
+    }
+    .problem-text p strong { color: var(--teal-dark); }
+    .problem-pain-list {
+      list-style: none;
+      padding: 0; margin: 1.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+    }
+    .problem-pain-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      font-size: .97rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .problem-pain-list li i {
+      color: #e05a3a;
+      flex-shrink: 0;
+      margin-top: .18rem;
+      font-size: .9rem;
+    }
+    .problem-callout {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-callout::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,.07);
+      border-radius: 50%;
+    }
+    .problem-callout::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,.05);
+      border-radius: 50%;
+    }
+    .problem-callout-inner { position: relative; z-index: 1; }
+    .problem-callout .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+    .stat-box {
+      background: rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-box .num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff;
+    }
+    .stat-box .lbl {
+      font-size: .78rem;
+      color: rgba(255,255,255,.75);
+      margin-top: .3rem;
+      line-height: 1.4;
+    }
+    .problem-callout h3 {
+      color: #fff;
+      font-size: 1.25rem;
+      margin-bottom: .5rem;
+    }
+    .problem-callout p {
+      color: rgba(255,255,255,.82);
+      font-size: .92rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ─── SECTION 3 — HOW WE HELP ───────────────────────── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+      margin-top: 3rem;
+    }
+    .diff-card {
+      background: #fff;
+      border: 1.5px solid var(--gray-mid);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      transition: box-shadow .25s, transform .25s, border-color .25s;
+    }
+    .diff-card:hover {
+      box-shadow: 0 12px 40px rgba(42,157,143,.13);
+      transform: translateY(-5px);
+      border-color: rgba(42,157,143,.3);
+    }
+    .diff-icon {
+      width: 56px; height: 56px;
+      background: var(--teal-light);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: var(--teal);
+    }
+    .diff-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+      color: var(--black);
+      line-height: 1.3;
+    }
+    .diff-card p {
+      font-size: .92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+    /* last two cards centered in bottom row */
+    .diff-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ─── SECTION 4 — SOCIAL PROOF ──────────────────────── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testimonial-card-partner {
+      background: #fff;
+      border: 1.5px solid var(--gray-mid);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+      position: relative;
+    }
+    .testimonial-card-partner::before {
+      content: '\201C';
+      position: absolute;
+      top: 1.25rem; left: 1.75rem;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--teal-light);
+      font-family: Georgia, serif;
+    }
+    .testimonial-card-partner .stars {
+      display: flex;
+      gap: .2rem;
+      margin-bottom: 1rem;
+    }
+    .testimonial-card-partner .stars i { color: #f4b942; font-size: .95rem; }
+    .testimonial-card-partner blockquote {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-body);
+      margin: 0 0 1.25rem 0;
+      font-style: italic;
+    }
+    .testimonial-card-partner .attrib {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .testimonial-card-partner .attrib span {
+      display: block;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: .8rem;
+      margin-top: .15rem;
+    }
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1.5px solid var(--gray-mid);
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+    .trust-badge i { color: var(--teal); font-size: 1.1rem; }
+
+    /* ─── SECTION 5 — FINAL CTA + FORM ─────────────────── */
+    .cta-form-section {
+      background: linear-gradient(135deg, #0a2320 0%, #0d2b28 50%, #1a4a44 100%);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-form-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(42,157,143,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 4rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-form-text h2 {
+      color: #fff;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .cta-form-text h2 span { color: #4dd6c8; }
+    .cta-form-text p {
+      color: rgba(255,255,255,.78);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .cta-checklist {
+      list-style: none;
+      padding: 0; margin: 0 0 2rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .cta-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      font-size: .95rem;
+      color: rgba(255,255,255,.82);
+      line-height: 1.5;
+    }
+    .cta-checklist li i { color: #4dd6c8; flex-shrink: 0; margin-top: .18rem; }
+    .cta-phone-block {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .cta-phone-block i { color: #4dd6c8; font-size: 1.4rem; }
+    .cta-phone-block .ph-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.55);
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .cta-phone-block a {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -.01em;
+    }
+    .cta-phone-block a:hover { color: #4dd6c8; }
+
+    /* GHL form wrapper */
+    .ghl-form-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,.35);
+    }
+    .ghl-form-card-header {
+      background: var(--teal);
+      padding: 1.5rem 2rem;
+    }
+    .ghl-form-card-header h3 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .ghl-form-card-header p {
+      color: rgba(255,255,255,.8);
+      font-size: .83rem;
+      margin: .4rem 0 0;
+    }
+    .ghl-form-embed {
+      padding: 0;
+    }
+    .ghl-form-embed iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+    .ghl-form-hipaa {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      background: #f4fbfa;
+      border-top: 1px solid rgba(42,157,143,.12);
+    }
+    .ghl-form-hipaa i { color: var(--teal); flex-shrink: 0; margin-top: .1rem; }
+    .ghl-form-hipaa p {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ─── STICKY CTA BAR (mobile) ───────────────────────── */
+    .sticky-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--teal);
+      z-index: 9999;
+      padding: .85rem 1.25rem;
+      gap: .75rem;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.2);
+    }
+    .sticky-cta-bar a {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      text-decoration: none;
+      background: rgba(255,255,255,.15);
+      padding: .6rem 1.25rem;
+      border-radius: 50px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .diff-grid { grid-template-columns: repeat(2, 1fr); }
+      .diff-grid-bottom { max-width: 100%; grid-template-columns: repeat(2, 1fr); }
+      .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cta-form-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .partner-hero { padding: 5.5rem 0 3.5rem; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .diff-grid-bottom { grid-template-columns: 1fr; }
+      .problem-callout .stat-row { grid-template-columns: 1fr 1fr; }
+      .hero-cta-row { flex-direction: column; align-items: center; }
+      .btn-hero-teal, .btn-hero-ghost-light { width: 100%; max-width: 320px; justify-content: center; }
+      .sticky-cta-bar { display: flex; }
+      main { padding-bottom: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MINIMAL NAVBAR — logo + phone only (no nav links, not indexed) -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation" style="background:#fff;border-bottom:1.5px solid rgba(42,157,143,.12);">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="eager" decoding="async" />
+        </a>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090">
+            <i class="fa-solid fa-phone"></i> 866-540-8090
+          </a>
+          <a href="#refer-form" class="btn btn-primary btn-sm">Refer a Patient</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 1 — HERO
+    ════════════════════════════════════════════════════ -->
+    <section class="partner-hero">
+      <div class="hero-glow-bottom"></div>
+      <div class="container">
+        <div class="partner-hero-inner">
+
+          <div class="hero-eyebrow">
+            <i class="fa-solid fa-handshake"></i>
+            For Nursing Homes · Assisted Living · Home Health Agencies
+          </div>
+
+          <h1>Your Patients Deserve a Wound Care Partner<br><span>Who Actually Shows Up</span></h1>
+
+          <p class="hero-sub">Carolina Wound Care brings board-certified specialists directly to your facility — with the documentation, communication, and outcomes your team depends on.</p>
+
+          <div class="hero-cta-row">
+            <a href="#refer-form" class="btn-hero-teal">
+              <i class="fa-solid fa-user-doctor"></i> Refer a Patient →
+            </a>
+            <a href="tel:8665408090" class="btn-hero-ghost-light">
+              <i class="fa-solid fa-phone"></i> Call 866-540-8090
+            </a>
+          </div>
+
+          <!-- VIDEO -->
+          <div class="hero-video-wrap" id="heroVideoWrap">
+            <img
+              src="https://img.youtube.com/vi/NRleCd-WoN8/maxresdefault.jpg"
+              alt="Carolina Wound Care — See How We Work"
+              class="video-thumb"
+              id="heroVideoThumb"
+              onerror="this.src='https://img.youtube.com/vi/NRleCd-WoN8/hqdefault.jpg'"
+            />
+            <div class="play-btn" id="heroPlayBtn" aria-label="Play video">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <iframe
+              class="yt-iframe"
+              id="heroYTFrame"
+              data-src="https://www.youtube.com/embed/NRleCd-WoN8?autoplay=1&rel=0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+              title="Carolina Wound Care Overview"
+            ></iframe>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="trust-strip">
+        <div class="container">
+          <div class="trust-strip-inner">
+            <div class="trust-item"><i class="fa-solid fa-star"></i> 5-Star Rated</div>
+            <div class="trust-item"><i class="fa-solid fa-map-location-dot"></i> All 46 SC Counties</div>
+            <div class="trust-item"><i class="fa-solid fa-calendar-check"></i> 24-Hour Referral Response</div>
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Medicare &amp; Most Insurance Accepted</div>
+            <div class="trust-item"><i class="fa-solid fa-user-doctor"></i> Board-Certified Specialists</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 2 — THE PROBLEM WE SOLVE
+    ════════════════════════════════════════════════════ -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="problem-grid">
+
+          <div class="problem-text">
+            <span class="section-label-teal">The Problem We Solve</span>
+            <h2>We Know the Challenges<br>You're Facing</h2>
+            <p>Managing wound care in a home health, nursing home, or assisted living setting is harder than it should be. Specialists are hard to reach. Documentation gets lost. Wounds that should heal in weeks drag on for months — and your patients end up in the hospital.</p>
+            <p><strong>That's exactly what Carolina Wound Care was built to fix.</strong></p>
+            <ul class="problem-pain-list">
+              <li><i class="fa-solid fa-circle-xmark"></i> Specialists who are impossible to reach or slow to respond</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Wound documentation that doesn't reach the rest of your care team</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Patients sitting in pain for weeks waiting for an appointment they can't get to</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Wounds becoming chronic — leading to hospitalizations, complications, and worse outcomes</li>
+              <li><i class="fa-solid fa-circle-xmark"></i> Coordination gaps between wound care, home health, DME, and primary care</li>
+            </ul>
+            <a href="#refer-form" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:.5rem;">
+              <i class="fa-solid fa-user-doctor"></i> Refer a Patient Today
+            </a>
+          </div>
+
+          <div class="problem-callout">
+            <div class="problem-callout-inner">
+              <h3>The Cost of Delayed Wound Care</h3>
+              <p>Unmanaged chronic wounds are one of the leading drivers of avoidable hospitalizations and skilled nursing facility readmissions.</p>
+              <div class="stat-row">
+                <div class="stat-box">
+                  <div class="num">$28B</div>
+                  <div class="lbl">Annual cost of chronic wounds in the US</div>
+                </div>
+                <div class="stat-box">
+                  <div class="num">85%</div>
+                  <div class="lbl">Of diabetes-related amputations preceded by a foot ulcer</div>
+                </div>
+                <div class="stat-box">
+                  <div class="num">6–12 wks</div>
+                  <div class="lbl">Average time before patients get specialist care</div>
+                </div>
+                <div class="stat-box">
+                  <div class="num">2–4 wks</div>
+                  <div class="lbl">How fast most wounds heal with early specialist care</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 3 — HOW WE HELP
+    ════════════════════════════════════════════════════ -->
+    <section class="section-pad bg-light-teal">
+      <div class="container">
+        <div class="center">
+          <span class="section-label-teal">What Makes Us Different</span>
+          <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;margin-bottom:.75rem;">Built for Facilities. Designed for Results.</h2>
+          <p style="color:var(--text-muted);max-width:620px;margin:0 auto;line-height:1.75;">Everything we do is designed to make wound care easier for your team and better for your patients.</p>
+        </div>
+
+        <div class="diff-grid" style="margin-top:3rem;">
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-house-medical"></i></div>
+            <h3>We Come to Your Patients</h3>
+            <p>No transport, no delays. Our specialists come directly to your facility or patient's home across all 46 South Carolina counties — removing the single biggest barrier to consistent wound care.</p>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+            <h3>Clear Communication at Every Step</h3>
+            <p>Our InteliWound technology instantly shares wound assessments, measurements, and treatment orders with your entire care team — home health, DME, physicians, and beyond. No more documentation gaps.</p>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Faster Healing. Fewer Hospitalizations.</h3>
+            <p>Advanced treatments including debridement, biologic applications, and compression therapy — proven to close wounds faster and keep your patients out of the ER. Better outcomes mean better quality scores for your facility.</p>
+          </div>
+        </div>
+
+        <div class="diff-grid-bottom" style="margin-top:1.75rem;">
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <h3>Board-Certified Specialists</h3>
+            <p>Not just a wound care nurse. Our providers bring decades of specialized expertise to every visit — giving your patients the same level of care found in major hospital wound centers, delivered at their bedside.</p>
+          </div>
+          <div class="diff-card reveal">
+            <div class="diff-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Medicare &amp; Most Insurance Accepted</h3>
+            <p>No billing headaches for your patients or your team. We handle all verification, authorization, and billing — so care starts fast and the paperwork never slows anything down.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 4 — SOCIAL PROOF
+    ════════════════════════════════════════════════════ -->
+    <section class="section-pad">
+      <div class="container">
+        <div class="center">
+          <span class="section-label-teal">Trusted Across South Carolina</span>
+          <h2 style="font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;margin-bottom:.5rem;">Trusted by Facilities Across South Carolina</h2>
+          <p style="color:var(--text-muted);font-size:1.05rem;margin:0;">5-star rated. Over 20 years of proven results.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card-partner reveal">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote>"Carolina Wound Care has been an incredible partner for our residents. They show up reliably, communicate clearly with our nursing staff, and we've seen a dramatic reduction in wound-related hospital transfers since we started working with them. I wish we had found them sooner."</blockquote>
+            <div class="attrib">
+              Director of Nursing
+              <span>Skilled Nursing Facility — Aiken County, SC</span>
+            </div>
+          </div>
+          <div class="testimonial-card-partner reveal">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote>"As a home health agency, wound care coordination used to be one of our biggest headaches. Since partnering with Carolina Wound Care, our patients get seen quickly, the documentation is always complete, and the outcomes speak for themselves. They're the best referral partner we have."</blockquote>
+            <div class="attrib">
+              Director of Clinical Operations
+              <span>Home Health Agency — Midlands Region, SC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge"><i class="fa-solid fa-star"></i> 5-Star Patient Reviews</div>
+          <div class="trust-badge"><i class="fa-solid fa-calendar-check"></i> 24-Hour Referral Response</div>
+          <div class="trust-badge"><i class="fa-solid fa-map-location-dot"></i> All 46 SC Counties Covered</div>
+          <div class="trust-badge"><i class="fa-solid fa-file-medical"></i> Complete Documentation Provided</div>
+          <div class="trust-badge"><i class="fa-solid fa-handshake"></i> 20+ Years Combined Experience</div>
+          <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i> Medicare &amp; Most PPO Plans</div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         SECTION 5 — FINAL CTA + REFERRAL FORM
+    ════════════════════════════════════════════════════ -->
+    <section class="cta-form-section" id="refer-form">
+      <div class="container">
+        <div class="cta-form-grid">
+
+          <!-- Left: copy -->
+          <div class="cta-form-text">
+            <span class="section-label-light">Start the Conversation</span>
+            <h2>Ready to Give Your Patients<br><span>Better Wound Care?</span></h2>
+            <p>Referring is fast and easy. Fill out our simple referral form and a member of our team will be in touch right away — usually within the same business day.</p>
+            <ul class="cta-checklist">
+              <li><i class="fa-solid fa-circle-check"></i> Takes less than 2 minutes to complete</li>
+              <li><i class="fa-solid fa-circle-check"></i> We contact the patient or facility directly</li>
+              <li><i class="fa-solid fa-circle-check"></i> First visit often scheduled within days</li>
+              <li><i class="fa-solid fa-circle-check"></i> Complete documentation returned to your team</li>
+              <li><i class="fa-solid fa-circle-check"></i> No cost or obligation to refer</li>
+            </ul>
+            <div class="cta-phone-block">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <div class="ph-label">Prefer to call?</div>
+                <a href="tel:8665408090">866-540-8090</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: GHL referral form -->
+          <div class="ghl-form-card">
+            <div class="ghl-form-card-header">
+              <h3><i class="fa-solid fa-user-doctor"></i> Refer a Patient — It Takes 2 Minutes</h3>
+              <p>Our team responds within one business day, usually same day.</p>
+            </div>
+            <div class="ghl-form-embed">
+              <div style="width:100%; height:auto; overflow:visible;">
+                <iframe
+                  src="https://link.mypracticelaunch.com/widget/form/N0bVV0c7wtxfe9vnN67R"
+                  style="width:100%; height:1722px; border:none; border-radius:3px; display:block;"
+                  id="inline-partner-N0bVV0c7wtxfe9vnN67R"
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-activation-type="alwaysActivated"
+                  data-deactivation-type="neverDeactivate"
+                  data-form-name="1. Wound Lead Intake Form"
+                  data-height="1722"
+                  data-layout-iframe-id="inline-N0bVV0c7wtxfe9vnN67R"
+                  data-form-id="N0bVV0c7wtxfe9vnN67R"
+                  title="1. Wound Lead Intake Form">
+                </iframe>
+              </div>
+              <script src="https://link.mypracticelaunch.com/js/form_embed.js"></script>
+            </div>
+            <div class="ghl-form-hipaa">
+              <i class="fa-solid fa-lock"></i>
+              <p>Your information is protected under HIPAA and our Privacy Policy. We will never share patient or provider information without consent.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER — minimal -->
+  <footer role="contentinfo" style="background:#0a2320;padding:2rem 0;text-align:center;">
+    <div class="container">
+      <img src="images/logo-transparent.png" alt="Carolina Wound Care" style="height:48px;margin-bottom:1rem;opacity:.85;" />
+      <p style="color:rgba(255,255,255,.45);font-size:.82rem;margin:0;">
+        © 2026 Carolina Wound Care · 511 Grier Court, Aiken, SC 29803 · 2 Carriage Lane, Ste 101, Charleston, SC 29407
+        <br>
+        <a href="tel:8665408090" style="color:rgba(255,255,255,.55);text-decoration:none;">866-540-8090</a>
+        &nbsp;·&nbsp;
+        <a href="index.html" style="color:rgba(255,255,255,.55);text-decoration:none;">Back to Main Site</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY CTA BAR -->
+  <div class="sticky-cta-bar" role="complementary" aria-label="Quick contact">
+    <a href="#refer-form"><i class="fa-solid fa-user-doctor"></i> Refer a Patient</a>
+    <a href="tel:8665408090"><i class="fa-solid fa-phone"></i> Call Now</a>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Video play button
+    (function () {
+      const wrap  = document.getElementById('heroVideoWrap');
+      const thumb = document.getElementById('heroVideoThumb');
+      const btn   = document.getElementById('heroPlayBtn');
+      const frame = document.getElementById('heroYTFrame');
+      if (!wrap || !frame) return;
+      function playVideo() {
+        frame.src = frame.dataset.src;
+        frame.style.display = 'block';
+        thumb.style.display = 'none';
+        btn.style.display   = 'none';
+      }
+      wrap.addEventListener('click', playVideo);
+    })();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

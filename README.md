@@ -6,6 +6,7 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 
 ## 🌐 Project Overview
 
+**Site URL:** https://scwound.com/
 **Brand Colors:** Teal `#2A9D8F` · Gray `#9AA5B4` · White `#FFFFFF`
 **Phone:** 866-540-8090
 **Address:** 511 Grier Court, Aiken, SC 29803
@@ -25,6 +26,13 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 | `resources.html` | Resources | 4 Stages of Healing (detailed), nutrition tips (6), wound care glossary (9 terms), FAQ accordion, urgent warning banner |
 | `locations.html` | Locations & Mobile Care | Aiken clinic details + Google Maps embed, mobile service hero, how mobile visits work (4 steps), facility types (6), all 46 SC counties grid |
 | `contact.html` | Contact | Appointment form with visit-type selector, contact info panel, hours, insurance checker, map, form submits to REST API |
+| `referral.html` | Refer a Patient | Provider referral form with urgency selector, patient info fields, HIPAA notice, saves to REST API |
+| `sales-rep.html` | Provider Partner Page (**noindex**) | Unlisted sales/partner page for facilities & reps — hero, problem/solution, 6 differentiators, video, testimonials, closing CTA. Accessible via direct URL only. |
+| `faq.html` | FAQ | 38 questions with JSON-LD schema, linked in Learn dropdown |
+| `blog.html` | Blog & Articles | Post grid with category filter, featured post, load-more, sidebar |
+| `blog-post-surgical-wound-care.html` | Blog Post (Post-Surgical Care) | 1,800-word article on wound care after surgery |
+| `wound-care-aiken-sc.html` | Local SEO: Aiken | City landing page for Aiken wound care searches |
+| `wound-care-charleston-sc.html` | Local SEO: Charleston | City landing page for Charleston wound care searches |
 
 ### Assets
 | File | Description |
@@ -107,6 +115,14 @@ Home (index.html)
 ├── Locations & Mobile Care (locations.html)
 └── Contact (contact.html)
 ```
+
+---
+
+## 🔒 Unlisted / Non-Indexed Pages
+
+| File | Purpose | Notes |
+|---|---|---|
+| `sales-rep.html` | Sales rep / provider partnership landing page | `noindex, nofollow` meta tag — accessible via direct URL only, not linked in site nav or sitemap |
 
 ---
 
