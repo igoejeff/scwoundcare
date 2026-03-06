@@ -636,6 +636,181 @@
     flex-shrink: 0;
   }
 </style>
+
+  <!-- ===================== STRUCTURED DATA (JSON-LD) ===================== -->
+  <!-- LocalBusiness + MedicalClinic schema for AI Overviews, Google, ChatGPT -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["MedicalClinic", "LocalBusiness"],
+        "@id": "https://scwound.com/#organization",
+        "name": "Carolina Wound Care",
+        "alternateName": "CWC Wound Care",
+        "url": "https://scwound.com",
+        "telephone": "+18665408090",
+        "email": "info@scwound.com",
+        "description": "Advanced Wound Care That Comes to You – in-clinic or mobile in-home visits across South Carolina. Board-certified wound care specialists treating diabetic foot ulcers, pressure injuries, venous ulcers, and complex chronic wounds.",
+        "medicalSpecialty": "Wound Care",
+        "priceRange": "$$",
+        "currenciesAccepted": "USD",
+        "paymentAccepted": "Medicare, Medicaid, Most Major Insurance",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "511 Grier Court",
+          "addressLocality": "Aiken",
+          "addressRegion": "SC",
+          "postalCode": "29803",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 33.5638,
+          "longitude": -81.7201
+        },
+        "hasMap": "https://maps.google.com/?q=511+Grier+Court+Aiken+SC+29803",
+        "sameAs": ["https://www.facebook.com/carolinawoundcare"],
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://scwound.com/images/logo-transparent.png"
+        },
+        "image": "https://scwound.com/images/logo-transparent.png",
+        "areaServed": {
+          "@type": "State",
+          "name": "South Carolina",
+          "description": "All 46 counties of South Carolina served via mobile in-home visits"
+        },
+        "department": [
+          {
+            "@type": "MedicalClinic",
+            "name": "Carolina Wound Care – Aiken Clinic",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "511 Grier Court",
+              "addressLocality": "Aiken",
+              "addressRegion": "SC",
+              "postalCode": "29803",
+              "addressCountry": "US"
+            },
+            "geo": {"@type": "GeoCoordinates", "latitude": 33.5638, "longitude": -81.7201},
+            "telephone": "+18665408090"
+          },
+          {
+            "@type": "MedicalClinic",
+            "name": "Carolina Wound Care – Charleston Clinic",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "2 Carriage Lane, Suite 101",
+              "addressLocality": "Charleston",
+              "addressRegion": "SC",
+              "postalCode": "29407",
+              "addressCountry": "US"
+            },
+            "geo": {"@type": "GeoCoordinates", "latitude": 32.7766, "longitude": -79.9371},
+            "telephone": "+18665408090"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://scwound.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Carolina Wound Care?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Carolina Wound Care is an advanced wound care specialty practice based in Aiken and Charleston, SC. We treat chronic and complex wounds using evidence-based protocols, with the unique option of true mobile in-home visits across all 46 South Carolina counties."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer in-home wound care visits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Carolina Wound Care specializes in mobile, in-home wound care visits. Our board-certified wound care nurses travel to your home, skilled nursing facility, or assisted living community — serving patients across all 46 SC counties."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Carolina Wound Care accept Medicare?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Carolina Wound Care accepts Medicare and most major insurance plans. Medicare typically covers wound care services when medically necessary. Our team handles insurance verification and prior authorizations on your behalf."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What types of wounds does Carolina Wound Care treat?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We treat diabetic foot ulcers, venous leg ulcers, pressure injuries (bed sores), arterial ulcers, surgical wound complications, traumatic wounds, lymphedema-related wounds, and other complex or non-healing chronic wounds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Carolina Wound Care affiliated with a hospital?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Carolina Wound Care is an independent specialty practice, not affiliated with any hospital. This means faster appointments, more personalized attention, and no hospital billing surprises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I refer a patient to Carolina Wound Care?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Healthcare providers can refer patients online at scwound.com/referral.html, by calling 866-540-8090, or by fax. We accept referrals from physicians, nurse practitioners, hospitals, skilled nursing facilities, assisted living communities, and home health agencies."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to get an appointment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Carolina Wound Care typically schedules new patient appointments within 48–72 hours of referral or request. For urgent wound situations, please call 866-540-8090 directly for same-week availability."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What areas of South Carolina does Carolina Wound Care serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Carolina Wound Care has clinics in Aiken (511 Grier Court) and Charleston (2 Carriage Lane, Suite 101), and provides mobile in-home visits across all 46 South Carolina counties — from Greenville and Spartanburg to Beaufort and Horry County."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes Carolina Wound Care different from a regular home health nurse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Carolina Wound Care specialists hold dedicated wound care certifications (CWCN, WCS) that require specialized training, clinical hours, and examinations focused exclusively on wound management. General home health nurses are generalists; our team focuses entirely on wound healing and advanced wound treatments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is a doctor's referral required to see Carolina Wound Care?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In most cases, a physician or provider referral is needed for insurance billing purposes. However, you can contact us directly at 866-540-8090 to discuss your situation — we will help coordinate the referral process if needed."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- ================================================================== -->
+
   <!-- Performance optimizer — deferred so it never blocks rendering -->
   <script src="js/performance.js" defer></script>
 </head>

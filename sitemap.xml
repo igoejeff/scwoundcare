@@ -13,7 +13,7 @@
        CAROLINA WOUND CARE — SITEMAP
        Domain   : https://scwound.com
        Generated: 2026-03-04
-       Pages    : 23 total
+       Pages    : 24 total
        Priority Guide:
          1.0  = Homepage
          0.95 = Core local SEO landing pages
@@ -105,6 +105,13 @@
        TIER 4 — SUPPORTING PAGES (Priority 0.80)
        Trust, contact, and location pages
   =========================================== -->
+  <url>
+    <loc>https://scwound.com/team.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
   <url>
     <loc>https://scwound.com/contact.html</loc>
     <lastmod>2026-03-04</lastmod>
