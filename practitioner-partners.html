@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practitioner Partners | SC Wound Care – For Healthcare Facilities &amp; Providers</title>
+  <meta name="description" content="Carolina Wound Care partners with skilled nursing facilities, assisted living, and home health agencies across South Carolina to deliver advanced wound care directly to your patients." />
+
+  <link rel="canonical" href="https://scwound.com/practitioner-partners.html" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ============================================================
+       PRACTITIONER PARTNERS PAGE — page-scoped styles
+       ============================================================ */
+
+    /* ── CSS Variables (mirror main site) ── */
+    :root {
+      --teal:        #2A9D8F;
+      --teal-dark:   #1f7569;
+      --teal-light:  #edfaf7;
+      --navy:        #0d2b28;
+      --navy-mid:    #1a4a44;
+      --accent:      #4dd6c8;
+      --text-body:   #1a2e2c;
+      --text-muted:  #4a6b65;
+      --gray-light:  #f4f6f5;
+      --gray-mid:    #d0dbd9;
+      --white:       #ffffff;
+      --shadow-sm:   0 2px 12px rgba(0,0,0,.08);
+      --shadow-md:   0 6px 30px rgba(0,0,0,.12);
+      --radius:      10px;
+      --radius-lg:   18px;
+      --transition:  all .22s ease;
+    }
+
+    /* ── Smooth scroll ── */
+    html { scroll-behavior: smooth; }
+
+    /* ── Utility ── */
+    .sr-only {
+      position: absolute; width:1px; height:1px;
+      padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); border:0;
+    }
+
+    /* ================================================================
+       SECTION SHARED
+    ================================================================ */
+    .sp-section { padding: 5rem 0; }
+    .sp-section.bg-light { background: var(--gray-light); }
+    .sp-section.bg-dark  { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); }
+    .sp-section-header { text-align: center; max-width: 720px; margin: 0 auto 3.5rem; }
+    .sp-eyebrow {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: rgba(42,157,143,.12);
+      border: 1px solid rgba(42,157,143,.25);
+      border-radius: 50px;
+      padding: .35rem .95rem;
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1rem;
+    }
+    .sp-section.bg-dark .sp-eyebrow {
+      background: rgba(77,214,200,.12);
+      border-color: rgba(77,214,200,.25);
+      color: var(--accent);
+    }
+    .sp-section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 900; line-height: 1.12;
+      letter-spacing: -.03em; color: var(--text-body);
+      margin-bottom: .85rem;
+    }
+    .sp-section.bg-dark .sp-section-title { color: #fff; }
+    .sp-section-title span { color: var(--teal); }
+    .sp-section.bg-dark .sp-section-title span { color: var(--accent); }
+    .sp-section-sub {
+      font-size: 1.05rem; line-height: 1.75; color: var(--text-muted);
+    }
+    .sp-section.bg-dark .sp-section-sub { color: rgba(255,255,255,.72); }
+
+    /* ================================================================
+       1. HERO
+    ================================================================ */
+    .sp-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0d2b28 100%);
+      padding: 9rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* subtle dot-grid texture */
+    .sp-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234dd6c8' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .sp-hero-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    /* LEFT: text */
+    .sp-hero-text .sp-eyebrow { margin-bottom: 1.25rem; }
+    .sp-hero-h1 {
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.12; letter-spacing: -.03em;
+      margin-bottom: 1.1rem;
+    }
+    .sp-hero-h1 span { color: var(--accent); }
+    .sp-hero-sub {
+      color: rgba(255,255,255,.8);
+      font-size: 1.05rem; line-height: 1.75;
+      margin-bottom: 2rem; max-width: 540px;
+    }
+    .sp-hero-cta {
+      display: flex; flex-wrap: wrap; gap: .85rem;
+      align-items: center;
+    }
+    .btn-sp-primary {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: #fff; font-family: inherit;
+      font-size: 1rem; font-weight: 700;
+      padding: .9rem 1.9rem;
+      border: none; border-radius: 50px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(42,157,143,.45);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .btn-sp-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(42,157,143,.55);
+    }
+    .btn-sp-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.82);
+      font-size: .95rem; font-weight: 600;
+      text-decoration: none;
+      padding: .85rem 1.5rem;
+      border: 1.5px solid rgba(255,255,255,.22);
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+    .btn-sp-ghost:hover {
+      border-color: var(--accent); color: var(--accent);
+    }
+    /* trust badges under CTA */
+    .sp-hero-badges {
+      display: flex; flex-wrap: wrap; gap: .6rem;
+      margin-top: 1.5rem;
+    }
+    .sp-hero-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 50px;
+      padding: .3rem .85rem;
+      font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.75);
+    }
+    .sp-hero-badge i { color: var(--accent); font-size: .72rem; }
+
+    /* RIGHT: hero image card */
+    .sp-hero-img-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      position: relative;
+    }
+    .sp-hero-img-wrap img {
+      width: 100%; height: 420px;
+      object-fit: cover; object-position: top;
+      display: block;
+    }
+    .sp-hero-img-badge {
+      position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem;
+      background: rgba(13,43,40,.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(77,214,200,.22);
+      border-radius: 12px;
+      padding: .85rem 1.1rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .sp-hero-img-badge i {
+      color: var(--accent); font-size: 1.2rem; flex-shrink: 0;
+    }
+    .sp-hero-img-badge strong {
+      display: block; font-size: .9rem; font-weight: 700; color: #fff;
+    }
+    .sp-hero-img-badge span {
+      font-size: .75rem; color: rgba(255,255,255,.65);
+    }
+
+    /* ================================================================
+       2. PROBLEM WE SOLVE  (light bg, 2-col)
+    ================================================================ */
+    .sp-problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .sp-problem-text h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 900; line-height: 1.15;
+      letter-spacing: -.03em; color: var(--text-body);
+      margin-bottom: 1.1rem;
+    }
+    .sp-problem-text h2 span { color: var(--teal); }
+    .sp-problem-text p {
+      color: var(--text-muted); line-height: 1.8;
+      font-size: .98rem; margin-bottom: 1rem;
+    }
+    .sp-problem-text p:last-child { margin-bottom: 0; }
+    /* Right side: pain-point cards */
+    .sp-pain-list {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .sp-pain-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-left: 4px solid #e76f51;
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+      display: flex; gap: .85rem; align-items: flex-start;
+      box-shadow: var(--shadow-sm);
+    }
+    .sp-pain-card i {
+      color: #e76f51; font-size: 1.1rem;
+      flex-shrink: 0; margin-top: .12rem;
+    }
+    .sp-pain-card strong {
+      display: block; font-size: .9rem; font-weight: 700;
+      color: var(--text-body); margin-bottom: .25rem;
+    }
+    .sp-pain-card p {
+      margin: 0; font-size: .82rem;
+      color: var(--text-muted); line-height: 1.55;
+    }
+
+    /* ================================================================
+       3. HOW WE HELP — icon grid
+    ================================================================ */
+    .sp-diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .sp-diff-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: transform .22s, box-shadow .22s;
+      box-shadow: var(--shadow-sm);
+    }
+    .sp-diff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(42,157,143,.14);
+      border-color: rgba(42,157,143,.35);
+    }
+    .sp-diff-icon {
+      width: 52px; height: 52px;
+      background: var(--teal-light);
+      border: 1.5px solid rgba(42,157,143,.22);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--teal);
+      margin-bottom: 1.15rem;
+    }
+    .sp-diff-card h3 {
+      font-size: 1.05rem; font-weight: 800;
+      color: var(--text-body); line-height: 1.25;
+      margin-bottom: .6rem;
+    }
+    .sp-diff-card p {
+      font-size: .88rem; color: var(--text-muted);
+      line-height: 1.65; margin: 0;
+    }
+
+    /* ================================================================
+       4. VIDEO  (dark bg, centered)
+    ================================================================ */
+    .sp-video-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .sp-video-frame {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+      background: #000;
+      aspect-ratio: 16/9;
+      position: relative;
+    }
+    /* poster */
+    .sp-video-poster {
+      position: absolute; inset: 0;
+      cursor: pointer;
+    }
+    .sp-video-poster img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .sp-video-poster-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 35%, rgba(13,43,40,.6) 100%);
+    }
+    .sp-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(4px);
+      border: 2px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      width: 72px; height: 72px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #fff; font-size: 1.5rem;
+      transition: background .2s, transform .2s;
+    }
+    .sp-play-btn:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .sp-video-iframe {
+      display: none;
+      width: 100%; height: 100%;
+      border: 0; border-radius: 18px;
+    }
+    .sp-video-caption {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: rgba(255,255,255,.6);
+      font-size: .9rem;
+    }
+    .sp-video-caption i { color: var(--accent); margin-right: .4rem; }
+
+    /* ================================================================
+       5. SOCIAL PROOF / TESTIMONIALS
+    ================================================================ */
+    .sp-trust-bar {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 2.5rem;
+      background: var(--teal-light);
+      border-top: 2px solid rgba(42,157,143,.15);
+      border-bottom: 2px solid rgba(42,157,143,.15);
+      padding: 2rem 0;
+      margin-bottom: 4rem;
+    }
+    .sp-trust-item {
+      display: flex; align-items: center; gap: .65rem;
+      font-size: .9rem; font-weight: 600; color: var(--text-body);
+    }
+    .sp-trust-item i { color: var(--teal); font-size: 1.1rem; }
+    .sp-trust-item strong { color: var(--teal); }
+
+    .sp-testimonial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+    }
+    .sp-testimonial-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .sp-testimonial-card::before {
+      content: '\201C';
+      position: absolute; top: 1rem; left: 1.5rem;
+      font-size: 4rem; line-height: 1;
+      color: rgba(42,157,143,.18);
+      font-family: Georgia, serif;
+    }
+    .sp-testimonial-card p {
+      font-size: .92rem; color: var(--text-muted);
+      line-height: 1.75; margin: 0 0 1.25rem;
+      padding-top: .75rem;
+    }
+    .sp-testimonial-author {
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .sp-testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: .9rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .sp-testimonial-author strong {
+      display: block; font-size: .88rem; font-weight: 700;
+      color: var(--text-body);
+    }
+    .sp-testimonial-author span {
+      font-size: .78rem; color: var(--text-muted);
+    }
+    .sp-stars {
+      display: flex; gap: .15rem; margin-bottom: .5rem;
+    }
+    .sp-stars i { color: #f4a600; font-size: .78rem; }
+
+    .sp-proof-sub {
+      text-align: center;
+      font-size: 1rem; color: var(--text-muted); line-height: 1.7;
+      max-width: 500px; margin: 0 auto;
+    }
+    .sp-proof-sub strong { color: var(--teal); }
+
+    /* ================================================================
+       6. CLOSING CTA
+    ================================================================ */
+    .sp-cta-box {
+      max-width: 760px; margin: 0 auto;
+      text-align: center;
+    }
+    .sp-cta-box h2 {
+      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+      font-weight: 900; line-height: 1.12;
+      letter-spacing: -.03em; color: #fff;
+      margin-bottom: 1rem;
+    }
+    .sp-cta-box h2 span { color: var(--accent); }
+    .sp-cta-box p {
+      color: rgba(255,255,255,.75); font-size: 1.05rem;
+      line-height: 1.75; margin-bottom: 2.25rem;
+      max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+    .sp-cta-buttons {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      justify-content: center; align-items: center;
+    }
+    .btn-sp-large {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: #fff; font-family: inherit;
+      font-size: 1.1rem; font-weight: 700;
+      padding: 1.05rem 2.2rem;
+      border: none; border-radius: 50px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 6px 28px rgba(42,157,143,.5);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .btn-sp-large:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 38px rgba(42,157,143,.6);
+    }
+    .btn-sp-phone {
+      display: inline-flex; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.85); font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: var(--transition);
+    }
+    .btn-sp-phone:hover { color: var(--accent); }
+    .btn-sp-phone i { color: var(--accent); }
+
+    /* ================================================================
+       PROCESS / HOW IT WORKS  (steps section)
+    ================================================================ */
+    .sp-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      max-width: 1060px;
+      margin: 0 auto 3rem;
+    }
+    /* horizontal connector line between steps */
+    .sp-steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px; /* center of the number circle */
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal) 0%, rgba(42,157,143,.2) 100%);
+      z-index: 0;
+    }
+    .sp-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    .sp-step-num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: #fff;
+      font-size: 1.1rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(42,157,143,.35);
+      flex-shrink: 0;
+      margin-bottom: 1.1rem;
+      border: 3px solid var(--white);
+      position: relative;
+    }
+    .sp-step-icon {
+      position: absolute;
+      top: -8px; right: -8px;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      border: 1.5px solid rgba(42,157,143,.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .62rem; color: var(--teal);
+    }
+    .sp-step h3 {
+      font-size: .98rem; font-weight: 800;
+      color: var(--text-body); line-height: 1.25;
+      margin-bottom: .55rem;
+    }
+    .sp-step-label {
+      display: inline-block;
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .4rem;
+    }
+    .sp-step p {
+      font-size: .85rem; color: var(--text-muted);
+      line-height: 1.65; margin: 0;
+    }
+    .sp-steps-closing {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 2.75rem;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .sp-steps-closing strong { color: var(--text-body); }
+    .sp-steps-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Responsive steps */
+    @media (max-width: 860px) {
+      .sp-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 1.5rem;
+      }
+      .sp-steps-grid::before { display: none; }
+    }
+    @media (max-width: 500px) {
+      .sp-steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .sp-step { align-items: flex-start; text-align: left; flex-direction: row; gap: 1.1rem; }
+      .sp-step-num { margin-bottom: 0; flex-shrink: 0; }
+      .sp-step-body { flex: 1; }
+    }
+
+    /* note under CTA */
+    .sp-cta-note {
+      margin-top: 1.75rem;
+      font-size: .82rem; color: rgba(255,255,255,.45);
+    }
+
+    /* ================================================================
+       RESPONSIVE  ≤ 960 px
+    ================================================================ */
+    @media (max-width: 960px) {
+      .sp-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .sp-hero { padding: 6rem 0 4rem; }
+      .sp-hero-img-wrap img { height: 300px; }
+      .sp-problem-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .sp-diff-grid { grid-template-columns: repeat(2, 1fr); }
+      .sp-testimonial-grid { grid-template-columns: 1fr; max-width: 500px; }
+    }
+    @media (max-width: 600px) {
+      .sp-section { padding: 3.5rem 0; }
+      .sp-diff-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .sp-hero-cta { flex-direction: column; align-items: flex-start; }
+      .sp-cta-buttons { flex-direction: column; }
+      .sp-trust-bar { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════
+       MINIMAL NAVBAR  (logo + phone only — not in site nav)
+  ══════════════════════════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Carolina Wound Care Home">
+          <img src="images/logo-transparent.png" alt="Carolina Wound Care Logo" loading="eager" decoding="async" />
+        </a>
+        <!-- Desktop links (no sales-rep link here — page is unlisted) -->
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-dropdown">
+            <button class="nav-drop-toggle" aria-haspopup="true" aria-expanded="false">
+              Our Care <i class="fa-solid fa-chevron-down caret"></i>
+            </button>
+            <div class="nav-dropdown" role="menu">
+              <div class="drop-label">Treatment</div>
+              <a href="services.html" role="menuitem"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+              <a href="conditions.html" role="menuitem"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+              <div class="drop-divider"></div>
+              <a href="contact.html#home-visit" role="menuitem"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+            </div>
+          </li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.3rem;"></i>Refer a Patient</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="tel:8665408090" class="nav-phone" aria-label="Call us at 866-540-8090"><i class="fa-solid fa-phone"></i> 866-540-8090</a>
+          <a href="referral.html" class="btn btn-primary btn-sm">Refer a Patient</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <div class="mobile-nav-section">
+      <button class="mobile-section-toggle" aria-expanded="false">Our Care <i class="fa-solid fa-chevron-down toggle-caret"></i></button>
+      <div class="mobile-sub-links">
+        <a href="services.html"><i class="fa-solid fa-briefcase-medical"></i> Services</a>
+        <a href="conditions.html"><i class="fa-solid fa-stethoscope"></i> Conditions We Treat</a>
+        <a href="contact.html#home-visit"><i class="fa-solid fa-house-medical"></i> Request Home Visit</a>
+      </div>
+    </div>
+    <a href="locations.html">Locations</a>
+    <a href="contact.html">Contact</a>
+    <a href="referral.html" style="color:var(--teal);font-weight:700;"><i class="fa-solid fa-user-doctor" style="margin-right:.35rem;"></i>Refer a Patient</a>
+    <div class="mobile-cta">
+      <a href="tel:8665408090" class="btn btn-primary">Call 866-540-8090</a>
+      <a href="referral.html" class="btn btn-outline">Submit Referral</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 1 — HERO
+    ══════════════════════════════════════════════ -->
+    <section class="sp-hero" aria-labelledby="sp-hero-heading">
+      <div class="container">
+        <div class="sp-hero-inner">
+
+          <!-- LEFT: copy -->
+          <div class="sp-hero-text">
+            <div class="sp-eyebrow">
+              <i class="fa-solid fa-handshake"></i>
+              For Healthcare Facilities &amp; Providers
+            </div>
+
+            <h1 class="sp-hero-h1" id="sp-hero-heading">
+              Your Patients Deserve a Wound Care Partner
+              <span>Who Actually Shows Up</span>
+            </h1>
+
+            <p class="sp-hero-sub">
+              Carolina Wound Care brings board-certified specialists directly to your facility —
+              with the documentation, communication, and outcomes your team depends on.
+            </p>
+
+            <div class="sp-hero-cta">
+              <a href="referral.html" class="btn-sp-primary">
+                <i class="fa-solid fa-user-doctor"></i>
+                Refer a Patient →
+              </a>
+              <a href="tel:8665408090" class="btn-sp-ghost">
+                <i class="fa-solid fa-phone"></i>
+                866-540-8090
+              </a>
+            </div>
+
+            <div class="sp-hero-badges">
+              <span class="sp-hero-badge"><i class="fa-solid fa-circle-check"></i> Board-Certified Specialists</span>
+              <span class="sp-hero-badge"><i class="fa-solid fa-map-location-dot"></i> All 46 SC Counties</span>
+              <span class="sp-hero-badge"><i class="fa-solid fa-shield-halved"></i> Medicare &amp; Most PPO Plans</span>
+              <span class="sp-hero-badge"><i class="fa-solid fa-star"></i> 5-Star Rated</span>
+            </div>
+          </div>
+
+          <!-- RIGHT: image card -->
+          <div class="sp-hero-img-wrap">
+            <img src="images/sales-rep-hero.jpg"
+                 alt="Carolina Wound Care specialist partnering with a skilled nursing facility administrator"
+                 loading="eager" />
+            <div class="sp-hero-img-badge">
+              <i class="fa-solid fa-award"></i>
+              <div>
+                <strong>Trusted Across South Carolina</strong>
+                <span>20+ years · 5-star rated · All 46 counties served</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /hero -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 2 — VIDEO (showcase above the fold)
+    ══════════════════════════════════════════════ -->
+    <section class="sp-section bg-dark" id="video" aria-labelledby="sp-video-heading">
+      <div class="container">
+        <div class="sp-section-header">
+          <div class="sp-eyebrow">
+            <i class="fa-solid fa-circle-play"></i>
+            See How It Works
+          </div>
+          <h2 class="sp-section-title" id="sp-video-heading">
+            Watch: Advanced Wound Care <span>That Comes to You</span>
+          </h2>
+          <p class="sp-section-sub">
+            See the Carolina Wound Care difference in action — the specialists, the technology,
+            and the results your patients and facility deserve.
+          </p>
+        </div>
+
+        <div class="sp-video-wrap">
+          <div class="sp-video-frame">
+            <!-- Poster -->
+            <div class="sp-video-poster" id="spVideoPoster">
+              <img
+                src="https://img.youtube.com/vi/NRleCd-WoN8/maxresdefault.jpg"
+                alt="Carolina Wound Care — Watch Our Story"
+                onerror="this.src='https://img.youtube.com/vi/NRleCd-WoN8/hqdefault.jpg'" />
+              <div class="sp-video-poster-overlay"></div>
+              <button class="sp-play-btn" id="spPlayBtn" aria-label="Play Carolina Wound Care video">
+                <i class="fa-solid fa-play"></i>
+              </button>
+            </div>
+            <!-- iframe (lazy-loaded on click) -->
+            <iframe
+              id="spVideoIframe"
+              class="sp-video-iframe"
+              src=""
+              data-src="https://www.youtube.com/embed/NRleCd-WoN8?autoplay=1&rel=0"
+              title="Carolina Wound Care — How It Works"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="sp-video-caption">
+            <i class="fa-solid fa-circle-info"></i>
+            Advanced wound care delivered directly to your facility or your patients' homes — all across South Carolina.
+          </p>
+        </div>
+
+      </div>
+    </section><!-- /video -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 3 — THE PROBLEM WE SOLVE
+    ══════════════════════════════════════════════ -->
+    <section class="sp-section bg-light" id="problem" aria-labelledby="sp-problem-heading">
+      <div class="container">
+        <div class="sp-problem-grid">
+
+          <!-- Left: narrative -->
+          <div class="sp-problem-text">
+            <div class="sp-eyebrow">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              We Know the Challenges You're Facing
+            </div>
+            <h2 id="sp-problem-heading">
+              Wound Care in Facilities Is <span>Broken</span> — We Fix It
+            </h2>
+            <p>
+              Many patients in skilled nursing facilities, assisted living communities, and home health
+              programs have chronic or complex wounds that require specialist-level care. Yet access to
+              that level of expertise is frustratingly limited.
+            </p>
+            <p>
+              Standard home health aides and generalist nurses are doing their best — but without
+              advanced training, proper equipment, and board-certified oversight, wounds stall,
+              infections develop, and hospital readmissions climb.
+            </p>
+            <p>
+              That's where Carolina Wound Care steps in. We partner directly with your facility
+              or team, bringing the full clinical capabilities of a wound center right to your patients —
+              so you never have to choose between quality of care and patient convenience.
+            </p>
+            <a href="referral.html" class="btn-sp-primary" style="margin-top:1.25rem;">
+              <i class="fa-solid fa-user-doctor"></i>
+              Start Referring Today →
+            </a>
+          </div>
+
+          <!-- Right: pain-point cards -->
+          <div class="sp-pain-list">
+            <div class="sp-pain-card">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <div>
+                <strong>Wounds Aren't Healing</strong>
+                <p>Stalled wounds drag on for months, draining staff time, increasing patient risk, and creating liability for your facility.</p>
+              </div>
+            </div>
+            <div class="sp-pain-card">
+              <i class="fa-solid fa-hospital"></i>
+              <div>
+                <strong>Costly Hospital Readmissions</strong>
+                <p>Infected or deteriorating wounds are one of the top drivers of unplanned readmissions — hurting your metrics and your patients.</p>
+              </div>
+            </div>
+            <div class="sp-pain-card">
+              <i class="fa-solid fa-file-circle-xmark"></i>
+              <div>
+                <strong>Poor Documentation &amp; Communication</strong>
+                <p>Gaps in wound documentation and delayed orders create compliance risks and leave your team guessing about treatment status.</p>
+              </div>
+            </div>
+            <div class="sp-pain-card">
+              <i class="fa-solid fa-truck-medical"></i>
+              <div>
+                <strong>Transport Is a Real Barrier</strong>
+                <p>Getting mobility-limited or homebound patients to an outpatient clinic is costly, time-consuming, and often impossible.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /problem -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 3 — WHAT MAKES US DIFFERENT
+    ══════════════════════════════════════════════ -->
+    <section class="sp-section" id="difference" aria-labelledby="sp-diff-heading">
+      <div class="container">
+        <div class="sp-section-header">
+          <div class="sp-eyebrow">
+            <i class="fa-solid fa-star"></i>
+            What Makes Us Different
+          </div>
+          <h2 class="sp-section-title" id="sp-diff-heading">
+            The Partner Your Patients — and Your Facility — <span>Actually Need</span>
+          </h2>
+          <p class="sp-section-sub">
+            We're not a call center or a staffing agency. We're a dedicated wound care practice built
+            from the ground up to serve patients where they are — and to make your job easier in the process.
+          </p>
+        </div>
+
+        <div class="sp-diff-grid">
+
+          <div class="sp-diff-card">
+            <div class="sp-diff-icon">
+              <i class="fa-solid fa-house-medical"></i>
+            </div>
+            <h3>We Come to Your Patients</h3>
+            <p>
+              Our mobile wound care team serves all 46 South Carolina counties. Skilled nursing
+              facilities, assisted living communities, group homes, private residences — wherever
+              your patient is, we come to them.
+            </p>
+          </div>
+
+          <div class="sp-diff-card">
+            <div class="sp-diff-icon">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+            <h3>Clear Communication at Every Step</h3>
+            <p>
+              We use InteliWound technology to share comprehensive assessments, wound measurements,
+              progress photos, and provider orders — giving your team complete visibility into every
+              patient's care plan.
+            </p>
+          </div>
+
+          <div class="sp-diff-card">
+            <div class="sp-diff-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3>Faster Healing. Fewer Hospitalizations.</h3>
+            <p>
+              Advanced debridement, biological grafts, compression therapy, and specialized dressings
+              mean we close wounds faster — significantly reducing the readmission risk that standard
+              home health care cannot address.
+            </p>
+          </div>
+
+          <div class="sp-diff-card">
+            <div class="sp-diff-icon">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <h3>Board-Certified Specialists</h3>
+            <p>
+              Your patients are seen by credentialed wound care specialists — not generalist nurses
+              or aides. Expert providers mean accurate assessments, appropriate treatment selection,
+              and accountability at every visit.
+            </p>
+          </div>
+
+          <div class="sp-diff-card">
+            <div class="sp-diff-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Medicare &amp; Most Insurance Accepted</h3>
+            <p>
+              We handle all billing, prior authorizations, and insurance verification in-house.
+              Medicare Part A &amp; B and most major PPO plans are accepted — at no added
+              administrative burden to your team.
+            </p>
+          </div>
+
+          <div class="sp-diff-card">
+            <div class="sp-diff-icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3>Same-Week Access &amp; 24-Hr Response</h3>
+            <p>
+              Most referrals receive an appointment within the same week. We acknowledge every
+              referral within 24 hours and keep the referring provider in the loop throughout
+              the episode of care.
+            </p>
+          </div>
+
+        </div><!-- /diff-grid -->
+      </div>
+    </section><!-- /difference -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 5 — SOCIAL PROOF / TRUST
+    ══════════════════════════════════════════════ -->
+    <section class="sp-section" id="trust" aria-labelledby="sp-trust-heading">
+      <div class="container">
+
+        <!-- Trust bar -->
+        <div class="sp-trust-bar">
+          <div class="sp-trust-item">
+            <i class="fa-solid fa-star"></i>
+            <span><strong>5-Star Rated</strong> across platforms</span>
+          </div>
+          <div class="sp-trust-item">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span><strong>20+ Years</strong> of proven results</span>
+          </div>
+          <div class="sp-trust-item">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span><strong>All 46</strong> SC Counties served</span>
+          </div>
+          <div class="sp-trust-item">
+            <i class="fa-solid fa-user-doctor"></i>
+            <span><strong>Board-Certified</strong> specialists</span>
+          </div>
+          <div class="sp-trust-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span><strong>Medicare &amp; PPO</strong> accepted</span>
+          </div>
+        </div>
+
+        <div class="sp-section-header" style="margin-bottom:2.5rem;">
+          <div class="sp-eyebrow">
+            <i class="fa-solid fa-quote-left"></i>
+            Trusted by Facilities Across South Carolina
+          </div>
+          <h2 class="sp-section-title" id="sp-trust-heading">
+            What Facilities &amp; Providers <span>Are Saying</span>
+          </h2>
+        </div>
+
+        <div class="sp-testimonial-grid">
+          <div class="sp-testimonial-card">
+            <div class="sp-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "The communication alone is worth it. After every visit I get a full update —
+              wound measurements, photos, and next steps. It's made a huge difference in how
+              we manage wound care at our facility. Readmissions from wound complications have
+              dropped noticeably since we started referring to Carolina Wound Care."
+            </p>
+            <div class="sp-testimonial-author">
+              <div class="sp-testimonial-avatar">DN</div>
+              <div>
+                <strong>Director of Nursing</strong>
+                <span>Skilled Nursing Facility, Midlands SC</span>
+              </div>
+            </div>
+          </div>
+          <div class="sp-testimonial-card">
+            <div class="sp-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "I had a patient with a non-healing diabetic foot ulcer that I was worried was
+              heading toward amputation. After referring her to Carolina Wound Care, she was
+              seen within days. Their mobile team came to her home, and that wound closed in
+              weeks. I can't recommend them highly enough."
+            </p>
+            <div class="sp-testimonial-author">
+              <div class="sp-testimonial-avatar">PC</div>
+              <div>
+                <strong>Primary Care Physician</strong>
+                <span>Aiken, SC</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="sp-proof-sub">
+          <strong>5-star rated.</strong> Over 20 years of proven results across South Carolina —
+          from Aiken and Charleston to every corner of all 46 counties.
+        </p>
+
+      </div>
+    </section><!-- /trust -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 6 — HOW IT WORKS (process steps)
+    ══════════════════════════════════════════════ -->
+    <section class="sp-section bg-light" id="how-it-works" aria-labelledby="sp-steps-heading">
+      <div class="container">
+
+        <div class="sp-section-header">
+          <div class="sp-eyebrow">
+            <i class="fa-solid fa-list-check"></i>
+            Simple. Fast. Handled.
+          </div>
+          <h2 class="sp-section-title" id="sp-steps-heading">
+            Referring a Patient Takes <span>Less Than 2 Minutes</span>
+          </h2>
+          <p class="sp-section-sub">
+            Here's what happens the moment you reach out.
+          </p>
+        </div>
+
+        <div class="sp-steps-grid">
+
+          <!-- Step 1 -->
+          <div class="sp-step">
+            <div class="sp-step-num">
+              1
+              <span class="sp-step-icon"><i class="fa-solid fa-file-pen"></i></span>
+            </div>
+            <div class="sp-step-body">
+              <span class="sp-step-label">Step 1</span>
+              <h3>You Submit a Referral</h3>
+              <p>Fill out our simple online form or call us directly at <a href="tel:8665408090" style="color:var(--teal);font-weight:600;">866-540-8090</a>. We just need the basics — no lengthy paperwork, no prior authorization required to get started.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="sp-step">
+            <div class="sp-step-num">
+              2
+              <span class="sp-step-icon"><i class="fa-solid fa-phone"></i></span>
+            </div>
+            <div class="sp-step-body">
+              <span class="sp-step-label">Step 2</span>
+              <h3>We Reach Out Within 24 Hours</h3>
+              <p>A member of our care team contacts the patient (or your staff) to schedule the first visit. You'll know it's handled.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="sp-step">
+            <div class="sp-step-num">
+              3
+              <span class="sp-step-icon"><i class="fa-solid fa-house-medical"></i></span>
+            </div>
+            <div class="sp-step-body">
+              <span class="sp-step-label">Step 3</span>
+              <h3>We Come to Them</h3>
+              <p>Our board-certified wound care specialist comes directly to your facility or the patient's home — equipped to assess, treat, and document on the spot.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="sp-step">
+            <div class="sp-step-num">
+              4
+              <span class="sp-step-icon"><i class="fa-solid fa-clipboard-check"></i></span>
+            </div>
+            <div class="sp-step-body">
+              <span class="sp-step-label">Step 4</span>
+              <h3>You Stay in the Loop</h3>
+              <p>Through our InteliWound system, treatment updates and wound documentation are shared with your team in real time. No chasing records. No gaps in communication.</p>
+            </div>
+          </div>
+
+        </div><!-- /steps-grid -->
+
+        <p class="sp-steps-closing">
+          <strong>That's it.</strong> Your patient gets expert care. You stay informed. We handle the rest.
+        </p>
+
+        <div class="sp-steps-cta">
+          <a href="referral.html" class="btn-sp-primary" style="font-size:1.05rem;padding:1rem 2.25rem;">
+            <i class="fa-solid fa-user-doctor"></i>
+            Submit a Referral →
+          </a>
+        </div>
+
+      </div>
+    </section><!-- /how-it-works -->
+
+
+    <!-- ══════════════════════════════════════════════
+         SECTION 7 — CLOSING CTA
+    ══════════════════════════════════════════════ -->
+    <section class="sp-section bg-dark" id="cta" aria-labelledby="sp-cta-heading">
+      <div class="container">
+        <div class="sp-cta-box">
+          <div class="sp-eyebrow" style="margin-bottom:1.25rem;">
+            <i class="fa-solid fa-rocket"></i>
+            Let's Get Started
+          </div>
+          <h2 id="sp-cta-heading">
+            Ready to Give Your Patients <span>Better Wound Care?</span>
+          </h2>
+          <p>
+            Our referral form is fast and easy — takes about 2 minutes. We'll acknowledge your
+            referral within 24 hours and schedule an appointment, usually within the same week.
+          </p>
+          <div class="sp-cta-buttons">
+            <a href="referral.html" class="btn-sp-large">
+              <i class="fa-solid fa-user-doctor"></i>
+              Refer a Patient — It Takes 2 Minutes
+            </a>
+            <a href="tel:8665408090" class="btn-sp-phone">
+              <i class="fa-solid fa-phone"></i>
+              Call us: 866-540-8090
+            </a>
+          </div>
+          <p class="sp-cta-note">
+            Medicare &amp; most PPO plans accepted · All 46 SC counties · Same-week appointments
+          </p>
+        </div>
+      </div>
+    </section><!-- /cta -->
+
+  </main><!-- /main-content -->
+
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER (simplified — mirrors main site)
+  ══════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="images/logo-transparent.png" alt="Carolina Wound Care" loading="lazy" />
+        <p>Advanced wound care delivered to you — in our Aiken or Charleston clinics, or mobile to your home across all 46 South Carolina counties.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/carolinawoundcare" aria-label="Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://g.page/carolinawoundcare" aria-label="Google Business" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i></a>
+          <a href="https://www.linkedin.com/company/carolina-wound-care" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="referral.html">Refer a Patient</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>511 Grier Court, Aiken, SC 29803</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>2 Carriage Lane, Ste 101, Charleston, SC 29407</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:8665408090">866-540-8090</a></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:info@scwound.com">info@scwound.com</a></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Fri 8 AM–5 PM</span></div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Carolina Wound Care. All rights reserved.
+        <a href="privacy.html">Privacy Policy</a> ·
+        <a href="terms.html">Terms of Use</a> ·
+        <a href="hipaa.html">HIPAA Notice</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════ -->
+  <script src="js/main.js" defer></script>
+
+  <!-- Video play logic (self-contained, no deps) -->
+  <script>
+    (function () {
+      var poster = document.getElementById('spVideoPoster');
+      var btn    = document.getElementById('spPlayBtn');
+      var iframe = document.getElementById('spVideoIframe');
+      if (!btn || !iframe) return;
+      function playVideo() {
+        iframe.src = iframe.dataset.src;
+        iframe.style.display = 'block';
+        poster.style.display = 'none';
+      }
+      btn.addEventListener('click', playVideo);
+      poster.addEventListener('click', playVideo);
+    })();
+  </script>
+
+</body>
+</html>

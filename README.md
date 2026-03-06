@@ -1,6 +1,6 @@
-# Carolina Wound Care — Website
+# SC Wound Care — Website
 
-A modern, professional, mobile-first static website for **Carolina Wound Care / South Carolina Wound Care**, a specialized wound care clinic in Aiken, SC offering both in-clinic and true mobile in-home visits.
+A modern, professional, mobile-first static website for **SC Wound Care / South Carolina Wound Care**, a specialized wound care clinic in Aiken, SC offering both in-clinic and true mobile in-home visits.
 
 ---
 
@@ -9,6 +9,7 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 **Site URL:** https://scwound.com/
 **Brand Colors:** Teal `#2A9D8F` · Gray `#9AA5B4` · White `#FFFFFF`
 **Phone:** 866-540-8090
+**Email:** info@scwound.com
 **Address:** 511 Grier Court, Aiken, SC 29803
 **Service Area:** All 46 South Carolina counties (mobile visits)
 
@@ -25,9 +26,9 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 | `conditions.html` | Conditions We Treat | 5 full condition deep-dives (diabetic, venous, arterial, pressure, post-surgical, sacral), "Is This For You" criteria grid, 1-minute interactive wound quiz |
 | `resources.html` | Resources | 4 Stages of Healing (detailed), nutrition tips (6), wound care glossary (9 terms), FAQ accordion, urgent warning banner |
 | `locations.html` | Locations & Mobile Care | Aiken clinic details + Google Maps embed, mobile service hero, how mobile visits work (4 steps), facility types (6), all 46 SC counties grid |
-| `contact.html` | Contact | Appointment form with visit-type selector, contact info panel, hours, insurance checker, map, form submits to REST API |
-| `referral.html` | Refer a Patient | Provider referral form with urgency selector, patient info fields, HIPAA notice, saves to REST API |
-| `sales-rep.html` | Provider Partner Page (**noindex**) | Unlisted sales/partner page for facilities & reps — hero, problem/solution, 6 differentiators, video, testimonials, closing CTA. Accessible via direct URL only. |
+| `contact.html` | Contact | GHL embedded form (link.mypracticelaunch.com), contact info panel, hours, insurance checker, map |
+| `referral.html` | Refer a Patient | Provider referral form with urgency selector, patient info fields, HIPAA notice |
+| `practitioner-partners.html` | Practitioner Partners | Public page for healthcare facilities & providers — hero with video showcase, problem/solution, 6 differentiators, 4-step how-it-works, testimonials, closing CTA. Linked in "Our Care" dropdown. |
 | `faq.html` | FAQ | 38 questions with JSON-LD schema, linked in Learn dropdown |
 | `blog.html` | Blog & Articles | Post grid with category filter, featured post, load-more, sidebar |
 | `blog-post-surgical-wound-care.html` | Blog Post (Post-Surgical Care) | 1,800-word article on wound care after surgery |
@@ -47,12 +48,12 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 
 - **Mobile-first responsive design** — optimized for all screen sizes
 - **Interactive 1-minute wound quiz** (6 questions, 4 result tiers with urgency scoring)
-- **Contact form** with visit type toggle (in-clinic / home visit), HIPAA notice, saves to REST API
+- **Contact form** via GoHighLevel (GHL) embed — linked to MyPracticeLaunch CRM
 - **Scroll reveal animations** throughout all pages
 - **Animated stat counters** on homepage
 - **FAQ accordions** on services and resources pages
 - **Google Maps embed** on locations and contact pages
-- **SEO-optimized** meta tags, semantic HTML, canonical URLs
+- **SEO-optimized** meta tags, semantic HTML, canonical URLs on all pages
 - **ARIA accessibility** labels and roles throughout
 
 ---
@@ -98,31 +99,41 @@ A modern, professional, mobile-first static website for **Carolina Wound Care / 
 ```
 Home (index.html)
 ├── About Us (about.html)
-├── Services (services.html)
-│   ├── #debridement
-│   ├── #grafts
-│   ├── #dressings
-│   └── #careplans
-├── Conditions We Treat (conditions.html)
-│   ├── #diabetic
-│   ├── #venous
-│   ├── #arterial
-│   ├── #pressure
-│   ├── #surgical
-│   ├── #sacral
-│   └── #quiz (1-Minute Wound Assessment Quiz)
-├── Resources (resources.html)
-├── Locations & Mobile Care (locations.html)
-└── Contact (contact.html)
+├── Our Care (dropdown)
+│   ├── Services (services.html)
+│   ├── Conditions We Treat (conditions.html)
+│   ├── Request Home Visit (contact.html#home-visit)
+│   └── Free Wound Quiz (conditions.html#quiz)
+├── Learn (dropdown)
+│   ├── Resources Hub (resources.html)
+│   ├── Blog & Articles (blog.html)
+│   └── FAQ (faq.html)
+├── Blog (blog.html)
+├── Locations (locations.html)
+├── Contact (contact.html)
+├── Refer a Patient (referral.html)          ← teal accent link
+└── Practitioner Partners (practitioner-partners.html)  ← Our Care dropdown
 ```
 
 ---
 
-## 🔒 Unlisted / Non-Indexed Pages
+## 🔒 Non-Indexed / Special Pages
 
 | File | Purpose | Notes |
 |---|---|---|
-| `sales-rep.html` | Sales rep / provider partnership landing page | `noindex, nofollow` meta tag — accessible via direct URL only, not linked in site nav or sitemap |
+| `landing.html` | Paid traffic landing page | Custom minimal navbar, no standard menu |
+| `partner.html` | Partner overview page | GHL form embed |
+
+---
+
+## ⚙️ Third-Party Integrations
+
+| Service | Purpose | Domain |
+|---|---|---|
+| GoHighLevel (MyPracticeLaunch) | Contact & referral forms | `link.mypracticelaunch.com` |
+| YouTube | Video embed on homepage & practitioner-partners page | `NRleCd-WoN8` |
+| Google Fonts | Inter typeface | `fonts.googleapis.com` |
+| Font Awesome 6.4 | Icons | `cdn.jsdelivr.net` |
 
 ---
 
@@ -142,3 +153,5 @@ To make this site live, go to the **Publish tab** to deploy with one click.
 6. **Add blog/articles section** for ongoing SEO content (wound care tips, patient education)
 7. **Integrate live chat** (e.g., Tidio or Intercom) for immediate patient inquiries
 8. **HIPAA-compliant form submission** service if collecting PHI beyond contact info
+9. **Verify GHL SSL** — `link.mypracticelaunch.com` CNAME set to `brand.ludicrous.cloud` in Hover DNS; GHL whitelabel domain re-added; SSL provisioning in progress
+

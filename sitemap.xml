@@ -91,6 +91,17 @@
   </url>
 
   <!-- ==========================================
+       TIER 3b — PARTNER PAGE (Priority 0.85)
+       Healthcare provider / practitioner partners
+  =========================================== -->
+  <url>
+    <loc>https://scwound.com/practitioner-partners.html</loc>
+    <lastmod>2026-03-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ==========================================
        TIER 4 — SUPPORTING PAGES (Priority 0.80)
        Trust, contact, and location pages
   =========================================== -->
