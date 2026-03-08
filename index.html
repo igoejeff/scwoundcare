@@ -61,9 +61,12 @@
       font-size: 1.35rem;
     }
     @media (max-width: 768px) {
-      .trust-strip-inner { gap: 1.5rem; }
-      .trust-item { font-size: .95rem; }
-      .trust-item i { font-size: 1.15rem; }
+      .trust-strip-inner { gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
+      .trust-item { font-size: .88rem; white-space: normal; text-align: center; }
+      .trust-item i { font-size: 1.05rem; }
+    }
+    @media (max-width: 480px) {
+      .trust-item { font-size: .82rem; }
     }
 
     /* ---- Features grid ---- */
@@ -285,7 +288,9 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
       max-width: 980px;
+      width: 100%;           /* never wider than its container */
       margin: 0 auto;
+      box-sizing: border-box;
     }
 
     /* Panels */
@@ -376,6 +381,8 @@
     /* Footer callout + CTA */
     .rfy-footer {
       max-width: 980px;
+      width: 100%;           /* constrain to viewport */
+      box-sizing: border-box;
       margin: 3rem auto 0;
       display: flex;
       flex-direction: column;
@@ -421,9 +428,24 @@
     }
 
     /* Responsive */
-    @media (max-width: 700px) {
-      .rfy-grid { grid-template-columns: 1fr; }
-      .rfy-panel { padding: 2rem 1.75rem; }
+    /* Stack panels early enough — anything under 768px is a phone */
+    @media (max-width: 768px) {
+      .rfy-section { padding: 4.5rem 0 4rem; }
+      .rfy-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem;
+        width: 100%;
+      }
+      .rfy-panel { padding: 1.75rem 1.5rem; border-radius: 18px; }
+      .rfy-header { margin-bottom: 2.5rem; }
+      .rfy-footer { padding: 0 .25rem; }
+      .rfy-cta-row { flex-direction: column; align-items: stretch; gap: .85rem; width: 100%; max-width: 320px; }
+      .rfy-call-btn, .btn-hero-primary { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .rfy-section { padding: 3.5rem 0 3rem; }
+      .rfy-panel { padding: 1.5rem 1.25rem; border-radius: 14px; }
+      .rfy-panel-title { font-size: 1.3rem; }
     }
     /* ---- Quiz Promo Card ---- */
   .quiz-promo {
@@ -546,6 +568,11 @@
     .quiz-promo p { max-width: 100%; }
     .quiz-promo-steps { justify-content: center; }
     .quiz-promo-cta { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  }
+  @media (max-width: 480px) {
+    .quiz-promo { padding: 2rem 1.25rem; border-radius: 18px; }
+    .provider-referral-btn { padding: .85rem 1rem; gap: .75rem; }
+    .prb-badge { display: none; }
   }
 
   /* ---- Provider Referral Button (below hero video) ---- */

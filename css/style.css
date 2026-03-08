@@ -72,6 +72,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll on mobile */
+  width: 100%;
 }
 
 body {
@@ -80,6 +82,10 @@ body {
   background: var(--white);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* prevent horizontal scroll / right-shift on mobile */
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
 img { max-width: 100%; display: block; }
@@ -182,12 +188,14 @@ section { padding: 5rem 0; }
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
+  width: 100%; /* always full viewport width */
   z-index: 1000;
   background: rgba(255,255,255,.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(42,157,143,.12);
   transition: var(--transition);
+  box-sizing: border-box;
 }
 #navbar.scrolled {
   box-shadow: 0 2px 20px rgba(0,0,0,.08);
@@ -386,6 +394,9 @@ section { padding: 5rem 0; }
   display: none;
   position: fixed;
   top: 80px; left: 0; right: 0;
+  width: 100%;          /* force full viewport width */
+  max-width: 100vw;     /* never wider than screen */
+  box-sizing: border-box;
   background: var(--white);
   border-bottom: 2px solid rgba(42,157,143,.15);
   box-shadow: 0 8px 30px rgba(0,0,0,.1);
@@ -395,6 +406,7 @@ section { padding: 5rem 0; }
   gap: 0;
   max-height: calc(100vh - 80px);
   overflow-y: auto;
+  overflow-x: hidden; /* prevent any child from causing horizontal scroll */
 }
 .mobile-menu.open { display: flex; }
 
@@ -1472,10 +1484,6 @@ footer {
   .hero-content { gap: 3rem; }
 }
 
-@media (max-width: 700px) {
-  .rfy-grid { grid-template-columns: 1fr !important; }
-}
-
 @media (max-width: 768px) {
   section { padding: 3.5rem 0; }
   .nav-inner { height: 90px; }
@@ -1483,6 +1491,10 @@ footer {
   .mobile-menu { top: 90px; }
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: block; }
+  /* Ensure all direct containers stay within viewport */
+  .container { width: 100%; max-width: 100%; padding: 0 1.25rem; }
+  /* Prevent wide items from pushing layout */
+  img, video, iframe, table { max-width: 100%; }
   .hero-content {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1507,7 +1519,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .container { padding: 0 1rem; }
+  .container { padding: 0 .875rem; }
   .hero-text h1 { font-size: 1.85rem; }
   .hero-buttons { flex-direction: column; }
   .hero-buttons .btn { width: 100%; }
